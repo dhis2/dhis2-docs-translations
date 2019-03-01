@@ -1,0 +1,7 @@
+./backup.sh
+git checkout 2.31
+./backup.sh
+git checkout 2.30
+./backup.sh
+git checkout 2.29
+./backup.sh
