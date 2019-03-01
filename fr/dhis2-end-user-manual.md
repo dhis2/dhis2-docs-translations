@@ -4125,6 +4125,8 @@ Vous pouvez rédiger des interprétations pour les graphiques, tableaux croisés
 
 It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
+Interpretations are sorted by date descending, with the most recent shown on top. Interpretation replies are sorted by date ascending, with the oldest shown on top.
+
 ![](resources/images/content/user/dashboard/dashboard-interpretations.png)
 
 ## Partager un tableau de bord
@@ -4220,7 +4222,7 @@ Pour aller à l'application, cliquez sur **l'icône du message dans l'en-tête**
 
 ## Créer un commentaire
 
-1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Message de** au lieu de saisir les destinataires.
+1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Commentaire** au lieu de saisir les destinataires.
 
 2.  Le message sera créé en tant que commentaire et apparaîtra dans le dossier **Tickets** de tous les utilisateurs spécifiés.
 
@@ -4304,4 +4306,4 @@ Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et
 
 Dans la section **Voir le profil complet**, vous trouverez un résumé des détails de votre profil. Cette section comprend quelques champs que vous ne pouvez pas modifier vous-même, tels que les rôles d'utilisateur et les unités d'organisation d'utilisateur.
 
-Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2
+Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2.
