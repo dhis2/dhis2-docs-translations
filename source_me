@@ -1,3 +1,4 @@
+# source this file to cycle through the different branches, updating each from transifex content.
 ./backup.sh
 git checkout 2.31
 ./backup.sh
@@ -5,3 +6,4 @@ git checkout 2.30
 ./backup.sh
 git checkout 2.29
 ./backup.sh
+git checkout master
