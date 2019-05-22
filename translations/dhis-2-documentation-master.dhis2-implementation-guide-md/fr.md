@@ -41,7 +41,11 @@ Différents styles de texte ont été utilisés pour mettre en avant des parties
 
 Les liens vers des sites externes ou références croisées sont affichés en bleu et soulignés comme [ceci.](http://www.dhis2.org).
 
-Les références bibliographiques sont affichées entre crochets comme ceci Store2007. Une référence complète peut être trouvée dans la bibliographie à la fin du présent document.
+<!--
+Bibliographic references will displayed in square brackets like this
+Store2007. A full reference can be found in the bibliography contained
+at the end of this document.
+-->
 
 # A quick guide to DHIS2 implementation
 
@@ -394,60 +398,6 @@ There are two leading approaches for storing data in a data warehouse, namely th
 In DHIS2 the facts corresponds to the data value object in the data model. The data value captures data as numbers, yes/no or text. The _compulsory dimensions_ which give meaning to the facts are the _data element_, _organisation unit hierarchy_ and _period_ dimensions. These dimensions are referred to as compulsory since they must be provided for all stored data records. DHIS2 also has a custom dimensional model which makes it possible to represent any kind of dimensionality. This model must be defined prior to data capture. DHIS2 also has a flexible model of groups and group sets which makes it possible to add custom dimensionality to the compulsory dimensions after data capture has taken place. You can read more about dimensionality in DHIS2 in the chapter by the same name.
 
 ![](resources/images/content/implementation/implementation_guide/dimensional_approach.png)
-
-# End-user Training
-
-The following topics will be covered in this chapter:
-
-- What training is needed
-
-- Strategies for training
-
-- Material and courses
-
-## What training is needed
-
-In a large system like a country health information system, there will be different roles for different people. The different tasks usually depends on two factors; what the person will be doing, i.e. mainly collect data, or analyse it, or maintain the database, and where the person is located, like a facility, a district office, or at national level. A first task will then be to define the different users. The most common tasks will be:
-
-- Saisie de données
-
-- Data analysis processing, preparing reports and other information products
-
-- Database maintenance - managing changes to the database
-
-Data entry is typically decentralized to lower levels, such as a district. Data processing takes place at all levels, while database maintenance usually is centralized. The following table gives an example of user groups and what tasks they typically have:
-
-Note here that many of the tasks are not directly linked to the use of DHIS2. Data analysis, data quality assessment, preparing feedback and planning regular review meetings are all integral to the functioning of the system, and should also be covered in a training strategy.
-
-## Strategies for training
-
-To cover the wide array of tasks/users listed above, a training strategy is helpful. The majority of users will be at lower level; entering and using data. Only a few will have to know the database in-depth, usually at national level. The following are useful tips for end-user training strategies.
-
-### Training of trainers
-
-Since the number of units and staff increase exponentially for each level (a country may have many provinces, each with many districts, each with many facilities), training of trainers is the first step. The number of trainers will vary, depending on the speed of implementation envisioned. As described below, both workshops and on-site training are useful, and especially for the on-site training many people will be needed.
-
-The trainers should be at least at the level of advanced users, in addition knowing how the database is designed, how to install and troubleshoot DHIS2, and some issues of epidemiology, i.e. concepts that are useful for monitoring and evaluation of health services. As the capabilities of the staff increase, the trainers would also need to increase their skills.
-
-### Workshops and on-site training
-
-Experience has showed that training both in workshops/training sessions, and on-site in real work situations are complementary. Workshops are better for training many at the same time, and are useful early on in the training sessions. Preferably the same type of users should be trained.
-
-On-site training takes place at the work-place of the staff. It is useful to have run a more organized training session like in a workshop before, so that on-site training can focus on special issues the individual staff need more training on. Training on-site will involve less people, so it will be possible to include different types of users. An example would be a district training, where the district information officers and the district medical officer can be trained together. The communication between different users is important in the sense that it forms a common understanding of what is needed, and what is possible. Training can typically be centred around local requirements such as producing outputs (reports, charts, maps) that would be useful for local decision-support.
-
-### Continuation of training
-
-Training is not a one off thing. A multi-level training strategy would aim at providing regular training as the skills of the staff increase. For example, a workshop on data entry and validation should be followed by another workshop on report generation and data analysis some time later. Regular training should also be offered to new staff, and when large changes are made to the system, such as redesign of all data collection forms.
-
-## Material and courses
-
-There is comprehensive material available for training and courses. The main source will be the three manuals available from the DHIS2 documentation repository, to be found [here](http://dhis2.org/documentation).
-
-The user documentation covers the background and purpose of DHIS2 together with instructions and explanations of how to perform data entry, system maintenance, meta-data set-up, import and export of data, aggregation, reporting and other topics related to the usage of the software. The developer documentation covers the technical architecture, the design of each module and use of the development frameworks behind DHIS2. The implementation guide is targeted at implementers and super-users and addresses subjects such as system design, database development, data harmonization, analysis, deployment, human resources needed and integration with other systems. The end user manual is a light-weight version of the user documentation meant for end users such as district records officers and data entry clerks. All can be opened/downloaded as both PDF and HTML, and are updated daily with the latest input from DHIS2 users worldwide.
-
-The development of these guides depend on input from all users. For information how to to add content to them, please see the appendix on documentation in the User Documentation. Here you will also find information about how to make localized documentation, including versioning in different languages.
-
-From 2011, regional workshops and courses will be held at least once a year by the international DHIS2 community. The goal is to have national technical teams working with DHIS2 customization and implementation. Sessions will also include training and capacity building by these teams in-country. End-user training, i.e. training of district M\&E officers, should take place in each county by these teams.
 
 # Integration concepts
 
@@ -870,6 +820,145 @@ Although a basic LMIS configuration based on aggregate data can take you very fa
 
 DHIS2 has integrated aggregate data from external systems such as openLMIS and CommCare through automated data interfaces. As a result, stock data is available in shared dashboards, displaying health service and stock data next to each other.
 
+# Guidelines for offline data entry using DHIS 2
+
+<!--DHIS2-SECTION-ID:offline_data_entry-->
+
+The de facto standard way of DHIS 2 deployment has become _online_ meaning that a single instance of the application is set up on a server connected to the Internet and all users connect to the application using a web browser over internet. This was made possible possible thanks to the steady increase of internet availability (mostly mobile internet), the offerings of readily available and cheap cloud-computing resources combined with the fact that DHIS 2 does not request a significant bandwidth. These developments make it possible to access on-line servers in even the most rural areas using mobile Internet modems (also referred to as dongles).
+
+This on-line deployment style has huge positive implications for the implementation process and application maintenance compared to the traditional off-line standalone style:
+
+**Hardware**: Hardware requirements on the end-user side are limited to a reasonably modern computer/laptop and Internet<!-- Mention phone, since android is listed as
+alternative? --> connectivity through a fixed line or a mobile modem. There is no need for a specialized server for each user, any Internet enabled computer will be sufficient. A server will be required for on-line deployments, but since there is only one (or several) servers which need to be procured and maintained, this is significantly simpler (and cheaper) than maintaining many separate servers is disparate locations. Given that cloud-computing resources continue to steadily decrease in price while increasing in computational power, setting up a powerful server in the cloud is far cheaper than procuring hardware.
+
+**Software platform**: The end users only need a web browser to connect to the on-line server. All popular operating systems today are shipped with a web browser and there is no special requirement on what type or version<!--I’m not sure this is true, at least in practice -->. This means that if severe problems such as virus infections or software corruption occur one can always resort to re-formatting and installing the computer operating system or obtain a new computer/laptop. The user can continue with data entry where it was left and no data will be lost.
+
+**Software application**: The central server deployment style means that the application can be upgraded and maintained in a centralized fashion. When new versions of the applications are released with new features and bug-fixes it can be deployed to the single on-line server. All changes will then be reflected on the client side the next time end users connect over the Internet. This obviously has a huge positive impact for the process of improving the system as new features can be distributed to users immediately, all users will be accessing the same application version, and bugs and issues can be sorted out and deployed on-the-fly<!-- Bugs can be deployed on-the-fly! -->.
+
+**Database maintenance**: Similar to the previous point, changes to the meta-data can be done on the on-line server in a centralized fashion and will automatically propagate to all clients next time they connect to the server. This effectively removes the vast issues related to maintaining an upgraded and standardized meta-data set related to the traditional off-line deployment style. It is extremely convenient for instance during the initial database development phase and during the annual database revision processes as end users will be accessing a consistent and standardized database even when changes occur frequently.
+
+Although a DHIS 2 implementation can be labeled as online, it is worth noting that such deployment may not purely online and may some local variation depending local constraints. For example, while most users in countries enjoy easy access to their national DHIS 2 instance using their mobile internet or better<!-- Other? Fixed might not be better... --> connectivity means, some unfortunately still struggle to access the system either for data entry or analysis in places where Internet connectivity is volatile or missing in long periods of time. And for these struggling users, alternatives ways to interact with the system need to be found.
+
+This guideline aims at providing advice on how mitigate the effect of lack reliable internet in challenging settings.
+
+## Cases and corresponding solutions
+
+<!--DHIS2-SECTION-ID:offline_data_entry_cases-->
+
+In this section, we will examine possible challenging cases and describe possible ways to address them or to minimize their effects on users and the entire system on a short term. Obviously, the possible solutions proposed in this guidelines should be adapted in each context by taking into account many other parameters such as security, local practices and rules etc. The thinking in this guideline is not to prescribe bullet proof solutions that can work everywhere but propose ways of addressing connectivity issues in some places in the country.
+
+We identify three (3) main scenarios:
+
+1. Limited internet availability and data entry forms are small
+1. Limited internet availability and data entry forms are huge
+1. Internet is not at all available
+
+We recognize that these scenarios are very simplistic because in practice a health facility can have for instance one small weekly form for disease surveillance, one big form for monthly progress report and a middle sized form for a health program. This makes the number of possible scenarios for a given setting greater than what is spelled out here. It will be therefore for up to each implementation team to discuss with the stakeholders to make simple choices that address all of the scenarios in a given setting. In most cases about 80 to 95% of districts<!-- Do we have a source for this? --> (or health facilities if data entry is done at this level) will have the same configuration regarding internet availability and only the the remain 5 to 20% will need alternative ways to get their data in DHIS 2.
+
+### 1. Limited internet availability (instability of signal or limited mobile data) and data entry forms are small
+
+<!--DHIS2-SECTION-ID:offline_data_entry_cases_small-->
+
+By limited internet availability, we mean case where:
+
+- network signal is available and good but there is not enough resources to buy adequate mobile data to work continuously online
+- network is good but fluctuates or is only available at a given period in the day
+- network signal is weak but improves from time to time to allow connection to DHIS 2
+
+And by data entry form small we mean data entry form having less than one hundred<!-- If I had guessed what «Small» meant, I would say
+10-20 --> fields.
+
+So if internet connectivity is limited and data entry forms are small, there are two possibilities to address the connectivity problem: Android data capture app and web data entry offline capability.
+
+#### Use of Android data capture app:
+
+<!-- Need to make sure this is updated with release of new
+apps -->
+
+The Data Capture for DHIS 2 app allows users to enter data into a DHIS 2 server with an Android device. The app downloads instances of forms which are required to enter data from the server, and stores them on the device. This means that users can enter data offline for facilities they are assigned to and then upload it to the DHIS 2 server when they have network coverage.
+
+To do this, the users will be request to go to the Google Play from their Android device and type DHIS 2 data capture and get the following screen.
+
+Then install the app called **Data Capture for DHIS 2**.
+
+![](resources/images/content/implementation/offline_data_entry/image5.png)
+
+Once the app is installed and launched, the user will be requested to provide the url of their national DHIS 2, the username and password and tap LOG IN.
+
+<table style="border:1px;">
+<tr>
+<td style="width:40%;padding: 5 20 5 20;border:1px;">
+
+![](resources/images/content/implementation/offline_data_entry/image4.jpg)
+
+</td>
+<td style="width:40%;padding: 5 20 5 20;border:0px;">
+</td>
+</tr>
+</table>
+
+After a successful log in, the app will download automatically the forms and organization units the user is assigned to and store them locally for data entry. From here, any subsequent use of the app for data entry will not require internet connection as instances of forms are already stored locally. Internet connection will be needed only to sync data with the server. This can be done when internet is available locally.
+
+<table style="border:0px;">
+<tr>
+<td style="width:40%;padding: 5 20 5 20 ;border:0px;">
+
+![](resources/images/content/implementation/offline_data_entry/image9.jpg)
+
+</td>
+<td style="width:40%;padding: 5 20 5 20 ;border:0px;">
+
+![](resources/images/content/implementation/offline_data_entry/image7.jpg)
+
+</td>
+</tr>
+</table>
+
+On the system administration side, organizing the data entry form into sections in DHIS 2 will make data entry experience more fluid and enjoyable.
+
+As for the synchronization, when internet connectivity is not available when needed, the user take the mobile device to the district – during the district meeting – or to the nearest area where internet is available.
+
+#### Use of the offline capability of DHIS 2 web data entry module
+
+The web data entry module is the module inside DHIS 2 allowing for data entry using the we browser. The is in DHIS 2 the regular way of data entry online. However it does have also an “offline” capability that support the continuation of data entry even when the internet is interrupted. This means that is the user want to do data entry at the end of the month for instant, he has to first connect to internet, log in to DHIS 2 and open the data entry forms for at least one of the facilities he is assigned to. From this step, he can disconnect his internet and continue data entry for all his facilities and for the periods he wants as long as the data entry web page window is not closed in the web browser. After finishing the data entry, he can close the browser and event shutdown his computer. The data entered will be stored locally in the cache of the browser and the next time the user will get online and log in DHIS 2 he will be asked to click on a button to upload it.
+
+For this case, it is possible to use either android data entry app or the semi-offline web based feature in DHIS 2 or both depending on the size of data entry forms.<!-- Not clear what "For this case" refers to --> However, clearing the cache of the browser will result in the lost of the data stored locally. Therefore, it is recommended to not clear the cache without making sure that data locally stored is synced.
+
+When the user is logged in and internet is cut (deliberately or not)
+
+![](resources/images/content/implementation/offline_data_entry/image1.png) <!-- PALD: This screenshot was
+taken when the home icon ()top left corner) was broken. I suggest we replace this image! -->
+
+When internet is back and the user log in DHIS 2
+
+![](resources/images/content/implementation/offline_data_entry/image6.png)
+
+### 2. Limited internet availability and data entry forms are huge
+
+<!--DHIS2-SECTION-ID:offline_data_entry_cases_huge-->
+
+<!-- Does the PDF data entry option still exist? Where you could generate PDF-based data entry forms that could be managed offline and then be uploaded?-->
+
+When internet but the availability is limited but the data entry form contains several hundreds of fields, it limits possible solutions. In this case it is not advisable to use the android capture for two reasons:
+
+- it can regularly crash because it is not designed to handle forms of very big size<!-- We could perhaps de-emphasise this point.. -->
+- it can turn out to be tedious and eye exhausting for users because the screen is small and does not allow for fast data entry
+
+Thus the only option available is to use the web data entry module offline capability described above or move to the nearest place where internet is available when the user cannot afford to wait the next time internet will be available in his area.
+
+### 3. Internet is not at all available
+
+<!--DHIS2-SECTION-ID:offline_data_entry_cases_no_available-->
+
+In this case there are three options:
+
+- Use of the Android capture app for data entry locally and sync the data at the upper level where internet is available if the user attends regular meetings there. This is only feasible if the forms are small
+- Move to the nearest place (if affordable) or use the opportunity of regular meeting at the upper level to capture data with the web data entry module. In this case depending on the internet connectivity the user can either work online or use the offline capability described in the section [above](#offline_data_entry_cases_small).
+- Ask the upper level where internet is available to do data entry regardless of the size of the form. Although this data entry happens at upper level, data can still be entered for every health facility.
+
+<!-- Seems natural with some sort of conclusion or
+summary -->
+
 # Installation
 
 <!--DHIS2-SECTION-ID:installation-->
@@ -898,21 +987,21 @@ DHIS2 is a database intensive application and requires that your server has an a
 
 - CPU cores: 4 CPU cores for a small instance, 8 CPU cores for a medium or large instance.
 
-- Disk: Ideally use an SSD. Otherwise use a 7200 rpm disk. Minimum read speed is 150 Mb/s, 200 Mb/s is good, 350 Mb/s or better is ideal. In terms of disk space, at least 60 GB is recommended, but will depend entirely on the amount of data which is contained in the data value tables. Analytics tables require a significant amount of disk space. Plan ahead and ensure that your server can be upgraded with more disk space as it becomes needed.
+- Disk: Ideally use an SSD. Otherwise use a 7200 rpm disk. Minimum read speed is 150 Mb/s, 200 Mb/s is good, 350 Mb/s or better is ideal. In terms of disk space, at least 60 GB is reccomended, but will depend entirely on the amount of data which is contained in the data value tables. Analytics tables require a significant amount of disk space. Plan ahead and ensure that your server can be upgraded with more disk space as it becomes needed.
 
 ## Software requirements
 
 <!--DHIS2-SECTION-ID:install_software_requirements-->
 
-This version of DHIS 2 requires the following software versions to operate.
+Later DHIS2 versions require the following software versions to operate.
 
 - Java JRE version 8 or later.
 
 - Any operating system for which a Java JRE version 8 exists.
 
-- PostgreSQL database version 9.4 or later.
+- PostgreSQL database version 9.6 or later.
 
-- PostGIS database extension version 2.2 or later - required if you need to use the COORDINATE data type.
+- PostGIS database extension version 2.2 or later.
 
 - Tomcat servlet container version 8 or later, or other Servlet API 3.1 compliant servlet containers like Jetty 9.
 
@@ -970,9 +1059,7 @@ PostgreSQL is sensitive to locales so you might have to install your locale firs
 
 Install PostgreSQL by invoking:
 
-    sudo apt-get install postgresql-9.5 postgresql-contrib-9.5 postgresql-9.5-postgis-2.2
-
-_Note:_ Alternatively you can consult the PostgreSQL documentation to install the latest version from the PostgreSQL APT repository: [http://www.postgresql.org/download/linux/ubuntu/](#).
+    sudo apt-get install postgresql-10 postgresql-contrib-10 postgresql-10-postgis-2.4
 
 Create a non-privileged user called _dhis_ by invoking:
 
@@ -996,7 +1083,7 @@ Exit the console and return to your previous user with _\\q_ followed by _exit_.
 
 Tuning PostgreSQL is necessary to achieve a high-performing system but is optional in terms of getting DHIS2 to run. PostgreSQL is configured and tuned through the _postgresql.conf_ file which can be edited like this:
 
-    sudo nano /etc/postgresql/9.5/main/postgresql.conf
+    sudo nano /etc/postgresql/10/main/postgresql.conf
 
 and set the following properties:
 
@@ -1035,6 +1122,10 @@ Specifies the delay between WAL write operations. Setting this to a high value w
     random_page_cost = 1.1
 
 _SSD only._ Sets the query planner's estimate of the cost of a non-sequentially-fetched disk page. A low value will cause the system to prefer index scans over sequential scans. A low value makes sense for databases running on SSDs or being heavily cached in memory. The default value is 4.0 which is reasonable for traditional disks.
+
+    max_locks_per_transaction = 96
+
+Specifies the average number of object locks allocated for each transaction. This is set mainly to allow upgrade routines which touch a large number of tables to complete.
 
 Restart PostgreSQL by invoking `sudo /etc/init.d/postgresql restart`
 
@@ -1097,23 +1188,31 @@ You can also ensure that the appropriate environment variables are set by instal
 
     sudo apt-get install oracle-java8-set-default
 
+### System Settings
+
+<!--DHIS2-SECTION-ID:Provide global system settings-->
+
+Following system settings will be provided in dhis.conf. Previously these were configured in Settings app.
+
+    # server.base.url = https://play.dhis2.org/dev
+
 ### Tomcat and DHIS2 installation
 
 <!--DHIS2-SECTION-ID:install_tomcat_dhis2_installation-->
 
 To install the Tomcat servlet container we will utilize the Tomcat user package by invoking:
 
-    sudo apt-get install tomcat7-user
+    sudo apt-get install tomcat8-user
 
 This package lets us easily create a new Tomcat instance. The instance will be created in the current directory. An appropriate location is the home directory of the dhis user:
 
     cd /home/dhis/
-    sudo tomcat7-instance-create tomcat-dhis
+    sudo tomcat8-instance-create tomcat-dhis
     sudo chown -R test:test test-dhis/
 
 This will create an instance in a directory called _tomcat-dhis_. Note that the tomcat7-user package allows for creating any number of dhis instances if that is desired.
 
-Next edit the file _tomcat-dhis/bin/setenv.sh_ and add the lines below. The first line will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS2 will search for the _dhis.conf_ configuration file. Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see _/java-7-openjdk-amd64_ Note that you should adjust this to your environment:
+Next edit the file _tomcat-dhis/bin/setenv.sh_ and add the lines below. The first line will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS2 will search for the _dhis.conf_ configuration file. Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see _/java-8-openjdk-amd64_ Note that you should adjust this to your environment:
 
     export JAVA_HOME='/usr/lib/jvm/java-8-oracle/'
     export JAVA_OPTS='-Xmx7500m -Xms4000m'
@@ -1126,9 +1225,19 @@ The Tomcat configiration file is located in _tomcat-dhis/conf/server.xml_. The e
       redirectPort="8443"
       URIEncoding="UTF-8" />
 
-The next step is to download the DHIS2 WAR file and place it into the webapps directory of Tomcat. You can download the DHIS2 version 2.23 WAR release like this (replace 2.23 with your preferred version if necessary):
+The next step is to download the DHIS2 WAR file and place it into the webapps directory of Tomcat. You can download the DHIS2 version 2.30 WAR release like this (replace 2.30 with your preferred version if necessary):
 
-    wget https://www.dhis2.org/download/releases/2.26/dhis.war
+```
+    wget https://releases.dhis2.org/2.30/dhis.war
+```
+
+> **Note**
+>
+> Alternatively, for patch releases, the folder structure is based on the patch release ID in a subfolder under the main release. For example, you can download the DHIS2 version 2.31.1 WAR release like this (replace 2.31 with your preferred version, and 2.31.1 with you preferred patch, if necessary):
+>
+> ```
+>    wget https://releases.dhis2.org/2.31/2.31.1/dhis.war
+> ```
 
 Move the WAR file into the Tomcat webapps directory. We want to call the WAR file ROOT.war in order to make it available at localhost directly without a context path:
 
@@ -1346,11 +1455,23 @@ Note that you must restart your servlet container for the changes to take effect
 
 <!--DHIS2-SECTION-ID:install_web_server_cluster_configuration-->
 
+This section describes how to set up the DHIS 2 application to run in a cluster.
+
+### Clustering overview
+
+<!--DHIS2-SECTION-ID:install_cluster_configuration_introduction-->
+
 Clustering is a common technique for improving system scalability and availability. Clustering refers to setting up multiple web servers such as Tomcat instances and have them serve a single application. Clustering allows for _scaling out_ an application in the sense that new servers can be added to improve performance. It also allows for _high availability_ as the system can tolerate instances going down without making the system inaccessible to users.
 
-When setting up multiple Tomcat instances there is a need for making the instances aware of each other. Each DHIS 2 instance will keep a local data cache. When an update is done on one instance, the caches on the other instances must be notified so that they can be invalidated and avoid becoming stale.
+When setting up multiple Tomcat instances there is a need for making the instances aware of each other. This awareness will enable DHIS 2 to keep the local data (Hibernate) caches in sync and in a consistent state. When an update is done on one instance, the caches on the other instances must be notified so that they can be invalidated and avoid becoming stale.
 
-### Cluster configuration
+There are two aspects to configure in _dhis.conf_ in order to run DHIS 2 in a cluster.
+
+- Each instance must specify the other DHIS 2 application members of the cluster.
+
+- An instance of the Redis data store must be installed and connection information must be configured for each DHIS 2 application instance.
+
+### Cluster instance configuration
 
 <!--DHIS2-SECTION-ID:install_cluster_configuration-->
 
@@ -1388,7 +1509,51 @@ For _server B_ available at hostname _193.157.199.132_ the following can be spec
 
 You must restart each Tomcat instance to make the changes take effect. The two instances have now been made aware of each other and DHIS 2 will ensure that their caches are kept in sync.
 
+### Cluster shared data store configuration
+
+<!--DHIS2-SECTION-ID:install_cluster_configuration_redis-->
+
+In a cluster setup, a _Redis_ instance is required and will handle shared user sessions, application cache and cluster node leadership.
+
+For optimum performance, _Redis Keyspace events_ for _generic commands_ and _expired events_ need to be enabled in the Redis Server. If you are using a cloud platform-managed Redis server (like AWS ElastiCache for Redis or Azure Cache for Redis) you will have to enable keyspace event notifications using the respective cloud interfaces. If you are setting up a standalone Redis server, enabling keyspace event notifications can be done in the _redis.conf_ file by adding or uncommenting the following line:
+
+```
+notify-keyspace-events Egx
+```
+
+DHIS2 will connect to Redis if the _redis.enabled_ configuration property in _dhis.conf_ is set to _true_ along with the following four properties:
+
+1.  _redis.host_: Specifies where the redis server is running. Defaults to _localhost_. Mandatory.
+
+2.  _redis.port_: Specifies the port in which the redis server is listening. Defaults to _6379_. Optional.
+
+3.  _redis.password_: Specifies the authentication password. If a password is not required it can be left blank.
+
+4.  _redis.use.ssl_: Specifies whether the Redis server has SSL enabled. Defaults to false. Optional. Defaults to _false_.
+
+When Redis is enabled, DHIS2 will automatically assign one of the running instances as the leader of the cluster. The leader instance will be used to execute jobs or scheduled tasks that should be run exclusively by one instance. Optionally you can configure the _leader.time.to.live.minutes_ property in _dhis.conf_ to set up how frequently the leader election needs to occur. It also gives an indication of how long it would take for another instance to take over as the leader after the previous leader has shutdown/crashed. The default value is 2 minutes. Note that assigning a leader in the cluster is only done if Redis is enabled. An example snippet of the _dhis.conf_ configuration file with Redis enabled and leader election time configured is shown below.
+
+```
+# Redis Configuration
+
+redis.enabled = true
+
+redis.host = 193.158.100.111
+
+redis.port = 6379
+
+redis.password = <your password>
+
+redis.use.ssl = false
+
+# Optional, defaults to 2 minutes
+leader.time.to.live.minutes=4
+
+```
+
 ### Load balancing
+
+<!--DHIS2-SECTION-ID:install_load_balancing-->
 
 With a cluster of Tomcat instances set up, a common approach for routing incoming web requests to the backend instances participating in the cluster is using a _load balancer_. A load balancer will make sure that load is distributed evenly across the cluster instances. It will also detect whether an instance becomes unavailable, and if so, stop routine requests to that instance and instead use other available instances.
 
@@ -1421,38 +1586,13 @@ DHIS 2 keeps server-side state for user sessions to a limited degree. Using "sti
 
 Note that several instructions have been omitted for brevity in the above example. Consult the reverse proxy section for a detailed configuration guide.
 
-## Application cache providers
+## Analytics cache configuration
 
-<!--DHIS2-SECTION-ID:install_application_cache_providers-->
+<!--DHIS2-SECTION-ID:install_analytics_cache_configuration-->
 
-DHIS 2 user _Ehcache_ as application cache provider by default. DHIS 2 can be configured to use other cache providers as well, such as _memcached_.
+DHIS 2 supports a server-side cache for analytics API responses, used by all of the analytics web apps. This cache sits within the DHIS 2 application and hence is protected by the DHIS 2 authentication and security layer. You can configure the expiration of cached entries in seconds. To enable the cache you can define the `analytics.cache.expiration` property in `dhis.conf`. The example below enabled the cache and sets expiration to one hour.
 
-### Memcached
-
-<!--DHIS2-SECTION-ID:install_application_cache_memcached-->
-
-Memcached is a high-performance, distributed memory object caching system. A memcached server needs to be made available to DHIS 2, as it runs as a separate service outside DHIS 2.
-
-To use memcached as DHIS 2 application provider you can set the following properties in the _dhis.conf_ configuration file:
-
-    # Cache provider, can be 'ehcache', 'memcached'
-    cache.provider = memcached
-
-    # Cache servers, default is 'localhost:11211'
-    cache.servers = localhost:11211
-
-    # Cache time in seconds, default is 600
-    cache.time = 600
-
-Only the _cache.provider_ setting is mandatory. You need to restart DHIS 2 for the change to take effect.
-
-You can install memcached on Ubuntu using the following command:
-
-    sudo apt-get install memcached
-
-Memcached will start by default after being installed and is available on localhost port _11211_. You can start, stop and view the status of the memcached service using the following command:
-
-    sudo service memcached start | stop | status
+    analytics.cache.expiration = 3600
 
 ## Starting Tomcat at boot time
 
@@ -1566,7 +1706,7 @@ You can now access your DHIS2 instance at _http://localhost_. Since the reverse 
 
     <Connector address="localhost" protocol="HTTP/1.1" ... >
 
-### Enabling SSL on nginx
+### Enabling SSL with nginx
 
 <!--DHIS2-SECTION-ID:install_enabling_ssl_on_nginx-->
 
@@ -1643,7 +1783,7 @@ Note the last "https" header value which is required to inform the servlet conta
 
     <Connector scheme="https" proxyPort="443" ... >
 
-### Enabling caching and SSL on nginx
+### Enabling caching and SSL with nginx
 
 <!--DHIS2-SECTION-ID:install_enabling_caching_ssl_nginx-->
 
@@ -1712,6 +1852,41 @@ Requests for reports, charts, maps and other analysis-related resources will oft
 > **Important**
 >
 > Be aware that a server side cache shortcuts the DHIS2 security features in the sense that requests which hit the server side cache will be served directly from the cache outside the control of DHIS2 and the servlet container. This implies that request URLs can be guessed and reports retrieved from the cache by unauthorized users. Hence, if you capture sensitive information, setting up a server side cache is not recommended.
+
+### Rate limiting with nginx
+
+<!--DHIS2-SECTION-ID:install_rate_limiting-->
+
+Certain web API calls in DHIS 2, like the `analytics` APIs, are compute intensive. As a result it is favorable to rate limit these APIs in order to allow all users of the system to utilize a fair share of the server resources. Rate limiting can be achieved with `nginx`. There are numerous approaches to achieving rate limiting and this is intended to document the nginx-based approach.
+
+The below nginx configuration will rate limit the `analytics` web API, and has the following elements at the _http_ and _location_ block level (the configuration is shortened for brevity):
+
+```
+http {
+  ..
+  limit_req_zone $binary_remote_addr zone=limit_analytics:10m rate=5r/s;
+
+  server {
+    ..
+
+    location ~ ^/api/(\d+/)?analytics(.*)$ {
+      limit_req    zone=limit_analytics burst=20;
+      proxy_pass   http://localhost:8080/api/$1analytics$2$is_args$args;
+      ..
+    }
+  }
+}
+```
+
+The various elements of the configuration can be described as:
+
+- _limit_req_zone \$binary_remote_addr_: Rate limiting is done per request IP.
+- _zone=limit_analytics:20m_: A rate limit zone for the analytics API which can hold up to 10 MB of request IP addresses.
+- _rate=20r/s_: Each IP is granted 5 requests per second.
+- _location ~ ^/api/(\d+/)?analytics(.\*)\$_: Requests for the analytics API endpoint are rate limited.
+- _burst=20_: Bursts of up to 20 requests will be queued and serviced at a later point; additional requests will lead to a `503`.
+
+For a full explanation please consult the [nginx documentation](https://www.nginx.com/blog/rate-limiting-nginx/).
 
 ### Additional resources on SSL
 
@@ -1873,6 +2048,11 @@ The following describes the full set of configuration options for the _dhis.conf
     # Session timeout in seconds, default is 3600
     # system.session.timeout = 3600
 
+    # SQL view protected tables, can be 'on', 'off'
+    # system.sql_view_table_protection = on
+
+    # server.base.url = https://play.dhis2.org/dev
+
     # ----------------------------------------------------------------------
     # Encryption
     # ----------------------------------------------------------------------
@@ -1919,24 +2099,18 @@ The following describes the full set of configuration options for the _dhis.conf
     # ldap.search.filter = (cn={0})
 
     # ----------------------------------------------------------------------
-    # Application caching
-    # ----------------------------------------------------------------------
-
-    # Cache provider, can be 'ehcache', 'memcached', default is 'ehcache'
-    # cache.provider = memcached
-
-    # Cache servers, default is 'localhost:11211', applies to memcached
-    # cache.servers = localhost:11211
-
-    # Cache time in seconds, default is 600, applies to memcached
-    # cache.time = 600
-
-    # ----------------------------------------------------------------------
     # Node
     # ----------------------------------------------------------------------
 
     # Node identifier, optional, useful in clusters
     # node.id = 'node-1'
+
+    # ----------------------------------------------------------------------
+    # Analytics
+    # ----------------------------------------------------------------------
+
+    # Analytics server-side cache expiration in seconds
+    # analytics.cache.expiration = 3600
 
     # ----------------------------------------------------------------------
     # System monitoring
@@ -1955,6 +2129,10 @@ The following describes the full set of configuration options for the _dhis.conf
 
 <!--DHIS2-SECTION-ID:install_application_logging-->
 
+This section covers application logging in DHIS 2.
+
+### Log files
+
 The DHIS2 application log output is directed to multiple files and locations. First, log output is sent to standard output. The Tomcat servlet container usually outputs standard output to a file under "logs":
 
     <tomcat-dir>/logs/catalina.out
@@ -1962,18 +2140,25 @@ The DHIS2 application log output is directed to multiple files and locations. Fi
 Second, log output is written to a "logs" directory under the DHIS2 home directory as defined by the the DHIS2_HOME environment variables. There is a main log file for all output, and separate log files for various background processes. The main file includes the background process logs as well. The log files are capped at 50 Mb and log content is continuously appended.
 
     <DHIS2_HOME>/logs/dhis.log
-
     <DHIS2_HOME>/logs/dhis-analytics-table.log
-
     <DHIS2_HOME>/logs/dhis-data-exchange.log
-
     <DHIS2_HOME>/logs/dhis-data-sync.log
 
-In order to override the default logging you can specify a Java system property with the name _log4j.configuration_ and a value pointing to the Log4j configuration file on the classpath. If you want to point to a file on the file system (i.e. outside Tomcat) you can use the _file_ prefix e.g. like this:
+### Log configuration
+
+In order to override the default log configuration you can specify a Java system property with the name _log4j.configuration_ and a value pointing to the Log4j configuration file on the classpath. If you want to point to a file on the file system (i.e. outside Tomcat) you can use the _file_ prefix e.g. like this:
 
     -Dlog4j.configuration=file:/home/dhis/config/log4j.properties
 
-Java system properties can be set e.g. through the _JAVA_OPTS_ environment variable.
+Java system properties can be set e.g. through the _JAVA_OPTS_ environment variable or in the tomcat startup script.
+
+A second approach to overriding the log configuration is to specify logging properties in the _dhis.conf_ configuration file. The supported properties are:
+
+    # Max size for log files, default is '100MB'
+    logging.file.max_size = 250MB
+
+    # Max number of rolling log archive files, default is 0
+    logging.file.max_archives = 2
 
 DHIS2 will eventually phase out logging to standard out / catalina.out and as a result it is recommended to rely on the logs under DHIS2_HOME.
 
@@ -2327,7 +2512,7 @@ Multiple users can access DHIS2 simultaneously and each user can have different 
 
 - You can create as many users, user roles and user groups as you need.
 
-- You can assign specific authorities to each user.
+- You can assign specific authorities to user groups or individual users via user roles.
 
 - You can create multiple user roles each with their own authorities.
 
@@ -2398,7 +2583,7 @@ You manager users, user roles and user groups in the **Users** app.
 <tbody>
 <tr class="odd">
 <td><p>User</p></td>
-<td><p>Create, edit, clone, disable, assign search organisation units, display by organisation unit, delete and show details</p></td>
+<td><p>Create, edit, invite, clone, disable, display by organisation unit, delete and show details</p></td>
 </tr>
 <tr class="even">
 <td><p>User role</p></td>
@@ -2475,13 +2660,13 @@ See also:
 
 5.  Assign the users to organisation units.
 
-6.  Assign data sets to the user role.
+6.  (Optional) Group users in user groups.
 
-7.  (Optional) Group users in user groups.
+7.  Share datasets with users or user-groups via the Sharing Dialog in Data set management section of the Maintenance app
 
 > **Tip**
 >
-> For users to be able to enter data, you must add them to both a data set and an organisational unit level.
+> For users to be able to enter data, you must add them to an organisational unit level and share a dataset with them.
 
 ## Example: user management in a health system
 
@@ -2717,15 +2902,15 @@ Second, third-party software clients running on devices such as mobile phones, s
 
 Third, information system developers aiming at creating new ways of visualizing and presenting aggregate data can utilize the DHIS2 Web API as the service layer of their system. The effort needed for developing new information systems and maintaining them over time is often largely under-estimated. Instead of starting from scratch, a new application can be built on top of the Web API. Developer attention can be directed towards making new, innovative and creative data representations and visualizations, in the form of e.g. dashboards, GIS and charting components.
 
-# Localization of DHIS2
+# Localization of DHIS 2
 
-##
+## DHIS 2 localization concepts
 
 <!--DHIS2-SECTION-ID:localization-intro-->
 
-Localization involves the adaptation of an application to a specific location. When implementing DHIS2 in a given country, adequate resources should be allocated to translate the application when required. Translation of the user interface elements, messages, layout, date and time formats, currency and other aspects must be considered. In addition to translation of the user interface itself, metadata content which is contained in the database must also be considered to be translated.
+Localization involves the adaptation of an application to a specific location. When implementing DHIS 2 in a given country, adequate resources should be allocated to translate and localize the application if required. Translation of the user interface elements, messages, layout, date and time formats, currency and other aspects must be considered. In addition to translation of the user interface itself, metadata content which is contained in the database must also be considered to be translated.
 
-DHIS2 supports internationalization (i18n) of the user interface through the use of Java property strings. Each element in the user interface has been assigned a specific key which is linked to a value. As an example, consider the following key/value pairs.
+DHIS 2 supports internationalization (i18n) of the user interface through the use of Java property strings and PO files. Java property files are used when messages originate from the back-end Java server, while PO files are used for front-end apps written in JavaScript. The DHIS 2 Android apps use a specific XML format. Regardless of the specific format, each element in the user interface has been assigned a specific key which is linked to a value. As an example,consider the following key/value pairs from a Java property file.
 
 ```
     org_unit_tree=Organisation Unit Tree
@@ -2739,85 +2924,98 @@ In French the same key/value pairs would appear as follows
     error_occurred=Une erreur s'est produite
 ```
 
-Note that the keys (text before the = symbol) are the same in both examples, but the values (after the = ) symbol are in each of the respective languages. Each of these key/value pairs would need to be translated from the original language (English) to the destination language (e.g. French). When the user specifies French for the user interface language, all of the strings would then appear in French instead of the default language (English). Any strings which have not been translated, would appear in English.
+Note that the keys (text before the = symbol) are the same in both examples, but the values (after the = ) symbol are in each of the respective languages. Each of these values would need to be translated from the original language (English) to the destination language (e.g. French). When the user specifies French for the user interface language, all of the strings would then appear in French instead of the default language (English). Any strings which have not been translated, would appear in English.
 
-The translation keys and values are stored in files called resource bundles. The resource bundles follow fallback rules, meaning that one can create a hierarchy of resource bundles through the file naming convention where property keys are searched from the bottom of the hierarchy and returned at the first match. This comes in useful when you need partial translations, for instance to cater for country-specific variances in a language. One example is Portuguese for which DHIS2 has several resource bundles:
+There should always be an English string for all messages in DHIS 2. When the user selects a given language, and a translation is present in that language, then the translation will be shown. However, if the string in the desired language is missing then fallback rules will be applied. In cases when two given translations, such as Portuguese and Brazilian Portuguese share common messages, it is not required to perform a full translation in the variant language. Only messages which are different should be translated.  
+Fallback rules are then applied in the following manner (assuming the user has chooses Brazilian Portuguese as their language:
 
-1.  i18n_global.properties (The ulimate fallback locale, which is English)
+1.  Display the message in Brazilian Portuguese if it exists.
 
-2.  i18n_module_pt.properties (Portuguese translations)
+2.  If it does not exist in the variant language, then use the Portuguese message, if it exists.
 
-3.  i18n_module_pt_BR.properties (Brazilian Portuguese translations)
-
-This structure allows us to have a full general Portuguese translation, and a partial Brazilian Portuguese translation which provides translations of Brazilian-specific keys. For keys which are not translated in the Brazilian Portuguese resource bundle, the system will fall back to the general Portuguese translation. If the key is not present in that file either, the system will fall back to the ultimate fallback locale which is English.
+3.  If there is no message in either the base language or the variant language, choose the ultimate fallback language, English.
 
 > **Important**
 >
-> - There are a number of key/value pairs such as "format.FinancialApril.startDate=dd MMM yyyy 'to '" which are used for date/time formatting in the application. Part of the value should not be translated because it is actually a Java date formatting template. It this example it is "dd MMM yyyy". Consult this [site](http://docs.oracle.com/javase/tutorial/i18n/format/simpleDateFormat.html) for more information on the Java date formatting syntax. The part of the value which can be translated would be "to", for instance to "a" in Spanish. If these data format template strings are translated, it may result in errors in the application.
+> - There are a number of key/value pairs such as "format.FinancialApril.startDate=dd MMM yyyy 'to '" which are used for date/time formatting in various parts of DHIS 2. Part of the value should not be translated because it is actually a special formatting field used by either Java or JavaScript to interpolate or format a string. In this example the special string which should be be translated is "dd MMM yyyy". The part of the value which can be translated would be "to", for instance to "a" in Spanish. If these data format template strings are translated, it may result in errors in the application.
 >
-> - It is not necessary to translate a string from the original language (English) if the translated string is the same. You can simply leave it blank. By default, DHIS2 will use English values for all strings which have not been translated.
+> - It is not necessary to translate a string from the original language (English) if the translated string is the same. You can simply leave it blank. By default, DHIS 2 will use English values for all strings which have not been translated.
 >
-> - All translated strings must be stored in escaped UTF-8 format. If you are using the translation portal, be sure your browser settings are set to UTF-8 when translating. If you are using a text editor or other tool such as an IDE, you may need to convert the UTF-8 characters to escaped syntax, using the Java "native2ascii" utility.
+> - All translated strings must be stored in escaped UTF-8 format. If you are using the DHIS 2 translation portal (discussed below), be sure your browser settings are set to UTF-8 when translating. If you are using a text editor or other tool such as an IDE, you may need to convert the UTF-8 characters to escaped syntax, using the Java `native2ascii` utility.
 >
-> - Some special variables (e.g. {0} ) used curly brackets. This denotes a variable which will be replaced by a number or other value by the application. You must place this variable notation in the correct position.
+> - Some special variables (e.g. {0} ) use curly brackets. This denotes a variable which will be replaced by a number or other value by the application. You must place this variable notation in the correct position and be sure not to modify it.
 
 There are a number of tools which can be used to support the localization of the user interface as well as the database content, which will be discussed below.
 
-## DHIS2 i18n tool
+## DHIS 2 i18n tool
 
 <!--DHIS2-SECTION-ID:dhis2-i18n-translations-tool-->
 
-The i18n resource editor is Java desktop application which can be downloaded from http://www.dhis2.org/downloads . It requires that you have checked out the DHIS2 source code from Github (check out http://www.dhis2.org/development if necessary) and have a Java Runtime Environment installed on your computer. On Windows, simly unpack the ZIP archive and click the executable file. On Linux, extract the archive, navigate inside the extracted directory and invoke the following:
+The i18n resource editor is Java desktop application which can be downloaded from http://www.dhis2.org/downloads . It requires that you have checked out the DHIS2 source code from Github (check out http://www.dhis2.org/development if necessary) and have a Java Runtime Environment installed on your computer. On Windows, simply unpack the ZIP archive and click the executable file. On Linux, extract the archive, navigate inside the extracted directory and invoke the following command:
 
     java -jar dhis-i18n-resourceeditor.jar
 
-1.  Press "Browse" when the application starts and select the path to the "dhis-2" directory inside your local copy (checkout) of the DHIS2 source code repository, followed by OK.
+1.  Press "Browse" when the application starts and select the path to the "dhis-2" directory inside your local copy (checkout) of the DHIS 2 source code repository, followed by OK.
+
 
     ![](resources/images/content/implementation/i18n/i18n_tool_startup.png)
 
 2.  Next, select the destination locale which you will translate strings into. Remember that if you want to create or add to a general language translation, select e.g. "Portuguese - \[pt\]. If you want to create a country-specific translation, select e.g. "Portuguese - Brazil \[pt_BR\]. Locales which already have keys translated will show the text "Resources for this locale exist".
 
+
     ![](resources/images/content/implementation/i18n/i18n_tool_select_locale.png)
 
 3.  Select one of the web modules from the left hand side to translate, e.g. dhis-web-maintenance-dataset.
 
+
     ![](resources/images/content/implementation/i18n/i18n_tool_main_window.png)
 
-    Once you have selected a module, click on a particular key from the left-hand side. A reference value for the key will be displayed in the lower right-hand pane, and the translation value will be displayed in the upper right-hand pane. Keys with missing values will be indicated with a red icon. If the value does not exist, simply add the translation there.
+    Once you have selected a module, click on a particular key from the
+    left-hand side. A reference value for the key will be displayed in
+    the lower right-hand pane, and the translation value will be
+    displayed in the upper right-hand pane. Keys with missing values
+    will be indicated with a red icon. If the value does not exist,
+    simply add the translation there.
 
 4.  Once you have finished translating, make sure to press the "Save" button.
 
-## Using the DHIS2 translation server
+5.  Once you have finished all of the translations, please submit a pull request on the appropriate GitHub repository. A member of the development team will review the translations for eventual incorporation into the main source code.
+
+## Using the DHIS 2 translation portal
 
 <!--DHIS2-SECTION-ID:translation-server-->
 
-A web-based portal solution has been setup in order to facilitate the translation of DHIS 2 into multiple languages. Simply direct your browser to <https://translate.dhis2.net/> and register for an account by providing a username, email address and password. The server will send you a confirmation email which you can use to activate your account. Once you have activated your account, simply press the "Log in" link from the main portal page, and provide your username and password.
+A web-based portal solution has been setup in order to facilitate the translation of DHIS 2 into multiple languages. Simply direct your browser to <https://translate.dhis2.org/> and register for an account by providing a username, email address and password. The server will send you a confirmation email which you can use to activate your account. Once you have activated your account, simply press the "Log in" link from the main portal page, and provide your username and password.
 
 The first time you login, you should select your settings, by clicking "My account-\>Settings". Here you can select your interface language, the projects which you wish to work on, and the languages which you will translate into. Be sure to press "Save" when you have finished making your changes.
 
-To start translating, be sure you have logged in, and then press the "Home" link in the upper-right hand corner. Select a project (e.g. DHIS2) and then click on the language which you wish to translate. The number of words which need to be translated will be displayed under the "Summary" field. Click on one of the modules (e.g. dhis-2) and then keep drilling down through the folders to find a module which needs translation, (e.g. dhis-web-\>dhis-web-caseentry). Now click on the "Summary" text which will say something like "194 words need attention". You will be directed to the string which requires translation.
+To start translating, be sure you have logged in, and then press the "Home" link in the upper-right hand corner. Select a project (e.g. DHIS 2) and then click on the language which you wish to translate. The number of words which need to be translated will be displayed under the "Summary" field. Click on the module you wish to translate and then keep drilling down through the folders to find a module which needs translation, (e.g. dhis-web-\>dhis-web-caseentry). Now click on the "Summary" text which will say something like "194 words need attention". You will be directed to the string which requires translation.
 
 ![](resources/images/content/implementation/i18n/i18n_web_portal_translate.png)
 
-Simply translate the term, and then press "Submit". Your translations will be incorporated into the source code on a regular basis by the development team.
+Simply translate the term, and then press "Submit".
 
-## Database translation app
+Once you have finished translating a module/app, please submit a new issue on <https://jira.dhis2.org>. Your translations will be incorporated on a regular basis into the main source code of DHIS 2.
+
+## DHIS 2 translation app
 
 <!--DHIS2-SECTION-ID:translations-app-->
 
-In addition to translation of the user interface, DHIS2 also supports the localization of the metadata content in the database. It is possible to translate individual objects through the maintenance app, but in order to better support a standard translation workflow, a specialized app has been developed for this purpose. The DHIS2 translation app can be used to translate all metadata (data elements, categories, organisation units, etc) into any locale which is present in the database.
+In addition to translation of the user interface, DHIS 2 also supports the localization of the metadata content in the database. It is possible to translate individual objects through the maintenance app, but in order to better support a standard translation workflow, a specialized app has been developed for this purpose. The DHIS 2 translation app can be used to translate all metadata (data elements, categories, organization units, etc) into any locale which is present in the database.
 
 To get started, simply choose the "Translations" app from the top level menu.
 
 ![](resources/images/content/implementation/i18n/translations_app.png)
 
-1.  From the top of the app, choose the locale you wish to translate into.
+1.  To get started, choose the type of object you wish to translate from the drop-down menu, such as "Data elements".
 
-2.  Next, choose the type of object you wish to translate from the left-hand pane.
+2.  Next, be sure you have set the "Target locale" to the correct language.
 
 3.  Choose the specific object you wish to translate, and translate each of the properties (Name, Short name, Description, etc). These properties will vary from object to object.
 
 4.  Press "Save" when you are done translating the specific object to save your changes.
+
+Note that you can search for a specific term using the search feature in the upper right hand corner of the app.
 
 # DHIS2 Tools Guide
 
@@ -3196,7 +3394,13 @@ In this chapter, we will describe the documentation system of DHIS 2 and how you
 
 The DHIS 2 documentation is written in [Commonmark](https://commonmark.org) markdown format. One of the main advantages of markdown is that there is complete separation between the content and presentation. Commonmark is a strongly defined, highly compatible specification of markdown. Since markdown can be transformed into a wide variety of formats (HTML, PDF, etc) and is a text-based format, it serves as an ideal format for documentation of the system.
 
-There exist a wide range of text editors which can be used for the creation of markdown files. For Linux and Windows, [ghostwriter](https://wereturtle.github.io/ghostwriter/) is a nice option; it is free and supports side-by-side preview and custom style sheets. One of the key concepts to keep in mind when authoring documentation in markdown, or other presentation neutral formats, is that the **content** of the document should be considered first. The **presentation** of the document will take place in a separate transformation step, whereby the source text will be rendered into different formats, such as HTML and PDF. It is therefore important that the document is well organised and structured, with appropriate tags and structural elements being considered.
+There exist a wide range of text editors which can be used for the creation of markdown files. For Linux and Windows, [ghostwriter](https://wereturtle.github.io/ghostwriter/) is a nice option; it is free and supports side-by-side preview and custom style sheets.
+
+> **TIP**
+>
+> If you have the option to apply custom css to your markdown editor, set it to `./src/commonmark/en/resources/css/dhis2.css` to reflect the html output style for DHIS2!
+
+One of the key concepts to keep in mind when authoring documentation in markdown, or other presentation neutral formats, is that the **content** of the document should be considered first. The **presentation** of the document will take place in a separate transformation step, whereby the source text will be rendered into different formats, such as HTML and PDF. It is therefore important that the document is well organised and structured, with appropriate tags and structural elements being considered.
 
 It is good practice to break your document in to various sections using the section headings. In this way, very complex chapters can be split into smaller, more manageable pieces. This concept is essentially the same as Microsoft Word or other word processing programs. The rendering process will automatically take care of numbering the sections for you when the document is produced.
 
@@ -3204,11 +3408,11 @@ It is good practice to break your document in to various sections using the sect
 
 <!--DHIS2-SECTION-ID:docs_3-->
 
-The DHIS 2 documentation system is managed at [GitHub](https://github.com/dhis2/dhis2-markdown-docs) in its own source code repository. GitHub is a collaborative platform that enables multiple people to work on software projects collaboratively. In order for this to be possible, a version control system is necessary in order to manage all the changes that multiple users may make. GitHub uses the _git_ source control system. While it is beyond the scope of this document to describe the functionality of _git_, users who wish to create documentation will need to gain at least a basic understanding of how the system works. A basic guide is provided in the next section. The reader is referred to the [git manual](https://git-scm.com/book/en/v2) for futher more detailed information.
+The DHIS 2 documentation system is managed at [GitHub](https://github.com/dhis2/dhis2-docs) in its own source code repository. GitHub is a collaborative platform that enables multiple people to work on software projects collaboratively. In order for this to be possible, a version control system is necessary in order to manage all the changes that multiple users may make. GitHub uses the _git_ source control system. While it is beyond the scope of this document to describe the functionality of _git_, users who wish to create documentation will need to gain at least a basic understanding of how the system works. A basic guide is provided in the next section. The reader is referred to the [git manual](https://git-scm.com/book/en/v2) for further information.
 
-In order to start adding or editing the documentation, you should first perform a checkout of the source code. If you do not already have a GitHub account, you will need to get one. This can be done [here](https://github.com/). Once you register with GitHub, you will need to request access to the*dhis2-documenters* group if you wish to modify the source code of the documentation directly.
+In order to start adding or editing the documentation, you should first perform a checkout of the source code. If you do not already have a GitHub account, you will need to get one. This can be done [here](https://github.com/). Once you register with GitHub, you will need to request access to the _dhis2-documenters_ group if you wish to modify the source code of the documentation directly.
 
-Login to GitHub, and then file an issue [here](https://github.com/dhis2/dhis2-markdown-docs/issues/new). Your request will need to be approved by the group administrators. Once you have been granted access to the group, you can commit changes to the documentation branch and send and receive notifications if you wish. Alternatively, you can clone the documentation into your own repository, commit your changes to your own fork, and request that your changes be merged with the source of the documenation with a pull request [here](https://github.com/dhis2/dhis2-markdown-docs/pulls).
+Login to GitHub, and then file an issue [here](https://github.com/dhis2/dhis2-docs/issues/new). Your request will need to be approved by the group administrators. Once you have been granted access to the group, you can commit changes to the documentation branch and send and receive notifications if you wish. Alternatively, you can clone the documentation into your own repository, commit your changes to your own fork, and request that your changes be merged with the source of the documentation with a pull request [here](https://github.com/dhis2/dhis2-docs/pulls).
 
 ## Getting the document source
 
@@ -3220,13 +3424,11 @@ Once you have installed git on your system, you will need to download the docume
 
 1.  Make sure you have git installed.
 
-2.  On Windows systems, visit <https://github.com/dhis2/dhis2-markdown-docs> and press "Clone in Desktop". If you are using the command line, just type `git clone git@github.com:dhis2/dhis2docs.git`
+2.  On Windows systems, visit <https://github.com/dhis2/dhis2-docs> and press "Clone in Desktop". If you are using the command line, just type `git clone git@github.com:dhis2/dhis2-docs.git`
 
 3.  The download process should start and all the documentation source files will be downloaded to the folder that you specified.
 
-4.  The DHIS 2 documents depend on other branches for their documentation. Be sure to keep these these up to date as well. When you build the documentation, the necessary sub-modules will be downloaded automatically as part of the build process ,if you have not already done so.
-
-5.  Once you have the source, be sure to create your own branch for editing. Simply execute`git checkout -b mybranch` where _mybranch_ is the name of the branch you wish to create.
+4.  Once you have the source, be sure to create your own branch for editing. Simply execute`git checkout -b mybranch` where _mybranch_ is the name of the branch you wish to create.
 
 ## Editing the documentation
 
@@ -3333,6 +3535,26 @@ Will set the section id of the level 2 heading **Validation** to "webapi_validat
 After the full html file is generated, it is post-processed and the first `DHIS2-SECTION-ID` after the start of the section is used as the section id.
 
 Please follow the convention of lowercase letters and underscores, in order to create id's that are also valid as filenames when the html files are split.
+
+### Tables
+
+As an extension to pure commonmark, we also support _GFM tables_ (defined with pipes `|`), such as:
+
+```
+| Table Type | Description |
+|:--|:----|
+|Commonmark (HTML)| Tables described in pure HTML |
+|Github Flavour Markdown (GFM)| Tables described with pipes: easier to read/edit, but limited in complexity|
+```
+
+which produces output like:
+
+| Table Type                    | Description                                                                 |
+| :---------------------------- | :-------------------------------------------------------------------------- |
+| Commonmark (HTML)             | Tables described in pure HTML                                               |
+| Github Flavour Markdown (GFM) | Tables described with pipes: easier to read/edit, but limited in complexity |
+
+For simple tables these are much more convenient for working with. They are limited to single lines of text (i.e. each row must be on a single line), but you can, for example use `<br>` tags to create line breaks and effectively split up paragraphs within cells, if necessary. You can also continue to use HTML tables when you really need more complexity (but you can also consider whether there is a better way of presenting the data).
 
 ## DHIS 2 Bibliography
 

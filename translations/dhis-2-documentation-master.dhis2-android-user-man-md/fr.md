@@ -41,7 +41,11 @@ Differents styles de texte ont été utilisés pour mettre en avant des parties 
 
 Les liens vers des sites externes ou références croisées sont affichés en bleu et soulignés comme [ceci.](http://www.dhis2.org).
 
-Les références bibliographiques sont affichées entre crochets comme ceci Store2007. Une référence complète peut être trouvée dans la bibliographie à la fin du présent document.
+<!--
+Bibliographic references will displayed in square brackets like this
+Store2007. A full reference can be found in the bibliography contained
+at the end of this document.
+-->
 
 # Configure DHIS2 programs to work on Android apps
 

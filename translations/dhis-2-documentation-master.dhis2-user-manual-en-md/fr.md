@@ -8,31 +8,31 @@ title: Guide de l'utilisateur de DHIS2
 
 <!--DHIS2-SECTION-ID:about_this_guide_-->
 
-La documentation de DHIS2 est un effort collectif est a été développée par l'équipe de développement mais aussi par les utilisateurs. Bien que ce guide vise à être complet, il se peut que certaines fonctionnalités aient été omises ou doivent encore être documentées. Cette section explique certaines des conventions utilisées dans le document.
+La documentation de DHIS2 est un effort collectif est à été développée par l'équipe de développement mais aussi par les utilisateurs. Bien que ce guide vise à être complet, il se peut que certaines fonctionnaliés aient été omises ou doivent encore être documentées. Cette section explique certaines des conventions utilisées dans le document
 
-DHIS2 est une application fonctionnant dans un navigateur. Dans la plupart des cas, des impressions d'écran ont été incluse pour une meilleure compréhension. Des raccourçis vers diverses fonctionnalités sont affiché comme **Élément de donnée** \> **Groupe d'éléments de données**. Le symbole "\>" indique que vous devez cliquer sur **Élément de donnée** et ensuite sur **Groupe d'éléments de données**.
+DHIS2 est une application fonctionnant dans un navigateur. Dans la plupart des cas, des impressions d'écran ont été incluse pour une meilleure compréhension. Des raccourçis vers diverses fonctionnalités sont affiché comme **Element de donnée** \> **Groupe d'élément de données**. Le symbole "\>" indique que vous devez cliquer sur **Element de donnée** et ensuite sur **Groupe d'élément de données**
 
-Différents styles de texte ont été utilisés pour mettre en avant des parties importantes ou des types particuliers de texte comme par exemple du code source. Chaque convention est expliquée ci-dessous :
+Differents styles de texte ont été utilisés pour mettre en avant des parties importantes ou des types particulier de texte comme par exemple du code source. Chaque convention est expliquée ci-dessous:
 
 > **Note**
 >
-> Une note donne des informations complémentaires à considérer ou une référence vers de des informations supplémentaires.
+> Une note contient des informations complémentaires à considérer ou une référence vers de l'information additionnelle
 
-> **Astuce**
+> **Truc**
 >
-> Un astuce peut être un conseil utile, comme par exemple comment effectuer une tâche de manière plus efficace.
+> Un truc peut être un conseil utile, par exemple comment effectuer une tâche de manière plus efficiente
 
 > **Important**
 >
 > Les informations importantes ne doivent pas être ignorées et indiquent souvent quelque chose que l'application requiert.
 
-> **Avertissement**
+> **Prudence**
 >
-> Les informations contenues dans ces sections doivent être lues avec attentivement. Ne pas les suivre peut mener à des résultats non souhaitables en terme d'analyse, de performance ou de fonctionnement.
+> L'information dans ces sections doit être lue avec attention. Ne pas la suivre peut mener à des résultats innattendus
 
 > **Attention**
 >
-> Les informations contenues dans ces sections doivent être lues avec attention. Ne pas les suivre peut engendrer des pertes de données ou affecter le bon fonctionnement du système.
+> L'information dans ces sections doit être lue avec attention. Ne pas la suivre peut mener à des pertes de données ou des problèmes de stabilité dans le système.
 
     Les programmes contiennent le plus souvent du code informatique
     Ils sont affichés sur un background ombré et avec une police distincte
@@ -41,7 +41,11 @@ Différents styles de texte ont été utilisés pour mettre en avant des parties
 
 Les liens vers des sites externes ou références croisées sont affichés en bleu et soulignés comme [ceci.](http://www.dhis2.org).
 
-Les références bibliographiques sont affichées entre crochets comme ceci Store2007. Une référence complète peut être trouvée dans la bibliographie à la fin du présent document.
+<!--
+Bibliographic references will displayed in square brackets like this
+Store2007. A full reference can be found in the bibliography contained
+at the end of this document.
+-->
 
 # Getting started - help to navigate the user guide
 
@@ -507,7 +511,7 @@ Un utilisateur ou un administrateur peut créer un tableau de bord appelé "Soin
 
 Les tableaux de bord se composent d'un titre, d'une description et d'un nombre quelconque d'éléments. Les éléments constituant le tableau bord peuvent être de différents types, y compris des graphiques, cartes, rapports, tableaux, ressources, messages et éléments de texte. Au dessus du tableau de bord se trouve la barre de contrôle, qui affiche tous vos tableaux de bord disponibles, comprenant un champ de recherche dans le tableau de bord et un bouton **+** pour créer un nouveau tableau de bord.
 
-Le tableau de bord dispose de deux modes: visualiser et éditer/créer. Quand vous vous connectez sur DHIS2, votre dernier tableau de bord utilisé sera affiché en mode visualisation, si vous êtes connecté depuis le même ordinateur. Si vous utilisez un autre ordinateur, le premier tableau de bord marqué sera affiché. s'il n'y a pas de tableaux de bord marqué, le premier tableau de bord sera affiché. Les tableaux de bord marqués apparaissent toujours en premier dans la liste des tableaux de bord.
+The dashboard has two modes: view and edit/create. When you first log in to DHIS2, your most recently used dashboard will be displayed in view mode, if you are on the same computer as you were previously. If you are using a different computer, then the first starred dashboard will be displayed. If there are no starred dashboards, then the first dashboard (alphabetically) will be displayed. Starred dashboards always show first in the dashboard list.
 
 La capture d'écran ci-dessous montre un tableau de bord appelé "Soins prénatals", qui a été alimenté de graphiques et de cartes.
 
@@ -557,7 +561,7 @@ Ajoutez des éléments au tableau de bord en effectuant une recherche à partir 
 
 - Eléments d'espacement
 
-La liste des éléments du menu déroulant affiche initialement les 5 premiers disponibles dans chaque catégorie, en fonction du texte de recherche que vous avez entré. Des adresses mail, des zones de texte et des éléments d'espacement se trouvent également dans la liste déroulante. Pour voir plus d'éléments, cliquez sur **AFFICHER PLUS**, et la liste pour ce type sera étendue à 15 articles. Si vous ne trouvez toujours pas l'article que vous cherchez, essayez avec un texte de recherche plus spécifique.
+La liste des éléments de la liste déroulante affiche initialement les 5 premiers disponibles dans chaque catégorie, en fonction du texte de recherche que vous avez entré. Les courriers électroniques, les zones de texte et les éléments d'espacement se trouvent également dans la liste déroulante. Pour afficher plus d'éléments, cliquez sur **VOIR PLUS**, et la liste pour ce type sera étendue à 15 éléments. Si vous ne trouvez toujours pas l'élément qu'il vous faut, essayez de saisir un texte de recherche plus spécifique.
 
 ![](resources/images/content/user/dashboard/dashboard-item-selector.png)
 
@@ -571,11 +575,9 @@ Le tableau de bord est configuré avec le paramètre "anti-gravité" pour le pos
 
 ![](resources/images/content/user/dashboard/dashboard-spacer-edit-mode.png)
 
-**Elément d'espacement dans le mode visualisation:**
+**Spacer en mode visualisation **
 
 ![](resources/images/content/user/dashboard/dashboard-spacer-view-mode.png)
-
-\</section\>
 
 ## Supprimer des éléments
 
@@ -584,8 +586,6 @@ Supprimer des éléments en cliquant sur la corbeille rouge en haut à droite de
 ## Sauvegarder le tableau de bord
 
 Lors de la création ou de la modification d'un tableau de bord, les modifications ne sont enregistrées que si vous cliquez sur le bouton **ENREGISTRER LES MODIFICATIONS** dans la barre de modification du tableau de bord en haut de la page. Si vous ne souhaitez pas enregistrer vos modifications, cliquez sur le bouton **QUITTER SANS SAUVEGARDER** en haut à droite. Vous serez alors renvoyé aen mode visualisation avec le tableau de bord que vous consultiez précédemment.
-
-\</section\>
 
 ## Editer un tableau de bord existant
 
@@ -613,11 +613,9 @@ Vous pouvez ajouter des traductions du titre et de la description du tableau de 
 
 Si vous disposez des droits d'accès pour supprimer un tableau de bord, il y aura un Bouton **SUPPRIMER** situé au-dessus du tableau de bord, en mode édition. La boîte de dialogue de confirmation s’affichera pour confirmer que vous souhaitez supprimer le tableau de bord.
 
-\</section\>
-
 ## Afficher un tableau de bord
 
-En mode d'visualisation, vous pouvez afficher la description, marquer un tableau de bord, appliquer un filtre de tableau de bord et le partager avec d’autres utilisateurs et groupes d'utilisteurs.
+When in view mode, you can toggle showing the description, star a dashboard, apply filters, and share the dashboard with other users and groups.
 
 Pour afficher la description, cliquez sur le bouton **i** situé à droite du titre.
 
@@ -629,9 +627,23 @@ Vos tableaux de bord marqués sont répertoriés en premier dans la liste des ta
 
 ### Filtrer un tableau de bord
 
-Pour filtrer un tableau de bord par unité d'organisation, cliquez sur le bouton **FILTRER**. à droite du titre du tableau de bord. Sélectionnez l'unité d'organisation que vous souhaitez appliquer au tableau de bord. Cela ne concerne que vous, et n'affecter pas les autres utilisateurs. Les seuls éléments du tableau de bord concernés par le filtres d’unité d’organisation sont des éléments de visualisation (tableau croisé dynamique, graphiques, cartes et plans) dont l’unité d’organisation est configurée sur "Unité organisationnelle utilisateur". Si vous rechargez le tableau de bord, le filtre sera effacé.
+Multiple filters can be applied to a dashboard for changing the data displayed in the various dashboard items. The filters are applied to each dashboard item in the same way: each added filter overrides the original value for that dimension in the original chart, table or map (visualization). It is possible to filter on Organisation Units, Periods and other dynamic dimensions depending on the DHIS2 instance.
 
-![](resources/images/content/user/dashboard/dashboard-orgunit-filter-dialog.png)
+To add a filter, click on the **Add Filter** button and choose the dimension:
+
+![Adding a filter](resources/images/content/user/dashboard/dashboard-filters.png)
+
+A dialog opens where the filter selection can be made.
+
+![Org Unit filter selection](resources/images/content/user/dashboard/dashboard-orgunit-filter-dialog.png)
+
+Click on **Confirm** in the dialog to apply the filter to the current dashboard.
+
+Filters are not stored, so when switching to a different dashboard they are lost. Filter badges appear above the dashboard items to indicate that what is shown in the dashboard items is not the original visualization, but a manipulated one where the filters override the stored dimensions' values.
+
+![Current filters displayed as badges above the dashboard](resources/images/content/user/dashboard/dashboard-filter-badges.png)
+
+Filter badges can be clicked for opening the filter selection dialogs thus allowing for filter editing. A filter can be removed by clicking on the **Remove** button in the badge. Whenever a filter is added, edited or removed, the dashboard items reload to show the updated data. Filter badges are always visible at the top of the page when scrolling the dashboard content.
 
 ## Eléments de tableau de bord avec graphiques, tableaux croisés dynamiques et cartes
 
@@ -643,7 +655,11 @@ Les éléments du tableau de bord montrant les graphiques, les tableaux croisés
 
 ## Interprétations
 
-Vous pouvez écrire des interprétations pour les graphiques, tableaux croisés dynamiques, cartes, rapports d'événements, et éléments de graphiques d'événements. Cliquez sur le bouton d'interprétations ![](resources/images/content/user/dashboard/dashboard-interpretations-button.png), et l'élément sera développé verticalement en dessous pour montrer les interprétations et réponses. Vous pouvez aimer une interprétation, répondre à une interprétation, et ajouter votre propre interprétation. Vous pouvez supprimer vos propres interprétations et réponses, et si vous avez un accès modérateur, vous pouvez supprimer les interprétations des autres utilisateurs.
+You can write interpretations for the chart, pivot table, map, event report, and event chart items. Click on the interpretations button ![](resources/images/content/user/dashboard/dashboard-interpretations-button.png), and the item will be expanded vertically underneath to show the interpretations and replies. You can like an interpretation, reply to an interpretation, and add your own interpretation. You can edit, share or delete your own interpretations and replies, and if you have moderator access, you can delete others’ interpretations.
+
+It is possible to format the description field, and interpretations with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. The text field for writing new interpretations has a toolbar for adding rich text. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
+
+Interpretations are sorted in descending order by date, with the most recent shown on top. Interpretation replies are sorted in ascending order by date, with the oldest shown on top.
 
 ![](resources/images/content/user/dashboard/dashboard-interpretations.png)
 
@@ -675,7 +691,9 @@ Les groupes d’utilisateurs qui ont été ajoutés manuellement peuvent se voir
 
   Permet aux groupes d'utilisateurs de modifier le tableau de bord en plus de le visualiser. L’édition permet de modifier la mise en page, de redimensionner et de supprimer des éléments, renommer/supprimer le tableau de bord, etc.
 
-\</section\>
+Vous pouvez fournir aux utilisateurs l'URL du tableau de bord, ce qui leur pemet de naviguer directement dans le tableau de bord. Pour obtenir l'URL du tableau de bord, il suffit d''y accéder en mode visualisation et de copier l'URL du navigateur. Par exemple, l'URL du tableau de bord des soins anténatals dans play.dhis2.org/demo est:
+
+https://play.dhis2.org/demo/dhis-web-dashboard/\#/nghVC4wtyzi
 
 # Messaging
 
@@ -685,37 +703,52 @@ Les groupes d’utilisateurs qui ont été ajoutés manuellement peuvent se voir
 
 ## A propos des messages et des commentaires
 
-![](resources/images/content/user/dashboard/dashboard_messages_queue.png)
+![](resources/images/content/user/messaging/view_inbox.png)
 
 Dans DHIS2, vous pouvez envoyer des messages et des commentaires aux utilisateurs, à des groupes d'utilisateurs et aux unités d'organisation. Lorsque vous envoyez un commentaire, il est routé vers un groupe d'utilisateurs particulier appelé groupe de destinataires. Si vous êtes membre de ce groupe d'utilisateurs, vous avez accès aux outils de gestion des commentaires. Vous pouvez, par exemple, définir le statut d'un nouveau commentaire à "En attente" pendant que vous attendez d'avoir plus d'informations.
 
 En plus des messages entre utilisateurs et des commentaires, en fonction de votre configuration, le système vous enverra également des messages génériques. Ces messages peuvent être déclenchés par différents événements, y compris les échecs et défaillances de tâches en arrière-plan et la validation des résultats d'analyse. Les outils de gestion des commentaires sont également disponibles pour les résultats de validation et la priorité sera attribuée à l'importance de la règle de validation violée.
 
+Pour aller à l'application, cliquez sur **l'icône du message dans l'en-tête** ou recherchez l'application **Messagerie** dans le champ de recherche des applications.
+
 > **Note**
 >
-> Les messages et les commentaires ne sont pas envoyés au courrier électronique des utilisateurs, les messages apparaissent uniquement dans DHIS2.
+> Les messages et les commentaires ne sont pas envoyés aux adresses électroniques des utilisateurs, ils n'apparaissent que dans DHIS2.
+>
+> Avec 2.30, nous avons introduit une nouvelle application de messagerie qui offre une expérience de messagerie plus étoffée. Plus précisément:
+>
+> - Basculez entre la vue liste et la vue compacte en cliquant sur l'icône située dans le coin supérieur droit.
+>
+> - La vue en liste est simpliste et donne une bonne vue d'ensemble de tous les messages. Elle est particulièrement adaptée aux commentaires et messages de validation.
+> - La vue compacte est un moyen moderne de voir les messages, l’utilisateur ayant plus d’informations dans une seule vue. Il est donc plus facile de visionner et de répondre à plusieurs messages.
+>
+> La première capture d'écran de cette section affiche la vue liste, tandis que la capture d'écran de la section **Lire un message** affiche la vue compacte.
+>
+> - Un nouveau champ de recherche est ajouté pour permettre à l'utilisateur de rechercher des messages. La recherche fonctionne par filtration des messages sur différents attributs; sujet, texte et expéditeurs. Cela signifie que vous pouvez affiner la liste de conversation en entrant un mot de recherche.
+>
+> - Une fonctionnalité d'actualisation automatique est ajoutée afin que l'application récupère les nouveaux messages à un intervalle défini, toutes les 5 minutes. Cette fonctionnalité est désactivée par défaut.
+>
+> - Pour chaque conversation, vous pouvez ajouter des participants à la conversation. Ceci est très utile si vous souhaitez participer à cette conversation ou si quelqu'un doit également voir les informations. Il n'est pas possible de supprimer des participants d'une conversation.
 
 ## Créer un message
 
-![](resources/images/content/user/dashboard/dashboard_message.png)
+![](resources/images/content/user/messaging/create_private_message.png)
 
-1.  Dans le **Tableau de bord**, cliquez sur **Messages**.
+1.  Cliquez sur **Composer**.
 
-2.  Cliquez sur **Écrire un message**.
+2.  Définissez qui vous souhaitez recevoir le message. Vous pouvez envoyer un message aux unités d'organisation, aux utilisateurs et à des groupes d'utilisateurs.
 
-3.  Définissez qui vous souhaitez recevoir le message. Vous pouvez envoyer un message aux unités d'organisation, aux utilisateurs et à des groupes d'utilisateurs.
+    - Dans le champ **À**, vous pouvez rechercher des unités d'organisation, des utilisateurs et des groupes d'utilisateurs et sélectionner les destinataires souhaités.
 
-    - Dans le champ **To org unit**, sélectionnez les unités d'organisation ou groupe d'unités d'organisation auquel vous souhaitez envoyer le message.
+3.  Saisissez un objet et le corps du message.
 
-    - Dans le champ **À l'utilisateur**, sélectionnez les utilisateurs ou les groupes d'utilisateurs auquels vous souhaitez envoyer le message.
-
-4.  Saisissez un objet et le corps du message.
-
-5.  Cliquez sur **Envoyer**.
+4.  Cliquez sur **Envoyer**.
 
 ## Lire un message
 
-1.  Dans le **Tableau de bord**, cliquez sur **Messages**.
+![](resources/images/content/user/messaging/read_message.png)
+
+1.  Sélectionnez le type de message approprié à gauche.
 
 2.  Cliquez sur un message.
 
@@ -723,56 +756,65 @@ En plus des messages entre utilisateurs et des commentaires, en fonction de votr
 
 ## Créer un commentaire
 
-1.  Dans le **Tableau de bord**, cliquez sur **Rédiger un commentaire**.
+1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Commentaire** au lieu de saisir les destinataires.
 
-2.  Saisissez un objet et un commentaire.
+2.  Le message sera créé en tant que commentaire et apparaîtra dans le dossier **Tickets** de tous les utilisateurs spécifiés.
 
-3.  Cliquez sur **Envoyer**.
+## Pièces jointes.
 
-    Le commentaire apparaîtra dans tous les boîtes de réception de tous les utilisateurs concernés.
+Avec 2.31, nous avons ajouté les pièces jointes aux messages. Lors de la création ou de la réponse dans une conversation, vous avez la possibilité d'ajouter des pièces jointes. Il n’existe actuellement aucune limitation quant au type ou à la taille du fichier.
 
-## Gérer les commentaires
+## Gérer les commentaires et validations
 
 > **Note**
 >
-> Vous ne verrez les commentaires et aurez accès aux outils de gestion commentaires que si vous êtes membre du groupe d'utilisateurs configuré à les gérer.
+> Vous ne verrez que les commentaires et aurez accès aux outils de traitement  si vous êtes membre du groupe d'utilisateurs autorisés à gérer les commentaires.
+>
+> Avec la nouvelle application, vous gérez les outils  pour les tickets et les messages de validation via le menu d'icônes qui apparaît lors de la visualisation d'un message ou de la vérification des messages dans la liste de conversations.
 
-![](resources/images/content/user/dashboard/dashboard_messages_manage.png)
+### Tous les messages sont sélectionnés.
 
-Vous recevrez des commentaires dans votre boîte de réception **Messages**. Pour commentaires, vous disposez des options suivantes en plus des options standards valables pour les messages:
+![Tous les messages sont séléctionnés](resources/images/content/user/messaging/view_validation_select_all.png)
 
-<table>
+### Tous les messages sont sélectionnés et le sélecteur de choix étendu est sélectionné
+
+![Tous les messages sont sélectionnés et le sélecteur de choix étendu est sélectionné](resources/images/content/user/messaging/view_validation_select_all_icon_menu.png)
+
+Vous recevrez des commentaires dans votre dossier **Tickets** et des messages de validation dans votre dossier **Validation**. Pour les commentaires et les messages de validation, vous disposez des options suivantes, en plus de celles des messages:
+
+<table style="width:100%;">
 <caption>Outils de gestion des commentaires</caption>
 <colgroup>
-<col largeur="23%"/>
-<col width="76%"/>
+<col width="23%" />
+<col width="76%" />
 </colgroup>
 <thead>
-<trclass="header">
+<tr class="header">
 <th>Fonction</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<trclass="impair">
+<tr class="odd">
 <td><p><strong>Priorité</strong></p></td>
-<td><p>Vous pouvez marquer un commentaire avec différentes priorités: <strong>neutre</strong>, <strong>Faible</strong>, <strong>Moyenne</strong> ou <strong>Élevée</strong >.</p>
+<td><p>Vous pouvez marquer un commentaire avec différentes priorités: <strong>neutre</strong>, <strong>Faible</strong>, <strong>Moyenne</strong> ou <strong>Élevée</strong>.</p>
 <p>Définir la priorité facilite la distinction du commentaire que vous devez résoudre en premier et ceux pouvant attendre.</p></td>
 </tr>
-<trclass="even">
-<td><p><strong>État</strong></p></ td>
+<tr class="even">
+<td><p><strong>Statut</strong></p></td>
 <td><p>Tous les commentaires reçoivent le statut <strong>Ouvert</strong> à la création.</p>
-<p>Pour garder une traçabilité les commentaires existants, vous pouvez définir le statut sur <strong>En attente</strong> , <strong>non valide</strong> ou <strong>Résolu</strong>.</p>
-<p>Vous pouvez filtrer les commentaires dans votre boîte de réception en fonction de leur statut. Cela facilite le basculement entre les commentaires et les messages normaux.</p></td>
+<p>Pour garder une traçabilité des commentaires existants, vous pouvez définir le statut sur <strong>En attente</strong>, <strong>non valide</strong> ou <strong>Résolu</strong>.</p>
+<p>Vous pouvez filtrer les commentaires dans votre boîte de réception en fonction de leur statut. Ceci facilite le basculement entre les commentaires et les messages normaux.</p></td>
 </tr>
-<tr class="impair">
+<tr class="odd">
 <td><p><strong>Attribué à</strong></p></td>
-<td><p>Vous pouvez affecter un commentaire à n'importe quel membre du groupe d'utilisateurs configuré autorisé à les gérer</p>
-<p><strong>Aucun</strong> signifie que vous n'avez affecté aucun utilisateur au commentaire.</p></td>
+<td><p>Vous pouvez affecter un commentaire à n'importe quel membre du groupe d'utilisateurs autorisé à les gérer.</p>
+<p></p>
+<p><strong>-</strong> Aucun signifie que vous n'avez affecté aucun utilisateur au commentaire.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Réponse interne</strong></p></td>
-<td><p>Lorsque vous travaillez dans une équipe de traitement des commentaires, vous pouvez en discuter avant de répondre à l'expéditeur. Vous pouvez conserver cette discussion dans la même conversation que le commentaire lui-même.</p>
+<td><p>Lorsque vous travaillez au sein d'une équipe de traitement des commentaires, vous pouvez en discuter avant de répondre à l'expéditeur. Vous pouvez conserver cette discussion dans la même conversation que le commentaire lui-même.</p>
 <p>Pour envoyer une réponse dans le groupe d'utilisateurs de traitement des commentaires, cliquez sur <strong>Réponse interne</strong>.</p></td>
 </tr>
 </tbody>
@@ -784,7 +826,7 @@ Pour configurer la fonction commentaire, vous devez:
 
 1.  Créez un groupe d'utilisateurs (par exemple, "Destinataires du commentaire") qui contient tous les utilisateurs qui devraient le recevoir.
 
-2.  Ouvrez l'application **Paramètres système** et cliquez sur **Général** \> **destinataires ** et sélectionnez le groupe d'utilisateurs créé lors de l'étape précédente.
+2.  Ouvrez l'application **Paramètres système** et cliquez sur **Général** \> **destinataires** et sélectionnez le groupe d'utilisateurs créé lors de l'étape précédente.
 
 # Utilisation de l'application de saisie des données
 
@@ -1076,6 +1118,8 @@ The **Event Capture** app works online and offline. If the Internet connectivity
 
 7.  Click **Save and add new** or **Save and go back**.
 
+> Note: Some data elements in an event might be mandatory (marked with a red star next to the data element lable). What this means is that all mandatory data elements must be filled in before the user is allowed to save the event. The exception to this is if the user has the authority called **"Ignore validation of required fields in Tracker and Event Capture".** If the user has this authority, the mandatory data elements will not be required to be filled in before saving and the red star will not be displayed next to the data element lable. Note that super user that have the **"ALL"** authority automatically have this authority.
+
 ## Edit an event
 
 <!--DHIS2-SECTION-ID:event_capture_edit_event-->
@@ -1242,7 +1286,7 @@ The **Tracker Capture** app is an advanced version of the **Event Capture** app.
 
 ![](resources/images/content/user/tracker_capture/tei_dashboard.png)
 
-You manage a TEI from the TEI's dashboard in the **Tracker Capture**app.
+You manage a TEI from the TEI's dashboard in the **Tracker Capture** app.
 
 - The dashboard consist of widgets. Drag and drop the widgets to place them in the order and in the position you want.
 
@@ -1282,6 +1326,42 @@ Working process of Mother and child health program
 
 5.  Use information about the individual cases to create reports.
 
+## Linking to the Tracker Capture App
+
+<!--DHIS2-SECTION-ID:linking_to_the_tracker_capture_app-->
+
+### Link to a specific program on the "home screen"
+
+You can share a program selection on the "home screen.
+
+1. Open the **Tracker Capture** app.
+
+2. Selecte the program you want to link to.
+
+3. Copy the URL.
+
+   - Make sure that the URL contains the "program" parameter.
+
+4. Paste the URL in the sharing method of your choice, for example an e-mail or a message within DHIS2.
+
+> Note: If the program does not exist in the selected organisation unit (that is stored in the local cache) the system will instead select the first available program for that organisation unit. If the local cache is empty/clean and the root organisation unit of the current user does not have the specified program, the system will also here select the first available program for the root organisation unit.
+
+### Linking to TEI dashboard
+
+You can share a TEI dashboard via its web address.
+
+1.  Open the **Tracker Capture** app.
+
+2.  Open the dashboard you want to share.
+
+3.  Copy the URL.
+
+    Make sure that the URL contains "tei", "program" and "ou" (organisation unit) parameters.
+
+4.  Paste the URL in the sharing method of your choice, for example an e-mail or a message within DHIS2.
+
+    If you're not logged in to DHIS2 when you click the link, you'll be asked to do so and then taken to the dashboard.
+
 ## Create a TEI and enroll it in a program
 
 <!--DHIS2-SECTION-ID:create_and_enroll_tracked_entity_instance-->
@@ -1298,7 +1378,11 @@ You can create a TEI and enroll that TEI to a program in one operation:
 
 5.  Fill in the required information.
 
-6.  If searching for program is configured, a background search will be performed on searchable fields to help you prevent registering duplicates. If there is any matching TEIs, a blue box will be displayed on the right side of the form with the possibility to view these matching TEIs.
+    Both tracked entity type and program can be configured to use a feature type. This makes it possible to capture geometry for either the TEI or the enrollment. Supported feature type is Point and Polygon. Please see **How to use geometry**.
+
+6.  If the selected program is configured to display first stage during registation, all mandatory fields in the stage will have to be filled in. At the end of the stage you will also be asked if you want to complete the stage that you have entered data for. If you select **Yes**, the stage will have the status completed once saved. If you select **No**, the stage will have the staus active.
+
+7.  If searching for program is configured, a background search will be performed on searchable fields to help you prevent registering duplicates. If there is any matching TEIs, a blue box will be displayed on the right side of the form with the possibility to view these matching TEIs.
 
 ![](resources/images/content/user/tracker_capture/tracker_capture_register_integrated_search.png)
 
@@ -1310,7 +1394,7 @@ If there is no matching TEIs, click **Save and continue** or **Save and add new*
 
 - **Save and add new**: completes the registration but stays on the same page. Use this option when you want to register and enroll one TEI after another without enter data.
 
-(img integrated search)
+> Note: All mandatory attributes have to be filled in to be able to save. Mandatory attributes are marked with a red star next to the attribute lable. If the user has the authority called **"Ignore validation of required fields in Tracker and Event Capture"** you will not be required to fill in the mandatory attributes and will not see the red star next to the attribute lable. Note that super user that have the **"ALL"** authority automatically have this authority.
 
 ## Open an existing TEI dashboard
 
@@ -1412,6 +1496,12 @@ For non-unique attributes search:
 
 When choosing to open the registration form, the search values will automatically be filled into the registration form.
 
+### Breaking the glass
+
+<!--DHIS2-SECTION-ID:break_glass-->
+
+If the program is configured with access level **protected**, and the user searches and finds tracked entity instances that is owned by organisation unit that the user does not have data capture authority for, the user is presented with the option of breaking the glass. The user will gove a reason for breaking the glass, then gain temporary ownership of the tracked entity instance.
+
 ## Enroll an existing TEI in a program
 
 <!--DHIS2-SECTION-ID:enroll_existing_tracked_entity_instance_in_program-->
@@ -1476,6 +1566,8 @@ You can create an event for a TEI by:
 
 4.  Select a **Programstage** and set a **Report date**.
 
+    Program stages can be configured to use a feature type. This makes it possible to capture geometry for an event. Supported feature type is Point and Polygon. Please see **How to use geometry**.
+
 5.  Cliquez sur **Sauvegarder**.
 
 ### Schedule an event
@@ -1506,21 +1598,47 @@ Sometimes it might be nessascary to refer a patient to a different **Organisatio
 
 5.  Click either **One-time referral** which will only refer TEI for one single event or **Move permanently** which will move TEI and all its future events permantly to the selected **Organisation Unit**.
 
-### Compare events
+### Mandatory data elements in events
 
-Sometimes it can be helpful to see data from previous events when entering data for a new event. This can be achived by:
+Some data elements in an event might be mandatory (marked with a red star next to the data element lable). What this means is that all mandatory data elements must be filled in before the user is allowed to complete the event. The exception to this is if the user has the authority called **"Ignore validation of required fields in Tracker and Event Capture".** If the user has this authority, the mandatory data elements will not be required to be filled in before saving and the red star will not be displayed next to the data element lable. Note that super user that have the **"ALL"** authority automatically have this authority.
 
-1.  Open the **Tracker Capture** app.
+## How to use geometry
 
-2.  Open an existing TEI dashboard.
+Tracked entity type, program and program stage can be configured to use a feature type. This makes it possible to capture geometry for a TEI, program or event. Supported feature types are Point and Polygon.
 
-3.  In the **Timeline Data entry** widget, click the **two pages** icon (as seen in the image below).
+### Capture coordinate
 
-> **Note**
->
-> _Note that this will only work for events that are repeatable._
+**Option 1:** Fill in the latitude and longitude into the field.
 
-![](resources/images/content/user/tracker_capture/compareForm.png)
+**Option 2:**
+
+1.  Click on the **map icon**
+2.  Find the location you want by either searching or locating it on the map
+3.  Right-click on the location you want, and choose **Set coordinate**
+4.  Click **Capture** at the bottom
+
+### Capture Polygon
+
+1.  Click on the **map icon**
+2.  Find the location you want by either searching or locating it on the map
+3.  At the top left of the map, click the **polygon icon**
+4.  Draw a polygon on the map. To finish, connect the last point with the first point
+5.  Click **Capture** at the bottom
+
+![](resources/images/content/user/tracker_capture/capture_geometry.png)
+
+Polygons can also be deleted
+
+1.  Click the **map icon**
+2.  Click the **trash can icon** at the left side of the map, and select **Clear all**
+
+## How to assign a user to an event
+
+In the Maintenance App a program stage can be configured to allow user assignment. If user assignment is enabled, you will be able to assign a user to an event.
+
+1. Click the **Assigned user** field.
+2. Scroll or search for a user.
+3. Click the user.
 
 ## Manage a TEI's enrollments
 
@@ -1662,6 +1780,8 @@ Assume there are two programs: Antenatal care for the mother and Immunization fo
 
 6.  Cliquez sur **Sauvegarder**.
 
+> Note: If the relationship is a bi-directional relationship, the relationship will be displayed in the TEI that the relationship was created in and in the TEI that the relationship was linked to. Also, if the relationship is bi-directional, each end of the relationship will have a unique name that will be displayed in the relationship widget under the "Relationship" column.
+
 ## Share a TEI dashboard
 
 <!--DHIS2-SECTION-ID:share_tracked_entity_instance_dashboard-->
@@ -1780,6 +1900,32 @@ The top bar can be a helpful tool to see important data in a quick and easy way.
 
 ![](resources/images/content/user/tracker_capture/top_bar.png)
 
+### Chage table display mode for **Timeline Data Entry** widget
+
+The **Timeline Data Entry** widget has 5 diffrent table display modes that can be selected. The different options are:
+
+- **Default form** - Shows all data elements verticaly.
+
+- **Compare form previous** - Shows the prevoius (repeatable) program stage next to the current selected program stage.
+
+- **Compare form all** - Shows all prevoius (repeatable) program stages next to the current selected program stage.
+
+- **Grid form** - Shows the data elements horizontaly.
+
+- **POP-over form** - The same as **Grid form**, but when clicked the data elements are displayed in a pop-up.
+
+To change the current display mode, click the second icon in the widgets top bar (see image below):
+
+![](resources/images/content/user/tracker_capture/compareForm.png)
+
+Once an option is selected the selection is stored for that spesific program stage. This mean that you can have different table modes for the different program stages in a program.
+
+> **Notes:**
+>
+> 1.  _The **Compare form** options will function best if you have multipe repeatable events (of the same program stage) present._
+> 2.  _The **Grid form** and **POP-over form** options are not selectable if the program stage has more than 10 data elements._
+> 3.  _The icon in the widgets bar will change depending on the option you have selected._
+
 ## Create reports
 
 <!--DHIS2-SECTION-ID:create_report_tracker_capture-->
@@ -1825,6 +1971,205 @@ The top bar can be a helpful tool to see important data in a quick and easy way.
 ![](resources/images/content/user/tracker_capture/program_summary_report.png)
 
 The summary report displays a list of TEIs and their records for "MNCH/PNC (Adult Woman)" program. The records are organized in the form of tabs where each tab is a program stage. The columns in the table are data elements which are configured to be displayed in reports under program stage definition.
+
+# Using the Capture app
+
+<!--DHIS2-SECTION-ID:capture_app-->
+
+## Register an event
+
+<!--DHIS2-SECTION-ID:capture_register_event-->
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program.
+
+   You'll only see programs associated with the selected organisation unit and programs you've access to, and that is shared with your user group through data level sharing.
+
+4. If the program has a category combination set the category option will have to be selected.
+
+5. Click **New**.
+
+   ![create new event](resources/images/content/user/capture_app/create_new_event.png)
+
+6. Fill in the required information. If the programs program stage is configured to capture a location:
+
+   - If the field is a coordinate field you can either enter the coordinates directly or you can click the **map** icon to the left of the coordinate field. The latter one will open a map where you can search for a location or set on directly by clicking on the map.
+
+   - If the field is a polygon field you can click the **map** icon to the left of the field. This will open a map where you can search for a location and capture a polygon (button in the upper rigth corner of the map).
+
+7. If desired you can add a comment by clicking the **Write comment** button at the bottom of the form.
+
+8. If desired you can add a relationship by clicking the **Add relationship** button at the bottom of the form. See the section about **Adding a relationship** for more information.
+
+9. Click **Save and exit** or click the arrow next to the button to select **Save and add another**.
+   - **Save and add another** will save the current event and clear the form. All the events that you have captured will be diplayed in a list at the bottom of the page. When you want to finish capturing events you can, if the form is blank, click the finish button or if your form contains data click the arrow next to **Save and add another** and select **Save and exit**.
+
+> Note 1: Some data elements in an event might be mandatory (marked with a red star next to the data element lable). What this means is that all mandatory data elements must be filled in before the user is allowed to complete the event. The exception to this is if the user has the authority called **"Ignore validation of required fields in Tracker and Event Capture".** If the user has this authority, the mandatory data elements will not be required to be filled in before saving and the red star will not be displayed next to the data element lable. Note that super user that have the **"ALL"** authority automatically have this authority.
+
+> Note 2: The data entry form can also be diaplayed in **row view**. In this mode the data elements are arranged horizontally. This can be achived by clicking the **Switch to row view** button on the top right of the data entry form. If you are currently in **row view** you can switch to the default form view by clicking the **Switch to form view** button on the top right of the data entry form.
+
+## Adding a relationship
+
+<!--DHIS2-SECTION-ID:capture_add_relationship-->
+
+Relationships can be added either during registration, editing or viewing of an event. Currently the **Capture App** only supports _Event to Tracked Entity Instance_ relationships.
+
+1. While in an event, click **Add relationship**.
+
+2. Select the relationship type you want to create.
+
+- You now have two options: **Link to an existing Tracked Entity Instance** or **Create new Tracked Entity Instance**.
+
+![relationship options](resources/images/content/user/capture_app/relationship_options.png)
+
+### Link to an existing Tracked Entity Instance
+
+3. Click **Link to an existing Tracked Entity Instance**.
+
+- You should now be presented with some options for searching for a **Tracked Entity Instance**. You have the option to select a **program**. If a **program** is selected the attributes are derived from the selected **program**. If no **program** is selected, only the attributes that belong to the **Tracked Entity Instance** will be visible.
+
+  ![search for Tracked Entity Instance](resources/images/content/user/capture_app/search_tei.png)
+
+  - If the **Tracked Entity Instance** or **program** is configured with a unique attribute, this attribute can be used for finding a specific **Tracked Entity Instance** or **program**. This attribute should be presented alone. When the unique attribute field has been filled out, click the **Search** button located right below the unique attribute field.
+
+  - If the **Tracked Entity Instance** or **program** has attibutes these can be used for searching by expanding the **Search by attributes** box. When all desired attribute fields have been filled out, click the **Search by attributes** button located at the bottom. You can also limit the search by setting the **Organisation unit scope**. If set to _All accessible_ you will search for the **Tracked Entity Instance** in all organisation units you have access to. If you select _Selected_, you will be asked to select which organisation units to search within.
+
+4. After a successful search you will be presented with a list of **Tracked Entity Instances** matching the search criteria. To create a relationship click the **Link** button on the **Tracked Entity Instance** you would like to create a relationship to.
+
+- If you did not find the **Tracked Entity Instance** you were looking for, you can either click the **New search** or **Edit search** buttons. **New search** will take you to new blank search while **Edit search** will take you back to the search you just performed keeping the search criteria.
+
+### Create new Tracked Entity Instance
+
+3. Click **Create new Tracked Entity Instance**.
+
+- You are now presented with a form for registering a new **Tracked Entity Instance**. You can choose to either register with or without a program. If a program is selected, the new **Tracked Entity Instance** will be enrolled in said program. You can also change the **Organisation unit** by removing the one that is automatically set and selecting a new one.
+
+  ![register new Tracked Entity Instance](resources/images/content/user/capture_app/register_tei.png)
+
+4. Fill in the desired (and possibly manditory) attributes and enrollment details.
+
+5. Click **Create Tracked Entity Instance and Link**.
+
+> Note: When filling in data you might face a warning telling you that a possible duplicate has been found. You can click the warning to see these duplicates and if the duplicate is a match you can choose to link that **Tracked Entity Instance** by clicking the **Link** button. If the warning is still present when you are done filling in data, you will not see the **Create Tracked Entity Instance and Link** button. Instead you will be pressented with a button called **Review duplicates**. When you click this button a list of possible duplicates will be displayed. If any of these duplicates matches the **Tracked Entity Instance** you are trying to create you can click the **Link** button, if not you can click the **Save as new person** button to register a new **Tracked Entity Instance**.
+
+## Edit an event
+
+<!--DHIS2-SECTION-ID:capture_edit_event-->
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program.
+
+   All events registered to the selected program show up in a list.
+
+4. Click the event you want to modify.
+
+5. Click the **Edit event** button.
+
+6. Modify the event details and click **Save**.
+
+## Delete an event
+
+<!--DHIS2-SECTION-ID:capture_delete_event-->
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program.
+
+   All events registered to the selected program show up in a list.
+
+4. Click the **triple dot** icon on the event you want to delete.
+
+5. In the menu that is displayed click **Delete event**.
+
+   ![delete event](resources/images/content/user/capture_app/delete_event.png)
+
+## Modify an event lists layout
+
+<!--DHIS2-SECTION-ID:capture_modify_event_list_layout-->
+
+You can select which columns to show or hide in an event list. This can be useful for example when you have a long list of data elements assigned to a program stage.
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program.
+
+   All events registered to the selected program show up in a list.
+
+4. Click the **gear** icon on the top right of the event list.
+
+5. Select the columns you want to display and click **Save**.
+
+   ![modify event list](resources/images/content/user/capture_app/modify_event_list.png)
+
+> Note: You can reorganize the order of the data elements by draging and dropping them in the list.
+
+## Filter an evnet list
+
+<!--DHIS2-SECTION-ID:capture_filter_event_list-->
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program.
+
+   All events registered to the selected program show up in a list.
+
+   Along the top of the event list are button with the same names as the column headers in the list.
+
+4. Use the buttons on the top of the list to filter based on a report date or a specific data element.
+
+   ![filter event](resources/images/content/user/capture_app/filter_event.png)
+
+> Note: Data elements will have slightly diffrent way that they are filtered. A **Number** data element will for instance show a rang to filter on while a **Text** data element will ask you to enter a search query to filter on.
+
+## Sort an evnet list
+
+<!--DHIS2-SECTION-ID:capture_sort_event_list-->
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program. All events registered to the selected program show up in a list.
+
+4. Click one of the column headers to sort the list on that data element in ascending order.
+
+   A small upward arrow is displayed next to the column to show that the list is sorted in ascending order.
+
+5. Click the column header again to sort the list on that data element in descending order.
+
+   A small downward arrow is displayed next to the column to show that the list is sorted in descending order.
+
+   ![sort event](resources/images/content/user/capture_app/sort_event.png)
+
+## Download an event list
+
+<!--DHIS2-SECTION-ID:capture_download_event_list-->
+
+1. Open the **Capture** app.
+
+2. Select an organisation unit.
+
+3. Select a program. All events registered to the selected program show up in a list.
+
+4. Click the **downward arrow** icon on the top right of the event list.
+
+5. Select the format you want to download.
+
+   ![download event list](resources/images/content/user/capture_app/download_event_list.png)
+
+> Note: You can download an event list in JSON, XML or CSV formats.
 
 # Analyser des données dans des tableaux croisés dynamiques
 
@@ -2147,7 +2492,7 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 1.  Cliquez sur **Favoris** \> **Sauvegarder**.
 
-2.  Entrez un **Nom** et une **Description** à votre favori.
+2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
 
 3.  Cliquez sur **Sauvegarder**.
 
@@ -2165,7 +2510,9 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez retrouver cette information dans l'application **Tableau de bord**.
+2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
+
+    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -2178,6 +2525,16 @@ Une interprétation est un lien vers une ressource avec une description des donn
     - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
+
+### S'abonner à un favori
+
+Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
+
+1.  Ouvrez un favori.
+
+2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
+
+3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
 
 ### Créer un lien vers un favori
 
@@ -2362,17 +2719,67 @@ Si vous souhaitez visualiser une petite partie de votre tableau croisé dynamiqu
 
     Votre séléction s'ouvre sous forme de carte.
 
-# Using the Data Visualizer app
+# Data Visualizer
+
+<!--DHIS2-SECTION-ID:data_visualizer-->
+
+## Creating and editing charts
+
+When you open the data-visualizer app from the dhis2 menu, you are presented with a blank slate and you can start creating your chart right away.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-new.png)
+
+Select the desired chart type from the selector in the upper left corner:
+
+![](resources/images/content/user/data-visualizer/data-visualizer-chart-type.png)
+
+From the dimension menu on the left you can select the dimension you want to show in your chart, including data, period, organisation units and dynamic dimensions.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-dimensions.png)
+
+You can also change the selections by clicking on the chips in the layout area.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-layout-area.png)
+
+## Adding more axes
+
+When combining data with different measurement scales you will get a more meaningful visualization by having more than a single axis. For "column", "bar" and "line" charts you can do so by clicking "Manage axes" in the series dimension's context menu.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-axis-management-menu-option.png)
+
+In the axis management dialog you can assign data items to the two axes.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-axis-management-dialog.png)
+
+## Viewing chart interpretations
+
+When viewing a chart, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The chart description will also be shown. The description suppots rich text format.
+
+To view the chart according to the date of a particular interpretation, click on the interpretation or its "View" button. This will regenerate the chart with the relevant date, which is indicated next to the chart title.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-view-interpretation.png)
+
+Clicking on "Back to all interpretations" or the "Exit View" button inside the interpretations panel will clear the interpretation and regenerate the chart with the current date.
+
+## See chart as map
+
+Sometimes it can be useful to see how visualization would look like on map. To achieve this you can select "Open as: Map" chart type after you build your chart.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-open-as-map.png)
+
+# Classic Data Visualizer (deprecated)
 
 <!--DHIS2-SECTION-ID:data_vis-->
 
-## A propos de l'application de visualisation de données
+This chapter refers to the legacy version of the data visualizer. For the current version, please refer to the [new data visualizer](./data_visualizer.html) chapter.
+
+## About the Classic Data Visualizer app
 
 <!--DHIS2-SECTION-ID:data_vis_intro-->
 
 ![](resources/images/content/user/visualizer/column_chart.png)
 
-Avec l'application de **Visualisation de données**, vous pouvez sélectionner un contenu, par exemple des indicateurs, des éléments de données, périodes et unités d'organisation pour une analyse. L'application fonctionne correctement avec une faible connection Internet, et génère des graphiques dans un navigateur Web.
+With the ** Classic Data Visualizer** app, you can select content, for example indicators, data elements, periods and organisation units, for an analysis. The app works well over poor Internet connections and generates charts in the web browser.
 
 > **Astuce**
 >
@@ -2384,7 +2791,7 @@ Avec l'application de **Visualisation de données**, vous pouvez sélectionner u
 
 <!--DHIS2-SECTION-ID:datavis_create_chart-->
 
-1.  Ouvrez l'application **Visualiseur de Données** et sélectionnez un type de graphique.
+1.  Open the **Classic Data Visualizer** app and select a chart type.
 
 2.  Dans le menu de gauche, sélectionnez les métadonnées que vous souhaitez analyser. Vous devez sélectionner un ou plusieurs éléments parmi les trois dimensions - données (indicateurs, éléments de données, taux de reporting), périodes (relatives, fixes) et unités d'organisation (unités ou groupes).
 
@@ -2404,7 +2811,7 @@ Avec l'application de **Visualisation de données**, vous pouvez sélectionner u
 
 <!--DHIS2-SECTION-ID:datavis_chart_types-->
 
-L'application **Visualiseur de données** comporte neuf types de graphiques différents, chacun avec des caractéristiques spécifiques. Pour sélectionner un type de graphique:
+The **Classic Data Visualizer** app has nine different chart types, each with different characteristics. To select a chart type:
 
 1.  Dans **Type de graphique**, cliquez sur le type de graphique dont vous avez besoin.
 
@@ -2483,7 +2890,7 @@ Une dimension fait référence aux éléments décrivant les valeurs de données
 
 - Unités d'organisation: Décrit où l'événement a eu lieu.
 
-L'application de visualisation de données vous permet d'utiliser ces dimensions flexibles en termes d'apparition sous forme de séries, de catégories et de filtres.
+The Classic Data Visualizer app lets you use these dimensions completely flexible in terms of appearing as series, categories and filter.
 
 > **Note**
 >
@@ -2499,7 +2906,7 @@ L'application de visualisation de données vous permet d'utiliser ces dimensions
 
 ### Sélectionner des indicateurs
 
-L'application de visualisation de données peut afficher un nombre illimité d'indicateurs et d'éléments de données dans un graphique. Vous pouvez sélectionner les indicateurs et les éléments de données à afficher dans le même graphique, avec leur ordre d'apparition identique à l'ordre dans lequel ils sont sélectionnés.
+The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
 
 1.  Cliquez sur **Données** et sélectionnez **Indicateurs**.
 
@@ -2513,7 +2920,7 @@ L'application de visualisation de données peut afficher un nombre illimité d'i
 
 ### Sélectionner des éléments de données
 
-L'application de visualisation de données peut afficher un nombre illimité d'indicateurs et d'éléments de données dans un graphique. Vous pouvez sélectionner les indicateurs et les éléments de données à afficher dans le même graphique, avec leur ordre d'apparition identique à l'ordre dans lequel ils sont sélectionnés.
+The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
 
 1.  Cliquez sur **Données** et sélectionnez **Eléments de données**.
 
@@ -2527,7 +2934,7 @@ L'application de visualisation de données peut afficher un nombre illimité d'i
 
 ### Sélectionner des taux de reporting
 
-L'application de visualisation de données peut afficher les taux de reporting uniquement sous forme de graphique, ou avec des indicateurs et des éléments de données. Les taux de reporting sont définis par des sets de données.
+The Classic Data Visualizer app can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates are defined by data sets.
 
 1.  Cliquez sur **Données** et sélectionnez **taux de reporting**.
 
@@ -2784,7 +3191,7 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 1.  Cliquez sur **Favoris** \> **Sauvegarder**.
 
-2.  Entrez un **Nom** et une **Description** à votre favori.
+2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
 
 3.  Cliquez sur **Sauvegarder**.
 
@@ -2802,7 +3209,9 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez retrouver cette information dans l'application **Tableau de bord**.
+2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
+
+    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -2815,6 +3224,16 @@ Une interprétation est un lien vers une ressource avec une description des donn
     - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
+
+### S'abonner à un favori
+
+Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
+
+1.  Ouvrez un favori.
+
+2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
+
+3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
 
 ### Créer un lien vers un favori
 
@@ -2986,7 +3405,7 @@ Vous pouvez utiliser quatre calques vectoriels pour créer une carte thématique
 
     - calque d'installation
 
-    - calque limite
+    - couche frontière
 
     - Calque thématique 1 - 4
 
@@ -3169,33 +3588,33 @@ Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Fro
 Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
 
 <table>
-<caption> Afficher les informations de l'unité d'organisation </caption>
+<caption>View organisation unit information</caption>
 <colgroup>
-<col style="width:40%"/>
-<col style="width:59%"/>
+<col style="width: 40%" />
+<col style="width: 59%" />
 </colgroup>
 <thead>
-<trclass ="header">
-<th>Fonction</th>
+<tr class="header">
+<th>Function</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
-<trclass="impair">
-<td><p> Afficher les informations pour la période en cours </p></td>
-<td><ol style="list-style-type: decimal">
-<li><p> Cliquez sur une infrastructure.</p></li>
+<tr class="odd">
+<td><p>View information for the current period</p></td>
+<td><ol type="1">
+<li><p>Click a facility.</p></li>
 </ol></td>
 </tr>
-<trclass="even">
-<td><p>Afficher les informations pour une période sélectionnée</p></td>
-<td><ol style="list-style-type: decimal">
-<li><p>Faites un clique droit sur une infrastructure, puis cliquez sur <strong>Afficher les informations</strong>.</p> </li>
-<li><p>Dans la section <strong>Données de l'infrastructure</strong>, sélectionnez une période.</p> </li>
+<tr class="even">
+<td><p>View information for a selected period</p></td>
+<td><ol type="1">
+<li><p>Right-click a facility and click <strong>Show information</strong>.</p></li>
+<li><p>In the <strong>Infrastructural data</strong> section, select a period.</p></li>
 </ol>
 <blockquote>
-<p><strong> Remarque </strong></p>
-<p> Vous configurez les données d'infrastructure affichées dans l'application <strong>Paramètres système</strong>.</p>
+<p><strong>Note</strong></p>
+<p>You configure the displayed infrastructural data in the <strong>System Settings</strong> app.</p>
 </blockquote></td>
 </tr>
 </tbody>
@@ -3629,7 +4048,7 @@ Lorsque vous avez créé une carte, vous pouvez la visualiser sous forme de tabl
 
 L'application Maps est introduite dans la version 2.29 et sert de remplacement DE l'application GIS en offrant une interface plus intuitive et conviviale.
 
-Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir parmi différentes cartes de base. Vous pouvez créer des cartes thématiques de zones et de points, visualiser les établissements en fonction des classifications et visualiser les bassins versants pour chaque infrastructure. Vous pouvez marquer les zones et les points et effectuer une recherche et filtrer en utilisant divers critères. Vous pouvez déplacer des points et définir des emplacements à la volée. Les cartes peuvent être enregistrées en tant que favorites et partagées avec d'autres utilisateurs et groupes d'utilisateurs.
+With the Maps app you can overlay multiple layers and choose among different base maps. You can create thematic maps of areas and points, view facilities based on classifications, and visualize catchment areas for each facility. You can add labels to areas and points, and search and filter using various criteria. You can move points and set locations on the fly. Maps can be saved as favorites and shared with other users and groups, or downloaded as an image.
 
 > **Note**
 >
@@ -3639,7 +4058,7 @@ Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir par
 
 - Le panneau **calques** situé à gauche de l'espace de travail affiche un aperçu des couches cartographiques pour la carte actuelle:
 
-  - Au fur et à mesure que vous ajoutez des calques, utilisez le bouton (+) Ajouter un calque, ils sont organisés et gérés dans ce panneau.
+  - As layers are added, using the **(+) Add layer** button, they are arranged and managed in this panel.
 
   - La **carte de référence** est toujours affichée dans le panneau. La carte de référence est OSM Light et est sélectionnée par défaut. OpenStreetMap Detaild, Google Streets et Google Hybrid sont également disponibles. Vous pouvez utiliser ces cartes en arrière-plans. Passez d'une carte à une autre en séléctionnant l'image souhaitée.
 
@@ -3647,31 +4066,55 @@ Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir par
 
 <!-- end list -->
 
-- Le bouton **Favoris** en haut à gauche vous permet de sauvegarder et d'ouvrer les cartes:
+- The **File** button near the top left allows you to open and save maps:
 
   - Nouveau
 
-    effacera tous les calques existants pour créer une nouvelle carte thématique.
+    will clear any existing map layers to create a new map.
 
   - Ouvrir
 
-    affichera une boîte de dialogue **Favoris** pour sélectionner une carte thématique. Les favoris peuvent également être renommés, partagés et supprimés à travers la boîte de dialogue Favoris. _Le titre du favori actuel s'affiche dans l'en-tête au-dessus du bouton Favoris._
+    will display a dialog box with a list of existing maps where they be opened, renamed, shared and deleted. _The title of the current map is displayed in the header bar above the File button._
 
   - Sauvegarder
 
-    enregistrera toutes les modifications apportées au favori actuel.
+    will save any changes to the current map.
 
   - Enregistrer sous
 
-    sous enregistrera la carte thématique actuelle en tant que nouveau favori.
+    will save the current map with a new name.
 
-  - Écrire l'interprétation
+  - Rename
 
-    ouvrira un dialogue où une interprétation pour le courant favori peut être rédigée.
+    allows you to change the name and/or description of the current map.
+
+  - Translate
+
+    allows you to translate the name and/or description of the current map.
+
+  - Share
+
+    will open a dialog where the current map can be shared with everyone or a group of users.
 
   - Obtenir le lien
 
-    fournira un lien direct et un lien API vers le favori actuel.
+    will provide a direct link to the current map.
+
+  - Delete
+
+    deletes the current map.
+
+<!-- end list -->
+
+- The **Download** button next to the File button allows you to download the current map as a PNG image.
+
+<!-- end list -->
+
+- The **Interpretations** button at top right opens an interpretations panel on the right side of the workspace. The button is only clickable if the map is saved.
+
+  - **Map details** shows information about the current map.
+
+  - **Interpretations** allows you to view, add, edit and share interpretations about the current map.
 
 <!-- end list -->
 
@@ -3687,10 +4130,6 @@ Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir par
 
 - Faites un clic droit sur la carte pour afficher la longitude et la latitude de cet emplacement.
 
-- L'icône d'accueil en haut à droite de l'espace de travail vous ramènera dans le tableau de bord DHIS2.
-
-- Le bouton À propos affiche les informations sur la version du système.
-
 **Carte de référence**
 
 Les calques de la carte de référence sont représentées par des calques _cartes_ dans le panneau comme:
@@ -3701,13 +4140,13 @@ En haut de la carte de référence, de gauche à droite, se trouvent:
 
 - Le titre de la carte de référence sélectionnée
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de référence
 
 Au milieu de la carte de fond de référence figure la liste des cartes de référence disponibles. la carte de référence actuelle est mise en surbrillance.
 
 En bas de la carte de référence se trouvent:
+
+- Un symbole d'oeil pour basculer la visibilité du calque
 
 - Un curseur pour modifier la transparence du calque
 
@@ -3723,13 +4162,15 @@ En bas de la carte de référence se trouvent:
 
 3.  Sélectionnez un calque à ajouter à la carte actuelle. Les options possibles sont:
 
+    - [Thématique](#using_maps_thematic_layer)
+
     - [Événements](#using_maps_event_layer)
+
+    - [Tracked entities](#using_maps_tracked_entity_layer)
 
     - [Infrastructure](#using_maps_facility_layer)
 
-    - [Thématique](#using_maps_thematic_layer)
-
-    - [Frontières](#using_maps_thematic_layer)
+    - [Frontières](#using_maps_boundary_layer)
 
     En outre, il existe plusieurs calques fournis par Google Earth et autres services:
 
@@ -3745,13 +4186,211 @@ En bas de la carte de référence se trouvent:
 
     - Lumières nocturnes
 
-    _Superposition de calques_ est un calque externe] (#using_maps_external_map_layers) défini dans la base de données utilisée pour l'exemple ci-dessus
+    _Labels overlay_ is an [external layer](#using_maps_external_map_layers) defined in the Maintenance app.
+
+## Gérer les calques thématiques
+
+<!--DHIS2-SECTION-ID:using_maps_thematic_layer-->
+
+_Les calques thématiques_ représentent la variation spatiale des distributions géographiques. Sélectionnez votre combinaison indicateur/élément de données, période et niveau de l'unité d'organisation. Si votre base de données contient des coordonnées et des valeurs de données agrégées pour ces unités d'organisation, elles apparaîtront sur la carte.
+
+> **Note**
+>
+> You must generate the DHIS2 analytics tables to have aggregated data values available.
+
+![](resources/images/content/user/maps/maps_thematic_mapping.png)
+
+Les calques thématiques sont représentés par des calques _ cartes _ dans le panneau des calques, par exemple
+
+En haut de la carte thématique, de gauche à droite, vous trouverez:
+
+- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+
+- Le titre et la période associés au calque
+
+- Un symbole de flèche pour réduire et développer la carte thématique
+
+Au centre de la carte thématique se trouve une légende indiquant les plages de valeurs affichées sur le calque.
+
+En bas de la carte thématique, de gauche à droite, se trouvent:
+
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+
+- Un symbole d'oeil pour basculer la visibilité du calque
+
+- Un curseur pour modifier la transparence du calque
+
+- A more actions (three dots) button with additional options:
+
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
+
+### Créer un calque thématique
+
+To create an event layer, choose **Thematic** on the **Add layer** selection. This opens the Events layer configuration dialog.
+
+1.  Dans l'onglet **DATA**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_DATA.png)
+
+    - Sélectionnez un type de données puis sélectionnez respectivement le groupe et l'élément cible. Les champs disponibles dépendent du type d'article sélectionné.
+
+    - Sélectionnez une valeur dans le champ **Type d'agrégation** pour les valeurs de données à afficher sur la carte. Par défaut, "Par élément de données" est sélectionné. Les valeurs alternatives sont: Nombre; Moyenne; Somme; Norme déviation; Variance; Min; Max. Voir également [Aggregation operators](https://dhis2.github.io/dhis2-docs/master/en/user/html/ch10s05.html#d0e8082).
+
+2.  Dans l'onglet **PÉRIODE**
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_PERIOD.png)
+
+    - sélectionnez la période sur laquelle les données thématiques sont agrégées. Vous pouvez sélectionner une période fixe ou une période relative.
+
+      - Période fixe
+
+        Dans le champ **Type de période**, sélectionnez la longueur de la période, puis sélectionnez la cible dans le champ **Période**.
+
+      - Période relative
+
+        Dans le champ **Type de période**, sélectionnez **Relatif**, puis sélectionnez une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**, dans le champ **Période**.
+
+      - Start/end dates
+
+        In the **Period type** field select **Start/end dates** and fill in a start date and an end date.
+
+3.  Dans l'onglet **Unités d'Org.**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_ORG_UNITS.png)
+
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+
+      - One or more specific organisation units, organisation unit levels in the hierarchy, organisation unit groups, or
+
+      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+
+4.  Dans l'onglet **FILTRE**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_FILTER.png)
+
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+
+      - Select a data dimension from the drop down box. You can reduce the number of dimensions shown by using the search field. Click on the name to select a dimension.
+
+      - When a dimension is selected you get a second drop down with dimension items. Check the items you want to include in the filter.
+
+      Multiple filters may be added. Click the trash button on the right of the filter to remove it.
+
+<!--DHIS2-SECTION-ID:using_maps_thematic_layer_style-->
+
+5.  Dans l'onglet **STYLE**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_STYLE.png)
+
+    - Sélectionnez la légende **Automatique** ou **Prédéfinie**.
+
+      - Les types de légende automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait allusion à la taille des classes de légende. Configuerez :
+
+        - des intervalles égaux
+
+          la plage de chaque intervalle sera **(la plus haute valeur de données - la plus basse valeur de données / nombre de classes)**
+
+        - Comptes égaux
+
+          le créateur de la légende tente de distribuer les unités d'organisation uniformément.
+
+      - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
+
+6.  Cliquez sur **AJOUTER UN CALQUE**.
+
+### Modifier un calque thématique
+
+1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
+
+2.  Modify the setting on any of the tabs as desired.
+
+3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+
+### Filtrer les valeurs dans un calque thématique
+
+Les calques thématiques ont une option **table de données** qui peut être activée ou désactivée.
+
+![](resources/images/content/user/maps/maps_thematic_layer_data_table.png)
+
+La table de données affiche les données qui forment le calque thématique.
+
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+
+- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+
+  - NOM
+
+    filtrer par nom dans le texte donné
+
+  - VALEUR
+
+    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple: 2,\>3&\<8
+
+  - LÉGENDE
+
+    filtrer par légende dans le texte donné
+
+  - INTERVALLE
+
+    filtrer par plages dans le texte donné
+
+  - NIVEAU
+
+    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
+
+  - PARENT
+
+    filtrer par noms de parent dans le texte donné
+
+  - Identifiant
+
+    filtrer par Identifiant le texte donné
+
+  - TYPE
+
+    filtrer par types d'affichage GIS dans le texte donné
+
+  - COULEUR
+
+    filtrer par noms de couleurs dans le texte donné
+
+> **Note**
+>
+> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+
+### Rechercher une unité d'organisation
+
+Le champ de filtre NOM dans la table de données constitue un moyen efficace de rechercher des unités organisationnelles individuelles.
+
+### Naviguer entre les hiérarchies d'organisation
+
+Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
+
+1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
+
+2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
+
+    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Du même principe, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
+
+### Supprimer le calque thématique
+
+Pour effacer toutes les données d'un calque thématique:
+
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
+
+    Le calque est supprimé de la carte actuelle.
 
 ## Gérer les calques d'événement
 
 <!--DHIS2-SECTION-ID:using_maps_event_layer-->
 
-Le calque d'événements affiche l'emplacement géographique des événements enregistrés dans le suivi de DHIS2. À condition que les événements aient des coordonnées GPS associées, vous pouvez utiliser ce calque pour passer des données agrégées affichées dans les calques thématiques à l'événement sous-jacent.
+The event layer displays the geographical location of events registered in the DHIS2 tracker. Provided that events have associated point or polygon coordinates, you can use this layer to drill down from the aggregated data displayed in the thematic layers to the underlying individual events or cases.
 
 Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
 
@@ -3765,8 +4404,6 @@ En haut de la carte de l'événement, de gauche à droite, se trouvent:
 
 - Le titre et la période associés au calque
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de l'événement
 
 Au centre de la carte de l'événement se trouve une légende indiquant le style du calque.
@@ -3775,15 +4412,23 @@ En bas de la carte de l'événement, de gauche à droite, se trouvent:
 
 - Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
 
+- Un symbole d'oeil pour basculer la visibilité du calque
+
 - Un curseur pour modifier la transparence du calque
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- A more actions (three dots) button with additional options:
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
 
 ### Créer un calque d'événement
 
 <!--DHIS2-SECTION-ID:maps_create_event_layer-->
 
-Pour créer un calque d'événements, choisissez **Evénements** dans la fenêtre **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque d'événements.
+To create an event layer, choose **Events** on the **Add layer** selection. This opens the Events layer configuration dialog.
 
 1.  Dans l'onglet **DATA**:
 
@@ -3809,19 +4454,7 @@ Pour créer un calque d'événements, choisissez **Evénements** dans la fenêtr
 
         Dans le champ **Période**, sélectionnez l'une des périodes relatives. par exemple **Ce mois** ou **L'année dernière**.
 
-3.  Dans l'onglet **FILTRE**:
-
-    ![](resources/images/content/user/maps/maps_event_layer_dialog_FILTER.png)
-
-    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
-
-      - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
-
-      - Pour les données de type _set d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
-
-      Plusieurs filtres peuvent être ajoutés. Cliquez sur le X à l'extrême droite du filtre pour l'enlever.
-
-4.  Dans l'onglet **Unités d'Org.**:
+3.  Dans l'onglet **Unités d'Org.**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_ORG_UNITS.png)
 
@@ -3831,15 +4464,41 @@ Pour créer un calque d'événements, choisissez **Evénements** dans la fenêtr
 
       - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
 
+4.  Dans l'onglet **FILTRE**:
+
+    ![](resources/images/content/user/maps/maps_event_layer_dialog_FILTER.png)
+
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+
+      - Pour les données de type _set d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
+
+      - For data item of type _number_, you can select operators like equal, not equal, greater than or less than.
+
+      - For data item og type _boolean_ (yes/no), you can check the box if the condition should be valid or true.
+
+      - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
+
+      Multiple filters may be added. Click the trash button on the right of the filter to remove it.
+
 5.  Dans l'onglet **STYLE**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_STYLE.png)
 
-    - Sélectionnez **Événements de groupe** pour regrouper des événements à proximité, ou **afficher tous les événements** pour afficher les événements individuellement.
+    - Select **Group events** to group nearby events (cluster), or **View all events** to display events individually.
 
-    - Sélectionnez une couleur pour les points d'événement ou regroupement d'événements.
+    - Select a **color** for the event or cluster points.
 
-    - Sélectionnez le rayon (entre 1 et 20) pour les événements regroupés; également connu sous le nom de **clusters**.
+    - Select the **radius** (between 1 and 20) for the events.
+
+    - Select **Show buffer** to display visual buffer around each event. The radius of the buffer can be modified here. This option is only available if you select **View all events** above.
+
+    - Select a **Style by data element** to colorise the events according to a data value. The options varies for different data types:
+
+      - **Option sets**: Select a color for each option in an option set. You can set default colors for an option in the Maintenance app.
+
+      - **Numbers**: You can style a numeric data element in [the same way as thematic layers](#using_maps_thematic_layer_style) using automatic or predefined legends.
+
+      - **Booleans**: Select a color for true/yes and another for false/no.
 
 6.  Cliquez sur **AJOUTER UN CALQUE**.
 
@@ -3871,11 +4530,147 @@ Pour les événements dans une carte cluster, vous pouvez modifier les informati
 
 7.  Cliquez sur **Mettre à jour**.
 
+### Download raw event layer data
+
+The raw data for event layers can be downloaded in GeoJSON format for more advanced geo-analytics and processing in desktop GIS software such as [QGIS](https://www.qgis.org/). The downloaded data includes all individual events as GeoJSON features, including attributes for each data element selected for **Display in reports**.
+
+![](resources/images/content/user/maps/maps_data_download_dialog.png)
+
+- In the layer card to the left, click the _more actions_ (three dots) icon and then on **Download data**
+
+- Select the **ID format** to use as the key for Data Element values in the downloaded GeoJSON file. There are three options available:
+
+  - **ID** - Use the unique ID of the data element
+  - **Name** - Use the human-friendly name of the data element (translated)
+  - **Code** - Use the code of the data element
+
+- Select whether or not to **Use human-readable keys** for other Event attributes, such as Program Stage, Latitude, Longitude, Event Data, and Organization Unit ID, Name, and Code. When this option is **not** selected these values will be the computer-friendly ID instead of the human-readable (and translated) name.
+
+- Click the **DOWNLOAD** button to generate and download a GeoJSON file. The data will be requested from the DHIS2 server and processed by the maps application. This operation may take several minutes to complete.
+
+- Once the GeoJSON file has been downloaded it can be imported into most standard GIS software applications.
+
+> Note that the downloaded data does not include style information as it is not natively supported by the GeoJSON format. Styles can optionally be recreated in external GIS applications using the attributes of each feature.
+
 ### Effacer le calque de l'événement
 
 Pour effacer toutes les données de calque d'un événement d'une carte:
 
-1.  Dans le panneau des calques, cliquez sur l'icône de suppression (corbeille) du calque de l'événement d'une carte.
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
+
+    Le calque est supprimé de la carte actuelle.
+
+## Manage tracked entity layers
+
+<!--DHIS2-SECTION-ID:using_maps_tracked_entity_layer-->
+
+The tracked entity layer displays the geographical location of tracked entities registered in the DHIS2. Provided that tracked entities have associated point or polygon coordinates, you can explore these on a map.
+
+![](resources/images/content/user/maps/maps_tracked_entity_layer.png)
+
+Tracked entity layers are represented by layer cards in the layer panel such as:
+
+Along the top of the tracked entity card from left to right are:
+
+- A grab field to allow dragging and re-ordering layers with the mouse.
+
+- The title and period associated with the layer.
+
+- An arrow symbol to collapse and expand the tracked entity card.
+
+In the middle of the tracked entity card is a legend indicating the styling of the layer.
+
+Along the bottom of the tracked entity card from left to right are:
+
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+
+- Un symbole d'oeil pour basculer la visibilité du calque
+
+- Un curseur pour modifier la transparence du calque
+
+- A more actions (three dots) button with additional options:
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
+
+### Create a tracked entity layer
+
+<!--DHIS2-SECTION-ID:maps_create_tracked_enity_layer-->
+
+To create an tracked entity layer, choose **Tracked entities** on the **Add layer** selection. This opens the Tracked entity layer configuration dialog.
+
+1.  Dans l'onglet **DATA**:
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_DATA.png)
+
+    - Select the **Tracked Entity Type** you want to show on the map.
+
+    - Select a **Program** where the tracked entities belong.
+
+    - Set the **Program status** to be **Active** or **Completed**.
+
+    - Set the **Follow up** status of the tracked entity for the given program.
+
+2.  In the **Relationships** tab
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_RELATIONSHIPS.png)
+
+    > **Caution**
+    >
+    > Displaying tracked entity relationships in Maps is an experimental feature
+
+    - If a Tracked Entity Type with has been selected, you can select the **Display Tracked Entity relationships** checkbox
+
+    - Once checked, you can select the type of relationship to diplay on the map from the dropdown list. Only relationships FROM the selected Tracked Entity type are available.
+
+3.  Dans l'onglet **PÉRIODE**
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_PERIOD.png)
+
+    - If no program is selected, you can set start and end dates when the tracked entities were last updated.
+
+    - If a program is selected, you can set start and end dates for the program period.
+
+4.  Dans l'onglet **Unités d'Org.**:
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_ORG_UNITS.png)
+
+    - Select the organisation units you want to include in the layer. You have 3 selection modes:
+
+      - **Selected only**: Include tracked entities belonging to selected org units only.
+
+      - **Selected and below**: Included tracked entities in and right below selected org units.
+
+      - **Selected and all below**: Included tracked entities in and all below selected org units.
+
+5.  Dans l'onglet **STYLE**:
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_STYLE.png)
+
+    - Select a **color** for the tracked entities points and polygons.
+
+    - Select the **point size** (radius between 1 and 20) for the points.
+
+    - Select **Show buffer** to display visual buffer around each tracked entity. The buffer distance in meters can be modified here.
+
+    - If a relationship type has been selected on the relationships tab you can select **color**, **point size**, and **line color** for relationships and related tracked entities instances
+
+6.  Click **ADD/UPDATE LAYER**.
+
+### Modify a tracked entity layer
+
+1.  In the layer panel, click the edit (pencil) icon on the tracked entity layer card.
+
+2.  Modify the setting on the DATA, PERIOD, ORG UNIT and STYLE tabs as desired.
+
+3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+
+### Clear a tracked entity layer
+
+To clear a tracked entity layer from a map:
+
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
     Le calque est supprimé de la carte actuelle.
 
@@ -3907,11 +4702,17 @@ En bas de la carte des infrastructures, de gauche à droite, se trouvent:
 
 - Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
 
-- Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
-
 - Un curseur pour modifier la transparence du calque
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- A more actions (three dots) button with additional options:
+
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
 
 ### Créer un calque d'infrastructure
 
@@ -3995,7 +4796,7 @@ Le champ de filtre par NOM dans la table de données constitue un moyen efficace
 
 Pour effacer toutes les données d'un calque
 
-1.  Dans le panneau Calque, cliquez sur l'icône Supprimer (corbeille) du panneau
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
     Le calque est supprimé de la carte actuelle.
 
@@ -4022,217 +4823,41 @@ Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Fro
 Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
 
 <table>
-<caption> Afficher les informations de l'unité d'organisation </caption>
+<caption>View organisation unit information</caption>
 <colgroup>
-<col width="40%"/>
-<col width="59%"/>
+<col style="width: 40%" />
+<col style="width: 59%" />
 </colgroup>
 <thead>
-<trclass ="header">
-<th>Fonction</th>
+<tr class="header">
+<th>Function</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
-<trclass="impair">
-<td><p> Afficher les informations pour la période en cours </p></td>
-<td><ol style="list-style-type: decimal">
-<li><p> Cliquez sur une infrastructure.</p></li>
+<tr class="odd">
+<td><p>View information for the current period</p></td>
+<td><ol type="1">
+<li><p>Click a facility.</p></li>
 </ol></td>
 </tr>
-<trclass="even">
-<td><p> Afficher les informations pour une période sélectionnée </p></td>
-<td><ol style="list-style-type: decimal">
-<li><p> Faites un clique droit sur une infrastructure, puis cliquez sur <strong> Afficher les informations </strong>.</p> </li>
-<li><p> Dans la section <strong> Données de l'infrastructure </strong>, sélectionnez une période. </p> </li>
+<tr class="even">
+<td><p>View information for a selected period</p></td>
+<td><ol type="1">
+<li><p>Right-click a facility and click <strong>Show information</strong>.</p></li>
+<li><p>In the <strong>Infrastructural data</strong> section, select a period.</p></li>
 </ol>
 <blockquote>
-<p><strong> Remarque </strong></p>
-<p> Vous configurez les données d'infrastructure affichées dans l'application <strong> Paramètres système </strong>.</p>
+<p><strong>Note</strong></p>
+<p>You configure the displayed infrastructural data in the <strong>System Settings</strong> app.</p>
 </blockquote></td>
 </tr>
 </tbody>
 </table>
 
-## Gérer les calques thématiques
-
-<!--DHIS2-SECTION-ID:using_maps_thematic_layer-->
-
-_Les calques thématiques_ représentent la variation spatiale des distributions géographiques. Sélectionnez votre combinaison indicateur/élément de données, période et niveau de l'unité d'organisation. Si votre base de données contient des coordonnées et des valeurs de données agrégées pour ces unités d'organisation, elles apparaîtront sur la carte.
-
-> **Note**
->
-> Vous devez actualiser les tables d'analyse DHIS2 pour que les valeurs des données agrégées soient disponibles
-
-![](resources/images/content/user/maps/maps_thematic_mapping.png)
-
-Les calques thématiques sont représentés par des calques _ cartes _ dans le panneau des calques, par exemple
-
-En haut de la carte thématique, de gauche à droite, vous trouverez:
-
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
-
-- Le titre et la période associés au calque
-
-- Un symbole d'oeil pour basculer la visibilité du calque
-
-- Un symbole de flèche pour réduire et développer la carte thématique
-
-Au centre de la carte thématique se trouve une légende indiquant les plages de valeurs affichées sur le calque.
-
-En bas de la carte thématique, de gauche à droite, se trouvent:
-
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
-
-- Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
-
-- Un curseur pour modifier la transparence du calque
-
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
-
-### Créer un calque thématique
-
-Pour créer un calque d'événement, choisissez **Thématique** dans la section **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque d'événements.
-
-1.  Dans l'onglet **DATA**:
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_DATA.png)
-
-    - Sélectionnez un type de données puis sélectionnez respectivement le groupe et l'élément cible. Les champs disponibles dépendent du type d'article sélectionné.
-
-    - Sélectionnez une valeur dans le champ **Type d'agrégation** pour les valeurs de données à afficher sur la carte. Par défaut, "Par élément de données" est sélectionné. Les valeurs alternatives sont: Nombre; Moyenne; Somme; Norme déviation; Variance; Min; Max. Voir également [Aggregation operators](https://dhis2.github.io/dhis2-docs/master/en/user/html/ch10s05.html#d0e8082).
-
-2.  Dans l'onglet **PÉRIODE**
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_PERIOD.png)
-
-    - sélectionnez la période sur laquelle les données thématiques sont agrégées. Vous pouvez sélectionner une période fixe ou une période relative.
-
-      - Période fixe
-
-        Dans le champ **Type de période**, sélectionnez la longueur de la période, puis sélectionnez la cible dans le champ **Période**.
-
-      - Période relative
-
-        Dans le champ **Type de période**, sélectionnez **Relatif**, puis sélectionnez une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**, dans le champ **Période**.
-
-3.  Dans l'onglet **Unités d'Org.**:
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_ORG_UNITS.png)
-
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
-
-      - une ou plusieurs unités d'organisation spécifiques, ou
-
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
-
-4.  Dans l'onglet **STYLE**:
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_STYLE.png)
-
-    - Sélectionnez la légende **Automatique** ou **Prédéfinie**.
-
-      - Les types de légende automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait allusion à la taille des classes de légende. Configuerez :
-
-        - des intervalles égaux
-
-          la plage de chaque intervalle sera **(la plus haute valeur de données - la plus basse valeur de données / nombre de classes)**
-
-        <!-- end list -->
-
-        - Comptes égaux
-
-          le créateur de la légende tente de distribuer les unités d'organisation uniformément.
-
-      - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
-
-5.  Cliquez sur **AJOUTER UN CALQUE**.
-
-### Modifier un calque thématique
-
-1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
-
-2.  Modifiez le réglage des onglets DATA, PERIODe, UNITES D'ORG et STYLE comme vous le souhaitez.
-
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
-
-### Filtrer les valeurs dans un calque thématique
-
-Les calques thématiques ont une option **table de données** qui peut être activée ou désactivée.
-
-![](resources/images/content/user/maps/maps_thematic_layer_data_table0.png)
-
-La table de données affiche les données qui forment le calque thématique.
-
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
-
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
-
-  - NOM
-
-    filtrer par nom dans le texte donné
-
-  - VALEUR
-
-    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple: 2,\>3&\<8
-
-  - LÉGENDE
-
-    filtrer par légende dans le texte donné
-
-  - INTERVALLE
-
-    filtrer par plages dans le texte donné
-
-  - NIVEAU
-
-    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
-
-  - PARENT
-
-    filtrer par noms de parent dans le texte donné
-
-  - Identifiant
-
-    filtrer par Identifiant le texte donné
-
-  - TYPE
-
-    filtrer par types d'affichage GIS dans le texte donné
-
-  - COULEUR
-
-    filtrer par noms de couleurs dans le texte donné
-
-![](resources/images/content/user/maps/maps_thematic_layer_data_table1.png)
-
-> **Note**
->
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
-
-### Rechercher une unité d'organisation
-
-Le champ de filtre NOM dans la table de données constitue un moyen efficace de rechercher des unités organisationnelles individuelles.
-
-### Naviguer entre les hiérarchies d'organisation
-
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
-
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
-
-2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
-
-    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Du même principe, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
-
-### Supprimer le calque thématique
-
-Pour effacer toutes les données d'un calque thématique:
-
-1.  Dans le panneau Calque, cliquez sur l'icône Supprimer (corbeille) du panneau du calque
-
-    Le calque est supprimé de la carte actuelle.
-
 ## Gérer les calques limites
+
+<!--DHIS2-SECTION-ID:using_maps_boundary_layer-->
 
 Le calque limite affiche les bordures et les emplacements de votre unité d'organisation. Ce calque est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
 
@@ -4246,19 +4871,25 @@ En haut de la carte de délimitation de gauche à droite se trouvent:
 
 - Le titre **limites**
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de délimitation
 
 Au bas de la carte de délimitation, de gauche à droite, se trouvent:
 
 - Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
 
-- Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+- Un symbole d'oeil pour basculer la visibilité du calque
 
 - Un curseur pour modifier la transparence du calque
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- A more actions (three dots) button with additional options:
+
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
 
 ### Créer un calque limite
 
@@ -4354,7 +4985,7 @@ Vous pouvez modifier la cible de la couche limite dans la hiérarchie sans en ut
 
 Pour effacer toutes les données d'un calque limite:
 
-1.  Dans le panneau Calque, cliquez sur l'icône Supprimer (corbeille) du panneau calque
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
     Le calque est supprimé de la carte actuelle.
 
@@ -4414,8 +5045,6 @@ En haut de la carte superposée, de gauche à droite, vous trouverez:
 
 - le titre du calque de la carte externe
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de superposition
 
 En bas de la carte de superposition, de gauche à droite, se trouvent:
@@ -4432,105 +5061,79 @@ Voici quelques exemples de calques externes:
 
 ![](resources/images/content/user/maps/maps_aerial_imagery.png)
 
-> **Note**
->
-> Pour définir des calques de cartes externes, reportez-vous à la [???](#manage_external_maplayer).
+## File menu
 
-## Gérer les cartes favorites
+<!--DHIS2-SECTION-ID:using_maps_file_menu-->
 
-<!--DHIS2-SECTION-ID:using_maps_favorites-->
+Use the **File menu** to manage your maps. Several menu items will be disabled until you open or save a map.
 
-L'enregistrement de vos cartes en tant que favoris facilite leur restauration ultérieure. Cela vous vous permet également de les partager avec d'autres utilisateurs en tant qu'interprétation ou de les mettre sur le tableau de bord. Vous pouvez enregistrer tous les types de configurations de calques en tant que favoris.
+Saving your maps makes it easy to restore them later. It also gives you the opportunity to share them with other users as an interpretation or put it on the dashboard. You can save all types of layer configurations as a favorite.
 
-### Ouvrir un favori
+### Créer une nouvelle carte
 
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
+Click **File** \> **New**.
 
-    La boîte de dialogue **Favoris** s'ouvre.
+NB\! This will clear the current map layers you have without saving.
 
-2.  Recherchez le favori que vous souhaitez ouvrir. Vous pouvez soit utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori préalablement enregistré. La liste est filtrée par chaque caractère que vous entrez.
+### Open a new map
 
-3.  Cliquez sur le nom pour ouvrir ce favori.
+1.  Click **File** \> **Open**. A dialog box opens with a list of maps.
 
-### Enregistrer une carte en tant que nouveau favori
+2.  Find the favorite you want to open. You can either use \< and \> or the search field to find a saved map. The list is filtered on every character that you enter. You can filter the list by selecting **Show all**, **Created by me** or **Created by others**.
 
-Lorsque vous avez créé une carte, il est pratique de l'enregistrer en tant que favori:
+3.  Click the name of the map you want to open.
 
-1.  Sélectionnez **Enregistrer sous** dans le menu **Favoris**.
+### Save a map
 
-    La boîte de dialogue **Enregistrer comme nouveau favori** s'ouvre.
+When you have created a map it is convenient to save it for later use:
 
-2.  Dans le champ de texte, tapez le nom que vous voulez donner à votre carte
+1.  Click **File** \> **Save**.
+
+2.  Enter a **Name** (required) and a **Description** (optional) the first time you save a map.
 
 3.  Cliquez sur **SAUVEGARDER**.
 
-    Votre favori est ajouté à la liste.
+### Save a copy of a map
 
-### Remplacer le favori actuel
+1.  Click **File** \> **Save as...**
 
-Sélectionnez **SAUVEGARDER** dans le menu **Favoris**.
+2.  Enter a **Name** (required) and a **Description** (optional) for the map.
 
-### Renommer un favori
+3.  Cliquez sur **SAUVEGARDER**.
 
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
+### Rename a map
 
-    La boîte de dialogue **Favoris** s'ouvre.
+1.  Click **File** \> **Rename**.
 
-2.  Recherchez le favori que vous souhaitez renommer.
+2.  Enter a new **Name** and/or **Description** for your map.
 
-    Vous pouvez utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori enregistré.
+3.  Click **RENAME**. The map is updated.
 
-3.  Cliquez sur l'icône Plus d'options (trois points) à droite de la ligne du favori et sélectionnez **Renommer**.
+### Translate a map
 
-    La boîte de dialogue **Renommer le favori** s'ouvre.
+1.  Click **File** \> **Translate**.
 
-4.  Modifiez le nom et/ou la description.
+2.  Select the **Locale** (language) your translation.
 
-5.  Cliquez sur **SAUVEGARDER**.
+3.  Enter a translated **Name** and **Description**. The original text will show below the field.
 
-    Le favori est mis à jour.
+4.  Cliquez sur **SAUVEGARDER**.
 
-### Supprimer un favori
+### Modify sharing settings for a map
 
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
+After you have created a map and saved it, you can share the map with everyone or a user group. To modify the sharing settings:
 
-    La boîte de dialogue **Favoris** s'ouvre.
+1.  Click **File** \> **Share**. The sharing settings dialog opens.
 
-2.  Recherchez le favori que vous souhaitez supprimer.
-
-    Vous pouvez utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône Plus d'options (trois points) à droite de la ligne du favori et sélectionnez **Supprimer**.
-
-    Une boîte de dialogue de confirmation s'affiche.
-
-4.  Cliquez sur **SUPPRIMER** pour confirmer que vous souhaitez supprimer le favori.
-
-### Modifier les paramètres de partage d'un favori
-
-Après avoir créé une carte et l'avoir enregistrée en tant que document favori, vous pouvez la partager avec tout les utilisateurs ou un groupe d'utilisateurs. Pour modifier les paramètres de partage :
-
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
-
-    La boîte de dialogue **Favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez partager.
-
-    Vous pouvez utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône Plus d'options (trois points) à droite de la ligne du favori et sélectionnez **Partager**.
-
-    La boîte de dialogue **Paramètres de partage** s'ouvre.
-
-4.  Dans la zone de texte, recherchez le nom de l'utilisateur ou du groupe d'utilisateurs avec lequel vous souhaitez partager votre favori et sélectionnez-le.
+2.  Dans la zone de texte, recherchez le nom de l'utilisateur ou du groupe d'utilisateurs avec lequel vous souhaitez partager votre favori et sélectionnez-le.
 
     L'utilisateur ou le groupe choisi est ajouté à la liste des destinataires.
 
     Répétez cette étape pour ajouter plus de groupes d'utilisateurs.
 
-5.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
+3.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
 
-6.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
+4.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
 
     - Aucun (uniquement pour les groupes par défaut, car ils ne peuvent pas être supprimés)
 
@@ -4538,33 +5141,87 @@ Après avoir créé une carte et l'avoir enregistrée en tant que document favor
 
     - Lecture et écriture
 
-7.  Cliquez sur **FERMER** pour fermer la boîte de dialogue.
+5.  Cliquez sur **FERMER** pour fermer la boîte de dialogue.
 
-### Partager l'interprétation d'une carte
+### Get the link to a map
+
+1.  Click **File** \> **Get link**. A link dialog opens.
+
+2.  Copy the link.
+
+### Delete a map
+
+1.  Click **File** \> **Delete**. A confirmation dialog is displayed.
+
+2.  Click **DELETE** to confirm that you want to delete the favorite. Your map is deleted and the layers are cleared from the view.
+
+## Map interpretations
 
 <!--DHIS2-SECTION-ID:mapsInterpretation-->
 
-Pour certaines ressources liées à l'analyse dans DHIS2, vous pouvez partager des données d'interprétation. Une interprétation est un lien vers la ressource pertinente avec un texte exprimant un aperçu des données.
+An interpretation is a description of a map at a given period. This information is visible in the **Dashboard app**. Click **Interpretations** in the top right of the workspace to open the interpretations panel. The button is only clickable if the map is saved.
 
-Pour créer une interprétation d’une carte et la partager avec tous les utilisateurs du système:
+![](resources/images/content/user/maps/maps_interpretations_panel.png)
 
-1.  Sélectionnez **Ecrire une interprétation** dans le menu **Favoris**.
+### Afficher les interprétations basées sur des périodes relatives
 
-    La boîte de dialogue **Ecrire interprétation** s'ouvre.
+Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation.
+1.  Ouvrez un favori avec des interprétations.
 
-3.  Cliquez sur **SAUVEGARDER**.
+2.  Click **Interpretations** in the top right of the workspace to open the interpretations panel.
 
-    La boîte de dialogue se ferme automatiquement. Vous pouvez visualiser l'interprétation sur le **Tableau de bord**.
+3.  Click an interpretation. Your map displays the data and the date based on when the interpretation was created. To view other interpretations, click them.
+
+### Write interpretation for a map
+
+To create an interpretation, you first need to create a map and save it. If you've shared your map with other people, the interpretation you write is visible to those people.
+
+1.  Ouvrez un favori avec des interprétations.
+
+2.  Click **Interpretations** in the top right of the workspace to open the interpretations panel.
+
+3.  A text field will appear with a placeholder "Write an interpretation" for users that have read access to the favorite.
+
+4.  In the text field, type a comment, question or interpretation. You can also mention other users with '@username'. Start by typing '@' plus the first letters of the username or real name and a mentioning bar will display the available users. Mentioned users will receive an internal DHIS2 message with the interpretation or comment. You can see the interpretation in the **Dashboard app**.
+
+5.  Click **SAVE** if you want your interpretation to have the same sharing settings as the map.
+
+    Click **SAVE & SHARE** if you want to change the sharing settings (see below) for your interpretation.
+
+### Change sharing settings for an interpretation
+
+1.  Click an interpretation (see how to view an interpretation above).
+
+2.  Click **Share** below the interpretation. The sharing settings dialog opens.
+
+3.  Search for and add a users and user groups that you want to share your map with.
+
+4.  Change sharing settings for the users you want to modify:
+
+    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
+
+    - **Lecture uniquement**: tout le monde peut consulter l'objet.
+
+    - **No access**: The public won't have access to the object. This setting is only applicable to Public access.
+
+5.  Click **CLOSE** when sharing settings are updated.
 
 ## Enregistrer une carte en tant qu'image
 
 <!--DHIS2-SECTION-ID:using_maps_image_export-->
 
-1.  Faîtes une capture d'écran de la carte avec l'outil de votre choix.
+You can download your map as an image by clicking on the Download button in the top menu
 
-2.  Enregistrez la capture d'écran au format souhaité.
+![](resources/images/content/user/maps/maps_download.png)
+
+Map download is not supported in Internet Explorer or Safari, we recommend to use Google Chrome og Firefox.
+
+1.  Select if you want to include the map name or not. This option is only available if the map is saved.
+
+2.  Select if you want to inclide the map legend. You can position the legend in one of the 4 corners of your map.
+
+3.  Click **Download** to download your map.
 
 ## Rechercher un emplacement
 
@@ -4933,7 +5590,7 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 1.  Cliquez sur **Favoris** \> **Sauvegarder**.
 
-2.  Entrez un **Nom** et une **Description** à votre favori.
+2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
 
 3.  Cliquez sur **Sauvegarder**.
 
@@ -4951,7 +5608,9 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez retrouver cette information dans l'application **Tableau de bord**.
+2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
+
+    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -4964,6 +5623,16 @@ Une interprétation est un lien vers une ressource avec une description des donn
     - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
+
+### S'abonner à un favori
+
+Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
+
+1.  Ouvrez un favori.
+
+2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
+
+3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
 
 ### Créer un lien vers un favori
 
@@ -5401,7 +6070,7 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 1.  Cliquez sur **Favoris** \> **Sauvegarder**.
 
-2.  Entrez un **Nom** et une **Description** à votre favori.
+2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
 
 3.  Cliquez sur **Sauvegarder**.
 
@@ -5419,7 +6088,9 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez retrouver cette information dans l'application **Tableau de bord**.
+2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
+
+    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -5432,6 +6103,16 @@ Une interprétation est un lien vers une ressource avec une description des donn
     - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
+
+### S'abonner à un favori
+
+Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
+
+1.  Ouvrez un favori.
+
+2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
+
+3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
 
 ### Créer un lien vers un favori
 
@@ -5473,7 +6154,7 @@ Click **Chart** \> **Open this chart as table**.
 
 <!--DHIS2-SECTION-ID:about_data_quality-->
 
-L'application **Qualité des données** contient des outils pour valider l'exactitude et la fiabilité des données dans le système. Vous pouvez contrôler la qualité des données à l'aide des règles de validation des contrôles statistiques variés. La qualité des données dispose de dimensions différentes:
+The **Data Quality** app contains tools to validate the accuracy and reliability of the data in the system. You can assess different dimensions of data quality as outlined in the table below:
 
 <table>
 <colgroup>
@@ -5508,7 +6189,7 @@ L'application **Qualité des données** contient des outils pour valider l'exact
 
 Vous pouvez contrôler la qualité des données de différentes manières, par exemple:
 
-- Au moment de la saisie des données, DHIS2 peut examiner les données saisies pour vérifier si elles se situent entre les valeurs maximales et minimales de la plage de valeurs de cet élément de données (basé sur les données précédentes enregistrées).
+- At point of data entry, DHIS 2 can check the data entered to see if it falls within the minimum maximum value ranges of that data element (based on all previous data registered).
 
 - En définissant des règles de validation, qui peuvent être exécutées une fois que l'utilisateur a terminé la saisie de données. L'utilisateur peut également vérifier les données saisies pour une période particulière et une unité d'organisation par rapport aux règles de validation et afficher les violations de ces règles.
 
@@ -5536,7 +6217,7 @@ Une règle de validation pourrait affirmer que "Les cas suspects de paludisme te
 
 L'analyse des règles de validation teste les règles de validation par rapport aux données enregistrées dans le système. Les violations de ces règles sont signalées lorsque la condition définie dans l'expression de règle de validation n'est pas remplie, ce qui signifie quand la condition est fausse.
 
-Vous pouvez configurer une analyse de règleS de validation pour envoyer automatiquement les informations sur les violations aux groupes d'utilisateurs sélectionnés. Ces messages sont appelés _notifications de validation_ et sont créés dans l'application **Maintenance**. Les notifications de validation sont envoyées via le système de messagerie interne DHIS2.
+You can configure a validation rule analysis to automatically send out information about validation violations to selected user groups. These messages are called _validation notifications_ and you create them in the **Maintenance** app. Validation notifications are sent via the internal DHIS 2 messaging system.
 
 ### Workflow
 
@@ -5546,7 +6227,7 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 3.  Exécutez l'analyse des règles de validation, automatiquement ou manuellement.
 
-    - Dans l'application **Administration des données**, vous planifiez la validation de l'analyse des règles à exécuter automatiquement pour toutes les règles de validation associées à une ou plusieurs notifications de validation. Après que le le système ait exécuté l'analyse, les violations des règles (s'il y en a) s'afficheront dans les notifications de validation envoyées via le système de messagerie interne DHIS2.
+    - In the **Data Administration** app, you schedule the validation rule analysis to run automatically for all validation rules included in one or several validation notifications. After the system has run the analysis, you'll see the validation violations (if any) in the validation notifications sent via the internal DHIS 2 messaging system.
 
     - Dans l'application **Qualité des données**, vous exécutez l'analyse des règles de validation manuellement pour celles qui sont sélectionnées. Après que le processus d'analyse soit terminé, une liste de violations de règles s'affichera.
 
@@ -5554,11 +6235,11 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 > **Note**
 >
-> Seules les règles de validation associées à une ou plusieurs notifications de validation seront prises en compte dans l'analyse des règles de validation. Si il n'y a pas de notification de validation correspondnte à une règle de validation, le système n'a pas où envoyer les violations de validation.
+> Only validation rules that are included in one or several validation notifications will be a part of the validation rule analysis. If there is no corresponding validation notification for a validation rule, no notification will be sent.
 
 > **Note**
 >
-> Lors de l'exécution automatique de l'analyse des règles de validation, les résultats non maitenus, persisteront pendant cette exécution. Les résultats maintenus ne sont actuellement accessibles que par l'API.
+> While running validation rule analysis automatically, any results not already persisted, will be persisted during this run. Persisted results can currently only be accessed trough the API. Consult the developers guide for more information about how persisted validation rule violations can be accessed.
 
 1.  Vérifiez que vous avez créé toutes les règles de validation, groupes de règles de validation et notifications de validation dont vous avez besoin.
 
@@ -5572,7 +6253,7 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 ### Exécuter une analyse de règles de validation manuellement
 
-![](resources/images/content/user/dhis2UserManual/Validation_Rule_Analysis.png)
+![](resources/images/content/user/data_quality/validation_rule_analysis.png)
 
 1.  Vérifiez que vous avez créé toutes les règles de validation, groupes de règles de validation et notifications de validation dont vous avez besoin.
 
@@ -5598,7 +6279,7 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
     La durée du processus d'analyse dépend de la quantité de données à analyser. S'il n'y a aucune violation des règles de validation, vous verrez un message disant _La validation a été passée avec succès_. Dans le cas ou il y'a des violations de validation, elles seront présentées dans une liste.
 
-    ![](resources/images/content/user/dhis2UserManual/Validation_Rule_Analysis_Result.png)
+    ![](resources/images/content/user/data_quality/validation_rule_analysis_result.png)
 
 9.  (Facultatif) Cliquez sur l'icône Afficher les détails pour obtenir plus d'informations sur une violation de validation. Dans la fenêtre pop-up, vous trouverez des informations sur les éléments de données inclus dans les règles de validation et leur valeurs de données correspondantes. Vous pouvez utiliser ces informations pour identifier la source de la violation de la règle de validation.
 
@@ -5616,17 +6297,15 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 ### A propos de l'analyse des aberrations d'écart-type
 
-L'analyse des valeurs aberrantes d'écart-type identifie les valeurs qui sont numériquement distantes du reste des données. L'analyse est basée sur la distribution normale standard. Le système calcule la moyenne, en se basant sur des valeurs depuis le début, pour une combinaison spécifique d'unités d'organisation, d'un élément de données, d'une combinaison de choix de catégories et des options de combinaison d'attributs. Il est possible que les valeurs aberrantes surviennent par pur hasard, mais il s'agit souvent d'une erreur de mesure ou une distribution à queue lourde qui conduit à des nombres trop élevés. Vous devriez vous détailler les erreurs de mesure et essayer de les corriger avant de les éliminer de l'analyse.
+The standard deviation outlier analysis identifies values that are numerically distant from the rest of the data, potentially indicating that they are outliers. The analysis is based on the standard normal distribution. DHIS 2 calculates the mean of all values for an organisation unit, data element, category option combination and attribute option combination. Outliers can occur by chance of course, but can potentially indicate a measurement or data entry error.
 
-> **Attention**
+> **Note**
 >
-> Il n'est pas recommandé d'utiliser des outils ou des interprétations qui se basent sur une distribution normale pour les distributions à queue lourde.
->
-> Par exemple: l'analyse des valeurs aberrantes de l'écarttype n'est pas un outil approprié si vous vous attendez à d'énormes variations saisonnières des données.
+> As indicated above, this data quality analysis is only appropriate for data which is actually normally distributed. Data which has large seasonal variation, or which may be distributed according to other statistical models (e.g. logistical ) may lead values being flagged which actually should be considered valid. It is therefore recommended to confirm first, whether the data actually is normally distributed before running a standard deviation outlier analysis.
 
 ### Exécuter une analyse des aberrations d'écart-type
 
-![](resources/images/content/user/dhis2UserManual/Data_Quality_Std_Deviation_Analysis.png)
+![](resources/images/content/user/data_quality/std_dev_analysis.png)
 
 1.  Ouvrez l'application **Qualité des données** et cliquez sur **Std dev outlier analysis**.
 
@@ -5638,7 +6317,7 @@ L'analyse des valeurs aberrantes d'écart-type identifie les valeurs qui sont nu
 
     Tous les enfants de l'unité d'organisation seront inclus. L'analyse est faite sur des données brutes "sous" l'unité d'organisation parente, pas sur des données agrégées.
 
-5.  Sélectionnez un nombre d'écarts-types.
+5.  Select the number of standard deviations.
 
     Ceci fait référence au nombre d'écarts-types par rapport à la moyenne autorisés au-dessus duquel les données sont identifiées comme valeurs abérrantes.
 
@@ -5646,23 +6325,13 @@ L'analyse des valeurs aberrantes d'écart-type identifie les valeurs qui sont nu
 
     La durée du processus d'analyse dépend de la quantité des données à analyser. S'il existe des valeurs aberrantes, elles seront présentées dans une liste.
 
-    ![](resources/images/content/user/data_quality/std-dev-outlier-analysis-result.png)
+    ![](resources/images/content/user/data_quality/std_dev_analysis_outlier_result.png)
 
-    Pour chaque valeur aberrante, vous verrez l'élément de données, l'unité d'organisation, la période, la valeur minimale, la valeur réelle et la valeur maximale. Les valeurs minimales et maximales se rapportent aux valeurs de bordure dérivées du nombre d'écarts-types sélectionnés pour l'analyse.
+    For each outlier, you will see the data element, organisation unit, period, minimum value, actual value and maximum value. The minimum and maximum values refer to the border values derived from the number of standard deviations selected for the analysis.
 
 > **Astuce**
 >
 > Cliquez sur l'icône étoile pour marquer une valeur abérrante pour un suivi ultérieur.
-
-### Modifier une valeur abérrante par rapport à un écart-type.
-
-Vous pouvez modifier une valeur aberrante directement dans la liste des résultats d'analyse:
-
-1.  Dans la colonne de valeur, cliquez sur le champ contenant la valeur que vous souhaitez modifier.
-
-2.  Entrez une valeur, puis naviguez en dehors de ce champ soit en cliquant sur Tab ou en cliquant en dehors du champ.
-
-    Le système envoie une alerte si la valeur est toujours en dehors des valeurs minimales et maximales définies. Cependant, la valeur sera enregistrée dans dans tous les cas. La couleur de fond du champ sera rouge si la valeur est en dehors de la plage, et verte si elle y est comprise.
 
 ## Analyse des valeurs aberrantes minimales et maximales
 
@@ -5670,7 +6339,7 @@ Vous pouvez modifier une valeur aberrante directement dans la liste des résulta
 
 ### A propos de l'analyse des valeurs aberrantes minimales et maximales
 
-Vous pouvez vérifier la qualité des données au moment de la saisie en définissant une plage de valeurs maximales minimales pour chaque élément de données. Vous pouvez les créer manuellement ou les générer automatiquement.
+You can verify the data quality at the point of data entry by setting a minimun/maximum value range for each data value. You can define the value ranges manually or generate them automatically.
 
 La plage de valeur générée automatiquement ne convient que pour des données normalement distribuées. DHIS2 déterminera la moyenne arithmétique et l'écart-type de toutes les valeurs pour un élément de données, des options de combinaison de catégories, une unité d'organisation et une combinaison d'attributs. Le système calculera ensuite la plage de valeurs maximales et minimales sur la base du **Facteur d'analyse de l'écart-type des données** spécifié dans l'application **Paramètres système**.
 
@@ -5686,7 +6355,7 @@ Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas 
 
     - Dans l'application **Administration des données**, vous pouvez générer des plages de valeur automatiquement
 
-    - Dans l'application **Saisie des données**, vous pouvez définir manuellement les plages de valeurs pour chaque champ.
+    - In the **Data Entry** app, you may set value ranges manually.
 
 2.  Dans l'application **Qualité des données**, vous pouvez exécuter **L'analyse des valeurs aberrantes mini-maxi**.
 
@@ -5702,13 +6371,13 @@ Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas 
 
 Vous pouvez générer des plages de valeurs maximales et minimales calculées par le set de données dans **L'application d'administration des données**. Les nouvelles plages de valeurs remplaceront toutes les valeurs que le système a calculé précédemment.
 
-1.  Configurez le **Facteur d'analyse des valeurs d'écart-type des données**:
+1.  Set the **Data analysis standard deviation (std dev) factor**:
 
     1.  Ouvrez l'application **Paramètres système**, puis cliquez sur **Général**.
 
     2.  Dans le champ **Facteur d'analyse des valeurs d'écart-type des données**, entrez une valeur.
 
-        Ceci définit le nombre d'écarts-types à utiliser dans l'analyse des valeurs aberrantes. La valeur par défaut est de 2. Une valeur élevée aidentifiera moins de valeurs aberrantes qu'une valeur faible.
+        This sets the number of standard deviations to use in the outlier analysis. The default value is 2. Higher values indicate a broader distribution, which may lead to outliers not being flagged correctly by the analysis.
 
 2.  Ouvrez **L'application administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
 
@@ -5720,15 +6389,15 @@ Vous pouvez générer des plages de valeurs maximales et minimales calculées pa
 
     De nouvelles plages de valeurs maximales et minimales pour tous les éléments du set de données sélectionnés pour toutes les unités d'organisation (y compris les descendants) des unités d'organisation sélectionnées sont générés.
 
-#### Créer une plage de valeurs manuellement
+#### Create minimum/maximum value range manually
 
 ![](resources/images/content/user/data_quality/set_min_max_manually.png)
 
 1.  Dans l'application de **saisie de données**, ouvrez un modèle de saisie.
 
-2.  Double-cliquez sur le champs auquel vous souhaitez affecter une fourchette de valeurs.
+2.  Double-click the field for which you want to set the minimum/maximum value range.
 
-3.  Entrez **la limite Mini** et **la limite Maxi**.
+3.  Enter **Min limit** and **Max limit** in the dialog that appears.
 
 4.  Cliquez sur **Sauvegarder**.
 
@@ -5744,15 +6413,13 @@ Vous pouvez générer des plages de valeurs maximales et minimales calculées pa
 
 #### Supprimer une plage de valeurs minimum maximum
 
-![](resources/images/content/user/data_quality/generate_min_max.png)
-
 Vous pouvez supprimer définitivement toutes les plages de valeurs maximales minimales pour des sets de données et unités d'organisation dans l'application **Administration des données**.
 
 1.  Ouvrez **L'application administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
 
 2.  Sélectionnez un set(s) de données.
 
-3.  Sélectionnez une **unité d'organisation**.
+3.  Select an **Organisation unit**. Note, that the selection cascades to descendant organisation units!
 
 4.  Cliquez sur **Supprimer**.
 
@@ -5794,19 +6461,27 @@ L'analyse de suivi crée une liste de toutes les valeurs de données marquées p
 
 ### Créer une liste de valeurs de données marquées pour un suivi ultérieur
 
+![](resources/images/content/user/data_quality/follow_up_analysis.png)
+
 1.  Ouvrez l'application **Qualité des données** et cliquez sur **Analyse de suivi**.
 
-2.  Sélectionnez une **unité d'organisation**.
+2.  Select a data set or multiple data sets.
+
+3.  Select a parent **Organisation unit**.
 
     La durée du processus d'analyse dépend de la quantité de données à analyser. S'il existe des valeurs de données marquées pour un suivi, elles seront présentées sous forme d'une liste.
 
-    ![](resources/images/content/user/data_quality/data_quality_follow_up.png)
+4.  Select a **Start Date** and **End Date** which defines the periods which you are interested in looking for values which have been marked for follow up.
 
-3.  (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+5.  Press **Follow up** to generate a list of values which have been marked for follow up.
 
-> **Astuce**
+6.  (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+
+![](resources/images/content/user/data_quality/follow_up_analysis_result.png)
+
+> **Tip**
 >
-> Cliquez sur l'icône étoile pour supprimer le suivi ultérieur de la valeur de donnée.
+> Click the star icon to remove the follow-up tag from the data value. You can also enter a comment in the field to indicate any additional information regarding the value.
 
 # Data approval
 
@@ -5821,7 +6496,7 @@ After a period, organisation unit and workflow combination has been approved, da
 For example, the following diagram illustrates that data has already been approved for organisation units C and D, for a given period and workflow. It may now be approved for organisation unit B for the same period and workflow. But it is not ready to be approved for organization unit A. Before it can be approved for organisation unit A, it must be approved for B, and for any other children of organisation unit A, for that period and workflow.
 
 ![Approving at organisation
-units](resources/images/content/user/data_approval/approval_hierarchy.png)
+units](resources/images/content/user/data_approval/approval_hierarchy.png){.center width=50% }
 
 ## Approving and accepting
 
@@ -5830,7 +6505,7 @@ units](resources/images/content/user/data_approval/approval_hierarchy.png)
 DHIS2 supports two different types of approval processes: either a one-step process where the data is approved at each level, or a two-step process where data is first approved and then accepted at each level. This is illustrated in the following diagram:
 
 ![Approving and
-accepting](resources/images/content/user/data_approval/approval_level_steps.png)
+accepting](resources/images/content/user/data_approval/approval_level_steps.png){.center width=69% }
 
 In the one-step process, data is approved at one level, and then approved at the next higher level. Until it is approved at the next higher level, it may be unapproved at the first level. (For example, if the data was approved my mistake, this allows the approver to undo their mistake.) Once the data is approved at the next higher level, it may not be unapproved at the lower level unless it is first unapproved at the higher level.
 
@@ -5877,7 +6552,7 @@ Note that if the user has been granted the _View unapproved data_ or the _ALL_ a
 _Lets consider the following example:_ There are four organisation unit levels, with approval levels associated with level 2 and 4. _User A_ at country level (1) gets associated with approval level 1 since the approval level exists at the same level as the organisation unit level. _User B_ gets associated with approval level 2 since there is no approval level directly linked to her organisation unit level and approval level 2 is the immediate level below. _User C_ gets associated with approval level 2. _User D_ is below all approval levels which implies that she can see all data entered at or below her organisation unit level.
 
 ![Hiding of unapproved
-data](resources/images/content/user/data_approval/approval_data_hiding.png)
+data](resources/images/content/user/data_approval/approval_data_hiding.png){.center}
 
 Using this example, lets consider some scenarios:
 
@@ -5923,7 +6598,7 @@ When defining an approval level, you specify the organisation unit level at whic
 
 For example, suppose you define a category option group set to represent NGOs who serve as healthcare partners at one or more organisation units. Each category option group within this set represents a different partner. The category option group for Partner 1 may group together category options (such as funding account codes) that are used by that partner as a dimension of the data. So data entered by Partner 1 is attributed to a category option in Partner 1's category option group. Whereas data entered by partner 2 is attributed to a category option in Partner 2's category option group:
 
-<table>
+<table align="center">
 <caption>Example Category Option Groups</caption>
 <thead>
 <tr class="header">
@@ -5949,7 +6624,7 @@ For example, suppose you define a category option group set to represent NGOs wh
 Each partner could enter data for their accounts independently of the other, for the same or different workflows, at the same or different facilities. So for example, data can be entered and/or aggregated at the following levels for each partner, independently of each other:
 
 ![Example category option
-groups](resources/images/content/user/data_approval/approval_partner_example.png)
+groups](resources/images/content/user/data_approval/approval_partner_example.png){.center}
 
 > **Tip**
 >
@@ -5957,7 +6632,7 @@ groups](resources/images/content/user/data_approval/approval_partner_example.png
 
 You can optionally define approval levels for partner data within any or all of these organisation unit levels. For example, you could define any or all of the following approval levels:
 
-<table>
+<table align="center">
 <caption>Example Category Option Group Set approval levels</caption>
 <thead>
 <tr class="header">
@@ -5989,7 +6664,7 @@ You can optionally define approval levels for partner data within any or all of 
 
 You can also define approval levels for different category option group sets. To continue the example, suppose that you have various agencies that manage the funding to the different partners. For example, Agency A funds accounts 1A and 2A, while Agency B funds accounts 1B and 2B. You could set up category option groups for Agency A, and Agency B, and make them both part of a category option group set called Agency. So you would have:
 
-<table>
+<table align="center">
 <caption>Example Multiple Category Option Group Sets</caption>
 <thead>
 <tr class="header">
@@ -6024,7 +6699,7 @@ You can also define approval levels for different category option group sets. To
 
 Now suppose that at the country level, you want each partner to approve the data entered by that partner. Once this approval is done, you want each agency to then approve the data from accounts that are managed by that agency. Finally, you want to approve data at the country level across all agencies. You could do this by defining the following approval levels:
 
-<table>
+<table align="center">
 <caption>Example Multiple Category Option Group Set approval levels</caption>
 <thead>
 <tr class="header">
@@ -6188,13 +6863,13 @@ Pour générer un rapport, sélectionnez d'abord une unité d'org dans l'arbores
 
 <!--DHIS2-SECTION-ID:generate_analytics_tables-->
 
-DHIS2 génère des tables de base de données que le système utilise ensuite comme base pour diverses fonctions d'analyse. Ces tables vous seront également utiles si vous écrivez des rapports SQL avancés. Dans l'application **Rapports**, vous pouvez exécuter les tables immédiatement ou les programmer pour qu'elles soient exécutées à intervalles réguliers. Ceci signifie que vous pouvez actualiser les analyses récentes à la demande et afficher les tableaux croisés dynamiques mis à jour sans attendre que toutes les données des dernières années soient traitées encore.
+DHIS2 génère des tables de bases de données que le système utilise ensuite comme base pour diverses fonctions d'analyse. Ces tables sont également utiles si vous écrivez des rapports SQL avancés. Dans l'application **Administration des données**, vous pouvez exécuter la génération de tables immédiatement. Si vous souhaitez planifier leur exécution à intervalles réguliers, vous pouvez paramétrer cela dans l'application **Planificateur**. Cela signifie que vous pouvez actualiser des analyses récentes à la demande et visualiser des tableaux croisés dynamiques à jour sans attendre le traitement de toutes les données des dernières années.
 
 > **Note**
 >
 > Vous pouvez également générer les tables via l'API Web. Cette tâche est généralement effectuée par un administrateur système.
 
-1.  Ouvrez l'application **Rapports** et cliquez sur **Analyses**.
+1.  Ouvrez l'application **Administration des données** et cliquez sur **Tables d'Analyse**.
 
 2.  Sélectionnez les parties du processus d'analyse que vous souhaitez ignorer:
 
@@ -6210,6 +6885,108 @@ DHIS2 génère des tables de base de données que le système utilise ensuite co
 
 4.  Cliquez sur **Démarrer l'exportation**.
 
+# Reporting functionality in the Beta Reports app
+
+<!--DHIS2-SECTION-ID:using_the_beta_reports_app-->
+
+A new Reports app (Beta) is introduced in release 2.32 and serves as an optional replacement of the original [Reports app](#using_reporting), offering a more intuitive and user-friendly interface. Unlike the previous Reports app, however, it does not support Data Approvals.
+
+## Utilisation des rapports standard
+
+<!--DHIS2-SECTION-ID:standard_reports_in_the_beta_reports_app-->
+
+You access the available reports by navigating to Apps-\>Reports (Beta). In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window.
+
+![](resources/images/content/user/dhis2UserManual/react_reports_app_standard_reports.png)
+
+You run/view a report by clicking on the triple-dot icon of the report and then selecting "Create" from the contextual menu. If there are any pre-defined parameters, you will see a report parameter window where you must fill in the values needed for orgunit and/or reporting month, depending on what has been defined in the underlying report table(s). Click on "Generate Report" when you are ready. The report will either appear directly in your browser or be available as a PDF file for download, depending on your browser settings for handling PDF files. You can save the file and keep it locally on your computer for later use.
+
+## Utilisation des rapports de sets de données
+
+<!--DHIS2-SECTION-ID:dataset_reports_in_the_beta_reports_app-->
+
+Les rapports de sets de données sont un des vues simple et imprimable de l'écran de saisie de données avec des données brutes ou agrégées. Ils ne sont disponibles que pour les sets de données ayant un modèle de saisie de données personnalisé mis en place contrairement au modèles par défaut et par section.
+
+You can access data set reports from Apps-\>Reports (Beta).
+
+Une fenêtre de critères apparaît dans laquelle vous renseignez les détails de votre rapport:
+
+**Set de données:** Les données que vous souhaitez afficher.
+
+**Report period:** The actual period you want data for. This can be aggregated as well as raw periods. This means that you can ask for a quarterly or annual report even though the data set is collected monthly. A data set's period type (collection frequency) is defined in data set maintenance. First select the period type (Monthly, Quarterly, Yearly etc.) in the drop down next to Prev and Next buttons, and then select one of the available periods from the dropdown list below. Use Prev and Next to jump one year back or forward.
+
+**Utiliser des données pour l'unité sélectionnée uniquement:** Utilisez cette option si vous souhaitez un rapport pour une unité d'org qui a des ramifications (enfants), mais que vous avez besoin des données collectées directement que par cette unité et non par ses enfants. Si vous souhaitez un rapport agrégé typique pour une unité d'org spécifique, ne cochez pas cette option.
+
+**Report Organisation unit:** Here you select the orgunit you want the report for. This can be at any level in the hierarchy as the data will be aggregated up to this level automatically (if you do not tick the option above).
+
+Lorsque vous avez fini de rentrer les critères du rapport, cliquez sur "Génénrer". Le rapport apparaîtra sous format HTML et imprimable. Utilisez les fonctions d'impression et d'enregistrement dans le navigateur pour imprimer ou enregistrer le rapport (en tant que fichier HTML). Vous pouvez également exporter le rapport du set de données dans Excel et en formats PDF.
+
+## Utilisation du récapitulatif du taux de génération de rapports
+
+<!--DHIS2-SECTION-ID:reporting_rate_summary_in_the_beta_reports_app-->
+
+Access the reporting rate summary from the Apps-\>Reports (Beta) menu. Reporting rate summaries will show how many datasets (forms) that have been submitted by organisation unit and period.
+
+The reporting rate is calculation is based on complete data set registrations. A complete data set registration refers to a user marking a data entry form as complete, typically by clicking the complete button in the data entry screen, hereby indicating to the system that she considers the form to be complete. This is i.e. a subjective approach to calculating completeness.
+
+Le récapitulatif du taux de génération de rapports désignera des mesures spécifiques pour chaque ligne:
+
+- Rapports réels: indique le nombre de sauvegardes terminées de saisies pour le set de données concerné.
+
+- Rapports prévus: indique le nombre prévu de saisies de données terminées. Ce nombre est basé sur le nombre d'unités d'organisation auxquelles le set de données a été affecté (activé pour la saisie de données).
+
+- Reporting rate: The percentage of reports registered as complete based on the number expected.
+
+- Rapports à temps: identiques aux rapports réels, uniquement les rapports enregistrés en tant que compléts pendant le nombre maximum de jours après la fin de la période de reporting. Ce nombre de jours qui suit la période de reporting peut être défini pour chaque set de données dans la gestion des sets de données.
+
+- Reporting rate on time: Same as percentage, only reports registered as complete on time used as numerator.
+
+Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous:
+
+- Sélectionnez une unité d'organisation dans l'arborescence.
+
+- Select a data set.
+
+- Select a period type and a period from the list of available periods for that period type.
+
+- The report will then be rendered. Change any of the parameters above and click "Get report" again see the corresponding results.
+
+![](resources/images/content/user/dhis2UserManual/react_reports_app_reporting_rate_summary.png)
+
+## Utilisation des ressources
+
+<!--DHIS2-SECTION-ID:resources_in_the_beta_reports_app-->
+
+L'outil de ressources vous permet de télécharger les fichiers de votre répertoire local au serveur DHIS et d'ajouter des liens vers d'autres ressources sur Internet via des liens URL. Si le stockage en cloud est configuré pour votre système, les ressources y seront sauvegardées.
+
+Pour créer une nouvelle ressource:
+
+1.  Open the **Reports (Beta)** app and click **Resource**.
+
+2.  Cliquez sur **AJOUTER**.
+
+3.  Entrez un **Nom**.
+
+4.  Sélectionnez un **Type**: **Télécharger un fichier** ou **URL externe**.
+
+5.  Cliquez sur **Sauvegarder**.
+
+## Utilisation des rapports de distribution des unités d'organisation
+
+<!--DHIS2-SECTION-ID:orgunit_distribution_reports_in_the_beta_reports_app-->
+
+You can access the Orgunit Distribution reports from the left side menu in the Apps-\>Reports (Beta).
+
+Les rapports de distribution d'unités d'org montrent comment les unités d'org sont distribuées sur diverses propriétés comme le type et la titularité, et par zones géographiques.
+
+Le résultat peut être présenté dans un rapport sous forme de tableau ou dans un graphique.
+
+**Exécution d'un rapport:**
+
+To run a report first select an orgunit in the upper left side orgunit tree. The report will be based on orgunits located under the selected orgunit. The select the orgunit group set that you want to use, typically these are Type, Ownership, Rural/Urban, but can be any user-defined orgunit group set. The you can click on either Get Report to get the table-based presentation or Get chart to get the same result in a chart. You can also download the table-based report as Excel or CSV.
+
+![](resources/images/content/user/dhis2UserManual/react_reports_app_org_unit_dist.png)
+
 # Définir les préférences du compte
 
 <!--DHIS2-SECTION-ID:user_account_preferences-->
@@ -6218,7 +6995,11 @@ Dans **Paramètres de l'utilisateur**, vous pouvez modifier la langue d'affichag
 
 Dans **Profil de l'utilisateur**, vous pouvez ajouter des informations personnelles à votre profil comme votre adresse électronique, votre numéro de téléphone mobile, votre date de naissance, votre photo de profil et plus. Lorsque vous envoyez des messages, la personne qui les reçoit peut visualiser ces détails de votre profil. Vous pouvez également fournir des noms de compte pour divers services de messagerie directe, qui seront utilisés par le système.
 
-Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe.
+Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et configurer l'authentification à 2 facteurs. La configuration de l'authentification à 2 facteurs requiert le téléchargement de l'application Google Authenticator sur votre appareil mobile.
+
+Dans la section **Voir le profil complet**, vous trouverez un résumé des détails de votre profil. Cette section comprend quelques champs que vous ne pouvez pas modifier vous-même, tels que les rôles d'utilisateur et les unités d'organisation d'utilisateur.
+
+Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2.
 
 # Manage users, user roles and user groups
 
@@ -6232,7 +7013,7 @@ Multiple users can access DHIS2 simultaneously and each user can have different 
 
 - You can create as many users, user roles and user groups as you need.
 
-- You can assign specific authorities to each user.
+- You can assign specific authorities to user groups or individual users via user roles.
 
 - You can create multiple user roles each with their own authorities.
 
@@ -6291,8 +7072,8 @@ You manager users, user roles and user groups in the **Users** app.
 <table>
 <caption>Objects in the Users app</caption>
 <colgroup>
-<col width="20%" />
-<col width="80%" />
+<col style="width: 20%" />
+<col style="width: 80%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6303,7 +7084,7 @@ You manager users, user roles and user groups in the **Users** app.
 <tbody>
 <tr class="odd">
 <td><p>User</p></td>
-<td><p>Create, edit, clone, disable, assign search organisation units, display by organisation unit, delete and show details</p></td>
+<td><p>Create, edit, invite, clone, disable, display by organisation unit, delete and show details</p></td>
 </tr>
 <tr class="even">
 <td><p>User role</p></td>
@@ -6380,13 +7161,13 @@ See also:
 
 5.  Assign the users to organisation units.
 
-6.  Assign data sets to the user role.
+6.  (Optional) Group users in user groups.
 
-7.  (Optional) Group users in user groups.
+7.  Share datasets with users or user-groups via the Sharing Dialog in Data set management section of the Maintenance app
 
 > **Tip**
 >
-> For users to be able to enter data, you must add them to both a data set and an organisational unit level.
+> For users to be able to enter data, you must add them to an organisational unit level and share a dataset with them.
 
 ## Manage users
 
@@ -6398,57 +7179,48 @@ See also:
 
 ![](resources/images/content/user/dhis2UserManual/select_user_menu.png)
 
-1.  Open the **Users** app and click **User**.
+1.  Open the **Users** app and click on the **+** in the **Users** card.
 
-2.  Cliquez sur **AJOUTER**.
+2.  Select whether you want to fill in all the personal user information, or invite the user by email to complete the rest of the user information:
 
-3.  Select whether you want to fill in all the personal user information, or invite the user by email to complete the rest of the user information:
+- **Create account with user details** ![](resources/images/content/user/dhis2UserManual/user_management_details.png) Choose this option if you would like to enter all the login details of the new user such as username, password, etc. Under these conditions, the fields username, password, surname, first name, and roles are mandatory.<br/><br/> After you've created the user, the account is ready for the user to use with the user name and password that you provide.<br/><br/>
+- **Email invitation to create account** ![](resources/images/content/user/dhis2UserManual/user_management_invite.png) Choose this option if you want to send an invitation by email to the user. Then she/he must return to DHIS2 and finish setting up their user account. The account that the user finishes setting up will be limited according to how you configure the account.<br/><br/> In order to use this feature "Enable email message notifications" in SystemSettings -\> Messaging should be checked.<br/><br/> Enter the email address to which the invitation should be sent. If you want to, you may also enter the user name that the account will have. If you leave the user name empty, then the user may choose their own user name when they respond to the invitation (as long as it is not taken already for another user.)<br/><br/> After you've created the user, the system sends an email to the address you provided. It contains a unique web link by which the user can return to the system and activate their account by entering the rest of their user information. The user must finish setting up the account within 4 days, after that the invitation becomes invalid.
 
-    - **Create account with user details**
+3. (Optional) Provide values for the fields **OpenID, LDAP identifier, Mobile phone number, WhatsApp, Facebook messenger, Skype, Telegram and Twitter**.
 
-![](resources/images/content/user/dhis2UserManual/user_management_details.png)
+4. Select an **Interface language**.<br/> You can select a language into which fixed elements of the DHIS2 user interface have been translated.
 
-Choose this option if you would like to enter all the details of the new user such as name, password, etc.
+5. Select a **Database language**. <br/> You can select a language into which implementation-supplied items have been translated in the database, for example data element names or organisation unit level names.
 
-Enter the following information: user name, password, surname, first name, email, OpenID account (if any) and mobile phone number (if any).
+6. In the **Available roles** section, double-click the user roles you want to assign to the user.
 
-After you've created the user, the account is ready for the user to use with the user name and password that you provide.
+7. Select **Data capture and maintenance organisation units**.<br/> ![](resources/images/content/user/dhis2UserManual/user_management_fewer_options.png)<br/> The data capture and maintenance organisation units control for which organisation units the user can do data entry. You must assign at least one data capture and maintenance organisation unit to each user.<br/><br/> Users will have access to all sub-organisation units of the assigned organisation units. For example, if you've assigned a user to a district which has several facilities contained in the district, the user would have access to the district's data, as well as all of the facilities contained within the district.
 
-\</listitem\> **Email invitation to create account**
-
-![](resources/images/content/user/dhis2UserManual/user_management_invite.png)
-
-Choose this option if you want to send an invitation by email to the user. Then she/he must return to DHIS2 and finish setting up their user account. The account that the user finishes setting up will be limited according to how you configure the account.
+8. (Optional) Select **Data output and analysis organisation units**.<br/><br/> The data output and analysis organisation units controls for which organisation units the user can view aggregated data in the analytics apps, for example the **Pivot Table** and **GIS** apps. You can assign any number of data output and analysis organisation units to a user.<br/><br/> Users will have access to all sub-organisation units of the assigned organisation units. You shouldn't select the descendants of an organisation unit which you have already selected. For example, if you've assigned the user to a district, you shouldn't select the facilities within that district.<br/><br/>
 
 > **Note**
 >
-> You may not select this option to create an account with "critical" system authorities such as All, Scheduling Administration, Perform maintenance tasks, Merge organisation units, Eliminate duplicate data elements, SQL View Management, Change system settings, and List, Add or Delete user roles.
+> Assigning data output and analysis organisation units organisation units is optional. If you don't specify any organisation unit, the user will have access to the full organisation unit hierarchy for viewing aggregated data. As with the data capture organisation units, _you should not select descendant organisation units of a unit which you have already selected_.<br/><br/> In several places in the analytics apps, you can select "user organisation unit" for the organisation unit dimension. This mechanism will first attempt to use the data view organisation units linked to the current user. If not found, it will use the data capture and maintenance organisation units. If the user has been assigned to multiple organisation units, the use of "user organisation unit" may result in unpredictable behaviour.<br/><br/>
 
-In order to use this feature "Enable email message notifications" in SystemSettings -\> Messaging should be checked.
+9. Click **Show more options** and an additional three fields will show. (Optional) <br/><br/>
 
-Enter the email address to which the invitation should be sent. If you want to, you may also enter the user name that the account will have. If you leave the user name empty, then the user may choose their own user name when they respond to the invitation (as long as it is not taken already for another user.)
+10. In the **Search organisation units** select the organisation units you want the user to be able to search in.<br/><br/>
 
-After you've created the user, the system sends two emails to the address you provided. One contains a unique web link by which the user can return to the system and activate their account by entering the rest of their user information. The other email contains a unique code that they must enter into the system in order to complete the registration, after following the link in the first email. The user must finish setting up the account within three months, after that the invitation becomes invalid.
+11. (Optional) In the **Available user groups** section, double-click the user groups you want to assign to the user.<br/><br/>
 
-\</listitem\> \</itemizedlist\> \</listitem\> Select an **Interface language**. You can select a language into which fixed elements of the DHIS2 user interface have been translated. Select a **Database language**. You can select a language into which implementation-supplied items have been translated in the database, for example data element names or organisation unit level names. In the **Available roles** section, double-click the user roles you want to assign to the user. Select **Data capture and maintenance organisation units**.
+12. (Optional) In the **Available dimension restrictions for data analytics** section, double-click the dimensions you want to assign to the user. <br/><br/> You can restrict the values the user sees in data analytics apps by selecting dimensions that will restrict the user's view.
 
-![](resources/images/content/user/dhis2UserManual/user_management_fewer_options.png)
+> **Example**
+>
+> Let's say you have defined _Implementing Partner_ as a category option group set, and you have shared with this user only one or more specific implementing partners (category option groups). If you want to make sure that the user does not see totals in analytics that include values from other groups, assign _Implementing Partner_ to the user.<br/><br/> This insures that any data visible to the user through the analytics apps will be filtered to select only the Implementing Partner category option group(s) which are visible to the user.<br/><br/>
 
-The data capture and maintenance organisation units control for which organisation units the user can do data entry. You must assign at least one data capture and maintenance organisation unit to each user.
-
-Users will have access to all sub-organisation units of the assigned organisation units. For example, if you've assigned a user to a district which has several facilities contained in the district, the user would have access to the district's data, as well as all of the facilities contained within the district.
-
-\</listitem\> (Optional) Select **Data output and analysis organisation units**. The data output and analysis organisation units controls for which organisation units the user can view aggregated data in the analytics apps, for example the **Pivot Table** and **GIS** apps. You can assign any number of data output and analysis organisation units to a user. Users will have access to all sub-organisation units of the assigned organisation units. You shouldn't select the descendants of an organisation unit which you have already selected. For example, if you've assigned the user to a district, you shouldn't select the facilities within that district. Assigning data output and analysis organisation units organisation units is optional. If you don't specify any organisation unit, the user will have access to the full organisation unit hierarchy for viewing aggregated data. As with the data capture organisation units, _you should not select descendant organisation units of a unit which you have already selected_. In several places in the analytics apps, you can select "user organisation unit" for the organisation unit dimension. This mechanism will first attempt to use the data view organisation units linked to the current user. If not found, it will use the data capture and maintenance organisation units. If the user has been assigned to multiple organisation units, the use of "user organisation unit" may result in unpredictable behavior. Click **Show more options**.
-
-![](resources/images/content/user/dhis2UserManual/user_management_more_options.png)
-
-\</listitem\> (Optional) In the **Available user groups** section, double-click the user groups you want to assign to the user. (Optional) In the **Available dimension restrictions for data analytics** section, double-click the dimensions you want to assign to the user. You can restrict the values the user sees in data analytics apps by selecting dimensions that will restrict the user's view. Let's say you have defined _Implementing Partner_ as a category option group set, and you have shared with this user only one or more specific implementing partners (category option groups). If you want to make sure that the user does not see totals in analytics that include values from other groups, assign _Implementing Partner_ to the user. This insures that any data visible to the user through the analytics apps will be filtered to select only the Implementing Partner category option group(s) which are visible to the user. Click **Add**. \</orderedlist\>
+13. Cliquez sur **Sauvegarder**.
 
 ### Edit user objects
 
 1.  Open the **Users** app and find the type of user object you want to edit.
 
-2.  In the object list, click the relevant object and select **Edit**.
+2.  In the object list, directly click the relevant object, or click the menu icon and select **Edit**.
 
 3.  Modify the options you want.
 
@@ -6462,7 +7234,7 @@ You can disable a user. This means that the user's account is not deleted, but t
 
 1.  Open the **Users** app and click **User**.
 
-2.  In the list, click the relevant user and select **Disable**.
+2.  In the list, click the menu icon of relevant user record and select **Disable**.
 
 3.  Click **OK** to confirm.
 
@@ -6470,35 +7242,19 @@ You can disable a user. This means that the user's account is not deleted, but t
 
 1.  Open the **Users** app and click **User**.
 
-2.  In the list, click the relevant user and select **Profile**.
+2.  In the list, click the menu icon of the relevant user and select **Profile**.
 
-### View users by organisation unit
+### Filter users by organisation unit
 
 You can view all users that have been assigned to a particular organisation unit.
 
-1.  Open the **Users** app and click **User by organisation unit**.
+1.  Open the **Users** app and click **Users**.
 
-2.  In the left-hand organisation unit tree, click an organisation unit.
+2.  Above the user list, click on the **Organisation Unit** filter input.
 
-    A list of users which have been assigned to this organisation unit is displayed.
+3.  A pop-up will appear in which you can select the organisation units you would like to filter by.
 
-### Assign search organisation units to users
-
-1.  Open the **Users** app and click **User**.
-
-2.  In the object list, click the relevant user and select **Assign search org units**.
-
-3.  Click the organisation units you want the user to be able to search in.
-
-4.  Cliquez sur **Sauvegarder**.
-
-### Delete current user
-
-You can delete the user that is currently logged into the system.
-
-1.  Open the **Users** app and click **Delete current user**.
-
-2.  Enter your password and click **Delete**.
+The list of users will be filtered to only include users which have been assigned to the selected organisation units.
 
 ### Clone users
 
@@ -6506,7 +7262,7 @@ You can delete the user that is currently logged into the system.
 
 1.  Open the **Users** app and click **User**.
 
-2.  In the object list, click the relevant user and select **Replicate**.
+2.  In the object list, click the menu icon of the relevant user and select **Replicate**.
 
 3.  Enter a new user name and password for the cloned user account.
 
@@ -6550,7 +7306,7 @@ To change a user's password:
 
 1.  Open the **Users** app and click **User**.
 
-2.  In the object list, click the relevant user and select **Edit**.
+2.  In the object list, click the menu icon of the relevant user and select **Edit**.
 
 3.  Enter a new password and retype it.
 
@@ -6560,7 +7316,7 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to delete.
 
-2.  In the object list, click the relevant object and select **Remove**.
+2.  In the object list, click the menu icon of the relevant object and select **Remove**.
 
 3.  Click **OK** to confirm.
 
@@ -6568,7 +7324,21 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to view.
 
-2.  In the object list, click the relevant object and select **Show details**.
+2.  In the object list, click the menu icon of the relevant object and select **Show details**.
+
+### Disable a user's Two Factor Authentication
+
+If a user has enabled Two Factor Authentication and then loses access to his/her authentication device (e.g. smartphone gets lost or broken), this user will not be able to log into the system any more. To solve this issue, a user manager can disable Two Factor Authentication for the affected user, so that the user is able to access the system again using just a password.
+
+1.  Open the **Users** app and click **Users**.
+
+2.  In the object list, click the menu icon of the relevant user and select **Disable Two Factor Authentication**.
+
+3.  Click **OK** to confirm
+
+> **Note**
+>
+> The option to disable Two Factor Authentication will only be available for users that have set up Two Factor Authentication via the user-profile-app.
 
 ## Manage user roles
 
@@ -6588,27 +7358,15 @@ To change a user's password:
 
 4.  Enter a **Description**.
 
-5.  In the **Data sets** section, double-click the data sets you want the user role to have access to.
+5.  In the **Authorities** section, select the authorities you want to give to the user role. You can also use the filter inputs above the authority section to search for a specific authority.
 
-6.  In the **Programs** section, double-click the programs you want the user role to have access to.
-
-7.  **Authorities** section, double-click the authorities you want to give to the user role.
-
-8.  Click **Add**.
-
-> **Tip**
->
-> You can select multiple data sets, programs or authorities:
->
-> - One by one: press the Ctrl key and click the items one by one, then click the right arrow.
->
-> - In a series: press the Shift key and select the first and last item in the series, then click the right arrow.
+6.  Click **Add**.
 
 ### Edit user objects
 
 1.  Open the **Users** app and find the type of user object you want to edit.
 
-2.  In the object list, click the relevant object and select **Edit**.
+2.  In the object list, directly click the relevant object, or click the menu icon and select **Edit**.
 
 3.  Modify the options you want.
 
@@ -6618,7 +7376,7 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to delete.
 
-2.  In the object list, click the relevant object and select **Remove**.
+2.  In the object list, click the menu icon of the relevant object and select **Remove**.
 
 3.  Click **OK** to confirm.
 
@@ -6626,7 +7384,7 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to view.
 
-2.  In the object list, click the relevant object and select **Show details**.
+2.  In the object list, click the menu icon of the relevant object and select **Show details**.
 
 ### Change sharing settings for user objects
 
@@ -6640,11 +7398,9 @@ To change a user's password:
 
 5.  Change the settings for the user groups you want to modify.
 
-    - **None**
-
-    - **Can view**: Everyone in the user group can view the object
-
-    - **Can edit and view**: Everyone in the user group can view and edit the object
+- **None**
+- **Can view**: Everyone in the user group can view the object
+- **Can edit and view**: Everyone in the user group can view and edit the object
 
 6.  Cliquez sur **Sauvegarder**.
 
@@ -6688,7 +7444,7 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to edit.
 
-2.  In the object list, click the relevant object and select **Edit**.
+2.  In the object list, directly click the relevant object, or click the menu icon and select **Edit**.
 
 3.  Modify the options you want.
 
@@ -6698,7 +7454,7 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to delete.
 
-2.  In the object list, click the relevant object and select **Remove**.
+2.  In the object list, click the menu icon of the relevant object and select **Remove**.
 
 3.  Click **OK** to confirm.
 
@@ -6706,7 +7462,7 @@ To change a user's password:
 
 1.  Open the **Users** app and find the type of user object you want to view.
 
-2.  In the object list, click the relevant object and select **Show details**.
+2.  In the object list, click the menu icon of the relevant object and select **Show details**.
 
 ### Change sharing settings for user objects
 
@@ -6720,11 +7476,9 @@ To change a user's password:
 
 5.  Change the settings for the user groups you want to modify.
 
-    - **None**
-
-    - **Can view**: Everyone in the user group can view the object
-
-    - **Can edit and view**: Everyone in the user group can view and edit the object
+- **None**
+- **Can view**: Everyone in the user group can view the object
+- **Can edit and view**: Everyone in the user group can view and edit the object
 
 6.  Cliquez sur **Sauvegarder**.
 
@@ -6897,6 +7651,35 @@ In the **Maintenance** app you configure all the metadata objects you need to co
 > **Note**
 >
 > The functions you have access to depend on your user role's access permissions.
+
+### Navigating metadata objects
+
+<!--DHIS2-SECTION-ID:navigating_metadata-->
+
+Metadata objects are presented in a list with predefined columns that are relevant for each object. You may customize which columns are shown in the list for the current object. These customizations are per user, and therefore will not affect other users. Note that these changes do not edit any metadata, just how the list is presented.
+
+#### Managing visible columns
+
+![](resources/images/content/user/maintainence/configurable_columns_dialog.png)
+
+1. Click the ![settings-icon](resources/images/content/user/maintainence/icon_settings.png) -icon to the top right of the list of objects you want to configure.
+2. A dropdown-menu will appear, select **Manage columns**.
+3. A dialog will appear, with the default columns selected.
+4. Click any column-name in the list of **Available columns** to add them to the list of selected columns.
+5. You may reorder the selected columns by drag-and-dropping the ![reorder-icon](resources/images/content/user/maintainence/icon_reorder.png) -icon.
+6. You may also remove any column from the view by clicking the X-icon next to the name.
+7. Click **Save** once you are satisified with your changes.
+
+You may easily reset to the default values by clicking the **Reset to default** button.
+
+##### Download metadata
+
+You can download the metadata for the object you are currently viewing. The metadata download will respect any filters you have active for the list.
+
+1. Click the ![settings-icon](resources/images/content/user/maintainence/icon_settings.png) -icon to the top right of the list of objects you want to configure.
+2. A dropdown-menu will appear, select **Download**.
+3. A dialog will appear, where you can select the desired format and compression.
+4. **With sharing** can be selected to include sharing-data for the metadata.
 
 ## Manage categories
 
@@ -7072,7 +7855,7 @@ In DHIS2, different data elements are disaggregated according to a common set of
 
 You can group and classify category options by using category option groups. The main purpose of the category option group set is to add more dimensionality to your captured data for analysis in for example the **Pivot table** or **Data Visualizer** apps.
 
-In a system, data is collected by "projects", where projects is modeled as category options. The system must be able to analyse data based on which donor that supports the project. In this case, create a category option group set called "Donor". Each donor can be created as a category option group, where each category option / project is put in the appropriate group. In the data analysis applications, the "Donor" group set will appear as a data dimension, while each donor appear as dimension items, ready to be included in reports.
+Consider a system where data is collected by "projects", and projects are modelled as category options. The system must be able to analyse data based on which donor supports the project. In this case, create a category option group set called "Donor". Each donor can be created as a category option group, where each category option / project is put in the appropriate group. In the data analysis applications, the "Donor" group set will appear as a data dimension, while each donor appear as dimension items, ready to be included in reports.
 
 To create a category option group:
 
@@ -7322,19 +8105,23 @@ In the **Maintenance** app, you manage the following data elements objects:
 
     In many countries data elements are assigned a code.
 
-6.  In the **Description** field, type a description of the data element. Be as precise as possible and include complete information about how the data element is measured and what its purpose is.
+6.  (Optional) In the **Color** field, assign a color which will be used for this data element in the data capture apps.
 
-7.  In the **Form name** field, type an alternative name of the data element. This name can be used in either section or automatic data entry forms. The form name is applied automatically.
+7.  (Optional) In the **Icon** field, assign an icon which will be used for this data element in the data capture apps.
 
-8.  In the **Domain type** field, select whether the data element is an aggregate or tracker type of data element.
+8.  In the **Description** field, type a description of the data element. Be as precise as possible and include complete information about how the data element is measured and what its purpose is.
 
-9.  In the **Value type** field, select the type of data that the data element will record.
+9.  In the **Form name** field, type an alternative name of the data element. This name can be used in either section or automatic data entry forms. The form name is applied automatically.
+
+10. In the **Domain type** field, select whether the data element is an aggregate or tracker type of data element.
+
+11. In the **Value type** field, select the type of data that the data element will record.
 
     <table>
     <caption>Value types</caption>
     <colgroup>
-    <col width="53%" />
-    <col width="46%" />
+    <col style="width: 53%" />
+    <col style="width: 46%" />
     </colgroup>
     <thead>
     <tr class="header">
@@ -7433,7 +8220,7 @@ In the **Maintenance** app, you manage the following data elements objects:
     </tr>
     <tr class="even">
     <td><p>Username</p></td>
-    <td><p>DHIS 2 user. Rendered as a dialog with a list of users and a search field.</p></td>
+    <td><p>DHIS2 user. Rendered as a dialog with a list of users and a search field.</p></td>
     </tr>
     <tr class="odd">
     <td><p>Yes/No</p></td>
@@ -7446,7 +8233,7 @@ In the **Maintenance** app, you manage the following data elements objects:
     </tbody>
     </table>
 
-10. In the **Aggregation type** field, select the default aggregation operation that will be used on the data element.
+12. In the **Aggregation type** field, select the default aggregation operation that will be used on the data element.
 
     Most data elements should have the **Sum** operator. This includes all data elements which should be added together. Other data elements, such as staffing levels, should be set to use the **Average** operator, when values along the time dimension should not be added together, but rather averaged.
 
@@ -7502,27 +8289,27 @@ In the **Maintenance** app, you manage the following data elements objects:
     </tbody>
     </table>
 
-11. If you want to save zeros for a particular reason, select **Store zero data values**. By default, DHIS2 does not store zeros entered in the data entry module.
+13. If you want to save zeros for a particular reason, select **Store zero data values**. By default, DHIS2 does not store zeros entered in the data entry module.
 
-12. In the **URL** field, enter a link to an in-depth description of the data element.
+14. In the **URL** field, enter a link to an in-depth description of the data element.
 
     For example a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element.
 
-13. In the **Category combination** field, define which category combination the data element should have. This is also known as the "disaggregation".
+15. In the **Category combination** field, define which category combination the data element should have. This is also known as the "disaggregation".
 
-14. Select an **Option set**.
+16. Select an **Option set**.
 
     Option sets are predefined lists of options which can be used in data entry.
 
-15. Select an **Option set for comments**.
+17. Select an **Option set for comments**.
 
     Option sets for comments are predefined lists of options which can be used to specify standardized comments for data values in data entry.
 
-16. Assign one or multiple **Legends**.
+18. Assign one or multiple **Legends**.
 
     Legends are used in for example the **GIS** app to display certain data elements with certain icons.
 
-17. Set the **Aggregation levels** to allow the data element to be aggregated at one or more levels:
+19. Set the **Aggregation levels** to allow the data element to be aggregated at one or more levels:
 
     1.  In the left pane, select the levels you want to assign to the data element.
 
@@ -7532,13 +8319,13 @@ In the **Maintenance** app, you manage the following data elements objects:
 
     If you select both "District" and "Chiefdom", it means that the "District" and "National" level aggregates use District data as their source, "Chiefdom" will use Chiefdom, and "PHU" will use PHU.
 
-18. If applicable, enter custom attributes values, for example **Classification** or **Collection method**.
+20. If applicable, enter custom attributes values, for example **Classification** or **Collection method**.
 
     > **Note**
     >
     > You create custom attributes in the **Maintenance** app: **Other** > \> **Attributes**.
 
-19. If applicable, select compulsory data element group sets, for example **Main data element group** or **Tracker-based data**.
+21. If applicable, select compulsory data element group sets, for example **Main data element group** or **Tracker-based data**.
 
     > **Note**
     >
@@ -7546,7 +8333,7 @@ In the **Maintenance** app, you manage the following data elements objects:
     >
     > You create data element group sets in the **Maintenance** app: **Data element** \> **Date element group set**.
 
-20. Cliquez sur **Sauvegarder**.
+22. Cliquez sur **Sauvegarder**.
 
 ### Create or edit a data element group
 
@@ -7878,7 +8665,7 @@ You need to have data elements and categories to create data sets and data entry
 
 14. If applicable, select, a **Data approval workflow**.
 
-15. If you want it to be possible to use the data set within the Java mobile DHIS 2 application, select **Enable for Java mobile client**.
+15. If you want it to be possible to use the data set within the Java mobile DHIS2 application, select **Enable for Java mobile client**.
 
 16. If you want it to be mandatory to fill all values for a data element in data entry if one or more values have been filled, select **All fields for data elements required**.
 
@@ -7944,7 +8731,7 @@ You can now use the data set in the **Data Entry** app for the organisation unit
 
 3.  Enter **Data sets**.
 
-    These data sets will be associated to this notification. Incase any of them is completed for a certain period and organisation unit, notification will be generated by the system.
+    These data sets will be associated to this notification. In case any of them is completed for a certain period and organisation unit, notification will be generated by the system.
 
     > **Note**
     >
@@ -7952,13 +8739,13 @@ You can now use the data set in the **Data Entry** app for the organisation unit
 
 4.  In **Message template** section there are two parameters.
 
-    - **Subject template** subject of the notification sent in notification. It can have values from the list of variables avaiable on the right side.
+    - **Subject template** subject of the notification sent in notification. It can have values from the list of variables available on the right side.
 
-    - **Message template** actual message sent in notification. It can have values from the list of variables avaiable on the right side.
+    - **Message template** actual message sent in notification. It can have values from the list of variables available on the right side.
 
     > **Note**
     >
-    > Subject is only relevant in case of Email and internal DHIS-2 messages. It is ignored in case of SMS.
+    > Subject is only relevant in case of Email and internal DHIS2 messages. It is ignored in case of SMS.
 
 #### When to send?
 
@@ -7968,13 +8755,13 @@ You can now use the data set in the **Data Entry** app for the organisation unit
 
     - **Data Set Completion** will trigger notification as soon as data set is completed.
 
-    - **Schedule Days** will schedule notificaton based on number days relative to scheduled date. Schedule date will be decided by Period associated with Data set.
+    - **Schedule Days** will schedule notification based on number days relative to scheduled date. Schedule date will be decided by Period associated with Data set.
 
       - **Send notification as** provides two different types of notifications
 
         - **Collective summary** send notification in summary mood
 
-        - **Single notification** sends notification in sinlge mood
+        - **Single notification** sends notification in single mood
 
     > **Note**
     >
@@ -7992,7 +8779,7 @@ You can now use the data set in the **Data Entry** app for the organisation unit
 
     > **Note**
     >
-    > An internal DHIS-2 message will be sent in case if recipient is UserGroup. Moreover user will also receive SMS/EMAIL if phone number and email address exist for that user and SMS/EMAIL notifications are enabled in SystemSettings
+    > An internal DHIS2 message will be sent in case if recipient is UserGroup. Moreover user will also receive SMS/EMAIL if phone number and email address exist for that user and SMS/EMAIL notifications are enabled in SystemSettings
 
 ### Override data elements' category combinations in a data set
 
@@ -8213,7 +9000,7 @@ To create a custom form:
 
 4.  In the editing area, create the custom form.
 
-    - Double-clik on a object in the left-hand list to insert it in the form.
+    - Double-click on a object in the left-hand list to insert it in the form.
 
     - If you already have the HTML code for your form, click **Source** and paste the code.
 
@@ -8223,7 +9010,7 @@ To create a custom form:
 
 #### Scripting in custom forms
 
-In custom data entry form you can use JavaScript to create dynamic behavior and customizations. As an example, you can hide form sections based on specific user input for data elements, or show specific information when a form loads.
+In custom data entry form you can use JavaScript to create dynamic behaviour and customizations. As an example, you can hide form sections based on specific user input for data elements, or show specific information when a form loads.
 
 ##### Événements
 
@@ -8312,7 +9099,7 @@ To register for an event:
 
 > **Note**
 >
-> Be careful to only use "namespaced" events like the ones in the example above and not general ones like "click" as the dhis2.util.on method will unregister the event first.
+> Be careful to only use "namespaced" events like the ones in the example above and not general ones like "click" as the dhis2.util.on method will deregister the event first.
 
 If your function only applies to certain data sets you can use the supplied data set identifier and shortcut your function for unwanted data sets like this:
 
@@ -8441,12 +9228,12 @@ An indicator is a formula that can consist of multiple data elements, constants,
 
 > **Note**
 >
-> You never enter indicators directly in DHIS2, you calculate them.
+> You never enter indicator values directly in DHIS2, you calculate them.
 
-An indicator formula can consist of mathematical operators, for example plus and minus, and of the following elements:
+An indicator formula can consist of mathematical operators, for example plus and minus; functions (see below); and of the following elements:
 
 <table>
-<caption>Indicator formula</caption>
+<caption>Indicator elements</caption>
 <colgroup>
 <col style="width: 36%" />
 <col style="width: 30%" />
@@ -8454,7 +9241,7 @@ An indicator formula can consist of mathematical operators, for example plus and
 </colgroup>
 <thead>
 <tr class="header">
-<th>Formula element</th>
+<th>Indicator element</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -8494,6 +9281,56 @@ An indicator formula can consist of mathematical operators, for example plus and
 <td><p>Component</p></td>
 <td><p>Click <strong>Programs</strong> and select a program to view all data elements, attributes and indicators related to a specific program.</p>
 <p>The program components you include in your formula will have a program tag assigned to them.</p></td>
+</tr>
+</tbody>
+</table>
+
+You can use the following functions in an indicator formula:
+
+<table>
+<caption>Indicator functions</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>Indicator Function</p></th>
+<th><p>Arguments</p></th>
+<th><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>if</p></td>
+<td><p>(boolean-expr, true-expr, false-expr)</p></td>
+<td><p>Evaluates the boolean expression and if true returns the true expression value, if false returns the false expression value. The arguments must follow the rules for any indicator expression.</p></td>
+</tr>
+<tr class="even">
+<td><p>isNull</p></td>
+<td><p>(element)</p></td>
+<td><p>Returns true if the element value is missing (null), otherwise false.</p></td>
+</tr>
+<tr class="odd">
+<td><p>isNotNull</p></td>
+<td><p>(element)</p></td>
+<td><p>Returns true if the element value is not missing (not null), otherwise false.</p></td>
+</tr>
+<tr class="even">
+<td><p>firstNonNull</p></td>
+<td><p>(element [, element ...])</p></td>
+<td><p>Returns the value of the first element that is not missing (not null). Can be provided any number of arguments. Any argument may also be a numeric or string literal, which will be returned if all the previous objects have missing values.</p></td>
+</tr>
+<tr class="odd">
+<td><p>greatest</p></td>
+<td><p>(expression [, expression ...])</p></td>
+<td><p>Returns the greatest (highest) value of the expressions given. Can be provided any number of arguments.</p></td>
+</tr>
+<tr class="even">
+<td><p>least</p></td>
+<td><p>(expression [, expression ...])</p></td>
+<td><p>Returns the least (lowest) value of the expressions given. Can be provided any number of arguments.</p></td>
 </tr>
 </tbody>
 </table>
@@ -8550,7 +9387,7 @@ In the **Maintenance** app, you manage the following indicator objects:
 
 ![](resources/images/content/user/maintainence/indicator_type_create.png)
 
-Indicator types define a factor that is applied during aggregation. Indicator values that are calculated during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (for example 100 in the case of percents) for the values to appear correctly formatted.
+Indicator types define a factor that is applied during aggregation. Indicator values that are calculated during a data mart export or report table generation process will appear properly formatted, and will therefore not require an additional multiplier (for example 100 in the case of percent) for the values to appear correctly formatted.
 
 > **Note**
 >
@@ -8588,37 +9425,41 @@ Indicator types define a factor that is applied during aggregation. Indicator va
 
     In many countries indicators are assigned a code.
 
-6.  In the **Description** field, type a brief, informative description of the indicator and how it is calculated.
+6.  (Optional) In the **Color** field, assign a color to reprersent the indicator.
 
-7.  If you want to apply an annualization factor during the calculation of the indicator, select **Annualized**.
+7.  (Optional) In the **Icon** field, assign an icon to illustrate the meaning of the indicator.
+
+8.  In the **Description** field, type a brief, informative description of the indicator and how it is calculated.
+
+9.  If you want to apply an annualization factor during the calculation of the indicator, select **Annualized**.
 
     Typically, an annualized indicator's numerator is multiplied by a factor of 12, and the denominator is for instance a yearly population figure. This allows for monthly coverage values to be calculated with yearly population figures.
 
-8.  Select the number of **Decimals in data output**.
+10. Select the number of **Decimals in data output**.
 
-9.  Select an **Indicator type**.
+11. Select an **Indicator type**.
 
     This field determines a factor that will automatically be applied during the calculation of the indicator. Possible choices are determined by the indicator types. For example, a "Percent" indicator will automatically be multiplied by a factor of 100 when exported to the data mart, so that it will display as a percentage.
 
-10. (Optional) Assign one or multiple **Legends**.
+12. (Optional) Assign one or multiple **Legends**.
 
-11. In the **URL** field, enter a link, for example a link to an indicator registry, where a full metadata description of the indicator can be made available.
+13. In the **URL** field, enter a link, for example a link to an indicator registry, where a full metadata description of the indicator can be made available.
 
-12. (Optional) Enter a **Category option combination for aggregate data export.**.
-
-    You use this setting to map aggregated data exported as raw data to another server. Typically you do this type of data exchange mapping when you want to create anonymous aggregated data from patient data recorded in programs (event data).
-
-13. (Optional) Enter an **Attribute option combination for aggregate data export.**.
+14. (Optional) Enter a **Category option combination for aggregate data export.**.
 
     You use this setting to map aggregated data exported as raw data to another server. Typically you do this type of data exchange mapping when you want to create anonymous aggregated data from patient data recorded in programs (event data).
 
-14. If applicable, enter custom attributes values, for example **Classification** or **Collection method**.
+15. (Optional) Enter an **Attribute option combination for aggregate data export.**.
+
+    You use this setting to map aggregated data exported as raw data to another server. Typically you do this type of data exchange mapping when you want to create anonymous aggregated data from patient data recorded in programs (event data).
+
+16. If applicable, enter custom attributes values, for example **Classification** or **Collection method**.
 
     > **Note**
     >
     > You create custom attributes in the **Maintenance** app: **Other** > \> **Attributes**.
 
-15. Click **Edit numerator**.
+17. Click **Edit numerator**.
 
     1.  Type a clear description of the numerator.
 
@@ -8628,7 +9469,7 @@ Indicator types define a factor that is applied during aggregation. Indicator va
 
     3.  Click **Done** to save all changes to the numerator.
 
-16. Click **Edit denominator**.
+18. Click **Edit denominator**.
 
     1.  Type a clear description of the denominator.
 
@@ -8638,7 +9479,7 @@ Indicator types define a factor that is applied during aggregation. Indicator va
 
     3.  Click **Done** to save all changes to the denominator.
 
-17. If applicable, select compulsory indicator group sets, for example **Human resources**.
+19. If applicable, select compulsory indicator group sets, for example **Human resources**.
 
     > **Note**
     >
@@ -8646,7 +9487,7 @@ Indicator types define a factor that is applied during aggregation. Indicator va
     >
     > You create indicator group sets in the **Maintenance** app: **Indicator** \> **Indicator group set**.
 
-18. Cliquez sur **Sauvegarder**.
+20. Cliquez sur **Sauvegarder**.
 
 ### Create or edit an indicator group
 
@@ -8950,7 +9791,15 @@ You add organisation units to the hierarchy one by one, either as a root unit or
     >
     > Open the **System Settings** app, click **Access** and select **Allow assigning object to related objects during add or update**.
 
-15. If applicable, enter custom attributes values, for example **HR identifier**.
+15. If applicable, select **Programs** and assign them.
+
+    > **Note**
+    >
+    > You control whether a user should be able to assign programs to an organisation unit in the **System Settings** app:
+    >
+    > Open the **System Settings** app, click **Access** and select **Allow assigning object to related objects during add or update**.
+
+16. If applicable, enter custom attributes values, for example **HR identifier**.
 
     > **Note**
     >
@@ -8958,7 +9807,7 @@ You add organisation units to the hierarchy one by one, either as a root unit or
     >
     > Open the **Maintenance** app and click **Other** \> **Attribute**.
 
-16. Cliquez sur **Sauvegarder**.
+17. Cliquez sur **Sauvegarder**.
 
 ### Create or edit an organisation unit group
 
@@ -9286,7 +10135,7 @@ You can use sliding windows to group data _across multiple periods_ as opposed t
 ![](resources/images/content/user/maintainence/validation_rules_sliding_window.gif)
 
 <table>
-<caption>Different behavior of validation rules</caption>
+<caption>Different behaviour of validation rules</caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -9888,6 +10737,14 @@ An option set called "Delivery type" would have the options: "Normal", "Breach",
 <td><p>Option set</p></td>
 <td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
+<tr class="odd">
+<td><p>Option group</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
+</tr>
+<tr class="odd">
+<td><p>Option group set</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -9919,11 +10776,68 @@ An option set called "Delivery type" would have the options: "Normal", "Breach",
 
     2.  Click the add button.
 
-    3.  Type a **Name** and a **Code**.
+    3.  Type a **Name** and a **Code**. Optionally also select a **Color** and an **Icon** which will be used for this option in the data capture apps.
 
     4.  Sort the options by name, code/value or manually.
 
     5.  Cliquez sur **Sauvegarder**.
+
+### Create or edit an option group
+
+<!--DHIS2-SECTION-ID:create_option_group-->
+
+You can group and classify **options** within an **option set** by using **option groups**. This way you can create a subset of options in an option set. The main purpose of this is to be able to filter huge option sets into smaller, related parts.
+
+Options that are grouped can be hidden or shown together in tracker and event capture through program rules.
+
+> **Note**
+>
+> You cannot change the **Option set** selected in an **Option group** once it has been created.
+
+1. Open the **Maintenance** app and click **Other** \> **Option group**.
+
+2. Click the add button.
+
+3. Fill in the form:
+
+   1. **Name**
+   2. **Short name**
+   3. **Code**
+   4. **Option set**
+
+4. Once an **Option set** is selected, you can assign the **Options** you want to group.
+
+5. Cliquez sur **Sauvegarder**.
+
+### Create or edit an option group set
+
+<!--DHIS2-SECTION-ID:create_option_group_set-->
+
+**Option group sets** allows you to categorise multiple **option groups** into a set. The main purpose of the option group set is to add more dimensionality to your captured data for analysis.
+
+> **Note**
+>
+> You cannot change the **Option set** selected in an **Option group set** once it has been created.
+
+1. Open the **Maintenance** app and click **Other** \> **Option group set**.
+
+2. Click the add button.
+
+3. Fill in the form:
+
+   1. **Name**
+   2. **Code**
+   3. **Description**
+   4. **Option set**
+   5. **Data dimension**
+
+      If you select **Data dimension**, the group set will be available to the analytics as another dimension, in addition to the standard dimensions of “Period” and “Organisation unit”.
+
+4. Select option groups and assign them.
+
+   Available option groups are displayed in the left panel. Option groups that are currently members of the option group set are displayed in the right hand panel.
+
+5. Cliquez sur **Sauvegarder**.
 
 ### Clone metadata objects
 
@@ -10075,7 +10989,7 @@ You can create, edit, clone, delete, show details and translate legends to make 
 
     1.  Click the colour scale to view a list of color scale options, and select a color scale.
 
-    2.  To customize a color scale, click the add button. In the **Edit legend item** dialog, click the color scale button and handpick colors, or enter your color values.
+    2.  To customize a color scale, click the add button. In the **Edit legend item** dialog, click the color scale button and hand-pick colors, or enter your color values.
 
 8.  Cliquez sur **Sauvegarder**.
 
@@ -10262,25 +11176,25 @@ Predictors can generate data values for periods that are in the past, present, o
 
 A predictor's _Sequential sample count_ gives the number of immediate prior periods to sample. For example, if a predictor's period type is _Weekly_ and the _Sequential sample count_ is 4, this means to sample four prior weeks immediately preceding the predicted value week. So the predicted value for week 9 would use samples from weeks 5, 6, 7, and 8:
 
-![](resources/images/content/user/maintainence/predictor_sequential.png)
+![](resources/images/content/user/maintainence/predictor_sequential.png){.center width=50% }
 
 If a predictor's period type is _Monthly_ and the _Sequential sample count_ is 4, this means to sample four prior months immediately preceding the predicted value month. So the predicted value for May would use samples from weeks January, February, March, and April:
 
-![](resources/images/content/user/maintainence/predictor_sequential_month.png)
+![](resources/images/content/user/maintainence/predictor_sequential_month.png){.center width=51% }
 
 The _Sequential sample count_ can be greater than the number of periods in a year. For example, if you want to sample the 24 months immediately preceding the predicted value month, set the _Sequential sample count_ to 24:
 
-![](resources/images/content/user/maintainence/predictor_24_months.png)
+![](resources/images/content/user/maintainence/predictor_24_months.png){.center width=57% }
 
 #### Sequential skip count
 
 <!--DHIS2-SECTION-ID:sequential_skip_count-->
 
-A predictor's _Sequential skip count_ tells how many periods should be skipped immediately prior to the predicted value period, within the _Sequential sample count_. This could be used, for instance, in outbreak detection to skip one or more immediately prededing samples that might in fact contain values from the beginning of an outbreak that you are trying to detect.
+A predictor's _Sequential skip count_ tells how many periods should be skipped immediately prior to the predicted value period, within the _Sequential sample count_. This could be used, for instance, in outbreak detection to skip one or more immediately preceding samples that might in fact contain values from the beginning of an outbreak that you are trying to detect.
 
 For example, if the _Sequential sample count_ is 4, but the _Sequential skip count_ is 2, then the two samples immediately preceding the predicted period will be skipped, resulting in only two periods being sampled:
 
-![](resources/images/content/user/maintainence/predictor_skip.png)
+![](resources/images/content/user/maintainence/predictor_skip.png){.center width=50% }
 
 #### Annual sample count
 
@@ -10288,7 +11202,7 @@ For example, if the _Sequential sample count_ is 4, but the _Sequential skip cou
 
 A predictor's _Annual sample count_ gives the number of prior years for which samples should be collected at the same time of year. This could be used, for instance, for disease surveillance in cases where the expected incidence of the disease varies during the year and can best be compared with the same relative period in previous years. For example, if the _Annual sample count_ is 2 (and the _Sequential sample count_ is zero), then samples would be collected from periods in the immediately preceding two years, at the same time of year.
 
-![](resources/images/content/user/maintainence/predictor_annual.png)
+![](resources/images/content/user/maintainence/predictor_annual.png){.center width=53% }
 
 #### Sequential and annual sample counts together
 
@@ -10298,19 +11212,19 @@ You can use the sequential and annual sample counts together to collect samples 
 
 For example, if the _Sequential sample count_ is 4 and the _Annual sample count_ is 2, samples will be collected from the 4 periods immediately preceding the predicted value period. In addition samples will be collected in the prior 2 years for the corresponding period, as well as 4 periods on either side:
 
-![](resources/images/content/user/maintainence/predictor_sequential_annual.png)
+![](resources/images/content/user/maintainence/predictor_sequential_annual.png){.center width=66% }
 
 #### Sequential, annual, and skip sample counts together
 
 <!--DHIS2-SECTION-ID:sequential_annual_skip_sample_count-->
 
-You can use the _Sequential skip count_ together with the sequential and annual sample counts. When you do this, the _Sequential skip count_ tells how many periods to skip in the same year as the predicted value period. For example, if the _Sequential sample count_ is 4 and the _Sequential skip count_ is 2, then the two preiods immediatly preceding the predicted value period period will be skipped, but the two periods before that will be sampled:
+You can use the _Sequential skip count_ together with the sequential and annual sample counts. When you do this, the _Sequential skip count_ tells how many periods to skip in the same year as the predicted value period. For example, if the _Sequential sample count_ is 4 and the _Sequential skip count_ is 2, then the two periods immediately preceding the predicted value period period will be skipped, but the two periods before that will be sampled:
 
-![](resources/images/content/user/maintainence/predictor_skip_2_weeks.png)
+![](resources/images/content/user/maintainence/predictor_skip_2_weeks.png){.center width=66% }
 
 If the _Sequential skip count_ is equal to or greater than the _Sequential sample count_, then no samples will be collected for the year containing the predicted value period; only periods from past years will be sampled:
 
-![](resources/images/content/user/maintainence/predictor_skip_current_year.png)
+![](resources/images/content/user/maintainence/predictor_skip_current_year.png){.center width=66% }
 
 #### Sample skip test
 
@@ -10318,11 +11232,11 @@ If the _Sequential skip count_ is equal to or greater than the _Sequential sampl
 
 You can use the _Sample skip test_ to skip samples from certain periods that would otherwise be included, based on the results of testing an expression within those periods. This could be used, for instance, in disease outbreak detection, where the sample skip test could identify previous disease outbreaks, to exclude those samples from the prediction of a non-outbreak baseline expected value.
 
-The _Sample skip test_ is an expression that should return a value of true or false, to indicate whether or not the period should be skipped. It can be an expression that tests any values in the preiovus period. For example, it could test for a data value that was explicitly entered to indicate that a previous period should be skipped. Or it could compare a previously predicted value for a period with the actual value recorded for that period, to determine if that period should be skipped.
+The _Sample skip test_ is an expression that should return a value of true or false, to indicate whether or not the period should be skipped. It can be an expression that tests any data values in the previous period. For example, it could test for a data value that was explicitly entered to indicate that a previous period should be skipped. Or it could compare a previously predicted value for a period with the actual value recorded for that period, to determine if that period should be skipped.
 
 Any periods for which the _Sample skip test_ is _true_ will not be sampled. For example:
 
-![](resources/images/content/user/maintainence/predictor_sample_skip_test.png)
+![](resources/images/content/user/maintainence/predictor_sample_skip_test.png){.center width=66% }
 
 ### Create or edit a predictor
 
@@ -10338,13 +11252,17 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
 
 5.  (Optional) Type a **Description**.
 
-6.  Select an **Output data element**. Any value generated by this predictor is stored as a value of this data element. The value is rounded according to the value type of the data element: If the value type is an integer type, the predicted value is rounded to the nearest integer. For all other value types, the number is rounded to four significant digits. (However if there are more than four digits to the left of the decimal place, they are not replaced with zeros.)
+6.  Select an **Output data element**. Values generated by this predictor are stored as aggregate data associated with this data element and the predicted period.
 
-7.  Select a **Period type**.
+    The value is rounded according to the value type of the data element: If the value type is an integer type, the predicted value is rounded to the nearest integer. For all other value types, the number is rounded to four significant digits. (However if there are more than four digits to the left of the decimal place, they are not replaced with zeros.)
 
-8.  Assign one or more organisation unit levels. The ouput value will be assigned to an organisation unit at this level (or these levels). The input values will come from the organisaiton unit to which the output is assigned, or from any level lower under the output organisation unit.
+7.  (Optional) Select an **Output category combo**. This dropdown will only show if the selected data element has category-combos attached to it. If this is the case, you can select which categoryCombo you would like to use.
 
-9.  Create a **Generator**. The generator is the expression that is used to calculate the predicted value.
+8.  Select a **Period type**.
+
+9.  Assign one or more organisation unit levels. The output value will be assigned to an organisation unit at this level (or these levels). The input values will come from the organisation unit to which the output is assigned, or from any level lower under the output organisation unit.
+
+10. Create a **Generator**. The generator is the expression that is used to calculate the predicted value.
 
     1.  Type a **Description** of the generator expression.
 
@@ -10397,9 +11315,7 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
 
         Any items inside an aggregate function will be evaluated for all sampled past periods, and then combined according to the formula inside the aggregate function. Any items outside an aggregate function will be evaluated for the period in which the prediction is being made.
 
-        You can build more complex expressions by clicking on (or typing) any of the elements below the expression field: ( ) \* /
-
-        - - Days. Constant numbers may be added by typing them. The Days option inserts \[days\] into the expression which resolves to the number of days in the period from which the data came.
+        You can build more complex expressions by clicking on (or typing) any of the elements below the expression field: ( ) \* / + - Days. Constant numbers may be added by typing them. The Days option inserts \[days\] into the expression which resolves to the number of days in the period from which the data came.
 
         You can also use the following functions in your expression, either inside or containing aggregate functions, or independent of them:
 
@@ -10469,7 +11385,7 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         </tbody>
         </table>
 
-10. (Optional) Create a **Sample skip test**. The sample skip test tells which previous periods if any to exclude from the sample.
+11. (Optional) Create a **Sample skip test**. The sample skip test tells which previous periods if any to exclude from the sample.
 
     1.  Type a **Description** of the skip test.
 
@@ -10506,19 +11422,37 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         </tbody>
         </table>
 
-11. Enter a **Sequential sample count** value.
+12. Enter a **Sequential sample count** value.
 
     This is for how many sequential periods the calculation should go back in time to sample data for the calculations.
 
-12. Enter an **Annual sample count** value.
+13. Enter an **Annual sample count** value.
 
     This is for how many years the calculation should go back in time to sample data for the calculations.
 
-13. (Optional) Enter a **Sequential skip count** value.
+14. (Optional) Enter a **Sequential skip count** value.
 
     This is how many sequential periods, immediately preceding the predicted value period, should be skipped before sampling the data.
 
-14. Cliquez sur **Sauvegarder**.
+15. Cliquez sur **Sauvegarder**.
+
+### Create or edit a predictor group
+
+<!--DHIS2-SECTION-ID:create_predictor_group-->
+
+1.  Open the **Maintenance** app and click **Other** \> **Predictor group**.
+
+2.  Click the add button.
+
+3.  Type a **Name**. This field needs to be unique.
+
+4.  (Optional) In the **Code** field, assign a code. This field needs to be unique.
+
+5.  (Optional) Type a **Description**.
+
+6.  Double-click the **Predictors** you want to assign to the group.
+
+7.  Cliquez sur **Sauvegarder**.
 
 ### Clone metadata objects
 
@@ -10766,7 +11700,7 @@ You can customize GIS by including map layers from various sources and combine t
 
 > **Note**
 >
-> DHIS 2 only supports the Web Mercator projection ([EPSG:3857](https://epsg.io/3857)) so make sure that the external service supports this projection.
+> DHIS2 only supports the Web Mercator projection ([EPSG:3857](https://epsg.io/3857)) so make sure that the external service supports this projection.
 
 <table>
 <caption>External map layer objects in the Maintenance app</caption>
@@ -10902,6 +11836,42 @@ DHIS2 provides functionality for translations of database content, for example d
 
 5.  Cliquez sur **Sauvegarder**.
 
+## Manage SQL Views
+
+<!--DHIS2-SECTION-ID:maintenance_sql_view-->
+
+The SQL View functionality of DHIS2 will store the SQL view definition internally, and then materialize the view when requested.
+
+Database administrators must be careful about creating database views directly in the DHIS2 database. For instance, when the resource tables are generated, all of them will first be dropped and then re-created. If any SQL views depend on these tables, an integrity violation exception will be thrown and the process will be aborted.
+
+The SQL views are dropped in reverse alphabetical order based on their names in DHIS2, and created in regular alphabetical order. This allows you to have dependencies between SQL views, given that views only depend on other views which come earlier in the alphabetical order. For instance, "ViewB" can safely depend on "ViewA". Otherwise, having views depending on other view result in an integrity violation error.
+
+### Creating a new SQL view
+
+To create a new SQL view, click **Apps** \> **Maintenance** \> **Other** \> **SQL View** and click the Add **+** button.
+
+![](resources/images/content/user/maintainence/create_sql_view.PNG)
+
+The "Name" attribute of the SQL view will be used to determine the name of the table that DHIS2 will create when the view is materialized by the user. The "Description" attribute allows one to provide some descriptive text about what the SQL view actually does. Finally, the "SQL query" should contain the SQL view definition. Only SQL "SELECT" statements are allowed and certain sensitive tables (i.e. user information) are not accessible Press "Save" to store the SQL view definition.
+
+### SQL View management
+
+In order to utilize the SQL views, simply click the view and from the context menu, choose "Execute query". Once the process is completed, you will be informed that a table has been created. The name of the table will be provided, and is composed from the "Description" attribute provided in the SQL view definition. Once the view has been generated, you can view it by clicking the view again, and selecting "Show SQL View".
+
+> **Tip**
+>
+> If you have a view which depends on another view, you should be careful about how the views are named. When analytics is run on the DHIS2 server, all views must be dropped, and are recreated. When analytics starts, the views are dropped in alphabetical order, and then recreated in reverse alphabetical order. Thus, if view A depends on view B, it must appear before view B in alphabetical order. If it appears after view B in alphabetical order, analytics may fail, as the view with dependencies will not be dropped in the correct order.
+
+## Manage Locales
+
+<!--DHIS2-SECTION-ID:maintenance_locale_management-->
+
+It is possible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as "English" and "Zambia" to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition.
+
+![](resources/images/content/user/maintainence/locale_management.png)
+
+The locale is composed of a language along with a country. Select the desired values and press "Add". This custom locale will now be available as one of the translation locales in the system.
+
 ## Edit multiple object groups at once
 
 <!--DHIS2-SECTION-ID:edit_multiple_object_groups-->
@@ -10978,7 +11948,7 @@ The **Metadata group editor** in the **Maintenance** app allows you to edit mult
 
 5.  In the left-hand list, select the objects group(s) you want to add the object to and click the right arrow.
 
-6.  In the right-hand list, select the object group(s) you want to remove the object from and click the left arrow,
+6.  In the right-hand list, select the object group(s) you want to remove the object from and click the left arrow.
 
 # Configure programs in the Maintenance app
 
@@ -11031,7 +12001,7 @@ Traditionally, public health information systems have been reporting aggregated 
 </tbody>
 </table>
 
-To create a program, you must first configure several types of metadata objects. You create these metadata objects in the **Maintenance** app or the **Program / Attributes** (legacy) app.
+To create a program, you must first configure several types of metadata objects. You create these metadata objects in the **Maintenance** app.
 
 <table>
 <caption>Program metadata objects in the Maintenance app</caption>
@@ -11054,13 +12024,18 @@ To create a program, you must first configure several types of metadata objects.
 <td><p>Create, edit, share, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
++<td><p>Tracker program</p></td>
++<td><p>A program to record single event without registration</p></td>
++<td><p>Create, edit, share, delete, show details and translate</p></td>
++</tr>
+<tr class="even">
 <td><p>Program indicator</p></td>
 <td><p>An expression based on data elements and attributes of tracked entities which you use to calculate values based on a formula.</p></td>
 <td><p>Create, edit, share, delete, show details and translate</p></td>
 </tr>
 <tr class="odd">
 <td><p>Program rule</p></td>
-<td><p>Allows you to create and control dynamic behavior of the user interface in the <strong>Tracker Capture</strong> and <strong>Event Capture</strong> apps.</p></td>
+<td><p>Allows you to create and control dynamic behaviour of the user interface in the <strong>Tracker Capture</strong> and <strong>Event Capture</strong> apps.</p></td>
 <td><p>Create, edit, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
@@ -11074,7 +12049,7 @@ To create a program, you must first configure several types of metadata objects.
 <td><p>Create, edit, clone, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
-<td><p>Tracked entity</p></td>
+<td><p>Tracked entity type</p></td>
 <td><p>Types of entities which can be tracked through the system. Can be anything from persons to commodities, for example a medicine or a person.</p>
 <p>A program must have one tracked entity. To enrol a tracked entity instance into a program, the tracked entity of an entity and tracked entity of a program must be the same.</p>
 <blockquote>
@@ -11089,24 +12064,6 @@ To create a program, you must first configure several types of metadata objects.
 <p>Can be shared between programs.</p></td>
 <td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
-</tbody>
-</table>
-
-<table>
-<caption>Program metadata objects in the Program / Attributes app</caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Object type</p></th>
-<th>Description</th>
-<th><p>Available functions</p></th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
 <td><p>Program</p></td>
 <td><p>A program consist of program stages.</p></td>
@@ -11115,11 +12072,6 @@ To create a program, you must first configure several types of metadata objects.
 <tr class="even">
 <td><p>Program stage</p></td>
 <td><p>A program stage defines which actions should be taken at each stage.</p></td>
-<td><p>Create, edit, change sort order, delete, show details and translate</p></td>
-</tr>
-<tr class="odd">
-<td><p>Program stage section</p></td>
-<td><p>N/A</p></td>
 <td><p>Create, edit, change sort order, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
@@ -11140,13 +12092,9 @@ To create a program, you must first configure several types of metadata objects.
 </tr>
 <tr class="odd">
 <td><p>Program stage notification</p></td>
-<td><p>-</p></td>
+<td><p>Automated message reminder</p>
+<p>Set reminders to be automatically sent whenever a program stage is completed, or before or after the due date.</p></td>
 <td><p>Create, edit and delete</p></td>
-</tr>
-<tr class="even">
-<td><p>Design custom registration form</p></td>
-<td><p>-</p></td>
-<td><p>-</p></td>
 </tr>
 </tbody>
 </table>
@@ -11221,7 +12169,7 @@ You can create _program notifications_ for event programs. The notifications are
 
 1.  Open the **Maintenance** app and click **Program** \> **Program**.
 
-2.  Click the add button.
+2.  Click the add button and select **Event Program** in the popup menu.
 
 3.  Enter program details, then click next.
 
@@ -11240,6 +12188,14 @@ You can create _program notifications_ for event programs. The notifications are
     <tr class="odd">
     <td><p><strong>Name</strong></p></td>
     <td><p>The name of the program.</p></td>
+    </tr>
+    <tr class="even">
+    <td><p><strong>Color</strong></p></td>
+    <td><p>Color used for this program in the data capture apps.</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p><strong>Icon</strong></p></td>
+    <td><p>Icon used for this program in the data capture apps.</p></td>
     </tr>
     <tr class="even">
     <td><p><strong>Short name</strong></p></td>
@@ -11272,12 +12228,41 @@ You can create _program notifications_ for event programs. The notifications are
     <td><p>The expiry days defines for how many days after the end of the previous period, an event can be edited. The period type is defined by the expiry period type. This means that when the specified number of expiry days has passed since the end date of the previous period, the events from that period are locked.</p>
     <p>If you set the expiry type to &quot;Monthly&quot; and the expiry days to &quot;10&quot; and the month is October, then you can't add or edit an event to October after the 10th of November.</p></td>
     </tr>
+    <tr class="odd">
+    <td><strong>Block entry form after completed</strong></td>
+    <td><p>Select checkbox to block the entry form after completion of the event of this program.</p>
+    <p>This means that the data in the entry form can't be changed until you reset the status to incomplete.</p></td>
+    </tr>
+    <tr class="even">
+    <td><strong>Feature type</strong></td>
+    <td><p>Sets wether the program is going to capture a geographical feature type or not.
+
+- **None** Nothing is captured.
+- **Polygon** An area is captured. For single event programs the area will be the area representing the event being captured. For tracker programs, the area will represent the area of the enrollment.
+- **Point** A point/coordinate is captured. For single event programs the point will be representing the event being captured. For tracker programs, the point will represent the enrollment. </p></td> </tr> <tr class="odd"> <td><strong>Validation strategy</strong></td> <td>Sets the server and client side validation requirement.
+  > Data type validations is always performed regardless of the validation strategy. An integer field is never stored containing text, for example.
+- **On complete** This option will enforce required field and error messages to be fixed when completing the event, but the event can be saved to the server without passing these validation requirements.
+  - For legacy reasons, this is always the validation strategy for tracker programs, where each data value in the event is stored to the server while entrering data.
+- **On update and insert** This option will enforce required field validation when saving the event to the server regardless of the completion status. When using this option no events can be stored without passing validations.
+    </td>
+    </tr>
+    <tr class="even">
+    <td><strong>Pre-generate event UID</strong></td>
+    <td>Select checkbox to pre-generate unique event id numbers.</td>
+    </tr>
+    <tr class="odd">
+    <td><strong>Description of report date</strong></td>
+    <td><p>Type a description of the report date.</p>
+    <p>This description is displayed in the case entry form.</p></td>
+    </tr>
     </tbody>
     </table>
 
-4.  Click next.
+1.  Click next.
 
 #### Assign data elements
+
+<!--DHIS2-SECTION-ID:assign_data_elements-->
 
 1.  Click **Assign data elements**.
 
@@ -11299,7 +12284,7 @@ You can create _program notifications_ for event programs. The notifications are
     <tbody>
     <tr class="odd">
     <td><p><strong>Compulsory</strong></p></td>
-    <td><p>The value of this data element must be filled into data entry form before you can comple the event.</p></td>
+    <td><p>The value of this data element must be filled into data entry form before you can complete the event.</p></td>
     </tr>
     <tr class="even">
     <td><p><strong>Allow provided elsewhere</strong></p></td>
@@ -11314,8 +12299,13 @@ You can create _program notifications_ for event programs. The notifications are
     <td><p>Will allow user to select a date in future for date data elements.</p></td>
     </tr>
     <tr class="odd">
-    <td><p><strong>Render option as radio</strong></p></td>
-    <td><p>Displays a radio button in the data entry form. It's only possible to use for option sets.</p></td>
+    <td><p><strong>Mobile render type</strong></p></td>
+    <td><p>Can be used to select different render types for mobile devices. Available options vary depending on the data element's value type. For example, for a numerical value you may select &quot;Default&quot;, &quot;Value&quot;, &quot;Slider&quot;, &quot;Linear scale&quot;, and &quot;Spinner&quot;.</p></td>
+    </tr>
+    <tr class="even">
+    <td><p><strong>Desktop render type</strong></p></td>
+    <td><p>WARNING: NOT IMPLEMENTED YET.</p>
+    <p>Can be used to select different render types for desktop (i.e. the web interface). Available options vary depending on the data element's value type. For example, for a numerical value you may select &quot;Default&quot;, &quot;Value&quot;, &quot;Slider&quot;, &quot;Linear scale&quot;, and &quot;Spinner&quot;.</p></td>
     </tr>
     </tbody>
     </table>
@@ -11323,6 +12313,8 @@ You can create _program notifications_ for event programs. The notifications are
 4.  Click next.
 
 #### Create data entry forms
+
+<!--DHIS2-SECTION-ID:create_data_entry_forms-->
 
 The data entry forms decide how the data elements will be displayed to the user in the **Event Capture** app.
 
@@ -11334,7 +12326,7 @@ The data entry forms decide how the data elements will be displayed to the user 
 
 4.  To create a **Section** data entry form:
 
-    1.  Click the add button and enter a section name.
+    1.  Click the add button and enter a section's name, description and render type for desktop and mobile.
 
     2.  Click the section so it's highlighted by a black line.
 
@@ -11348,17 +12340,39 @@ The data entry forms decide how the data elements will be displayed to the user 
 
 6.  Click next.
 
-#### Assign organisation units
+#### Access
 
-1.  Click **Assign organisation units**.
+<!--DHIS2-SECTION-ID:access-->
 
-2.  In the organisation tree, double-click the organisation units you want to add to the program to.
+Access options decide who can capture data for the program or view/edit the program's metadata. A program can be shared to organisation units, and in addition, the main program and any program stages' access options can be configured through the **Sharing dialog**. Access options are available in the **Access** tab.
+
+Assign organization units:
+
+1.  In the organisation tree, double-click the organisation units you want to add to the program to.
 
     You can locate an organisation unit in the tree by expanding the branches (click on the arrow symbol), or by searching for it by name. The selected organisation units display in orange.
 
-3.  Click next.
+Change roles and access:
+
+1.  Scroll down to the **Roles and access** section.
+
+    The first row shows the main program's access options, and each subsequent row shows the options of one program stage. Program stages with a warning icon (exclamation mark) contain access options that deviate from the main program, meaning they are accessed by a different combination of users.
+
+2.  Click on either of the rows and the **Sharing dialog** will show.
+
+3.  Modify the access options accordingly. See documentation on the sharing dialog for details.
+
+4.  Click the **Apply** button.
+
+5.  Repeat the process for each program/program stage. You can also copy all access options from the main program to your child programs:
+
+    1.  Select the program stages you want to have similar access options as the main program by toggling the checkboxes on the right hand side of the program stages. You can also choose to **Select all** program stages, **Deselect all** program stages or **Select similar** stages, in terms of access options, to that of the main program. Similar stages are toggled by default.
+
+    2.  Click **Apply to selected stages**
 
 #### Create program notifications
+
+<!--DHIS2-SECTION-ID:create_program_notifications-->
 
 1.  Create the message you want to send:
 
@@ -11629,11 +12643,25 @@ Program indicators are evaluated based on the assigned aggregation type, express
 <li><p>For analytics type <em>event</em>, the default boundaries will be configured to encapsulate any events with an event date after the reporting period starts and before the reporting period ends.</p></li>
 <li><p>For analytics type <em>enrollment</em>, the default boundaries will encapsulate all enrollments with an enrollment date after the reporting date starts and before the reporting period ends. In addition, the default enrollment program indicator evaluates the newest event for all program stages regardless of date.</p></li>
 </ul>
-<p>It is possible to change the upper and lower boundaries to include a longer or shorter period relative to the reporting period, or delete one of the boundaries - in effect returing all data before or after a certiain period. It is also possible to add more constraints, for example to make an enrollment program indicator only include event data up to a given point in time.</p>
+<p>It is possible to change the upper and lower boundaries to include a longer or shorter period relative to the reporting period, or delete one of the boundaries - in effect returning all data before or after a certain period. It is also possible to add more constraints, for example to make an enrollment program indicator only include event data up to a given point in time.</p>
 <ul>
-<li><p>Boundary target: Can be <em>incident date</em>, <em>event date</em> or <em>enrollment date</em>. Designates what is being constrained by the boundary.</p></li>
-<li><p>Analytics period boundary type: Defines wether the boundary is a end boundary - starting with &quot;before...&quot;, or a start boundary - &quot;after...&quot;. Also defines whether the boundary relates to the end of the aggregate reporting period or the start of the aggregate reporting period.</p></li>
-<li><p>Offset period by amount: In some cases, for example cohort analytics, the boundary should be offset relative to the aggregate reporting period when running pivots and reports. The offset period by amount is used to move the current boundary either back(negative) or forward(positive) in time. The amount and period type together will determine how big the offset will be. An example can be when making a simple enrollment cohort porgram indicator for a 1 year cohort, it might be enough to offset each boundary of the program indicator with &quot;-1&quot; and &quot;Years&quot;</p></li>
+<li><p>Boundary target: Can be <em>incident date</em>, <em>event date</em>, <em>enrollment date</em> or <em>custom</em>. Designates what is being constrained by the boundary.</p>
+<p><em>custom</em> is used make boundary that target either a date data element, tracked entity attribute or the presence of an event in a program stage. This is done with a custom expression on the form:</p>
+<ul>
+<li><p>Data element of type date: #{programStageUid.dataElementUid}.</p>
+<pre><code>#{A03MvHHogjR.a3kGcGDCuk6}</code></pre></li>
+<li><p>Tracked entity attribute of type date: #{attributeUid}.</p>
+<pre><code>A{GPkGfbmArby}</code></pre></li>
+<li><p>Presence of one event in a specific program stage: PS_EVENTDATE:programStageUid.</p>
+<pre><code>PS_EVENTDATE:A03MvHHogjR</code></pre>
+<blockquote>
+<p><strong>Note</strong></p>
+This boundary target is only applicable to
+Analytics type Enrollment
+</blockquote></li>
+</ul></li>
+<li><p>Analytics period boundary type: Defines whether the boundary is an end boundary - starting with &quot;before...&quot;, or a start boundary - &quot;after...&quot;. Also defines whether the boundary relates to the end of the aggregate reporting period or the start of the aggregate reporting period.</p></li>
+<li><p>Offset period by amount: In some cases, for example cohort analytics, the boundary should be offset relative to the aggregate reporting period when running pivots and reports. The offset period by amount is used to move the current boundary either back(negative) or forward(positive) in time. The amount and period type together will determine how big the offset will be. An example can be when making a simple enrollment cohort program indicator for a 1 year cohort, it might be enough to offset each boundary of the program indicator with &quot;-1&quot; and &quot;Years&quot;</p></li>
 <li><p>Period type: See above. Can be any period, e.g. <em>Weekly</em> or <em>Quarterly</em>.</p></li>
 </ul></td>
 </tr>
@@ -11702,6 +12730,10 @@ In the **Maintenance** app, you manage the following program indicator objects:
     - **Short name**
 
     - **Code**
+
+    - **Color**
+
+    - **Icon**
 
     - **Description**
 
@@ -11839,59 +12871,113 @@ The program indicator expression and filter support a range of functions. The fu
 <tr class="odd">
 <td><p>d2:hasValue</p></td>
 <td><p>(object)</p></td>
-<td><p>Returns true if the data element/attribute has a value. Can be used in filters to distinguish between the number 0 and no value, and to distinguish between exlicit &quot;No&quot; and no selection for a Yes/No field.</p></td>
+<td><p>Returns true if the data element/attribute has a value. Can be used in filters to distinguish between the number 0 and no value, and to distinguish between explicit &quot;No&quot; and no selection for a Yes/No field.</p></td>
 </tr>
 <tr class="even">
 <td><p>d2:minutesBetween</p></td>
 <td><p>(datetime, datetime)</p></td>
-<td><p>Produces the number of minutes between two data elements/attributes of type &quot;date and time&quot;. The static datetime format is 'yyyy-MM-dd hh:mm'.</p></td>
+<td><p>Produces the number of minutes between two data elements/attributes of type &quot;date and time&quot;. The static datetime format is 'yyyy-MM-dd hh:mm'. Any of the arguments can be replaced with PS_EVENTDATE:(programStageUid) to compare the latest event date from a given program stage.</p></td>
 </tr>
 <tr class="odd">
 <td><p>d2:daysBetween</p></td>
 <td><p>(date, date)</p></td>
-<td><p>Produces the number of days between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'.</p></td>
+<td><p>Produces the number of days between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'. Any of the arguments can be replaced with PS_EVENTDATE:(programStageUid) to compare the latest event date from a given program stage.</p></td>
 </tr>
 <tr class="even">
 <td><p>d2:weeksBetween</p></td>
 <td><p>(date, date)</p></td>
-<td><p>Produces the number of full weeks between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'.</p></td>
+<td><p>Produces the number of full weeks between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'. Any of the arguments can be replaced with PS_EVENTDATE:(programStageUid) to compare the latest event date from a given program stage.</p></td>
 </tr>
 <tr class="odd">
 <td><p>d2:monthsBetween</p></td>
 <td><p>(date, date)</p></td>
-<td><p>Produces the number of full months between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'.</p></td>
+<td><p>Produces the number of full months between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'. Any of the arguments can be replaced with PS_EVENTDATE:(programStageUid) to compare the latest event date from a given program stage.</p></td>
 </tr>
 <tr class="even">
 <td><p>d2:yearsBetween</p></td>
 <td><p>(date, date)</p></td>
-<td><p>Produces the number of full years between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'.</p></td>
+<td><p>Produces the number of full years between two data elements/attributes of type date. The static date format is 'yyyy-MM-dd'. Any of the arguments can be replaced with PS_EVENTDATE:(programStageUid) to compare the latest event date from a given program stage.</p></td>
 </tr>
 <tr class="odd">
 <td><p>d2:condition</p></td>
-<td><p>(boolean-expr, true-val, false-val)</p></td>
-<td><p>Evaluates the conditional expression and if true returns the true value, if false returns the false value. The conditional expression must be quoted.</p></td>
+<td><p>(boolean-expr, true-expr, false-expr)</p></td>
+<td><p>Evaluates the boolean expression and if true returns the true expression value, if false returns the false expression value. The conditional expression must be quoted. The true-expr and false-expr arguments must follow the rules of any program indicator expression (including functions).</p></td>
 </tr>
 <tr class="even">
 <td><p>d2:zing</p></td>
-<td><p>(number)</p></td>
-<td><p>Evaluates the data element/attribute of type number to zero if the value is negative, otherwise to the value itself.</p></td>
+<td><p>(expression)</p></td>
+<td><p>Returns zero if the expression is negative, otherwise returns the expression value. The expression must follow the rules of any program indicator expression (including functions).</p></td>
 </tr>
 <tr class="odd">
 <td><p>d2:oizp</p></td>
-<td><p>(number)</p></td>
-<td><p>Evaluates the data element/attribute of type number to one if the value is zero or positive, otherwise to zero.</p></td>
+<td><p>(expression)</p></td>
+<td><p>Returns one if the expression is zero or positive, otherwise returns zero. The expression must follow the rules of any program indicator expression (including functions).</p></td>
 </tr>
 <tr class="even">
 <td><p>d2:zpvc</p></td>
-<td><p>(object, [,object, object,...])</p></td>
+<td><p>(object, [,object ...])</p></td>
 <td><p>Returns the number of numeric zero and positive values among the given object arguments. Can be provided any number of arguments.</p></td>
+</tr>
+<tr class="odd">
+<td><p>d2:relationshipCount</p></td>
+<td><p>([relationshipTypeUid])</p></td>
+<td><p>Produces the number of relationships of the given type that is connected to the enrollment or event. When no type is given, all types are counted.</p></td>
+</tr>
+<tr class="even">
+<td><p>d2:count</p></td>
+<td><p>(dataElement)</p></td>
+<td><p>Useful only for enrollment program indicators. Counts the number of data values that has been collected for the given program stage and data element in the course of the enrollment. The argument data element is supplied with the #{programStage.dataElement} syntax.</p></td>
+</tr>
+<tr class="odd">
+<td><p>d2:countIfValue</p></td>
+<td><p>(dataElement, value)</p></td>
+<td><p>Useful only for enrollment program indicators. Counts the number of data values that matches the given literal value for the given program stage and data element in the course of the enrollment. The argument data element is supplied with the #{programStage.dataElement} syntax. The value can be a hard coded text or number, for example 'No_anemia' if only the values containing this text should be counted.</p></td>
+</tr>
+<tr class="even">
+<td><p>d2:countIfCondition</p></td>
+<td><p>(dataElement, condition)</p></td>
+<td><p>Useful only for enrollment program indicators. Counts the number of data values that matches the given condition criteria for the given program stage and data element in the course of the enrollment. The argument data element is supplied with the #{programStage.dataElement} syntax. The condition is supplied as a expression in single quotes, for example '&lt;10' if only the values less than 10 should be counted.</p></td>
+</tr>
+<tr class="odd">
+<td><p>if</p></td>
+<td><p>(boolean-expr, true-expr, false-expr)</p></td>
+<td><p>Evaluates the boolean expression and if true returns the true expression value, if false returns the false expression value. This is identical to the d2:condition function except that the boolean-expr is not quoted.</p></td>
+</tr>
+<tr class="even">
+<td><p>isNull</p></td>
+<td><p>(object)</p></td>
+<td><p>Returns true if the object value is missing (null), otherwise false.</p></td>
+</tr>
+<tr class="odd">
+<td><p>isNotNull</p></td>
+<td><p>(object)</p></td>
+<td><p>Returns true if the object value is not missing (not null), otherwise false.</p></td>
+</tr>
+<tr class="even">
+<td><p>firstNonNull</p></td>
+<td><p>(object [, object ...])</p></td>
+<td><p>Returns the value of the first object that is not missing (not null). Can be provided any number of arguments. Any argument may also be a numeric or string literal, which will be returned if all the previous objects have missing values.</p></td>
+</tr>
+<tr class="odd">
+<td><p>greatest</p></td>
+<td><p>(expression [, expression ...])</p></td>
+<td><p>Returns the greatest (highest) value of the expressions given. Can be provided any number of arguments. Each expression must follow the rules of any program indicator expression (including functions).</p></td>
+</tr>
+<tr class="even">
+<td><p>least</p></td>
+<td><p>(expression [, expression ...])</p></td>
+<td><p>Returns the least (lowest) value of the expressions given. Can be provided any number of arguments. Each expression must follow the rules of any program indicator expression (including functions).</p></td>
 </tr>
 </tbody>
 </table>
 
-A filter that uses the "hasValue" function looks like this: this:
+A filter that uses the "hasValue" function looks like this:
 
     d2:hasValue(#{mCXR7u4kNBW.NFkjsNiQ9PH})
+
+A filter that uses the "relationshipCount(relationshipTypeUid)" function looks like this:
+
+    d2:relationshipCount('KLkjshoQ90U')
 
 An expression that uses the "zing" and "oizp" functions looks like this:
 
@@ -11901,13 +12987,33 @@ An expression that uses the "daysBetween" function looks like this:
 
     d2:daysBetween(#{mCXR7u4kNBW.k8ja2Aif1Ae},'2015-06-01')
 
+An expression that uses the "yearBetween" function to compare the latest event of the program stage 'mCXR7u4kNBW' to the enrollment date looks like this:
+
+    d2:daysBetween(V{enrollment_date},PS_EVENTDATE:mCXR7u4kNBW)
+
 An expression that uses the "condition" function looks like this:
 
     d2:condition('#{mCXR7u4kNBW.NFkjsNiQ9PH} > 100',150,50)
 
+An expression that uses the "countIfValue" function to only count the number of times the value 10 has been collected looks like this:
+
+    d2:countIfValue(#{mCXR7u4kNBW.NFkjsNiQ9PH}),10)
+
 An expression that uses the "zpvc" function looks like this:
 
     d2:zpvc(A{GPkGfbmArby}),#{mCXR7u4kNBW.NFkjsNiQ9PH}),4,-1)
+
+An expression that uses the "if" and "isnull" functions looks like this:
+
+    if(isNull(A{GPkGfbmArby}),10,20)
+
+An expression that uses the "firstNonNull" function looks like this:
+
+    firstNonNull(A{GPkGfbmArby}),#{mCXR7u4kNBW.NFkjsNiQ9PH},44)
+
+An expression that uses the "greatest" function looks like this:
+
+    greatest(#{mCXR7u4kNBW.k8ja2Aif1Ae},#{mCXR7u4kNBW.NFkjsNiQ9PH},1)
 
 #### Variables to use in a program indicator expression or filter
 
@@ -11926,63 +13032,88 @@ The program indicator expression and filter support a range of variables:
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><p>event_date</p></td>
-<td><p>The date of when the event took place.</p></td>
+<td><p>The date of when the event or the last event in the enrollment took place.</p></td>
 </tr>
-<tr class="even">
+<tr>
+<td><p>creation_date</p></td>
+<td><p>The date of when an event or enrollment was created in the system.</p></td>
+</tr>
+<tr>
 <td><p>due_date</p></td>
 <td><p>The date of when an event is due.</p></td>
 </tr>
-<tr class="odd">
+<tr>
+<td><p>sync_date</p></td>
+<td><p>The date of when the event or enrollment was last syncronized with the Android app.</p></td>
+</tr>
+<tr>
 <td><p>incident_date</p></td>
 <td><p>The date of the incidence of the event.</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>enrollment_date</p></td>
 <td><p>The date of when the tracked entity instance was enrolled in the program.</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>enrollment_status</p></td>
 <td><p>Can be used to include or exclude enrollments in certain statuses.</p>
-<p>When calculating the hemoglobin improvement/deterioration throughout a pregnancy, it might make sense to only consider completed enrollments. If non-completed enrollments is not filtered out, these will represent half-finished ANC followups, where the final improvement/deterioration is not yet established.</p></td>
+<p>When calculating the haemoglobin improvement/deterioration throughout a pregnancy, it might make sense to only consider completed enrollments. If non-completed enrollments is not filtered out, these will represent half-finished ANC followups, where the final improvement/deterioration is not yet established.</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>current_date</p></td>
 <td><p>The current date.</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>value_count</p></td>
 <td><p>The number of non-null values in the expression part of the event.</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>zero_pos_value_count</p></td>
 <td><p>The number of numeric positive values in the expression part of the event.</p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>event_count</p></td>
 <td><p>The count of events (useful in combination with filters).</p></td>
 </tr>
-<tr class="even">
+<tr>
 <td><p>enrollment_count</p></td>
-<td><p>The count of enrollments (useful in combination with filters).</p></td>
+<td><p>The count of enrollments (useful in combination with filters). Aggregation type for the program indicator must be COUNT. </p></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>tei_count</p></td>
-<td><p>The count of tracked entity instances (useful in combination with filters).</p></td>
+<td><p>The count of tracked entity instances (useful in combination with filters). Aggregation type for the program indicator must be COUNT.</p></td>
 </tr>
-<tr class="even">
+<tr>
+<td><p>org_unit_count</p></td>
+<td><p>The count of organisation units (useful in combination with filters). Aggregation type for the program indicator must be COUNT.</p></td>
+</tr>
+<tr>
 <td><p>program_stage_name</p></td>
 <td><p>Can be used in filters for including only certain program stages in a filter for tracker programs. Uses the name of the program stage:</p>
 <pre><code>V{program_stage_name} == &#39;ANC first visit&#39;</code></pre></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><p>program_stage_id</p></td>
 <td><p>Can be used in filters for including only certain program stages in a filter for tracker programs. Uses the unique identifier of the program stage:</p>
 <pre><code>V{program_stage_id} == &#39;YPSSfbmAtt1&#39;</code></pre></td>
 </tr>
+<tr>
+<td><p>reporting_period_start</p></td>
+<td><p>Can be used in filters or expressions for comparing any date to the first date in each reporting period.</p>
+<pre><code>d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{reporting_period_start})</code></pre></td>
+</tr>
+<tr>
+<td><p>reporting_period_end</p></td>
+<td><p>Can be used in filters or expressions for comparing any date to the last inclusive date in each reporting period.</p></td>
+</tr>
 </tbody>
 </table>
+
+A filter that uses the "Reporting period end" variable to only include women who has an LMP that would be in the first trimester:
+
+    d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{reporting_period_end}) <= 84
 
 An expression that uses the "value count" variable looks like this:
 
@@ -12060,7 +13191,7 @@ A filter that uses both attributes and data elements looks like this:
 
 <!--DHIS2-SECTION-ID:about_program_rules-->
 
-Program rules allows you to create and control dynamic behavior of the user interface in the **Tracker Capture** and **Event Capture** apps. During data entry, the program rules expressions are evaluated each time the user interface is displayed, and each time a data element is changed. Most types of actions will take effect immediately when the user enters values in the **Tracker Capture** and **Event Capture** apps.
+Program rules allows you to create and control dynamic behaviour of the user interface in the **Tracker Capture** and **Event Capture** apps. During data entry, the program rules expressions are evaluated each time the user interface is displayed, and each time a data element is changed. Most types of actions will take effect immediately when the user enters values in the **Tracker Capture** and **Event Capture** apps.
 
 <table>
 <caption>Program rule components</caption>
@@ -12077,7 +13208,7 @@ Program rules allows you to create and control dynamic behavior of the user inte
 <tbody>
 <tr class="odd">
 <td><p>Program rule action</p></td>
-<td><p>Each program rule contains one or multiple actions. These are the behaviors that are triggered in the user interface when the expression is true. Actions will be applied at once if the expression is true, and will be reverted if the expression is no longer true. There are several types of actions and you can have several actions in one program rule.</p></td>
+<td><p>Each program rule contains one or multiple actions. These are the behaviours that are triggered in the user interface when the expression is true. Actions will be applied at once if the expression is true, and will be reverted if the expression is no longer true. There are several types of actions and you can have several actions in one program rule.</p></td>
 </tr>
 <tr class="even">
 <td><p>Program rule expression</p></td>
@@ -12195,7 +13326,10 @@ In the **Maintenance** app, you manage the following program rule objects:
     </tr>
     <tr class="odd">
     <td><p><strong>Calculated value</strong></p></td>
-    <td><p>TBA</p></td>
+    <td><p>Program rule variable with this source type is not connected directly to any form data - but will be populated as a result of some other program rules <strong>ASSIGN</strong> action.</p>
+    <p>This variable will be used for making preliminary calculations, having a <strong>ASSIGN</strong> program rule action and assigning a value, this value can be used by other program rules - potentially making the expressions simpler and more maintanable.</p>
+    <p>These variables will not be persisted and will stay in memory only during the exectution of the set of program rules. Any program rule that assigns a data value to a preliminary calculated value would normally also have a <strong>priority</strong> assigned - to make sure that the preliminary caculation is done before the rule that consumes the calculated value.</p>
+    </td>
     </tr>
     <tr class="even">
     <td><p><strong>Tracked entity attribute</strong></p></td>
@@ -12224,6 +13358,10 @@ In the **Maintenance** app, you manage the following program rule objects:
 3.  Enter the program rule details. These fields are not shown to the end user, they are only meant for the program administrator.
 
     - **Program**
+
+    - **Trigger rule only for program stage**
+
+      If a program stage is selected, the program rule will only run for the selected program stage, as opposed to being run for every program stage in the program.
 
     - **Name**
 
@@ -12372,8 +13510,40 @@ In the **Maintenance** app, you manage the following program rule objects:
         <tr class="odd">
         <td><p><strong>Send Message</strong></p></td>
         <td><p><strong>Message template to send</strong></p></td>
-        <td><p>Send Message triggers a notification based on provided message template. This action will be taken at event/enrollment <strong>completion.</strong></p>
+        <td><p>Send Message triggers a notification based on provided message template. This action will be taken when ever there is a change in <strong>data value</strong>. However this behaviour can be controlled by providing event/enrollment status in program rule expression for example.</p>
+        <pre><code>V{event_status} == &#39;COMPLETED&#39;</code></pre>
         <p>Message template will be parsed and variables will be substituted with actual values.</p></td>
+        </tr>
+        <tr class="even">
+        <td><p><strong>Schedule Message</strong></p></td>
+        <td><p><strong>Message template to send</strong></p>
+        <p><strong>Data field which contains expression to evaluate the date which notification should be sent at.</strong></p></td>
+        <td><p>Schedule Message will schedule notification at date provided by Expression in the data field. Sample expression is given below</p>
+        <pre><code>d2:addDays( &#39;2018-04-20&#39;, &#39;2&#39; )</code></pre>
+        <p>Message template will be parsed and variables will be substituted with actual values.</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p><strong>Hide option</strong></p></td>
+        <td><p><strong>Data element to hide option for</strong></p>
+        <p><strong>Tracked entity attribute to hide option for</strong></p>
+        <p><strong>Option that should be hidden</strong></p></td>
+        <td><p>Used to selectively hide a single option for an option set in a given data element/tracked entity attribute.</p>
+        <p>When combined with <strong>show option group</strong> the <strong>hide option</strong> takes presedence.</p></td>
+        </tr>
+        <tr class="even">
+        <td><p><strong>Hide option group</strong></p></td>
+        <td><p><strong>Data element to hide option group for</strong></p>
+        <p><strong>Tracked entity attribute to hide option group for</strong></p>
+        <p><strong>Option group that should be hidden</strong></p></td>
+        <td><p>Used to hide all options in a given option group and data element/tracked entity attribute.</p>
+        <p>When combined with <strong>show option group</strong> the <strong>hide option group</strong> takes precedence.</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p><strong>Show option group</strong></p></td>
+        <td><p><strong>Data element to show option group for</strong></p>
+        <p><strong>Tracked entity attribute to show option group for</strong></p>
+        <p><strong>Option group that should be shown</strong></p></td>
+        <td><p>Used to show only options from a given option group in a given data element/tracked entity attribute. To show an option group implicitly hides all options that is not part of the group(s) that is shown.</p></td>
         </tr>
         </tbody>
         </table>
@@ -12449,7 +13619,7 @@ By using a program rule of type "Assign value" you can calculate the "Gestationa
 
 > **Tip**
 >
-> You can nest functions within each other and with subexpressions to form more complex conditions. An example that produces the gestational age in weeks, based on last menstrual date:
+> You can nest functions within each other and with sub-expressions to form more complex conditions. An example that produces the gestational age in weeks, based on last menstrual date:
 >
 >     d2:floor( d2:daysBetween(#{lastMenstrualDate},V{event_date}) / 7 )
 
@@ -12457,15 +13627,15 @@ By using a program rule of type "Assign value" you can calculate the "Gestationa
 >
 > The source type will determine how the d2: function calls will evaluate a (sourcefield) parameter.
 >
-> Example: where \#{hemoglobinCurrent} is set to source type **Data element in current event**. The following function call with evaluate whether hemoglobin is entered in the current event.
+> Example: where \#{hemoglobinCurrent} is set to source type **Data element in current event**. The following function call with evaluate whether haemoglobin is entered in the current event.
 >
 >     d2:hasValue( 'hemoglobinCurrent' )
 >
-> Example: where \#{hemoglobin} is set to source type **Data element from the newest event in the current program**. The following function call with evaluate whether there exists a value for the hemoglobin in any event in the enrollment.
+> Example: where \#{hemoglobin} is set to source type **Data element from the newest event in the current program**. The following function call with evaluate whether there exists a value for the haemoglobin in any event in the enrollment.
 >
 >     d2:hasValue( 'hemoglobin' )
 >
-> Example: where \#{hemoglobinPrevious} is set to source type **Data element from previous event** . The following function call with evaluate whether there exists a value for the hemoglobin among the events preceding the current event.
+> Example: where \#{hemoglobinPrevious} is set to source type **Data element from previous event** . The following function call with evaluate whether there exists a value for the haemoglobin among the events preceding the current event.
 >
 >     d2:hasValue( 'hemoglobinPrevious' )
 
@@ -12504,11 +13674,11 @@ By using a program rule of type "Assign value" you can calculate the "Gestationa
 </tr>
 <tr class="even">
 <td><p>&amp;&amp;</p></td>
-<td><p>Logical AND. True only when the expression on the left and right side is true. The left and right side can be yes/no, yes only or a subexpression in parenthesis.</p></td>
+<td><p>Logical AND. True only when the expression on the left and right side is true. The left and right side can be yes/no, yes only or a sub-expression in parenthesis.</p></td>
 </tr>
 <tr class="odd">
 <td><p>||</p></td>
-<td><p>Logical OR. True when either the expression on the left or the expression on the right side is true. The left and right side can be yes/no, yes only or a subexpression in parenthesis.</p></td>
+<td><p>Logical OR. True when either the expression on the left or the expression on the right side is true. The left and right side can be yes/no, yes only or a sub-expression in parenthesis.</p></td>
 </tr>
 <tr class="even">
 <td><p>&gt;</p></td>
@@ -12571,7 +13741,7 @@ By using a program rule of type "Assign value" you can calculate the "Gestationa
 <td>d2:floor</td>
 <td>(number)</td>
 <td>Rounds the input argument <strong>down</strong> to the nearest whole number.
-<p>An example producing the number of weeks the woman is pregnant. Notice that the subexpression #{gestationalAgeDays}/7 is evaluated before the floor function is executed:</p>
+<p>An example producing the number of weeks the woman is pregnant. Notice that the sub-expression #{gestationalAgeDays}/7 is evaluated before the floor function is executed:</p>
 <pre><code>d2:floor(#{gestationalAgeDays}/7)</code></pre></td>
 </tr>
 <tr class="odd">
@@ -12716,15 +13886,36 @@ If the #{variableWithText} in the above example was 'ABCD', then the result of t
 <p>Example:</p>
 <pre><code>d2:length(#{variableWithText})</code></pre></td>
 </tr>
+<tr class="even">
+<td>d2:inOrgUnitGroup</td>
+<td>(text)</td>
+<td>Evaluates whether the current organisation unit is in the argument group. The argument can be defined with either ID or organisation unit group code. The current organisation unit will be the event organisation unit when the rules is triggered in the context of an event, and the enrolling organisation unit when the rules is triggered in the event of a TEI registration form.
+<p>Example expression:</p>
+<pre><code>d2:inOrgUnitGroup(&#39;HIGH_RISK_FACILITY&#39;)</code></pre></td>
+</tr>
+<tr class="odd">
+<td>d2:hasUserRole</td>
+<td>(user role)</td>
+<td>Returns true if current user has this role otherwise false
+<p>Example expression:</p>
+<pre><code>d2:hasUserRole(&#39;UYXOT4A3ASA&#39;)</code></pre></td>
+</tr>
+<tr class="even">
+<td>d2:zScoreWFA</td>
+<td>Z-Score weight for age indicator</td>
+<td>Function calculates z-score based on data provided by WHO weight-for-age indicator. Its value varies between -3.5 to 3.5 depending upon the value of weight.
+<p>Example expression:</p>
+<pre><code>d2:zScoreWFA( ageInMonth, weight, gender )</code></pre></td>
+</tr>
 </tbody>
 </table>
 
 <table>
 <caption>Standard variables to use in program rule expressions</caption>
 <colgroup>
-<col width="15%" />
-<col width="30%" />
-<col width="54%" />
+<col style="width: 15%" />
+<col style="width: 30%" />
+<col style="width: 54%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -12747,41 +13938,63 @@ If the #{variableWithText} in the above example was 'ABCD', then the result of t
 <td>Contains the event date of the current event execution. Will not have a value at the moment the rule is executed as part of the registration form.</td>
 </tr>
 <tr class="odd">
+<td>V{event_status}</td>
+<td>(string)</td>
+<td>Contains status of the current event or enrollment.
+<p>Example expression to check status is:</p>
+<pre><code>V{event_status) == &#39;COMPLETED&#39;</code></pre></td>
+</tr>
+<tr class="even">
 <td>V{due_date}</td>
 <td>(date)</td>
 <td>This variable will contain the current date when the rule is executed. Note: This means that the rule might produce different results at different times, even if nothing else has changed.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>V{event_count}</td>
 <td>(number)</td>
 <td>Contains the total number of events in the enrollment.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>V{enrollment_date}</td>
 <td>(date)</td>
 <td>Contains the enrollment date of the current enrollment. Will not have a value for single event programs.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>V{incident_date}</td>
 <td>(date)</td>
 <td>Contains the incident date of the current enrollment. Will not have a value for single event programs.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>V{enrollment_id}</td>
 <td>(string)</td>
 <td>Universial identifier string(UID) of the current enrollment. Will not have a value for single event programs.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>V{event_id}</td>
 <td>(string)</td>
 <td>Universial identifier string(UID) of the current event context. Will not have a value at the moment the rule is executed as part of the registration form.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>V{orgunit_code}</td>
 <td>(string)</td>
 <td>Contains the code of the orgunit that is linked to the current enrollment. For single event programs the code from the current event orgunit will be used instead.
-<p>Example expression to check wether orgunit code starts with WB_:</p>
+<p>Example expression to check whether orgunit code starts with WB_:</p>
 <pre><code>d2:left(V{orgunit_code},3) == &#39;WB_&#39;</code></pre></td>
+</tr>
+<tr class="odd">
+<td>V{environment}</td>
+<td>(string)</td>
+<td>Contains a code representing the current runtime environment for the rules. The possible values is &quot;WebClient&quot;, &quot;AndroidClient&quot; and &quot;Server&quot;. Can be used when a program rule is only supposed to run in one or more of the client types.</td>
+</tr>
+<tr class="even">
+<td>V{program_stage_id}</td>
+<td>(string)</td>
+<td>Contains the ID of the current program stage that triggered the rules. This can be used to run rules in specific program stages, or avoid execution in certain stages. When executing the rules in the context of a TEI registration form the variable will be empty.</td>
+</tr>
+<tr class="odd">
+<td>V{program_stage_name}</td>
+<td>(string)</td>
+<td>Contains the name of the current program stage that triggered the rules. This can be used to run rules in specific program stages, or avoid execution in certain stages. When executing the rules in the context of a TEI registration form the variable will be empty.</td>
 </tr>
 </tbody>
 </table>
@@ -12814,17 +14027,17 @@ A relationship type defines the relationship between tracked entity A and tracke
 
 7.  Cliquez sur **Sauvegarder**.
 
-## Configure tracked entities
+## Configure tracked entity types
 
 <!--DHIS2-SECTION-ID:configure_tracked_entity-->
 
-### About tracked entities
+### About tracked entity types
 
 <!--DHIS2-SECTION-ID:about_tracked_entity-->
 
 A tracked entity is a types of entities which can be tracked through the system. It can be anything from persons to commodities, for example a medicine or a person.
 
-A program must have one tracked entity. To enrol a tracked entity instance into a program, the tracked entity of an entity and tracked entity of a program must be the same.
+A program must have one tracked entity. To enroll a tracked entity instance into a program, the tracked entity type and tracked entity type of a program must be the same.
 
 Tracked entity attributes are used to register extra information for a tracked entity. Tracked entity attributes can be shared between programs.
 
@@ -12840,13 +14053,15 @@ Tracked entity attributes are used to register extra information for a tracked e
 
 4.  (Optional) Type a **Short name**.
 
-5.  (Optional) In the **Code** field, assign a code.
+5.  (Optional) Type a **Form name**.
 
-6.  (Optional) Type a **Description**.
+6.  (Optional) In the **Code** field, assign a code.
 
-7.  Select an **Option set**.
+7.  (Optional) Type a **Description**.
 
-8.  In the **Value type** field, select the type of data that the tracked entity attribute will record.
+8.  Select an **Option set**.
+
+9.  In the **Value type** field, select the type of data that the tracked entity attribute will record.
 
     <table>
     <caption>Value types</caption>
@@ -12962,7 +14177,7 @@ Tracked entity attributes are used to register extra information for a tracked e
     </tbody>
     </table>
 
-9.  Select an **Aggregation type**.
+10. Select an **Aggregation type**.
 
     <table>
     <caption>Aggregation operators</caption>
@@ -13016,7 +14231,7 @@ Tracked entity attributes are used to register extra information for a tracked e
     </tbody>
     </table>
 
-10. Select **Unique** to specify that the values of the tracked entity attribute is unique.
+11. Select **Unique** to specify that the values of the tracked entity attribute is unique.
 
     There are two options for the unique setting:
 
@@ -13026,17 +14241,17 @@ Tracked entity attributes are used to register extra information for a tracked e
 
     - **Organisation unit**: The values of the tracked entity attribute must not duplicate in the same organisation unit.
 
-11. Select **Inherit** to registry a new entity for relationship with an available entity, all inherit entity attribute values of the entity will be pre-filled in the registration form.
+12. Select **Inherit** to registry a new entity for relationship with an available entity, all inherit entity attribute values of the entity will be pre-filled in the registration form.
 
-12. (Optional) Select **Confidential**.
+13. (Optional) Select **Confidential**.
 
     This option is only available if you have configured encryption for the system.
 
-13. (Optional) Select **Display in list without program**.
+14. (Optional) Select **Display in list without program**.
 
-14. (Optional) Assign one or multiple **Legends**.
+15. (Optional) Assign one or multiple **Legends**.
 
-15. Cliquez sur **Sauvegarder**.
+16. Cliquez sur **Sauvegarder**.
 
 ### Create or edit a tracked entity type
 
@@ -13044,21 +14259,23 @@ Tracked entity attributes are used to register extra information for a tracked e
 
 1.  Open the **Maintenance** app and click **Program** \> **Tracked entity type**.
 
-2.  Click the add button or an already exsisting **tracked entity type**.
+2.  Click the add button or an already existing **tracked entity type**.
 
 3.  Type a **Name** of the tracked entity.
 
-4.  (Optional) Enter a **Description** of the tracked entity.
+4.  (Optional) select a **Color** and an **Icon** that will be used by the data capture apps to identify this tracked entity type.
 
-5.  (Optional) Enter a **Minimum number of attributes required to search**. This specifies the amount of attributes that need to be filled out in order to be able to search for this **tracked entity type** in a _global search_. See [Configure Search](../search/search.xml#configure_search) for more information.
+5.  (Optional) Enter a **Description** of the tracked entity.
 
-6.  (Optional) Enter a **Maximum number of tracked entity instances to return in search**. This specifies the amount of tracked entity instances that will be returned in a _global search_. See [Configure Search](../search/search.xml#configure_search) for more information.
+6.  (Optional) Enter a **Minimum number of attributes required to search**. This specifies the amount of attributes that need to be filled out in order to be able to search for this **tracked entity type** in a _global search_. See [Configure Search](../search/search.xml#configure_search) for more information.
 
-7.  (Optional) Add **Tracked entity type attributes**. This is used to configure search, see [Configure Search](../search/search.xml#configure_search) for more information.
+7.  (Optional) Enter a **Maximum number of tracked entity instances to return in search**. This specifies the amount of tracked entity instances that will be returned in a _global search_. See [Configure Search](../search/search.xml#configure_search) for more information.
 
-8.  (Optional) Enter an **Alternative name** of the tracked entity.
+8.  (Optional) Add **Tracked entity type attributes**. This is used to configure search, see [Configure Search](../search/search.xml#configure_search) for more information.
 
-9.  Cliquez sur **Sauvegarder**.
+9.  (Optional) Enter an **Alternative name** of the tracked entity.
+
+10. Cliquez sur **Sauvegarder**.
 
 ## Configure search
 
@@ -13232,926 +14449,6 @@ DHIS2 provides functionality for translations of database content, for example d
 
 5.  Cliquez sur **Sauvegarder**.
 
-# Configure programs in the Programs/Attributes app (legacy app)
-
-<!--DHIS2-SECTION-ID:configure_programs_in_legacy_app-->
-
-> **Note**
->
-> - You create program indicators and program rules in the **Maintenance** app. It's no longer possible to create program indicators and program rules in the legacy **Program / Attributes** app.
->
-> - You can create event programs (programs without registration) in the **Maintenance** app. The old version of this functionality is also available in the legacy **Program / Attributes** app.
-
-## About programs
-
-<!--DHIS2-SECTION-ID:about_program_legacy_app-->
-
-There are three type of programs:
-
-- Multi events with registration program (MEWR):
-
-  Used for programs with many stages, for example Mother Health Program with stages such as ANC Visit (2-4+), Delivery, PNC Visit.
-
-- Single event with registration program (SEWR):
-
-  Used for birth certificate and death certificate. This type of programs have only one stage. An TEI just can enroll into the program one time.
-
-- Single event without registration program (anonymous program or SEWoR):
-
-  Used for saving health cases without registering any information into the system. This type of programs have only one stage.
-
-A program must be specified with only one tracked entity. Only tracked entity as same as the tracked entity of program can enroll into that program.
-
-A program needs several types of metadata that you create in the **Program / Attributes** and **Maintenance** apps.
-
-<table>
-<caption>Program metadata objects in the Program / Attributes app</caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Object type</p></th>
-<th>Description</th>
-<th><p>Available functions</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Program</p></td>
-<td><p>A program consist of program stages.</p></td>
-<td><p>Create, edit, share, delete, assign to organisation units, show details and translate</p></td>
-</tr>
-<tr class="even">
-<td><p>Program stage</p></td>
-<td><p>A program stage defines which actions should be taken at each stage.</p></td>
-<td><p>Create, edit, change sort order, delete, show details and translate</p></td>
-</tr>
-<tr class="odd">
-<td><p>Program stage section</p></td>
-<td><p>N/A</p></td>
-<td><p>Create, edit, change sort order, delete, show details and translate</p></td>
-</tr>
-<tr class="even">
-<td><p>Program indicator group</p></td>
-<td><p>A group of program indicators</p></td>
-<td><p>Create, edit, delete, show details and translate</p></td>
-</tr>
-<tr class="odd">
-<td><p>Validation rule</p></td>
-<td><p>A validation rule is based on an expression which defines a relationship between data element values.</p></td>
-<td><p>Create, edit and delete</p></td>
-</tr>
-<tr class="even">
-<td><p>Program notification</p></td>
-<td><p>Automated message reminder</p>
-<p>Set reminders to be automatically sent to enrolled tracked entity instances before scheduled appointments and after missed visits.</p></td>
-<td><p>Create, edit and delete</p></td>
-</tr>
-<tr class="odd">
-<td><p>Program stage notification</p></td>
-<td><p>-</p></td>
-<td><p>Create, edit and delete</p></td>
-</tr>
-<tr class="even">
-<td><p>Design custom registration form</p></td>
-<td><p>-</p></td>
-<td><p>-</p></td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<caption>Program metadata objects in the Maintenance app</caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Object type</p></th>
-<th>Description</th>
-<th><p>Available functions</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Event program</p></td>
-<td><p>A single event without registration program</p></td>
-<td><p>Create, edit, share, delete, show details and translate</p></td>
-</tr>
-<tr class="even">
-<td><p>Program indicator</p></td>
-<td><p>An expression based on data elements and attributes of tracked entities which can be used to calculate values based on a formula.</p></td>
-<td><p>Create, edit, share, delete, show details and translate</p></td>
-</tr>
-<tr class="odd">
-<td><p>Program rule</p></td>
-<td><p>Allows you to create and control dynamic behavior of the user interface in the <strong>Tracker Capture</strong> and <strong>Event Capture</strong> apps.</p></td>
-<td><p>Create, edit, delete, show details and translate</p></td>
-</tr>
-<tr class="even">
-<td><p>Relationship type</p></td>
-<td><p>Defines the relationship between tracked entity A and tracked entity B, for example mother and child.</p></td>
-<td><p>Create, edit, clone, delete, show details and translate</p></td>
-</tr>
-<tr class="odd">
-<td><p>Tracked entity</p></td>
-<td><p>Types of entities which can be tracked through the system. Can be anything from persons to commodities, for example a medicine or a person.</p>
-<p>A program must have one tracked entity. And entity registered must be specified an tracked entity. To enrol a tracked entity instance into a program, the tracked entity of an entity and tracked entity of a program must be the same.</p></td>
-<td><p>Create, edit, clone, delete, show details and translate</p></td>
-</tr>
-<tr class="even">
-<td><p>Tracked entity attribute</p></td>
-<td><p>Used to register extra information for a tracked entity.</p>
-<p>Can be shared between programs.</p></td>
-<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
-</tr>
-</tbody>
-</table>
-
-To learn how you create program metadata in the Maintenance app, see [Configure programs in the Maintenance app](https://docs.dhis2.org/master/en/user/html/configure_programs_in_Maintenance_app.html)
-
-## Manage programs
-
-<!--DHIS2-SECTION-ID:manage_program-->
-
-### Create a program
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Cliquez sur **AJOUTER**.
-
-3.  Enter program details:
-
-    1.  Enter a program **Name**.
-
-    2.  Enter a **Short name**.
-
-    3.  Enter a **Description** of the program.
-
-    4.  Select a **Type**.
-
-    5.  Select a **Tracked entity**.
-
-    6.  Select a **Combination of categories**.
-
-    7.  Select a **Data approval workflow**.
-
-    8.  Select if you want to **Display front page list**.
-
-    9.  Select if **First stage appears on registration page**.
-
-    10. Enter number of **Completed events expiry days**.
-
-        Defines the number of days for which you can edit a completed event. This means that when an event is completed and the specified number of expiry days has passed, the event is locked.
-
-        If you set "Completed events expiry days" to 10", an event is locked ten days after the completion date. After this date you can no longer edit the event.
-
-    11. Select an **Expiry period type** and enter number of **Expiry days**.
-
-        The expiry days defines for how many days after the end of the previous period, an event can be edited. The period type is defined by the expiry period type. This means that when the specified number of expiry days has passed since the end date of the previous period, the events from that period are locked.
-
-        If you set the expiry type to "Monthly" and the expiry days to "10" and the month is October, then you can't add or edit an event to October after the 10th of November.
-
-4.  Enter enrollment details:
-
-    1.  Select if you want to **Allow future enrollment dates**.
-
-    2.  Select if you want to **Allow future incident dates**.
-
-    3.  If you want a tracked entity to be able to enroll only once in a program, select **Only enroll once (per tracked entity instance lifetime)**
-
-        This setting is useful for example in child vaccination or post-mortem examination programs where it wouldn't make sense to enroll a tracked entity more than once.
-
-    4.  Select if you want to **Show incident date**.
-
-        This setting allows you to show or hide the incident date field when a tracked entity enroll in the program.
-
-    5.  Enter a **Description of incident date**.
-
-        - In an immunization program for child under 1 year old, the incident date is the child's birthday,
-
-        - In a maternal program, the incident date is the date of last menstrual period.
-
-    6.  Enter a **Description of enrollment date**.
-
-        The date when a tracked entity is registered to the system.
-
-    7.  Select if you want to **Capture coordinates**.
-
-5.  Enter relationship shortcut details:
-
-    1.  Select a **Relationship** type.
-
-        When a baby is born, you can register the baby and enroll him/her into the Child program from the "Delivery" event of the mother. After that, create a relationship as Mother/Child for this mother and the baby.
-
-    2.  Enter a **Shortcut link label**.
-
-        The shortcut link label is displayed in Relation tab in the tracked entity instance (TEI) dashboard.
-
-    3.  Select **Who is the new relative to the existing entity?**.
-
-    4.  Select the **Program for new relative to be enrolled in**.
-
-        Specify a program that new relatives of the tracked entity will be enrolled in
-
-6.  Select if you want to **Skip generation of events that are overdue (before enrollment date)**.
-
-    When a tracked entity enrolls into the program, the events corresponding to the program stages are created. If you select this field, the system will not generate overdue events.
-
-7.  Assign tracked entity attributes.
-
-    1.  In the list of **Available attributes**, double-click the attributes you want to assign to the program.
-
-    2.  For each assigned attribute, review the settings. You can select:
-
-        - Display in list
-
-          This is the required field. Verify that at least one attribute has this property.
-
-        - Mandatory
-
-        - Date in future
-
-8.  Click **Add**.
-
-### Assign a program to organisation units
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to modify and select **Assign program to organisation units**.
-
-3.  Select organisation units.
-
-4.  Cliquez sur **Sauvegarder**.
-
-### Edit programs
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to modify and select **Edit**.
-
-3.  Modify the options you want.
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Change sharing settings for programs
-
-To set the authority for sharing a program:
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to modify and select **Sharing settings**.
-
-3.  (Optional) Add a user group:
-
-    1.  Search for a user group and select it.
-
-    2.  Click the plus icon.
-
-        The user group is added to the list.
-
-4.  (Optional) If you want to allow external access, select **External access (without login)**.
-
-5.  Change the settings for the user groups you want to modify.
-
-    - **None**: The program is private. Only the user who created it can see and use it.
-
-    - **Can view**: Everyone in the user group can view the program.
-
-    - **Can edit and view**: Everyone in the user group can view and edit the program.
-
-6.  Cliquez sur **Sauvegarder**.
-
-### Delete programs
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **Remove**.
-
-3.  Click **OK** to confirm.
-
-### Display programs
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **Show details**.
-
-### Translate program names
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **Translate**.
-
-3.  Select a locale.
-
-4.  Type a **Name**, **Short name** and **Description**.
-
-5.  Cliquez sur **Sauvegarder**.
-
-## Manage program stages
-
-<!--DHIS2-SECTION-ID:manage_program_stage-->
-
-### About program stages
-
-A program consist of program stages. A program stage defines which actions should be taken at each stage.
-
-### Create a program stage
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to add a program stage to and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Cliquez sur **AJOUTER**.
-
-4.  Enter program stage details:
-
-    1.  Entrez un **Nom**.
-
-    2.  Enter a **Description**.
-
-    3.  In the **Scheduled days from start** field, enter the minimum number of days to wait for starting the program stage.
-
-5.  Enter repeatable program stage details.
-
-    1.  Specify if the program stage is **Repeatable** or not.
-
-    2.  Select a **Period type**.
-
-    3.  Enter **Standard interval days**.
-
-        The number of days to repeat the repeatable program stage.
-
-    4.  Clear **Display generate event box after completed** if you don't want to display _Create new event box_ to create new event for a repeatable stage after you click _Complete_ for an event of the stage in data entry form. This field is select by default.
-
-6.  Enter form details.
-
-    <table>
-    <colgroup>
-    <col style="width: 50%" />
-    <col style="width: 50%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Option</p></th>
-    <th><p>Action</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Auto-generate event</strong></p></td>
-    <td><p>Clear check box to prevent creating an event of this program stage automatically when a entity enroll in the program.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Open data entry form after enrollment</strong></p></td>
-    <td><p>Select check box to automatically open the event of this stage as soon as the entity has enrolled into the program.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Report date to use</strong></p></td>
-    <td>If you have selected the <strong>Open data entry form after enrollment</strong> check box, also select a <strong>Report date to use</strong>: <strong>Date of incident</strong> or <strong>Date of enrollment</strong>.
-    <p>This is the date used as report date for an event that has been opened automatically.</p>
-    <p>If the <strong>Report date to use</strong> is selected as one of those two ('incident date'/'enrollment date'), in Dashboard, the 'Report date' of the event will be set as one of those two.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Block entry form after completed</strong></p></td>
-    <td><p>Select check box to block the entry form after completion of the event of this stage.</p>
-    <p>This means that the data in the entry form can't be changed until you reset the status to incomplete.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Ask user to complete program when stage is completed</strong></p></td>
-    <td><p>Select check box to trigger a pop-up which asks the user if he/she wants to create the event of next stage.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Ask user to create new event when stage is complete</strong></p></td>
-    <td><p>Select check box to trigger a pop-up which asks the users if he/she wants to create a new event of this stage when an event of this stage is completed.</p>
-    <p>This property is active only if you have selected <strong>Repeatable</strong>.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Generate events by enrollment date</strong></p></td>
-    <td><p>Check on it for auto-generating due dates of events from program-stages of this program based on the enrollment date. If it is not checked, the due dates are generated based on incident date.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Capture coordinates</strong></p></td>
-    <td>Select check box to capture an event's coordinates.
-    <p>Many types of events may be recorded at a facility or be <em>owned-by</em> a health worker at a facility, but actually take place somewhere in the community.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Complete allowed only if validation passes</strong></p></td>
-    <td><p>Select check box to enforce that an event created by this program stage is only completed when all validation rules have passed.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Pre-generate event UID</strong></p></td>
-    <td><p>Select check box to pre-generate unique event id numbers.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Description of report date</strong></p></td>
-    <td><p>Type a description of the report date.</p>
-    <p>This description is displayed in the case entry form.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-7.  Assign data elements:
-
-    1.  In the list of **Available data elements**, double-click the data elements you want to assign to the program stage.
-
-    2.  For each assigned data element, review the properties. You can select:
-
-        <table>
-        <colgroup>
-        <col style="width: 50%" />
-        <col style="width: 50%" />
-        </colgroup>
-        <thead>
-        <tr class="header">
-        <th><p>Option</p></th>
-        <th><p>Description</p></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="odd">
-        <td><p><strong>Compulsory</strong></p></td>
-        <td><p>The value of this data element must be filled into data entry form before completing the event.</p></td>
-        </tr>
-        <tr class="even">
-        <td><p><strong>Allow provided elsewhere</strong></p></td>
-        <td><p>Specify if the value of this data element comes from other facility, not in the facility where this data is entered.</p></td>
-        </tr>
-        <tr class="odd">
-        <td><p><strong>Display in reports</strong></p></td>
-        <td><p>Display the value of this data element into the single event without registration data entry function.</p></td>
-        </tr>
-        <tr class="even">
-        <td><p><strong>Date in future</strong></p></td>
-        <td><p>Allow to select a date in future for date data elements.</p></td>
-        </tr>
-        </tbody>
-        </table>
-
-8.  Click **Add**.
-
-### Create a program stage section
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to add a program stage section to and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click a program stage and select **Section management**.
-
-4.  Cliquez sur **AJOUTER**.
-
-5.  Enter a program stage section **Name**.
-
-6.  In the list of **Available data elements**, double-click the data elements you want to assign to the program stage section.
-
-7.  In the list of **Available indicators**, double-click the indicators you want to assign to the program stage section.
-
-8.  Click **Add**.
-
-### Change program stage sort order
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click **Sort order**.
-
-4.  Modify the order of the program stages with the up and down arrows.
-
-5.  Cliquez sur **Sauvegarder**.
-
-### Change program stage section sort order
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click a program stage and select **Section management**.
-
-4.  Click **Sort order**.
-
-5.  Modify the order of the program stage sections with the up and down arrows.
-
-6.  Cliquez sur **Sauvegarder**.
-
-### Edit program stages
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click the program stage you want to modify and select **Edit**.
-
-4.  Modify the options you want.
-
-5.  Cliquez sur **Mettre à jour**.
-
-### Display program stages
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click the program stage you want to display and select **Show details**.
-
-### Translate program stages
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click the program stage you want to modify and select **Translate**.
-
-4.  Select a locale.
-
-5.  Type a **Name**.
-
-6.  Cliquez sur **Sauvegarder**.
-
-## Manage program notifications
-
-<!--DHIS2-SECTION-ID:manage_program_notification-->
-
-### About program notifications
-
-You can create program notifications for programs with registration and their program stages. The notifications are sent either via the internal DHIS2 messaging system, via e-mail or via text messages (SMS). You can use program notifications to, for example, send an automatic reminder to a tracked entity 10 days before a scheduled appointment. You use the program’s tracked entity attributes (for example first name) and program parameters (for example enrollment date) to create a notification template.
-
-In the **Parameters** field, you'll find a list of available tracked entity attributes and the following program parameters:
-
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th><p>Notification type</p></th>
-<th><p>Variable name</p></th>
-<th><p>Variable code</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Program</p></td>
-<td><p>Current date</p></td>
-<td><pre><code>V{current_date}</code></pre></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Days since enrollment date</p></td>
-<td><pre><code>V{days_since_enrollment_date}</code></pre></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>Enrollment date</p></td>
-<td><pre><code>V{enrollment_date}</code></pre></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Incident date</p></td>
-<td><pre><code>V{incident_date}</code></pre></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>Organisation unit name</p></td>
-<td><pre><code>V{org_unit_name}</code></pre></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Program name</p></td>
-<td><pre><code>V{program_name}</code></pre></td>
-</tr>
-<tr class="odd">
-<td><p>Program stage</p></td>
-<td><p>Current date</p></td>
-<td><pre><code>V{current_date}</code></pre></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Days since due date</p></td>
-<td><pre><code>V{days_since_due_date}</code></pre></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>Days until due date</p></td>
-<td><pre><code>V{days_until_due_date}</code></pre></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Due date</p></td>
-<td><pre><code>V{due_date}</code></pre></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>Organisation unit name</p></td>
-<td><pre><code>V{org_unit_name}</code></pre></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Program name</p></td>
-<td><pre><code>V{program_name}</code></pre></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>Program stage name</p></td>
-<td><pre><code>V{program_stage_name}</code></pre></td>
-</tr>
-</tbody>
-</table>
-
-### Create a program notification
-
-![](resources/images/content/user/program/program_notification_ui.png)
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program notifications**.
-
-    A list of existing program notifications for the selected program opens. If the program doesn't have any program notifications, the list is empty.
-
-3.  Cliquez sur **AJOUTER**.
-
-4.  Entrez un **Nom**.
-
-5.  In the **Trigger by** field, select what should trigger the notification.
-
-    <table>
-    <colgroup>
-    <col width="33%" />
-    <col width="33%" />
-    <col width="33%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Trigger</p></th>
-    <th><p>Description</p></th>
-    <th><p>Note</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>Program enrollment</p></td>
-    <td><p>The program notification is sent when the TEI enrols in the program.</p></td>
-    <td><p>-</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Program completion</p></td>
-    <td><p>The program notification is sent when the program of TEI is completed</p></td>
-    <td><p>-</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Days scheduled (incident date)</p></td>
-    <td><p>The program notification is sent XX number of days before or after the incident date</p></td>
-    <td><p>You need to enter the number of days before or after the scheduled date that the notification will be send.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Days scheduled (enrollment date)</p></td>
-    <td><p>The program notification is sent XX number of days before or after the enrollment date</p></td>
-    <td><p>You need to enter the number of days before or after the scheduled date that the notification will be send.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-6.  In the **Recipients** field, select who should receive the program notification.
-
-    <table>
-    <colgroup>
-    <col width="33%" />
-    <col width="33%" />
-    <col width="33%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Recipient type</p></th>
-    <th><p>Description</p></th>
-    <th><p>Note</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>Tracked entity instance</p></td>
-    <td><p>Receives program notifications via e-mail or text message.</p></td>
-    <td><p>To receive a program notification, the recipient must have an e-mail address or a phone number attribute.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Organisation unit contact</p></td>
-    <td><p>Receives program notifications via e-mail or text message.</p></td>
-    <td><p>To receive a program notification, the receiving organisation unit must have a registered contact person with e-mail address and phone number.</p></td>
-    </tr>
-    <tr class="odd">
-    <td>Users at organisation unit:</td>
-    <td><p>All users registered to the selected organisation unit receive program notifications via the internal DHIS2 messaging system.</p></td>
-    <td><p>-</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>User group</p></td>
-    <td><p>All members of the selected user group receive the program notifications via the internal DHIS2 messaging system</p></td>
-    <td><p>-</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-7.  Create the **Subject template**.
-
-    Double-click the parameters in the **Parameters** field to add them to your subject.
-
-    > **Note**
-    >
-    > The subject is not included in text messages.
-
-8.  Create the **Message template**.
-
-    Double-click the parameter names in the **Parameters** field to add them to your message.
-
-    Dear A{w75KJ2mc4zz}, You're now enrolled in V{program_name}.
-
-9.  Cliquez sur **Sauvegarder**.
-
-> **Note**
->
-> You configure when the program notifications are sent in the **Data Administration** app \> **Scheduling** \> **Program notifications scheduler**.
->
-> - Click **Run now** to send the program notifications immediately.
->
-> - Select a time and click **Start** to schedule the program notifications to be send at a specific time.
-
-### Create a program stage notification
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the relevant program and select **View program stages**.
-
-3.  Click the relevant program stage and select **View program stage notifications**.
-
-    A list of existing program stage notifications for the selected program stage opens. If the program stage doesn't have any program stage notifications, the list is empty.
-
-4.  Cliquez sur **AJOUTER**.
-
-5.  Entrez un **Nom**.
-
-6.  In the **Trigger by** field, select what should trigger the notification.
-
-    <table>
-    <colgroup>
-    <col width="33%" />
-    <col width="33%" />
-    <col width="33%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Trigger</p></th>
-    <th><p>Description</p></th>
-    <th><p>Note</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>Program stage completion</p></td>
-    <td><p>The program stage notification is sent when the program stage is completed</p></td>
-    <td><p>-</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Days scheduled (due date)</p></td>
-    <td><p>The program stage notification is sent XX number of days before or after the due date</p></td>
-    <td><p>You need to enter the number of days before or after the scheduled date that the notification will be send.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-7.  In the **Recipients** field, select who should receive the program stage notification. You can select:
-
-    <table>
-    <colgroup>
-    <col width="33%" />
-    <col width="33%" />
-    <col width="33%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Recipient type</p></th>
-    <th><p>Description</p></th>
-    <th><p>Note</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>Tracked entity instance</p></td>
-    <td><p>Receives program notifications via e-mail or text message.</p></td>
-    <td><p>To receive a program stage notification, the recipient must have an e-mail address or a phone number attribute.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Organisation unit contact</p></td>
-    <td><p>Receives program notifications via e-mail or text message.</p></td>
-    <td><p>To receive a program stage notification, the receiving organisation unit must have a registered contact person with e-mail address and phone number.</p>
-    <p>The system selects the same organisation unit as where the event took place.</p></td>
-    </tr>
-    <tr class="odd">
-    <td>Users at organisation unit:</td>
-    <td><p>All users registered to the selected organisation unit receive program notifications via the internal DHIS2 messaging system.</p></td>
-    <td><p>-</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>User group</p></td>
-    <td><p>All members of the selected user group receive the program notifications via the internal DHIS2 messaging system</p></td>
-    <td><p>-</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-8.  Create the **Subject template**.
-
-    Double-click the parameter names in the **Parameters** field to add them to your subject.
-
-    > **Note**
-    >
-    > The subject is not included in text messages.
-
-9.  Create the **Message template**.
-
-    Double-click the parameter names in the **Parameters** field to add them to your message.
-
-    Dear A{w75KJ2mc4zz}, please come to your appointment the V{due_date}.
-
-10. Cliquez sur **Sauvegarder**.
-
-> **Note**
->
-> You configure when the program stage notifications are sent in the **Data Administration** app \> **Scheduling** \> **Program notifications scheduler**.
->
-> - Click **Run now** to send the program notifications immediately.
->
-> - Select a time and click **Start** to schedule the program notifications to be send at a specific time.
-
-## Manage custom registration forms
-
-<!--DHIS2-SECTION-ID:manage_custom_registration_forms-->
-
-### About program custom registration forms
-
-You can create custom registration form for each available program in system or for normal registration form which is used to register any entity without having program information and this entity can enroll into a certain program after that.
-
-> **Note**
->
-> Check on*Auto save registration form* check box in *Design tracked entity form*to save the custom registration form to being designed automatically.
-
-### About program stage data entry forms
-
-A program stage has three types of data entry forms:
-
-1.  _Custom data entry form_: Define a data entry form as HTML page. Click on the program stage which you would like and select to define custom data entry form. The system supports to define a custom entry form with multi stages. So this form can be re-used in other stages of the same program.
-
-2.  _Section data entry form_: Group some data elements which belong to the program stage as sections and display data elements by each section. Click on the program stage which you would like and select _Section management_ link to define section data entry form.
-
-3.  _Default data entry form_: List all data elements which belong to the program stage.
-
-### Create a custom program registration form
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to add a custom registration form to and select **Design custom registration form**.
-
-3.  Entrez un **Nom**.
-
-4.  Create the form in the built-in WYSIWYG HTML editor. If you select **Source**, you can paste HTML code directly in the editing area. You can also insert images.
-
-5.  Cliquez sur **Sauvegarder**.
-
-### Create a program stage data entry form
-
-1.  Open the **Program / Attributes** app and click **Program**.
-
-2.  Click the program you want to add a program stage data entry form to and select **View program stages**.
-
-    A list of existing stages for the selected program opens. If the program doesn't have any program stages, the list is empty.
-
-3.  Click the program stage you want to add a program stage entry form to and select **Design data entry form**.
-
-4.  Entrez un **Nom**.
-
-5.  Create the form in the built-in WYSIWYG HTML editor. If you select **Source**, you can paste HTML code directly in the editing area. You can also insert images.
-
-6.  Cliquez sur **Sauvegarder**.
-
 # About sharing of objects
 
 <!--DHIS2-SECTION-ID:sharing-->
@@ -14160,7 +14457,7 @@ This chapter discusses the sharing of entities feature in DHIS2.
 
 ## Sharing of objects
 
-Many objects in DHIS2, like reports, charts, maps and indicators, can be shared. DHIS supports sharing of metadata or sharing of data. Sharing of metadata means making an object, like a report, available for reading or modification to a group of users or to everyone. Sharing of data means making the actual data captured available to others, and controlling who can capture that kind of data. For instance for reports, the sharing dialog can be opened by clicking on the "Sharing settings" button next to each report in the list. Implementers can use this feature to allow access to certain objects to only certain user groups. Users can use the feature to decide who they would like to share objects (such as pivot tables, charts, dashboards, etc) with.
+Many objects in DHIS2, like reports, charts, maps and indicators, can be shared. DHIS2 supports sharing of metadata or sharing of data. Sharing of metadata means making an object, like a report, available for reading or modification to a group of users or to everyone. Sharing of data means making the actual data captured available to others, and controlling who can capture that kind of data. For instance for reports, the sharing dialog can be opened by clicking on the "Sharing settings" button next to each report in the list. Implementers can use this feature to allow access to certain objects to only certain user groups. Users can use the feature to decide who they would like to share objects (such as pivot tables, charts, dashboards, etc) with.
 
 If sharing is supported for a particular class of objects, a dialog will be available called "Sharing settings", usually available by clicking on the name of the object or in the analytics tools, through an icon (Share with other people). Once you have accessed the sharing settings for the object you wish to share, a dialog similar to the one below will be shown.
 
@@ -14214,7 +14511,7 @@ Applies to the object types of tracked entity type, program and program stage. W
 
 > **Note**
 >
-> To see and capture data for a program, a data capture user also needs to report for an organisaction unit to where the program has been assigned.
+> To see and capture data for a program, a data capture user also needs to report for an organisation unit to where the program has been assigned.
 
 <table>
 <caption>Data sharing for tracker programs</caption>
@@ -14319,11 +14616,19 @@ Applies to the object types of tracked entity type, program and program stage. W
 
 ### Data sharing for data sets
 
-Applies to the object types of data set. When working with data sets, the user will need to have "DATA:Can capture data" to both see and capture data in the data set.
+Applies to the object types of data set and category option . When working in Data Entry app, the user will need to have "DATA:Can capture data" to both see and capture data in the data set. To save data for an entry field in Data Set users need:
+
+1.  Authority: F_DATAVALUE_ADD ( Can add data value )
+
+2.  Data Set is shared with "Data: Can capture data"
+
+3.  Data Element is shared with "Metadata: Can View"
+
+4.  All Category Options used by selected Data Set are shared with "Data: Can capture data"
 
 > **Note**
 >
-> To see and capture data for a data set, a data capture user also needs to report for an organisaction unit to where the data set has been assigned.
+> To see and capture data for a data set, a data capture user also needs to report for an organisation unit to where the data set has been assigned.
 
 <table>
 <caption>Data sharing for data sets</caption>
@@ -14345,12 +14650,23 @@ Applies to the object types of data set. When working with data sets, the user w
 <tr class="odd">
 <td><p><strong>Data set</strong></p></td>
 <td><ul>
-<li><p>See data for the data set.</p></li>
+<li><p>View Data Set's data in Analytics</p></li>
 </ul></td>
 <td><ul>
-<li><p>Add/edit data sets.</p></li>
+<li><p>Can see DataSet in Data Entry app</p></li>
+<li><p>Can save data for Data Set using API</p></li>
 </ul></td>
-<td></td>
+<td><p>For saving data value in Data Entry app, users also need &quot;Can capture data&quot; for Category Options within selected Data Set.</p></td>
+</tr>
+<tr class="even">
+<td><strong>CategoryOption</strong></td>
+<td><ul>
+<li><p>Can view data values belong to shared Category Option in analytics</p></li>
+</ul></td>
+<td><ul>
+<li><p>Can save data value for input fields in Data Entry app which belongs to shared Category Options.</p></li>
+</ul></td>
+<td>For CategoryOptionCombo and AttributeOptionCombo to be writeable, all belongs CategoryOptions must be shared with &quot;Can capture data&quot;.</td>
 </tr>
 </tbody>
 </table>
@@ -14455,6 +14771,42 @@ An error exists in the left-side validation rule definition. Go to **Maintenance
 
 An error exists in the right-side validation rule definition. Go to **Maintenance** app \> **Validation rule** and click **Edit** on the offending rule. Click **Right side** and make the required corrections.
 
+### ProgramRules with no condition
+
+Report will highlight all the **Program rules** not configured with **Condition**. Evaluation for rules not having condition are always evaluated as false.
+
+### ProgramRules with no priority
+
+Report will highlight all the **Program rules** not configured with **Priority**. This is optional but its existence is very important when **ProgramRuleActionType** is **ASSIGN**. Rules with ASSIGN action type should have higher priority then the rest of the action types.
+
+### ProgramRules with no action
+
+Report will highlight all the **Program rules** not configured with any **ProgramRuleAction**.
+
+### ProgramRuleVariables without dataElements
+
+Report will highlight all the **Program rule variables** not configured with **DataElement**. Report will be based on source type configuration. DataElement should be provided when the source type of ProgramRuleVariable is **DataElement**.
+
+### ProgramRuleVariables without attributes
+
+Report will highlight all the **Program rule variables** not configured with **TrackedEntityAttribute**. Report will be based on source type configuration. TrackedEntityAttribute should be provided when the source type of ProgramRuleVariable is **Attribute**.
+
+### ProgramRuleActions with no data Objects.
+
+Report will highlight all the **Program rule actions** not configured with any Data object. Data object can be either **DataElement** of **TrackedEntityAttribute**. There are certain ProgramRuleActions which are responsible for assinging values to either dataElement or trackedEntityAttribute.
+
+### ProgramRuleActions with no notification
+
+Report will highlight all the **Program rule actions** which have ProgramRuleActionType set to SENDMESSAGE/SCHEDULEMESSAGE where the configuration does not provide any link to notification.
+
+### ProgramRuleActions with no section id
+
+Report will highlight all the **Program rule actions** which have ProgramRuleActionType set to **HIDESECTION** but configuration does not provide any section id.
+
+### ProgramRuleActions with no program stage id
+
+Report will highlight all the **Program rule actions** which have ProgramRuleActionType set to **HIDEPROGRAMSTAGE** but configuration does not provide any program stage id.
+
 ## Maintenance
 
 <!--DHIS2-SECTION-ID:data_admin_maintenance-->
@@ -14556,7 +14908,7 @@ Resource tables are supporting tables that are used during analysis of data. One
 
 - Data element structure (\_dataelementstructure)
 
-  This table provides information about all data elements and which period type (frequency) they capture data at. The period type is determined through the data set membership and hence relies on data elements to be member of data sets with similar period types to have a defined behavior.
+  This table provides information about all data elements and which period type (frequency) they capture data at. The period type is determined through the data set membership and hence relies on data elements to be member of data sets with similar period types to have a defined behaviour.
 
 - Period structure (\_dataperiodstructure)
 
@@ -14565,42 +14917,6 @@ Resource tables are supporting tables that are used during analysis of data. One
 - Data element category option combinations (\_dataelementcategoryoptioncombo)
 
   This table provides a mapping between data elements and all possible category option combinations.
-
-## Locale Management
-
-<!--DHIS2-SECTION-ID:dataAdmin_local_management-->
-
-It is possible to create custom locales in DHIS2. In addition to the locales available through the system, you might want to add a custom locale such as "English" and "Zambia" to the system. This would allow you to translate metadata objects to local languages, or to account for slight variants between countries which use a common metadata definition.
-
-![](resources/images/content/user/maintainence/locale_management.png)
-
-The locale is composed of a language along with a country. Select the desired values and press "Add". This custom locale will now be available as one of the translation locales in the system.
-
-## SQL View
-
-<!--DHIS2-SECTION-ID:dataAdmin_sqlView-->
-
-The SQL View functionality of DHIS2 will store the SQL view definition internally, and then materialize the view when requested.
-
-Database administrators must be careful about creating database views directly in the DHIS 2 database. For instance, when the resource tables are generated, all of them will first be dropped and then re-created. If any SQL views depend on these tables, an integrity violation exception will be thrown and the process will be aborted.
-
-The SQL views are dropped in reverse alphabetical order based on their names in DHIS2, and created in regular alphabetical order. This allows you to have dependencies between SQL views, given that views only depend on other views which come earlier in the alphabetical order. For instance, "ViewB" can safely depend on "ViewA". Otherwise, having views depending on other view result in an integrity violation error.
-
-### Creating a new SQL view
-
-To create a new SQL view, click **Apps** \> **Data administration** \>**SQL view** and click **Add new**.
-
-![](resources/images/content/user/maintainence/create_sql_view.PNG)
-
-The "Name" attribute of the SQL view will be used to determine the name of the table that DHIS2 will create when the view is materialized by the user. The "Description" attribute allows one to provide some descriptive text about what the SQL view actually does. Finally, the "SQL statement" should contain the SQL view definition. Only SQL "SELECT" statements are allowed and certain sensitive tables (i.e. user information) are not accessible Press "Save" to store the SQL view definition.
-
-### SQL View management
-
-In order to utilize the SQL views, simply click the view and from the context menu, choose "Execute query". Once the process is completed, you will be informed that a table has been created. The name of the table will be provided, and is composed from the "Description" attribute provided in the SQL view definition. Once the view has been generated, you can view it by clicking the view again, and selecting "Show SQL View".
-
-> **Tip**
->
-> If you have a view which depends on another view, you should be careful about how the views are named. When analytics is run on the DHIS2 server, all views must be dropped, and are recreated. When analytics starts, the views are dropped in alphabetical order, and then recreated in reverse alphabetical order. Thus, if view A depends on view B, it must appear before view B in alphabetical order. If it appears after view B in alphabetical order, analytics may fail, as the view with dependencies will not be dropped in the correct order.
 
 ## Duplicate data elimination
 
@@ -14658,7 +14974,7 @@ The Scheduler comes bundled with DHIS2 and is accessed through the App Menu.
 
 The start page of the Scheduler app shows an overview of existing jobs. By default, pre-defined system jobs are hidden. To view these, toggle **Show system jobs** in the top right corner.
 
-When you create or modify a job, it will be rescheduled according to selected preferences. To run a job on demand, press the green triangle labeled "Run now". This action is only available for enabled jobs.
+When you create or modify a job, it will be rescheduled according to selected preferences. To run a job on demand, press the green triangle labelled "Run now". This action is only available for enabled jobs.
 
 ### Creating a job
 
@@ -14670,13 +14986,13 @@ When you create or modify a job, it will be rescheduled according to selected pr
 
 3.  Select a running frequency for the job, i.e. when and how often the job should run.
 
-    1.  You can either select a pre-defined frequency from the dropdown-menu, or ...
+    1.  You can either select a pre-defined frequency from the drop-down menu, or ...
 
-    2.  You can give the job a custom **Cron expresssion** if you want a specific schedule.
+    2.  You can give the job a custom **Cron expression** if you want a specific schedule, using the [Spring scheduling](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/scheduling/support/CronSequenceGenerator.html) syntax.
 
     3.  Enabling the **Continuous execution** option will make the job run constantly. In other words, as soon as the job finishes, it will be scheduled to run again right away. Selecting this option will disable the other fields.
 
-4.  Select the **Job type** you want to schedule using the dropdown-menu.
+4.  Select the **Job type** you want to schedule using the drop-down menu.
 
 5.  If the job type is customizable, a **Parameters** section will appear below. These additional options specify the details of the scheduled job, and will vary greatly depending on the job type.
 
@@ -14710,7 +15026,7 @@ Further configuring a job:
 
 2.  Press the **Delete** button in the bottom right corner.
 
-3.  Confirm by pressing **Delete** again in the popup window.
+3.  Confirm by pressing **Delete** again in the pop-up window.
 
 ![](resources/images/content/user/scheduler/delete_job.png)
 
@@ -14718,27 +15034,46 @@ Further configuring a job:
 
 <!--DHIS2-SECTION-ID:dataAdmin_dataSync-->
 
-DHIS2 provides a feature for synchronizing data being captured on the local instance with a another, remote instance of DHIS2. This can be useful e.g. when you have deployed multiple stand-alone instances of DHIS2 which are required to submit data values to a central DHIS2 instance. Till now only aggregate data was being synced. Starting from 2.24 even non anonymous events data (line list) will also be synced.
+DHIS2 provides synchronisation of data between remotely distributed instances and a central instance of DHIS2. This can be useful e.g. when you have deployed multiple stand-alone instances of DHIS2 which are required to submit data values to a central DHIS2 instance. Both tracker data and aggregate data synchronisation is supported..
 
 These are the steps to enable data synchronization:
 
-- Go to Settings \> Synchronization, enter the remote server URL, username and password and click Save. You can test your settings by clicking on the "Test settings" link.
+- Go to Synchronization Settings, enter the remote server URL, username and password. Press the TAB button to automatically save the new password. Refresh the page and check that the filled values are still present. Note that the password field will be empty after the refresh, since this value is encrypted, so you can consider it saved.
 
-- Go to Data administration \> Scheduling. Under Data synchronization set strategy to Enabled, and click Start.
+- Using the Scheduler app, create a new job using the "Program Data Synchronization". Make sure it is enabled when you finish.
 
 Some aspects of the data synchronization feature to be aware of:
 
-- The local DHIS2 instance will store the password of the user account on the remote instance encrypted in the local database. The remote account is used for authentication when transferring data. For security purposes make sure you set the "enryption.password" configuration parameter in hibernate.properties to a strong password.
+- The local DHIS2 instance will store the password of the user account on the remote instance encrypted in the local database. The remote account is used for authentication when transferring data. For security purposes make sure you set the "encryption.password" configuration parameter in hibernate.properties to a strong password.
 
 - Deploying the remote server on SSL/HTTPS is strongly recommended as the username and password are sent in clear text using basic authentication and could be intercepted by an attacker.
 
 - The data synchronization uses the UID property of data elements, category option combos and organisation units to match the meta-data. Hence the synchronization is dependent on these three meta-data objects being harmonized on the local and remote instance in order to work appropriately.
 
-- The very first time DHIS2 attempts to synchronize data the system will include data entered during the last three days. For the subsequent attempts the system will store the time of the last successful data synchronization and only include data saved or edited since that time. A synchronization job is considered successful only if data was submitted, authenticated and saved successfully on the remote server,.
+- The first time DHIS2 runs the synchronization job, it will include any data available. The subsequent synchronization jobs will only include data added and changed since the last successful job. A synchronization job is considered successful only if all the data was saved successfully on the remote server (Any data successfully synced will remain on the receiving instance, regardless if the job eventually fails). Whether the job was successful or not can be decided from the import summary returned from the central server.
 
-- The system will attempt a synchronization every minute. If the local server does not have a working Internet connection at the time, the synchronization will be silenly aborted and re-attempted after a minute.
+- The initial synchronization job may take a significant amount of time, possibly slowing down your instance, depending on how much data is being synchronized. It could be a good idea to configure the job to run when there are few online users, then later change this to your own preference. If you do not want or need to synchronise all the data, there is a possibility to <a href="#skip_changed_before">skip some of the data being synchronised</a>.
 
-- You can see the time of last successful synchronization with remote server in the scheduling screen next to the "Last success" label.
+  When DHIS2 synchronises tracker data, it determines the set of data to synchronise based on the last time it was synchronised. Each of the tracked entity instances and events have their own records of when they where last successfully synchronised.
+
+- The system will start a synchronization job based on the rules set in the configuration of the job. If the synchronization job starts while there is no connection to the remote server, it will retry up to three times before it aborts. The job will run again at a scheduled time.
+
+- The server handles each set of programs separately, which means one set of programs can be synchronized successfully, while the other fails. The failure or success of one doesn't influence the other, as the last successful synchronization time is tracked individually for each item as previously mentioned.
+
+- The attributes of TrackedEntityInstances (TrackedEntityAttribute) and the data elements of ProgramStages (ProgramStageDataElement) which have an option "Skip synchronization" turned on will not be synchronized. This feature allows you to decide to not synchronize some sensitive or not relevant data and to keep them only locally.
+
+- The authority **"Ignore validation of required fields in Tracker and Event Capture"** (F_IGNORE_TRACKER_REQUIRED_VALUE_VALIDATION) should be used when there is a requirement that some mandatory attribute / data element has at the same time a "Skip synchronization" property turned on. Such a setting will lead to validation failure on the central server as the given attribute / data element will not be present in the payload.
+
+  The validation won't fail for the user with this authority. The authority should be assigned to the user, on the central server, that will be used for synchronization job.
+
+- <div id="skip_changed_before"></div>In specific cases, **the initial 
+  synchronisation of all the data can be undesirable**; for example, 
+  when a database on the local instance is a fresh copy of the database 
+  present on the central instance, or when it is preferred to not 
+  synchronise old data in favor of initial synchronisation taking less 
+  time.
+
+  The _syncSkipSyncForDataChangedBefore_ SettingKey can be used to skip the synchronisation of all the data (data values, Event and Tracker program data, complete data set registrations) that were _last changed before the specified date_. The SettingKey is used in the synchronisation job all the time. Therefore, if you need to synchronise the old data, you should change the SettingKey.
 
 ## Metadata Synchronization Scheduling
 
@@ -15769,209 +16104,147 @@ When designing these reports you can utilize the analytics Web API resource in o
 
 A few other tips: To include graphics you can convert an image to SVG and embed that SVG content directly in the report - DHIS2 is based on HTML 5 where SVG tags are valid markup. To include charts and maps in your report you can use the charts and maps resources in the Web API. You can use the full capability of the Web API from JavaScript in your report - it may be useful to read through the Web API chapter to get an overview of all available resources.
 
-# Import and export data and metadata
+# Import/Export App
 
 <!--DHIS2-SECTION-ID:import_export-->
 
-In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Most of these physical locations do not have Internet connectivity, and hence they work off-line. At some point (normally at the district level), the data needs to be synchronised in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility level) to another one say at the district level where the data would need to be imported. This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS2 provides robust export-import functionality to fulfill these needs.
+In a primary health system, the HMIS typically involves a distributed application, where the same application is running in different geographical locations (PHCs,CHCs, hospitals, districts, and state). Many of these physical locations do not have Internet connectivity, and hence they work off-line. At some point (normally at the district level), the data needs to be synchronised in order to have a consolidated database for the a particular geographical region. For this, it is important to be able to export data from one location (which is working offline, say at the health facility level) and import into another one (say at the district level). This feature of exporting and importing is thus a crucial function of a HMIS. This feature also helps us overcome the dependency on the Internet to some degree, as data updates can be transferred via USB key where there is no connectivity, or through email where there is limited Internet connectivity. DHIS2 provides robust export-import functionality to fulfil these needs.
 
-To access the main Import-Export module, choose Services-\>Import-Export.A number of services are available, all of which will be described in detail in respective sections below.
+To access the Import/Export app, search in the top header bar for Import/Export. Import/Export app offers a number of services details for which can be found below.
 
-![](resources/images/content/user/import_export/import_export_overview.png)
+![](resources/images/content/user/import_export/overview.png)
 
-## Meta-data import
+## Metadata Import
 
-### Meta-data import
+Metadata Import can be accessed from the sidebar by clicking on Metadata Import.
 
-Meta-data objects can be easily imported by accessing Import-Export-\>Meta-Data import. Select the file to import by pressing "Select" and choose the file from your local file system. When importing XML and JSON files, the system will automatically detect which type of objects which should be imported. When importing CSV metadata, you will need to specify the object type. Consult the corresponding section in this manual on "CSV Metadata import" for more specific information on how the CSV file should be created.
+![](resources/images/content/user/import_export/metadata_import.png)
 
-![](resources/images/content/user/import_export/import_default.png)
+1.  Choose a file to upload
 
-There are two separate options for importing data.
+2.  Select from the available formats e.g. _JSON_ , _XML_ or _CSV_
 
-- Dry run: This is similar to the old preview option, this will do a dry run import, and give you information about any errors.
+3.  Choose **Dry Run** . _Yes_ will do a test import without importing any data into the database.
 
-- Strategy: There are three options here, "New and Updates", "New only", and "Update only". New and updates tells the importer to expect both new meta-data, and updates to existing ones. New only will only accept fresh meta-data, usually you would use this on a empty database. Updates only will only allow the meta-data to match meta-data that is already there (same identifiers, new name etc).
+4.  Choose a import strategy from
+
+5.  Click **MORE OPTIONS** if you want to adjust Reference Mode or Object Type before importing.
+
+6.  Click **Import** which will bring up the **Logger** at the bottom of the page to show the progress.
+
+> **Tip**
+>
+> **It is highly recommend to use the Dry run option** to test before importing data; to make sure you keep control over any changes to your Metadata, and to check for problems with out-of-sync data elements or organisation unit names
 
 > **Note**
 >
-> **It is highly recommend always using the Dry run option** when importing data to make sure you keep control over any changes to your meta-data and databases being out of synch on data elements or organisation unit names
+> If an organisation unit e.g. `Nduvuibu MCHP` had a unknown reference to an object with ID `aaaU6Kr7Gtpidn`, it means that the object with ID `aaaU6Kr7Gtpidn` was not present in your imported file, and it was not found in the existing database.
+>
+> You can control this using **Reference Mode** option available under **MORE OPTIONS**, to indicate if you want to allow objects with such invalid references to be imported or not. If you choose to import invalid references you will have to correct the reference manually in DHIS2 later.
 
-#### Dry run before importing
+### Matching Identifiers in DXF2
 
-Before doing the import into your database, it is highly recommended that you run the import with the dry run option set to true first. This will enabled you to have a look at how many new, updates, and ignored meta-data there will be. After you have selected your file, set dry run to true, you can now click the import button. After doing this, you will be greeted by this window.
+The DXF2 format currently support matching for two identifiers, the internal DHIS2 identifier (known as a UID), and also using an external identifier called called a "code". When the importer is trying to search for references (like the one above), it will first go to the UID field, and then to the code field. This allows you to import from legacy systems without having a UID for every meta-data object. I.e. if you are importing facility data from a legacy system, you can leave out the ID field completely (DHIS2 will fill this in for you) and put the legacy system's own identifiers in the code field, this identifier is required to be unique. This not only works for organisation units, but for all kinds of meta-data, allowing for easy import from other systems.
 
-![](resources/images/content/user/import_export/display_import_summary.png)
-
-Here you can see a short summary of what was contained in your import file. To see further details, please click on the "Display import summary" link.
-
-![](resources/images/content/user/import_export/import_summary.png)
-
-Here you can see that the import dry run was successful and the import contained **1** new organisation unit, **1332** updated, and **4** organisation unit levels.
-
-Below you can see another example.
-
-![](resources/images/content/user/import_export/import_summary_conflicts.png)
-
-Here you can see that the organisation unit "Nduvuibu MCHP" had a unknown reference to an object with ID "aaaU6Kr7Gtpidn", which means that an object with this ID was not present in your imported file, and it could not be found in the existing database. Its important to note that even if a reference could not be found, the object will still be imported, but you might have to fix this directly in DHIS2 later, if the reference should have pointed to something else.
-
-#### Matching identifiers in DXF2
-
-The DXF2 format currently support matching for two identifiers, the internal DHIS2 identifier (known as a UID), and also using an external identifier called called a "code". When the importer is trying to search for references (like the one above), it will first go to the UID field, and then to the code field. This allows you to import from legacy systems without having a UID for every meta-data object. I.e. if you are importing facility data from a legacy system, you can leave out the ID field completely (DHIS2 will fill this in for you) and the put the legacy systems own identifiers in the code field, this identifier is required to be unique. This not only works for organisation units, but for all kinds of meta-data, allowing for easy import from other systems.
-
-### Import CSV meta-data
-
-To import CV meta-data go to import-export module and select CSV Meta-Data Import form the left side menu. You must select the object type which your CSV file contains. You can only upload one type of objects at the time. Upload your file and click update. For the CSV format, please visit the Web API chapter \> CSV meta-data import in the developer guide.
-
-### GML data import
-
-The GML import function can be used to import data prepared in the Geography Markup Language (GML). GML can be used to update the coordinates (both polygons and points). Once you have prepared your GML file as detailed in the chapter on "Importing coordinates", you can load the file with this function.
-
-Importing the organisation unit hierarchy from GML is not supported. Therefore you should create the organisation unit hierarchy separately, and then use GML to update the coordinates once the hierarchy has been created.
-
-## Import data
+## Data Import
 
 <!--DHIS2-SECTION-ID:import-->
 
-The import option allows different instance of DHIS2 to receive standardised sets of data in the absence of a networked system. The functionality can also be used to import data produced by another system (perhaps on a regular basis) or to import legacy data which has been transformed into a format which DHIS2 can understand. Typically, a data set is exported from one DHIS2 instance (e.g. a district level system) to another system (e.g. a provincial level system). DHIS2 is also capable of importing data directly from a DHIS2 1.4 Access database. Each of these options will be discussed in the following sections.
+Data Import can be accessed from the sidebar by clicking on Data Import.
 
-### XML data import
+![](resources/images/content/user/import_export/data_import.png)
 
-<!--DHIS2-SECTION-ID:import_another_instance-->
+1.  Choose a file to upload
 
-To import data in XML format, simply select Services-\>Import-export-\>XML data import. Similar options to the XML meta-data import facility are available. Please refer to the Developer guide \> Web API \> Data values chapter on XML data import for details on the XML format which is used by DHIS2 for aggregate data import.
+2.  Select from the available formats e.g. _JSON_ , _XML_ , _PDF_ or _ADX_
 
-### Import CSV data
+3.  Select from the available formats e.g. _JSON_ , _XML_ , _PDF_ or _ADX_
 
-<!--DHIS2-SECTION-ID:importCSVdata-->
+4.  Choose a import strategy from
 
-DHIS2 supports import of data in the CSV (Comma Separated Values) format. This can be used to import exchange file produced by DHIS2 itself. It also comes in handy when you want to import data from a third-party system as CSV is widely supported in applications and is easy to produce manually.
+5.  Click _MORE OPTIONS_ if you want to adjust Data Element ID Scheme, Org. Unit ID Scheme, ID Scheme or Existing Record Check before importing.
 
-To import a CSV data exchange file navigate to the *CSV Data Import*item in the left-side menu. Upload the exchange file and click _Import_. CSV files can be imported both as plain text file or as compressed ZIP file archive.
+6.  Click _Import_ which will bring up the _Logger_ at the bottom of the page to show the progress.
 
-Please refer to the Developer guide \> Web API \> Data values chapter on CSV data import for a description of the CSV format to use.
-
-### Event data import
-
-Event data can also be easily imported with the "Event data import" function. Refer to the section in the WebAPI for more information on the format used for importing events. Otherwise, the functionality is the same as the XML data import used for aggregate data.
-
-### Import PDF data
+### PDF Data
 
 <!--DHIS2-SECTION-ID:importPDFdata-->
 
-DHIS2 supports import of data in the PDF format. This can be used to import data produced by off-line PDF data entry forms. Please refer to the section "Data set management" for details on how to produce a PDF form which can be used for off-line data entry.
+DHIS2 supports import of data in the PDF format. This can be used to import data produced by off-line PDF data entry forms. Please refer to the section **Data set management** for details on how to produce a PDF form which can be used for off-line data entry.
 
-To import a PDF data file, navigate to the *PDF Data Import*item in the left-side menu. Upload the completed PDF file and click _Import_.
+To import a PDF data file, navigate to the _PDF Data Import_ item in the side menu. Upload the completed PDF file and click _Import_.
 
-After the import process is finished, you can follow the link to the import summary, which will inform you about the outcome of the import process in terms of number of records imported, updated and ignored and potential conflicts.
+## GML Import
 
-### Import data from DHIS2 1.4
+<!--DHIS2-SECTION-ID:gml_import-->
 
-<!--DHIS2-SECTION-ID:dhis14import-->
+GML Import can be accessed from the sidebar by clicking on GML Import.
 
-There are two ways to import data from a DHIS2 1.4 database; 1) through the 1.4 XML-based export files, or 2) directly from the DHIS2 1.4 data file (.mdb). Both are accessible from the DHIS2 1.4 Import menu under Import in the Import-Export module.
+![](resources/images/content/user/import_export/gml_import.png)
 
-It is critical that all data integrity violations which are present in the DHIS2 1.4 database be fully resolved before attempting an import into DHIS2. You can check the data integrity of DHIS2 1.4 through the CORE Module-\>Advanced-\>Data integrity checks. A report will be generated of all data integrity violations which should be resolved prior to importing into DHIS2.
+1.  Upload a file using the _GML_ (Geographic Markup Language) format.
 
-> **Warning**
->
-> When data is imported from DHIS2 1.4, both the meta-data as well as data are imported. You should therefore be exceedingly careful that the meta-data present in DHIS2 1.4 is compatible with your DHIS2 data, otherwise during a DHIS2 1.4 data import, the meta-data in the DHIS2 system will be potentially overwritten by the i
+2.  Choose **Dry Run** . _Yes_ will do a test import without importing any data into the database.
 
-#### DHIS2 1.4 File (database) Import
+3.  Click **Import** which will bring up the **Logger** at the bottom of the page to show the progress.
 
-This method is recommend when doing large imports from 1.4, and especially when importing into a new DHIS2 database.
+## Event Import
 
-**DHIS2 1.4 File Configuration**
+<!--DHIS2-SECTION-ID:event_import-->
 
-Before you can start the 1.4 file import you need to provide a few details about the 1.4 database:
+Event can be access from the sidebar by by clicking on Event import.
 
-_Datafile(\#):_ Here you put the full path to the DHIS2 1.4 data file you want to import from, e.g. C:\\DHIS14\\DHIS\_\#LR_LIBERIA.mdb.
+![](resources/images/content/user/import_export/event_import.png)
 
-_Username:_ Leave blank (unless you have set up extra security measures on the file)
+1.  Select from the available formats e.g. _JSON_ , _XML_ or _CSV_
 
-_Password:_ Leave blank (unless you have set up extra security measures on the file)
+2.  Choose **Dry Run** . _Yes_ will do a test import without importing any data into the database.
 
-_Levels:_ Provide the number of levels in the orgunit hierarchy in your 1.4 database, e.g. 5.
+3.  Choose **Event ID Scheme**.
 
-Click "Save" and you will return to the DHIS2 1.4 File Import window.
+4.  Choose **Org Unit ID Scheme**.
 
-**Import Type:**
+5.  Click **Import** which will bring up the **Logger** at the bottom of the page to show the progress.
 
-As with other imports you have the options to Import (directly), Preview, or Analyse the import. We recommend using the Analyse option first to check that the 1.4 database is OK and ready to be imported.
+## Metadata Import Summaries
 
-When importing a large database into a new blank DHIS2 database we recommend using the Import option to save time.
+<!--DHIS2-SECTION-ID:metadata_import_summaries-->
 
-For smaller incremental imports the Preview is OK.
+On import request completion, we show import summaries above the import form. Any conflicts or errors are shown in a paginated table under totals.
 
-**Last Updated:**
+![](resources/images/content/user/import_export/import_summary.png)
 
-If you want the full import, all the data in the 1.4 database you leave this field blank.
+## Metadata Export
 
-If you only want to do an incremental import into an already existing DHIS2 database you can use this field to filter which data values to import. Only values added or edited after the date you specify will be imported. This filter makes use of the LastUpdated column in the RoutineData table in the DHIS2 1.4 data file.
+<!--DHIS2-SECTION-ID:metadata_export-->
 
-**Import process:**
-
-When you are done selecting Method, and LastUpdated you can begin the import by clicking on the Import button. This process might take a long time, depending on how many data values you are importing. On a reasonable spec. computer the import takes about 2 million records per 30 minutes.
-
-#### DHIS2 1.4 XML Import
-
-Import though XML data from DHIS2 1.4 is also possible using the standard DHIS2 1.4 export format. Just be sure that the DHIS2 1.4 export format has been set to "DHIS 2" as illustrated in the screen shot below. After the data has been exported by DHIS2 1.4, you can import the data by choosing "Services-\>Import-Export-\>DHIS 1.4 Import-\>DHIS2 1.4 XML Import" and proceeding via the procedure outline in the [previous section](#import_another_instance).
-
-![](resources/images/content/user/import_export/dhis14_export.png)
-
-#### Limitations to DHIS2 1.4 imports
-
-Although it is possible to import and export data between instances of DHIS2 1.4 and DHIS2, there are significant limitations. Currently, the import of some metadata is not supported from DHIS2 1.4 to DHIS2. This includes:
-
-- Organisational unit alternate names
-
-- Compulsory data element pairings
-
-- Custom data entry forms
-
-- Dataset data entry levels
-
-It is also important that the aggregation operator defined in DHIS2 1.4 be set to the correct value. Some data, such as population, should have their aggregation operator set to "Average" in DHIS2, as this controls how the aggregation of data is handled over time (but not within the organisational unit hierarchy).
-
-## Export data and meta-data
-
-<!--DHIS2-SECTION-ID:export-->
-
-DHIS2 makes it possible to export various types of data in multiple data formats. You can export your data, also referred to as measures or facts; and your meta-data, which refers to the information describing your data. Data can be exported both in raw, non-aggregated format and in aggregated format. It is also possible to export a combination of data and meta-data in case you have special requirements. This chapter covers mainly how to export data and meta-data through the user interface of the import-export DHIS2 module. Data can also be exported programmatically through the DHIS2 Web API, and it is useful to be aware of the various options available:
-
-- Export raw, non-aggregated data through the user interface: Covered in this chapter.
-
-- Export aggregated data programmatically through the Web API: Please refer to the Web API chapter, section on Analytics.
-
-- Export a combination of data and meta-data: Please refer to the SQL view sections in the Data administration chapter and Web API chapter.
-
-- Export meta-data through the user interface: Covered in this chapter.
-
-- Export meta-data programmatically through the Web API: Please refer to the Web API chapter, section on meta data.
-
-Data can be exported on various formats, including DXF 2 (the DHIS2 meta-data and data exchange format based on XML), CSV, PDF, MS Excel and the DHIS2 1.4 XML format.
-
-Another aspect of data export is the type of DHIS2 deployment. In the case of online deployment, all data is saved into a single database only. In an offline deployment, each instance will store data in a separate database in their local system. In an offline deployment, after the data entry is finished, data will have to be manually sent to the next level in the organizational hierarchy. In an on-line application this is not required, as all data is captured over an Internet connection and stored in a central location.
-
-### Metadata export
-
-Meta-data is "data about data". In the context of DHIS2, meta-data consists of definitions of data elements, indicators, the structure and names contained in the organizational hierarchy, and other options. Click on the "Meta-data export" link from the main "Data export" screen in order to access this. Just select the features, format, and the compression that you want and click "Export". This metadata file can then be transmitted just like a data file, except it will contain information on the definitions of the various features, as opposed to the values of the data themselves.
+Metadata export can be accessed from the sidebar by clicking on Metadata export.
 
 ![](resources/images/content/user/import_export/metadata_export.png)
 
-Simply choose the objects which you would like to export, and click "Export".
+1.  Choose the list of objects you would like to export.
 
-### Metadata export with dependencies
+2.  Choose export _format_ _JSON_ or _XML_
+
+3.  Choose _compression_ type _zip_ , _gzip_ or _uncompressed_
+
+4.  Choose option _Sharing_ with or without sharing.
+
+5.  Click **Export** which will bring up the **Logger** at the bottom of the page to show the progress.
+
+6.  The exported file is downloaded to your local computer.
+
+## Metadata Export with Dependencies
 
 <!--DHIS2-SECTION-ID:metadata_export_dependencies-->
 
-Metadata export with dependencies lets you create canned exports for metadata objects. This type of export will include the metadata objects and the metadata object's related objects, that is the metadata which belong together with the main object.
+Metadata export with dependencies lets you create canned exports for metadata objects. This type of export will include the metadata objects and the metadata object's related objects; that is, the metadata which belong together with the main object.
 
 <table>
 <caption>Object types and their dependencies</caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -15981,7 +16254,8 @@ Metadata export with dependencies lets you create canned exports for metadata ob
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><strong>DHIS2_SECTION_ID:docs-internal-guid-4a3662ce-63b9-1efd-e640-8ba874d1bcde:Data set</strong></p></td>
+<td><p><strong>Data sets</strong></p>
+<!--DHIS2_SECTION_ID:docs-internal-guid-4a3662ce-63b9-1efd-e640-8ba874d1bcde--></td>
 <td><p>Data elements</p>
 <p>Sections</p>
 <p>Indicators</p>
@@ -15997,7 +16271,7 @@ Metadata export with dependencies lets you create canned exports for metadata ob
 <p>Option sets</p></td>
 </tr>
 <tr class="even">
-<td><p>Program</p></td>
+<td><p>Programs</p></td>
 <td><p>Data entry form</p>
 <p>Tracked entity</p>
 <p>Program stages</p>
@@ -16034,7 +16308,7 @@ Metadata export with dependencies lets you create canned exports for metadata ob
 <p>Resources</p></td>
 </tr>
 <tr class="odd">
-<td><p>Data element group</p></td>
+<td><p>Data element groups</p></td>
 <td><p>Data elements</p>
 <p>Category combinations</p>
 <p>Categories</p>
@@ -16045,88 +16319,86 @@ Metadata export with dependencies lets you create canned exports for metadata ob
 <p>Legend sets</p>
 <p>Legends</p></td>
 </tr>
+<tr class="even">
+<td><p>OptionSets</p></td>
+<td><p>Option</p></td>
+</tr>
 </tbody>
 </table>
 
-1.  Open the **Import-Export** app.
+![](resources/images/content/user/import_export/metadata_dependency_export.png)
 
-2.  Click **Metadata dependency export**.
+![](resources/images/content/user/import_export/metadata_dependency_export_object_types.png)
 
-3.  Select an **Object type**: **Data set**, **Program**, **category combo**, **Dashboard** or **Data element group**.
+1.  Select an **Object type** : **Data sets** , **Programs** , **Category combination** , **Dashboard** , **Data element groups** or **OptionSets**.
 
-4.  Select an **Object**.
+2.  Select an **Object**.
 
-5.  Select a **Format**.
+3.  Select a format: **XML** or **JSON**.
 
-6.  Select a format: **XML** or **JSON**.
+4.  Select **Compression** : **Zip** , **Gzip** or **Uncompressed**.
 
-7.  Select **Compression**: **Zip**, **Gzip** or **Uncompressed**.
+5.  Click **Export** which will bring up the **Logger** at the bottom of the page to show the progress.
 
-8.  Click **Export**. The export file is downloaded to your local computer.
+6.  The exported file is downloaded to your local computer.
 
-### Data export
+## Data export
 
-To export raw data from DHIS2, choose "Import-export-\>Data export". Select the organisation unit(s), the start and end date, and dataset or data sets for which data export should be selected. You can also select which types of identifiers which will be exported by pressing "More options" and then selecting either UID, Code, or Name for data elements, organisation units and category options. Once you have specified all options as required, press "Export as..." along with the format which you would like to export the data as (XML, JSON or CSV).
+Data export can be accessed from the sidebar by clicking on Data export.
 
-![](resources/images/content/user/import_export/export_to_dhis2.png)
+![](resources/images/content/user/import_export/data_export.png)
 
-A pop-up save option will appear on the displayed screen (see picture below) prompting the saving of the exported data. You may save the export folder on your desktop or any other folder by selecting the ‘Save to Disk’ option from the pop-up prompt.
+1.  Select the _Organisation Units_ .
 
-### Event data export
+2.  Select under Children if you want export to include descendants of organisation units selected in Step 1 or only the manually selected organisation units.
 
-You can export event or tracker data in **XML**, **JSON** or **CSV** formats.
+3.  Set the _Start_ and _End Date_ .
 
-1.  Open the **Import-Export** app.
+4.  Choose the _Data Sets_
 
-2.  Click **Event Export**.
+5.  Select a format: **XML** or **JSON** .
 
-3.  Select an organisation unit.
+6.  Select **Compression** : **Zip** , **Gzip** or **Uncompressed**.
 
-4.  Select a program and a program stage (if applicable).
+7.  Click _MORE OPTIONS_ If you want to adjust Data Element ID Scheme, Org. Unit ID Scheme or Category ID Scheme before export.
 
-5.  Select the **ID scheme** to use for export: **UID** (default) or **CODE**.
+8.  Click **Export** which will bring up the **Logger** at the bottom of the page to show the progress.
+
+9.  The exported file is downloaded to your local computer.
+
+## Event export
+
+Event export can be accessed from the sidebar by clicking on Event export.
+
+![](resources/images/content/user/import_export/event_export.png)
+
+You can export event or tracker data in **XML** , **JSON** or **CSV** formats.
+
+1.  Select an organisation unit.
+
+2.  Select a program and a program stage (if applicable).
+
+3.  Select the **ID scheme** to use for export: **UID** (default) or **CODE** .
 
     If you select **CODE** but the object's attribute does not have code, it will not be included in the return payload.
 
-6.  Sélectionnez **Date de début** et une **Date de fin**.
+4.  Select **Start date** and **End date** .
 
-7.  Select the **Inclusion**:
+5.  Select the **Inclusion**:
 
-    - **Selected organisation unit**: Export event data only for the selected organisation unit
+    - **Selected organisation unit** : Export event data only for the selected organisation unit
 
-    - **Include children of organisation unit**: Export event data for the children of the organisation unit as well as the selected organisation unit itself.
+    - **Include children of organisation unit** : Export event data for the children of the organisation unit as well as the selected organisation unit itself.
 
-    - **Include descendants of organisation unit**: Export event data for the descendants of the organisation unit as well as the selected organisation unit itself.
+    - **Include descendants of organisation unit** : Export event data for the descendants of the organisation unit as well as the selected organisation unit itself.
 
-8.  Select a format: **XML**, **JSON** or **CSV**.
+6.  Select a format: **XML** , **JSON** or **CSV**.
 
-9.  Select **Compression**: **Zip**, **Gzip** or **Uncompressed**.
+7.  Select **Compression** : **Zip** , **Gzip** or **Uncompressed**.
 
-10. Click **Export**. The export file is downloaded to your local computer.
+8.  Click **Export** which will bring up the **Logger** at the bottom of the page to show the progress.
 
-### Export data to other systems
-
-#### DHIS2 1.4 Meta-data export
-
-The DHIS2 1.4 Meta-data export functionality provides the same functionality as the standard DHIS2 meta-data export, except that the resulting file can be used to transmit meta-data information to DHIS2 1.4 systems.
-
-![](resources/images/content/user/dhis2UserManual/dhis14_xml_metadata_export.png)
-
-#### DHIS2 1.4 Detailed Metadata Export
-
-The DHIS2 1.4 Metadata export functionality provides the same functionality as the detailed DHIS2 metadata export, except that the resulting file can be used to transmit meta-data information to DHIS2 1.4 systems. Simply select the data elements and indicators that you want and click "Export" to begin the export process.
-
-![](resources/images/content/user/dhis2UserManual/dhis14_xml_metadata_detailed_export.png)
-
-#### DHIS2 1.4 Data export
-
-This service allows you to export data to a format which can easily be imported into a compatible DHIS2 1.4 database.
-
-![](resources/images/content/user/dhis2UserManual/dhis14_data_export.png)
-
-#### XLS metadata export
-
-Meta-data can be exported directly to the XLS format with this function. Simply click all of the available object which you wish to export and click "Export".
+9.  The exported file is downloaded to your local computer.
 
 # Configure metadata synchronizing
 
@@ -16138,7 +16410,7 @@ You can synchronize data and metadata between different DHIS2 instances. Given t
 
 ![](resources/images/content/user/metadata_synchronization/dhis2_architecture.png)
 
-If metadata creation and update take place at the central system and if the metadata synchronisation task is enabled, the metadata gets synchronized down to all the local instances which are bound to the central instance. These local instances will in turn push data values to the central instance. Enabling or disabling versioning of metadata synchronization at local instance, will not hinder the metadata synchronization process. This is because the metadata synchronization interacts with versioning end points of the central instance and not with end points of the local instance.
+If metadata creation and update take place at the central system and if the metadata synchronisation task is enabled, the metadata gets synchronized down to all the local instances which are bound to the central instance. These local instances will in turn push data values, Event and Tracker program data and complete data registration sets to the central instance. Enabling or disabling versioning of metadata synchronization at local instance, will not hinder the metadata synchronization process. This is because the metadata synchronization interacts with versioning end points of the central instance and not with end points of the local instance.
 
 Each snapshot of metadata export generated is referred to a metadata version. A new metadata version contains only the changes between the previous version and the current version, that is it's an export between two timestamps. All metadata versions are maintained in the DHIS2 database and are available to all local instances that connect to it. You can schedule each of the local instances to download new metadata versions. It is recommended to keep the metadata versions' sizes small and logical.
 
@@ -16405,7 +16677,7 @@ Each of the mobile solutions are introduced briefly below, and the discussed in 
 
 - DHIS2 Light: A mobile browser optimized data entry module for all devices
 
-  This module allows for data entry directly with the browser of the mobile device. A wide range of devices and mobile browsers are supported including: Opera mini 3 & 4 (basic and advanced) - Opera mini 4, Nokia S40 mobiles ,Windows Phone 7, Window Mobile 6, Palm Pre, Blackberry (v5 and v6), Firefox mobile, iOS devices (iPhone) and Android devices. This client does not have offline-support, and an active GPRS/3G connection is required. It does not require a new application installation on the phone to support new features, but does require a stable data connection for use. This solution is described in [section_title](#mobile_web_based)
+  This module allows for data entry directly with the browser of the mobile device. A wide range of devices and mobile browsers are supported including: Opera mini 3 & 4 (basic and advanced) - Opera mini 4, Nokia S40 mobiles ,Windows Phone 7, Window Mobile 6, Palm Pre, Blackberry (v5 and v6), Firefox mobile, iOS devices (iPhone) and Android devices. This client does not have offline-support, and an active GPRS/3G connection is required. It does not require a new application installation on the phone to support new features, but does require a stable data connection for use. This solution is described in [Mobile browser based data entry](#mobile_web_based)
 
 - DHIS2 Smartphone client: A mobile browser optimized data entry module for Smartphone devices
 
@@ -17044,7 +17316,7 @@ Usually each SMS command has it own property, then the setting up process may be
 
 ![](resources/images/content/user/dhis2_mobile_sms/mobile-sms-conf-sms-command-types.png)
 
-With KEY_VALUE_PARSER and J2ME_PARSER, the SMS command will have dataset because those are used for reporting data
+With KEY_VALUE_PARSER and J2ME_PARSER, the SMS command will have dataset because those are used for reporting data. If data is reported for a Period which is already approved then SMS response will be sent back containing information about approval status of the period.
 
 ![](resources/images/content/user/dhis2_mobile_sms/mobile-sms-conf-sms-command-dataset.png)
 
@@ -17230,12 +17502,14 @@ Below table shows the parameters required for configuring gateway.
 <th>BulkSMS Gateway</th>
 <th>Clickatell Gateway</th>
 <th>Generic HTTP Gateway</th>
+<th>SMPP Gateway</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Gateway Name</td>
+<td>Optional</td>
 <td>Optional</td>
 <td>Optional</td>
 <td>Optional</td>
@@ -17246,12 +17520,14 @@ Below table shows the parameters required for configuring gateway.
 <td>Required</td>
 <td>Optional (if token is used)</td>
 <td>Required</td>
+<td>Required</td>
 <td>Used for API authentication</td>
 </tr>
 <tr class="odd">
 <td>Password</td>
 <td>Required</td>
 <td>Optional (if token is used)</td>
+<td>Required</td>
 <td>Required</td>
 <td>Used for API authentication</td>
 </tr>
@@ -17260,6 +17536,7 @@ Below table shows the parameters required for configuring gateway.
 <td>N/A</td>
 <td>Optional (if password is used)</td>
 <td>N/A</td>
+<td>N/A</td>
 <td>Used for API authentication</td>
 </tr>
 <tr class="odd">
@@ -17267,6 +17544,7 @@ Below table shows the parameters required for configuring gateway.
 <td>N/A</td>
 <td>N/A</td>
 <td>Required</td>
+<td>N/A</td>
 <td>Message query parameter. For example http://gateway.com?<em>message</em>=Hi</td>
 </tr>
 <tr class="even">
@@ -17274,12 +17552,14 @@ Below table shows the parameters required for configuring gateway.
 <td>N/A</td>
 <td>N/A</td>
 <td>Required</td>
+<td>N/A</td>
 <td>Recipient query parameter. For example http://gateway.com?<em>phoneNumber</em>=47XXXXX</td>
 </tr>
 <tr class="odd">
 <td>URL Template</td>
 <td>N/A</td>
 <td>N/A</td>
+<td>Required</td>
 <td>Required</td>
 <td>Url Tempalte is only required in case of GenericHttpGateway . For example &quot;http://smsgatewa1.com&quot;</td>
 </tr>
@@ -17288,7 +17568,56 @@ Below table shows the parameters required for configuring gateway.
 <td>N/A</td>
 <td>N/A</td>
 <td>Optional</td>
+<td>N/A</td>
 <td>Header option can be checked to send selected parameter as http header. For example username/password/token can be sent in http header.</td>
+</tr>
+<tr class="odd">
+<td>useGet</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Optional</td>
+<td>N/A</td>
+<td>HTTP POST method is used by default for posting data toward gateway. But in certain cases if HTTP GET method is required for doing so then useGet parameter can be set to true. Default value for useGet is false.</td>
+</tr>
+<tr class="odd">
+<td>systemType</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Required</td>
+<td>SystemType parameter is required for SMPP gateway. Default value is 'cp'</td>
+</tr>
+<tr class="odd">
+<td>typeOfNumber</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Required</td>
+<td>TypeOfNumber parameter is required for SMPP gateway. Default value is 'UNKNOWN'. Other possible values are UNKNOWN, INTERNATIONAL, NATIONAL, NETWORK_SPECIFIC, SUBSCRIBER_NUMBER, ALPHANUMERIC and ABBREVIATED</td>
+</tr>
+<tr class="odd">
+<td>numberPlanIndicator</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Required</td>
+<td>NumberPlanIndicator parameter is required for SMPP gateway. Default value is UNKNOWN. Other possible values are UNKNOWN, ISDN, DATA, TELEX, LAND_MOBILE, NATIONAL, PRIVATE, ERMES, INTERNET and WAP</td>
+</tr>
+<tr class="odd">
+<td>bindType</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Required</td>
+<td>BindType parameter is required for SMPP gateway. Default value is TX. Other possible values are BIND_TX, BIND_RX and BIND_TRX</td>
+</tr>
+<tr class="odd">
+<td>compressed</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Optional</td>
+<td>Compressed parameter is optional for SMPP gateway. Default value is false</td>
 </tr>
 </tbody>
 </table>
@@ -17436,9 +17765,18 @@ A TextPattern is a sequence of _segments_, joined together by the "+" character.
 <tbody>
 <tr class="odd">
 <td>&quot;Plain text&quot;</td>
-<td>The plain text segment will remain unchanged in all generated values. This special segment is defined by wrapping text between two double quotes. If your pattern should include separation symbols like a dash, you should use this &quot;-&quot;.</td>
+<td>The plain text segment will remain unchanged in all generated values. This special segment is defined by wrapping text between two double quotes. If your pattern should include separation symbols like a dash, you should use this &quot;-&quot;.
+<p>The plain text segment also allows for placeholder text. That means you can specify that parts of the plain text segment should be any of a set of characters. Currently there are 4 supported special characters you can use:</p>
+<ul>
+<li><p>\d (0-9)</p></li>
+<li><p>\x (a-z)</p></li>
+<li><p>\X (A-Z)</p></li>
+<li><p>\w (a-zA-Z0-9)</p></li>
+</ul></td>
 <td>None</td>
-<td>&quot;Hello world&quot; → None → Hello world</td>
+<td>&quot;Hello world&quot; → None → Hello world
+<p>&quot;Hello \x\x\x&quot; → &quot;Hello you&quot; → Hello you</p>
+<p>&quot;\d\d\d&quot; → &quot;123&quot; → 123</p></td>
 </tr>
 <tr class="even">
 <td>CURRENT_DATE(format)</td>
@@ -17671,7 +18009,7 @@ Le forfait live de DHIS2 est le moyen le plus simple d'utiliser DHIS2 sur votre 
 
 Vous devez vous assurer d'avoir une version actualisée de JAVA Runtime sur votre dispositif. Selon votre système d'exploitation, il existe différentes méthodes pour installer JAVA. Vous pouvez vous référer à ce [siteweb](http://java.sun.com/javase/downloads/index.jsp) pour plus détails sur l'installation de JAVA.
 
-#### A partir d'une base de données vierge
+#### À partir d'une base de données vide
 
 Le forfait live inclut une base de données de démonstration semblable à celle sur la [démo en ligne](http://apps.dhis2.org/demo/) (qui est basée sur l'indice HMIS national de la Sierra Leone), et si vous souhaitez commencer avec un système/base de données vierge et construire votre propre système vous devez suivre les étapes suivantes:
 
@@ -18314,6 +18652,70 @@ Next, there are two more dimensions, the "PHU/Community" with its two options an
 
 8.  8\. Your dataset will then consist of a set of data elements that are linked to one or more category combinations.
 
+# Additional data dimensions
+
+<!--DHIS2-SECTION-ID:additional_data_dimensions-->
+
+## About additional data dimensions
+
+DHIS2 has the ability to add dimensions to data in addition to what was described in the previous chapter. We will call these dimensions "attribute categories" (ACs). The categories described in the previous chapter we will call "disaggregation categories" (DCs) to differentiate them from ACs.
+
+ACs and DCs are quite similar—they work in much the same way, are accessed through the same part of the maintenance interface, and exist in the same part of the database. The main difference between them is what they are connected to: a DC is attached to a data element. An AC, however, is attached to a data set. This means values for all DC options can be entered on the same data entry screen, whereas you must choose the AC option before you begin to enter data.
+
+In setting up a system, you could just use DCs and ignore ACs altogether. However, ACs are a way to simplify data entry screens or reduce the size of the cross-product of category option combos.
+
+When you’re deciding which categories should be DCs and which should be ACs, here’s a good rubric:
+
+- Use DCs when you want to use different combinations of categories on different data elements within a data set
+
+- Use DCs when you want to enter all the category option combinations on one data entry screen
+
+- Use ACs when you want to use the same combination of categories for all the data in a data set
+
+- Use ACs when you want to enter only one category option combination on one data entry screen
+
+While we referred to DCs as part of the _what_ dimension for simplicity in the former chapter, it’s actually more complex. Either DCs or ACs can answer any question about a data element, including _what_ (of course), _who_, _why_, _how_, or even a _where_ or a _when_ beyond the organisation unit and period dimensions.
+
+## Create or edit an attribute category and its options
+
+For the process of creating an attribute category as well as options and combinations, see the section of this manual named Manage categories.
+
+# Relationship model
+
+<!--DHIS2-SECTION-ID:relationship_model-->
+
+A relationship represents a link between two entities in the Tracker-model. A relationship is considered data in DHIS2 and is based on a Relationship Type, similar to how a Tracked Entity Instance is based on a Tracked Entity Type.
+
+Relationships always include two entities, and these entities can include Tracked Entity Instances, Enrollments and Events, and any combination of these. Note that not all of these combinations are available in the current apps.
+
+In addition, relationships can be defined as unidirectional or bidirectional. The only functional difference is currently that these requires different levels of access to create. Unidirectional relationships requires the user to have data write access to the "from" entity and data read access for the "to" entity, while bidirectional relationships require data write access for both sides.
+
+## Relationship Type
+
+<!--DHIS2-SECTION-ID:relationship_model_relationship_type-->
+
+A Relationship Type is the definition of the properties a relationship have. Relationships always consists of two sides, referred to as "from" and "to", and what entities can be contained for each side is determined by the Relationship Type. The properties that determine what each can contain are called constraints, fromConstraint and toConstraint respectively. These constraints are significant when working with the data later, to understand what a relationship can and cannot contain.
+
+Each of the constraints defined in the Relationship Type consists of several properties. The primary property is the relationship entity, which decides what kind of entities the relationship can contain. The entities can be one of the following for each constraint:
+
+- Tracked Entity Instance
+- Enrollment
+- Event
+
+Depending on the kind of relationship entity you select, you can choose additional limitations for each constraint. The following table explains the different combinations you can configure:
+
+|                     | Tracked Entity Instance | Enrollment | Event    |
+| ------------------- | ----------------------- | ---------- | -------- |
+| Tracked Entity Type | Required                | Optional   | -        |
+| Program             | -                       | Required   | -        |
+| Program Stage       | -                       | Required   | Optional |
+
+These additional limitations, will require the entity to match the limitation set before it can be created. For example, if your relationship is between a mother and a child, both constraints would have their required Tracked Entity Type set to Person and could optionally set the Enrollment to Maternal Health Program and Child Program respectively. This way, only Tracked Entity Instances who are of type Person and who is enrolled in the required program is allowed to be included in these relationships.
+
+In addition to the constrains a Relationship Type can have, each relationship can be set to bidirectional, true or false. If the property is set to false, the relationships are treated as unidirectional. As previously mentioned, the only functional difference between these relationships are how strict the access is when creating or updating them - bidirectional being the strictest. Relationships are also presented differently in the UI based on whether or not the relationship is bidirectional or unidirectional.
+
+One important thing to note about bidirectional relationships, are that the "from" and "to" sides are still significant in the database, meaning each entity must match the constraint for that side. However, from a user perspective, which side each entity is stored as is insignificant.
+
 # DHIS2 Frequently Asked Questions
 
 **Q:** I have entered data into a data entry form, but I cannot see the data in any reports (pivot tables, charts, maps). Why does data which is entered not show up immediately in my graphs in DHIS2?
@@ -18336,122 +18738,7 @@ Other factors which can affect the visibility of data are:
 
 # Release and upgrade notes
 
-<table>
-<caption>DHIS2 releases</caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Version</th>
-<th>Release date</th>
-<th>Release notes</th>
-<th>Upgrade notes</th>
-</tr>
-</thead>
-<tbody>
-
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.30/dhis.war">2.30</a></td>
-<td>2018-07-10</td>
-<td><a href="https://docs.google.com/document/d/e/2PACX-1vTPr1F9b6Yf-TJJxulpg3p7-0pMow5mfW-u0uNnk2LUBTLsaVB0cPaE-jmtTcCJhON4xA9mlm7ws7h-/pub"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://github.com/dhis2/dhis2-releases/blob/master/releases/2.30/README.md"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.29/dhis.war">2.29</a></td>
-<td>2018-03-07</td>
-<td><a href="https://docs.google.com/document/d/e/2PACX-1vTtvGRDt2QJ-2XslelRwhpnDvP9XK2ymLtvVSC3mf8uRIyQ3cerQxM3Kiu3QWDIo2jvbjK3oghcd_k0/pub"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://github.com/dhis2/dhis2-releases/blob/master/releases/2.29/README.md"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.28/dhis.war">2.28</a></td>
-<td>2017-10-11</td>
-<td><a href="https://docs.google.com/document/d/e/2PACX-1vRXQmjZnDmePhbHvdYbQNncCUwWQVo0I3q6_TUXO3qn710ovvRtAmVDxmmO2H98dg-dO_mUmHMW2YOI/pub"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://github.com/dhis2/dhis2-releases/blob/master/releases/2.28/README.md"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.27/dhis.war">2.27</a></td>
-<td>2017-06-02</td>
-<td><a href="https://docs.google.com/document/d/1SF0jea6JyMPXOsZgPVvIqAedfaYFxHIoUV19g-pSou4/pub"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/227-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.26/dhis.war">2.26</a></td>
-<td>2017-02-01</td>
-<td><a href="https://docs.google.com/document/d/1LJcZ-Ex80fp7A0g_TRsclVAuDjpynsGIHxcpNG0oC1c"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/226-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.25/dhis.war">2.25</a></td>
-<td>2016-10-13</td>
-<td><a href="https://docs.google.com/document/d/1OPqo7LXqm2y2KAGlDhGGn6Gn-qsHQp1mLe8_L555ebA"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/225-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.24/dhis.war">2.24</a></td>
-<td>2016-07-04</td>
-<td><a href="https://docs.google.com/document/d/1WpW3Rv3rMbwWUXxd_grYDMc4EFGvQoTc_FJ24-stT7s"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/224-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.23/dhis.war">2.23</a></td>
-<td>2016-04-25</td>
-<td><a href="https://drive.google.com/open?id=15MMDgTqIt6bHabev0a1aik7ArSONnNG9QLfz-qgKnAc"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/223-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.22/dhis.war">2.22</a></td>
-<td>2016-01-15</td>
-<td><a href="https://drive.google.com/open?id=1iHgNQkXdtAndEPs6oF8J9W6RozHXfqvrma-_qmK6iDU"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/222-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.21/dhis.war">2.21</a></td>
-<td>2015-10-21</td>
-<td><a href="https://drive.google.com/open?id=1xNaC5HhF5wz8sNuTnU1cFPMFOEZhSpYMIQNPMk_olWI"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/221-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.20/dhis.war">2.20</a></td>
-<td>2015-07-20</td>
-<td><a href="https://drive.google.com/open?id=1OPezgAGeuJ_Wy3ecJRrfH6JDlGz-4fZMLYA4UdaUtAE"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/220-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.19/dhis.war">2.19</a></td>
-<td>2015-05-15</td>
-<td><a href="https://drive.google.com/open?id=10kAYDagBM53XMiSQyroUMJOqgqMAZbzuCUlV9q0XW-Y"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/219-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.18/dhis.war">2.18</a></td>
-<td>2015-01-22</td>
-<td><a href="https://drive.google.com/open?id=1vCS0eXoT3si5AwkHcFl0U9No0jLHHBsjCtbr6e70104"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/218-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.17/dhis.war">2.17</a></td>
-<td>2014-11-21</td>
-<td><a href="https://drive.google.com/open?id=1DtOcSyharI0IS0SLXaba5nIG6UWjo8MxY1iK4BSUqIU"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/217-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="odd">
-<td><a href="https://www.dhis2.org/download/releases/2.16/dhis.war">2.16</a></td>
-<td>2014-07-25</td>
-<td><a href="https://drive.google.com/open?id=11Nd8JCN5-Ef82V2VUWYovv17V9jxzi4QL-M-7Gz3h_4"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td><a href="https://www.dhis2.org/216-upgrade"><img src="resources/images/icons/upgrade.png" width="24" /></a></td>
-</tr>
-<tr class="even">
-<td><a href="https://www.dhis2.org/download/releases/2.15/dhis.war">2.15</a></td>
-<td>2014-05-10</td>
-<td><a href="https://drive.google.com/open?id=1t14g6mn1FmQIII8gJuSlnpJId0mTkklJBLF-mKykfcI"><img src="resources/images/icons/info.png" width="24" /></a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+For up-to-date information about the latest DHIS 2 releases, please refer to the [DHIS 2 downloads](https://www.dhis2.org/downloads) page on our website.
 
 # User authorities
 
@@ -19591,6 +19878,18 @@ Other factors which can affect the visibility of data are:
 <td>View User Within Managed Group</td>
 <td>F_USER_VIEW_WITHIN_MANAGED_GROUP</td>
 </tr>
+<tr class="even">
+<td>Delete tracked entity instance and associated enrollments and events</td>
+<td>F_TEI_CASCADE_DELETE</td>
+</tr>
+<tr class="odd">
+<td>Delete enrollment and associated events</td>
+<td>F_ENROLLMENT_CASCADE_DELETE</td>
+</tr>
+<tr class="even">
+<td>Edit expired data</td>
+<td>F_EDIT_EXPIRED</td>
+</tr>
 </tbody>
 </table>
 
@@ -19625,54 +19924,59 @@ Other factors which can affect the visibility of data are:
 </blockquote></td>
 </tr>
 <tr class="even">
+<td><p><strong>Maximum number of SQL view records</strong></p></td>
+<td><p>Set the maximum number of records in a SQL view.</p>
+<p>The default value is Unlimited.</p>
+</tr>
+<tr class="odd">
 <td><p><strong>Infrastructural indicators</strong></p></td>
 <td><p>Defines an indicator group where the member indicators should describe data about the organisation units' infrastructure.</p>
 <p>You can view the infrastructural data in the <strong>GIS</strong> app: right-click a facility and click <strong>Show information</strong>.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><strong>Infrastructural data elements</strong></p></td>
 <td><p>Defines a data element group where the member data elements should describe data about the organisation units' infrastructure.</p>
 <p>Infrastructural data elements can be population, doctors, beds, Internet connectivity and climate.</p>
 <p>You can view the infrastructural data in the <strong>GIS</strong> app: right-click a facility and click <strong>Show information</strong>.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><strong>Infrastructural period type</strong></p></td>
 <td><p>Sets the frequency for which the data elements in the infrastructural data elements group are captured.</p>
 <p>This will typically be yearly. When viewing the infrastructural data you will be able to select the time period of the data source.</p>
 <p>You can view the infrastructural data in the <strong>GIS</strong> app: right-click a facility and click <strong>Show information</strong>.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><strong>Default relative period for analysis</strong></p></td>
 <td><p>Setting this value will determine which relative period is selected as the default in the analytics apps.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><strong>Feedback recipients</strong></p></td>
 <td><p>Defines a user group where the members will receive all messages sent via the feedback function in the <strong>Dashboard</strong> app.</p>
 <p>This will typically be members of the super user team who are able to support and answer questions coming from end-users.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><strong>Max offline organisation unit levels</strong></p></td>
 <td><p>Defines how many levels in the organisation unit hierarchy will be available offline in the organisation unit tree widget.</p>
 <p>Under normal circumstances you can leave this on the lowest level, which is default is the default setting.</p>
 <p>It can be useful to set it to a higher level to reduce initial load time in cases where you have a large number of organisation units, typically more than 30 000.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><strong>Data analysis std dev factor</strong></p></td>
 <td><p>Sets the number of standard deviations used in the outlier analysis performed on the captured data in the <strong>Data Entry</strong> app.</p>
 <p>The default value is 2. A high value will catch less outlier values than a low value.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p><strong>Phone number area code</strong></p></td>
 <td><p>The area code for the area in which your deployment is located.</p>
 <p>Used for sending and receiving SMS. Typically, this is a country code.</p>
 <p><em>+260</em> (country code for Zambia)</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p><strong>Enable multi-organisation unit forms</strong></p></td>
 <td><p>Enables support to enter data forms for multiple organisation units at the same time in the <strong>Data Entry</strong> app.</p>
 <p>If you've enabled this setting, you can in the <strong>Data Entry</strong> app, click on the parent organisation unit for the children that you want to enter data for, and the data set list will include data sets that are assigned to the children of that parent.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><strong>Acceptance required before approval</strong></td>
 <td>When this setting is selected, acceptance of data will be required first before submission to the next approval level is possible.</td>
 </tr>
@@ -19700,6 +20004,22 @@ Other factors which can affect the visibility of data are:
 <td><p><strong>Default relative period for analysis</strong></p></td>
 <td><p>Defines the relative period to use by default in analytics app: <strong>Data Visualizer</strong>, <strong>Event Reports</strong>, <strong>Event Visualizer</strong>, <strong>GIS</strong> and <strong>Pivot Table</strong> apps. The relative period will be automatically selected when you open these apps.</p>
 <p>Recommended setting: the most commonly used relative period among your users.</p></td>
+</tr>
+<tr class="even">
+    <td><p><strong>Hide daily periods</strong></p></td>
+    <td><p>Hide daily periods in the analysis tools</p></td>
+</tr>
+<tr class="odd">
+    <td><p><strong>Hide weekly periods</strong></p></td>
+    <td><p>Hide weekly periods in the analysis tools</p></td>
+</tr>
+<tr class="even">
+    <td><p><strong>Hide monthly periods</strong></p></td>
+    <td><p>Hide monthly periods in the analysis tools</p></td>
+</tr>
+<tr class="odd">
+    <td><p><strong>Hide bimonthly periods</strong></p></td>
+    <td><p>Hide bimonthly periods in the analysis tools</p></td>
 </tr>
 <tr class="even">
 <td><strong>Financial year relative start month</strong></td>
@@ -19738,6 +20058,10 @@ Other factors which can affect the visibility of data are:
 <td>Places the analytics and web API of DHIS2 in maintenance mode. This means that &quot;503 Service Unavailable&quot; will be returned for all requests.
 <p>This is useful when you need to perform maintenance on the server, for example rebuilding indexes while the server is running in production, in order to reduce load and more efficiently carry out the maintenance.</p></td>
 </tr>
+<tr class="odd">
+<td><p><strong>Skip zero data values in analytics tables</strong></p></td>
+<td><p>Does not include in analytics tables any aggregate data values that are zero. This can reduce analytics tables sizes, and speed up the building and accessing of the analytics tables, if you have aggregate data values that are zero and stored (the data element is configured to store zero values).</p></td>
+</tr>
 </tbody>
 </table>
 
@@ -19769,16 +20093,6 @@ Other factors which can affect the visibility of data are:
 <p>Notifications about failures in processes such as analytics table generation will be sent here. This is useful for application monitoring.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>Server base URL</strong></p></td>
-<td><p>Defines the full, externally accessible base URL for your server.</p>
-<p>The URL is used to provide links to your server from external locations such as emails sent from the system.</p>
-<blockquote>
-<p><strong>Note</strong></p>
-<p>If you don't specify a server base URL, emails sent from the DHIS2 messaging system will not contain a reply link.</p>
-</blockquote>
-<p><em>https://apps.dhis2.org/demo</em> is the server base URL for the DHIS2 demo server.</p></td>
-</tr>
-<tr class="even">
 <td><p><strong>Google Analytics (Universal Analytics) key</strong></p></td>
 <td><p>Sets the Google UA key to provide usage analytics for your DHIS2 instance through the Google Analytics platform. It should be noted that currently, not all apps in DHIS2 support Google Analytics, so certain activity of your users may not appear in this platform.</p>
 <p>You can read more about Google Analytics at <a href="http://google.com/analytics" class="uri">http://google.com/analytics</a>.</p></td>
@@ -20056,10 +20370,6 @@ Other factors which can affect the visibility of data are:
 <td><p>Whitelists a set of URLs which can access the DHIS2 API from another domain. Each URL should be entered on separate lines. Cross-origin resource sharing (CORS) is a mechanism that allows restricted resources (e.g. javascript files) on a web page to be requested from another domain outside the domain from which the first resource was served.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>Mapzen search API key</strong></p></td>
-<td><p>Defines the API key for the Mapzen API. This API is used to search addresses globally within DHIS 2.</p></td>
-</tr>
-<tr class="odd">
 <td><p><strong>Google Maps API key</strong></p></td>
 <td><p>Defines the API key for the Google Maps API. This is used to display maps within DHIS2.</p></td>
 </tr>
