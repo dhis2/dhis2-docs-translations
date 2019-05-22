@@ -8,11 +8,11 @@ title: Guide de l'utilisateur final de DHIS2
 
 <!--DHIS2-SECTION-ID:about_this_guide_-->
 
-La documentation de DHIS2 est un effort collectif est à été développée par l'équipe de développement mais aussi par les utilisateurs. Bien que ce guide vise à être complet, il se peut que certaines fonctionnaliés aient été omises ou doivent encore être documentées. Cette section explique certaines des conventions utilisées dans le document
+La documentation de DHIS2 est un effort collectif est a été développée par l'équipe de développement mais aussi par les utilisateurs. Bien que ce guide vise à être complet, il se peut que certaines fonctionnalités aient été omises ou doivent encore être documentées. Cette section explique certaines des conventions utilisées dans le document.
 
-DHIS2 est une application fonctionnant dans un navigateur. Dans la plupart des cas, des impressions d'écran ont été incluse pour une meilleure compréhension. Des raccourçis vers diverses fonctionnalités sont affiché comme **Element de donnée** \> **Groupe d'élément de données**. Le symbole "\>" indique que vous devez cliquer sur **Element de donnée** et ensuite sur **Groupe d'élément de données**
+DHIS2 est une application fonctionnant dans un navigateur. Dans la plupart des cas, des impressions d'écran ont été incluse pour une meilleure compréhension. Des raccourçis vers diverses fonctionnalités sont affiché comme **Élément de donnée** \> **Groupe d'éléments de données**. Le symbole "\>" indique que vous devez cliquer sur **Élément de donnée** et ensuite sur **Groupe d'éléments de données**.
 
-Differents styles de texte ont été utilisés pour mettre en avant des parties importantes ou des types particulier de texte comme par exemple du code source. Chaque convention est expliquée ci-dessous:
+Différents styles de texte ont été utilisés pour mettre en avant des parties importantes ou des types particuliers de texte comme par exemple du code source. Chaque convention est expliquée ci-dessous :
 
 > **Note**
 >
@@ -30,7 +30,7 @@ Differents styles de texte ont été utilisés pour mettre en avant des parties 
 >
 > L'information dans ces sections doit être lue avec attention. Ne pas la suivre peut mener à des résultats innattendus
 
-> **Attention**
+> **Danger**
 >
 > L'information dans ces sections doit être lue avec attention. Ne pas la suivre peut mener à des pertes de données ou des problèmes de stabilité dans le système.
 
@@ -67,7 +67,7 @@ Le forfait live de DHIS2 est le moyen le plus simple d'utiliser DHIS2 sur votre 
 
 Vous devez vous assurer d'avoir une version actualisée de JAVA Runtime sur votre dispositif. Selon votre système d'exploitation, il existe différentes méthodes pour installer JAVA. Vous pouvez vous référer à ce [siteweb](http://java.sun.com/javase/downloads/index.jsp) pour plus détails sur l'installation de JAVA.
 
-#### A partir d'une base de données vierge
+#### À partir d'une base de données vide
 
 Le forfait live inclut une base de données de démonstration semblable à celle sur la [démo en ligne](http://apps.dhis2.org/demo/) (qui est basée sur l'indice HMIS national de la Sierra Leone), et si vous souhaitez commencer avec un système/base de données vierge et construire votre propre système vous devez suivre les étapes suivantes:
 
@@ -926,6 +926,108 @@ DHIS2 génère des tables de bases de données que le système utilise ensuite c
 
 4.  Cliquez sur **Démarrer l'exportation**.
 
+# Reporting functionality in the Beta Reports app
+
+<!--DHIS2-SECTION-ID:using_the_beta_reports_app-->
+
+A new Reports app (Beta) is introduced in release 2.32 and serves as an optional replacement of the original [Reports app](#using_reporting), offering a more intuitive and user-friendly interface. Unlike the previous Reports app, however, it does not support Data Approvals.
+
+## Utilisation des rapports standard
+
+<!--DHIS2-SECTION-ID:standard_reports_in_the_beta_reports_app-->
+
+You access the available reports by navigating to Apps-\>Reports (Beta). In the report menu in the left bar, click Standard Report. A list of all pre-defined reports will appear in the main window.
+
+![](resources/images/content/user/dhis2UserManual/react_reports_app_standard_reports.png)
+
+You run/view a report by clicking on the triple-dot icon of the report and then selecting "Create" from the contextual menu. If there are any pre-defined parameters, you will see a report parameter window where you must fill in the values needed for orgunit and/or reporting month, depending on what has been defined in the underlying report table(s). Click on "Generate Report" when you are ready. The report will either appear directly in your browser or be available as a PDF file for download, depending on your browser settings for handling PDF files. You can save the file and keep it locally on your computer for later use.
+
+## Utilisation des rapports de sets de données
+
+<!--DHIS2-SECTION-ID:dataset_reports_in_the_beta_reports_app-->
+
+Les rapports de sets de données sont un des vues simple et imprimable de l'écran de saisie de données avec des données brutes ou agrégées. Ils ne sont disponibles que pour les sets de données ayant un modèle de saisie de données personnalisé mis en place contrairement au modèles par défaut et par section.
+
+You can access data set reports from Apps-\>Reports (Beta).
+
+Une fenêtre de critères apparaît dans laquelle vous renseignez les détails de votre rapport:
+
+**Set de données:** Les données que vous souhaitez afficher.
+
+**Report period:** The actual period you want data for. This can be aggregated as well as raw periods. This means that you can ask for a quarterly or annual report even though the data set is collected monthly. A data set's period type (collection frequency) is defined in data set maintenance. First select the period type (Monthly, Quarterly, Yearly etc.) in the drop down next to Prev and Next buttons, and then select one of the available periods from the dropdown list below. Use Prev and Next to jump one year back or forward.
+
+**Utiliser des données pour l'unité sélectionnée uniquement:** Utilisez cette option si vous souhaitez un rapport pour une unité d'org qui a des ramifications (enfants), mais que vous avez besoin des données collectées directement que par cette unité et non par ses enfants. Si vous souhaitez un rapport agrégé typique pour une unité d'org spécifique, ne cochez pas cette option.
+
+**Report Organisation unit:** Here you select the orgunit you want the report for. This can be at any level in the hierarchy as the data will be aggregated up to this level automatically (if you do not tick the option above).
+
+Lorsque vous avez fini de rentrer les critères du rapport, cliquez sur "Génénrer". Le rapport apparaîtra sous format HTML et imprimable. Utilisez les fonctions d'impression et d'enregistrement dans le navigateur pour imprimer ou enregistrer le rapport (en tant que fichier HTML). Vous pouvez également exporter le rapport du set de données dans Excel et en formats PDF.
+
+## Utilisation du récapitulatif du taux de génération de rapports
+
+<!--DHIS2-SECTION-ID:reporting_rate_summary_in_the_beta_reports_app-->
+
+Access the reporting rate summary from the Apps-\>Reports (Beta) menu. Reporting rate summaries will show how many datasets (forms) that have been submitted by organisation unit and period.
+
+The reporting rate is calculation is based on complete data set registrations. A complete data set registration refers to a user marking a data entry form as complete, typically by clicking the complete button in the data entry screen, hereby indicating to the system that she considers the form to be complete. This is i.e. a subjective approach to calculating completeness.
+
+Le récapitulatif du taux de génération de rapports désignera des mesures spécifiques pour chaque ligne:
+
+- Rapports réels: indique le nombre de sauvegardes terminées de saisies pour le set de données concerné.
+
+- Rapports prévus: indique le nombre prévu de saisies de données terminées. Ce nombre est basé sur le nombre d'unités d'organisation auxquelles le set de données a été affecté (activé pour la saisie de données).
+
+- Reporting rate: The percentage of reports registered as complete based on the number expected.
+
+- Rapports à temps: identiques aux rapports réels, uniquement les rapports enregistrés en tant que compléts pendant le nombre maximum de jours après la fin de la période de reporting. Ce nombre de jours qui suit la période de reporting peut être défini pour chaque set de données dans la gestion des sets de données.
+
+- Reporting rate on time: Same as percentage, only reports registered as complete on time used as numerator.
+
+Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous:
+
+- Sélectionnez une unité d'organisation dans l'arborescence.
+
+- Select a data set.
+
+- Select a period type and a period from the list of available periods for that period type.
+
+- The report will then be rendered. Change any of the parameters above and click "Get report" again see the corresponding results.
+
+![](resources/images/content/user/dhis2UserManual/react_reports_app_reporting_rate_summary.png)
+
+## Utilisation des ressources
+
+<!--DHIS2-SECTION-ID:resources_in_the_beta_reports_app-->
+
+L'outil de ressources vous permet de télécharger les fichiers de votre répertoire local au serveur DHIS et d'ajouter des liens vers d'autres ressources sur Internet via des liens URL. Si le stockage en cloud est configuré pour votre système, les ressources y seront sauvegardées.
+
+Pour créer une nouvelle ressource:
+
+1.  Open the **Reports (Beta)** app and click **Resource**.
+
+2.  Cliquez sur **AJOUTER**.
+
+3.  Entrez un **Nom**.
+
+4.  Sélectionnez un **Type**: **Télécharger un fichier** ou **URL externe**.
+
+5.  Cliquez sur **Sauvegarder**.
+
+## Utilisation des rapports de distribution des unités d'organisation
+
+<!--DHIS2-SECTION-ID:orgunit_distribution_reports_in_the_beta_reports_app-->
+
+You can access the Orgunit Distribution reports from the left side menu in the Apps-\>Reports (Beta).
+
+Les rapports de distribution d'unités d'org montrent comment les unités d'org sont distribuées sur diverses propriétés comme le type et la titularité, et par zones géographiques.
+
+Le résultat peut être présenté dans un rapport sous forme de tableau ou dans un graphique.
+
+**Exécution d'un rapport:**
+
+To run a report first select an orgunit in the upper left side orgunit tree. The report will be based on orgunits located under the selected orgunit. The select the orgunit group set that you want to use, typically these are Type, Ownership, Rural/Urban, but can be any user-defined orgunit group set. The you can click on either Get Report to get the table-based presentation or Get chart to get the same result in a chart. You can also download the table-based report as Excel or CSV.
+
+![](resources/images/content/user/dhis2UserManual/react_reports_app_org_unit_dist.png)
+
 # Analyser des données dans des tableaux croisés dynamiques
 
 <!--DHIS2-SECTION-ID:pivot-->
@@ -1247,7 +1349,7 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 1.  Cliquez sur **Favoris** \> **Sauvegarder**.
 
-2.  Entrez un **Nom** et une **Description** à votre favori.
+2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
 
 3.  Cliquez sur **Sauvegarder**.
 
@@ -1266,6 +1368,8 @@ Une interprétation est un lien vers une ressource avec une description des donn
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
 2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
+
+    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -1494,29 +1598,45 @@ You can also change the selections by clicking on the chips in the layout area.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-layout-area.png)
 
+## Adding more axes
+
+When combining data with different measurement scales you will get a more meaningful visualization by having more than a single axis. For "column", "bar" and "line" charts you can do so by clicking "Manage axes" in the series dimension's context menu.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-axis-management-menu-option.png)
+
+In the axis management dialog you can assign data items to the two axes.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-axis-management-dialog.png)
+
 ## Viewing chart interpretations
 
-When viewing a chart, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The chart description will also be shown.
+When viewing a chart, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The chart description will also be shown. The description suppots rich text format.
 
-To view the chart according to the date of a particular interpretation, click on the interpretation. This will regenerate the chart with the relevant date, which is indicated next to the chart title.
+To view the chart according to the date of a particular interpretation, click on the interpretation or its "View" button. This will regenerate the chart with the relevant date, which is indicated next to the chart title.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-view-interpretation.png)
 
-Clicking on the back arrow inside the interpretations panel will clear the interpretation and regenerate the chart with the current date.
+Clicking on "Back to all interpretations" or the "Exit View" button inside the interpretations panel will clear the interpretation and regenerate the chart with the current date.
 
-# Using the Data Visualizer app
+## See chart as map
+
+Sometimes it can be useful to see how visualization would look like on map. To achieve this you can select "Open as: Map" chart type after you build your chart.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-open-as-map.png)
+
+# Classic Data Visualizer (deprecated)
 
 <!--DHIS2-SECTION-ID:data_vis-->
 
 This chapter refers to the legacy version of the data visualizer. For the current version, please refer to the [new data visualizer](./data_visualizer.html) chapter.
 
-## A propos de l'application de visualisation de données
+## About the Classic Data Visualizer app
 
 <!--DHIS2-SECTION-ID:data_vis_intro-->
 
 ![](resources/images/content/user/visualizer/column_chart.png)
 
-Avec l'application de **Visualisation de données**, vous pouvez sélectionner un contenu, par exemple des indicateurs, des éléments de données, périodes et unités d'organisation pour une analyse. L'application fonctionne correctement avec une faible connection Internet, et génère des graphiques dans un navigateur Web.
+With the ** Classic Data Visualizer** app, you can select content, for example indicators, data elements, periods and organisation units, for an analysis. The app works well over poor Internet connections and generates charts in the web browser.
 
 > **Astuce**
 >
@@ -1528,7 +1648,7 @@ Avec l'application de **Visualisation de données**, vous pouvez sélectionner u
 
 <!--DHIS2-SECTION-ID:datavis_create_chart-->
 
-1.  Ouvrez l'application **Visualiseur de Données** et sélectionnez un type de graphique.
+1.  Open the **Classic Data Visualizer** app and select a chart type.
 
 2.  Dans le menu de gauche, sélectionnez les métadonnées que vous souhaitez analyser. Vous devez sélectionner un ou plusieurs éléments parmi les trois dimensions - données (indicateurs, éléments de données, taux de reporting), périodes (relatives, fixes) et unités d'organisation (unités ou groupes).
 
@@ -1548,7 +1668,7 @@ Avec l'application de **Visualisation de données**, vous pouvez sélectionner u
 
 <!--DHIS2-SECTION-ID:datavis_chart_types-->
 
-L'application **Visualiseur de données** comporte neuf types de graphiques différents, chacun avec des caractéristiques spécifiques. Pour sélectionner un type de graphique:
+The **Classic Data Visualizer** app has nine different chart types, each with different characteristics. To select a chart type:
 
 1.  Dans **Type de graphique**, cliquez sur le type de graphique dont vous avez besoin.
 
@@ -1627,7 +1747,7 @@ Une dimension fait référence aux éléments décrivant les valeurs de données
 
 - Unités d'organisation: Décrit où l'événement a eu lieu.
 
-L'application de visualisation de données vous permet d'utiliser ces dimensions flexibles en termes d'apparition sous forme de séries, de catégories et de filtres.
+The Classic Data Visualizer app lets you use these dimensions completely flexible in terms of appearing as series, categories and filter.
 
 > **Note**
 >
@@ -1643,7 +1763,7 @@ L'application de visualisation de données vous permet d'utiliser ces dimensions
 
 ### Sélectionner des indicateurs
 
-L'application de visualisation de données peut afficher un nombre illimité d'indicateurs et d'éléments de données dans un graphique. Vous pouvez sélectionner les indicateurs et les éléments de données à afficher dans le même graphique, avec leur ordre d'apparition identique à l'ordre dans lequel ils sont sélectionnés.
+The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
 
 1.  Cliquez sur **Données** et sélectionnez **Indicateurs**.
 
@@ -1657,7 +1777,7 @@ L'application de visualisation de données peut afficher un nombre illimité d'i
 
 ### Sélectionner des éléments de données
 
-L'application de visualisation de données peut afficher un nombre illimité d'indicateurs et d'éléments de données dans un graphique. Vous pouvez sélectionner les indicateurs et les éléments de données à afficher dans le même graphique, avec leur ordre d'apparition identique à l'ordre dans lequel ils sont sélectionnés.
+The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
 
 1.  Cliquez sur **Données** et sélectionnez **Eléments de données**.
 
@@ -1671,7 +1791,7 @@ L'application de visualisation de données peut afficher un nombre illimité d'i
 
 ### Sélectionner des taux de reporting
 
-L'application de visualisation de données peut afficher les taux de reporting uniquement sous forme de graphique, ou avec des indicateurs et des éléments de données. Les taux de reporting sont définis par des sets de données.
+The Classic Data Visualizer app can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates are defined by data sets.
 
 1.  Cliquez sur **Données** et sélectionnez **taux de reporting**.
 
@@ -1928,7 +2048,7 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 1.  Cliquez sur **Favoris** \> **Sauvegarder**.
 
-2.  Entrez un **Nom** et une **Description** à votre favori.
+2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
 
 3.  Cliquez sur **Sauvegarder**.
 
@@ -1947,6 +2067,8 @@ Une interprétation est un lien vers une ressource avec une description des donn
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
 2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
+
+    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -2140,7 +2262,7 @@ Vous pouvez utiliser quatre calques vectoriels pour créer une carte thématique
 
     - calque d'installation
 
-    - calque limite
+    - couche frontière
 
     - Calque thématique 1 - 4
 
@@ -2847,7 +2969,7 @@ With the Maps app you can overlay multiple layers and choose among different bas
 
 - The **Interpretations** button at top right opens an interpretations panel on the right side of the workspace. The button is only clickable if the map is saved.
 
-  - **Details** shows information about the current map.
+  - **Map details** shows information about the current map.
 
   - **Interpretations** allows you to view, add, edit and share interpretations about the current map.
 
@@ -2967,7 +3089,7 @@ En bas de la carte thématique, de gauche à droite, se trouvent:
 
 ### Créer un calque thématique
 
-Pour créer un calque d'événement, choisissez **Thématique** dans la section **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque d'événements.
+To create an event layer, choose **Thematic** on the **Add layer** selection. This opens the Events layer configuration dialog.
 
 1.  Dans l'onglet **DATA**:
 
@@ -3005,9 +3127,21 @@ Pour créer un calque d'événement, choisissez **Thématique** dans la section 
 
       - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
 
+4.  Dans l'onglet **FILTRE**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_FILTER.png)
+
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+
+      - Select a data dimension from the drop down box. You can reduce the number of dimensions shown by using the search field. Click on the name to select a dimension.
+
+      - When a dimension is selected you get a second drop down with dimension items. Check the items you want to include in the filter.
+
+      Multiple filters may be added. Click the trash button on the right of the filter to remove it.
+
 <!--DHIS2-SECTION-ID:using_maps_thematic_layer_style-->
 
-4.  Dans l'onglet **STYLE**:
+5.  Dans l'onglet **STYLE**:
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_STYLE.png)
 
@@ -3025,13 +3159,13 @@ Pour créer un calque d'événement, choisissez **Thématique** dans la section 
 
       - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
 
-5.  Cliquez sur **AJOUTER UN CALQUE**.
+6.  Cliquez sur **AJOUTER UN CALQUE**.
 
 ### Modifier un calque thématique
 
 1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
 
-2.  Modifiez le réglage des onglets DATA, PERIODe, UNITES D'ORG et STYLE comme vous le souhaitez.
+2.  Modify the setting on any of the tabs as desired.
 
 3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
 
@@ -3113,7 +3247,7 @@ Pour effacer toutes les données d'un calque thématique:
 
 <!--DHIS2-SECTION-ID:using_maps_event_layer-->
 
-The event layer displays the geographical location of events registered in the DHIS2 tracker. Provided that events have associated coordinates, you can use this layer to drill down from the aggregated data displayed in the thematic layers to the underlying individual events or cases.
+The event layer displays the geographical location of events registered in the DHIS2 tracker. Provided that events have associated point or polygon coordinates, you can use this layer to drill down from the aggregated data displayed in the thematic layers to the underlying individual events or cases.
 
 Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
 
@@ -3177,7 +3311,17 @@ To create an event layer, choose **Events** on the **Add layer** selection. This
 
         Dans le champ **Période**, sélectionnez l'une des périodes relatives. par exemple **Ce mois** ou **L'année dernière**.
 
-3.  Dans l'onglet **FILTRE**:
+3.  Dans l'onglet **Unités d'Org.**:
+
+    ![](resources/images/content/user/maps/maps_event_layer_dialog_ORG_UNITS.png)
+
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+
+      - une ou plusieurs unités d'organisation spécifiques, ou
+
+      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+
+4.  Dans l'onglet **FILTRE**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_FILTER.png)
 
@@ -3192,16 +3336,6 @@ To create an event layer, choose **Events** on the **Add layer** selection. This
       - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
 
       Multiple filters may be added. Click the trash button on the right of the filter to remove it.
-
-4.  Dans l'onglet **Unités d'Org.**:
-
-    ![](resources/images/content/user/maps/maps_event_layer_dialog_ORG_UNITS.png)
-
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
-
-      - une ou plusieurs unités d'organisation spécifiques, ou
-
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
 
 5.  Dans l'onglet **STYLE**:
 
@@ -3335,7 +3469,19 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
     - Set the **Follow up** status of the tracked entity for the given program.
 
-2.  Dans l'onglet **PÉRIODE**
+2.  In the **Relationships** tab
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_RELATIONSHIPS.png)
+
+    > **Caution**
+    >
+    > Displaying tracked entity relationships in Maps is an experimental feature
+
+    - If a Tracked Entity Type with has been selected, you can select the **Display Tracked Entity relationships** checkbox
+
+    - Once checked, you can select the type of relationship to diplay on the map from the dropdown list. Only relationships FROM the selected Tracked Entity type are available.
+
+3.  Dans l'onglet **PÉRIODE**
 
     ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_PERIOD.png)
 
@@ -3343,7 +3489,7 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
     - If a program is selected, you can set start and end dates for the program period.
 
-3.  Dans l'onglet **Unités d'Org.**:
+4.  Dans l'onglet **Unités d'Org.**:
 
     ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_ORG_UNITS.png)
 
@@ -3355,7 +3501,7 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
       - **Selected and all below**: Included tracked entities in and all below selected org units.
 
-4.  Dans l'onglet **STYLE**:
+5.  Dans l'onglet **STYLE**:
 
     ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_STYLE.png)
 
@@ -3365,7 +3511,9 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
     - Select **Show buffer** to display visual buffer around each tracked entity. The buffer distance in meters can be modified here.
 
-5.  Click **ADD/UPDATE LAYER**.
+    - If a relationship type has been selected on the relationships tab you can select **color**, **point size**, and **line color** for relationships and related tracked entities instances
+
+6.  Click **ADD/UPDATE LAYER**.
 
 ### Modify a tracked entity layer
 
@@ -3890,7 +4038,7 @@ To create an interpretation, you first need to create a map and save it. If you'
 
 2.  Click **Interpretations** in the top right of the workspace to open the interpretations panel.
 
-3.  Click + to write a new interpretations.
+3.  A text field will appear with a placeholder "Write an interpretation" for users that have read access to the favorite.
 
 4.  In the text field, type a comment, question or interpretation. You can also mention other users with '@username'. Start by typing '@' plus the first letters of the username or real name and a mentioning bar will display the available users. Mentioned users will receive an internal DHIS2 message with the interpretation or comment. You can see the interpretation in the **Dashboard app**.
 
@@ -3986,7 +4134,7 @@ Un utilisateur ou un administrateur peut créer un tableau de bord appelé "Soin
 
 Les tableaux de bord se composent d'un titre, d'une description et d'un nombre quelconque d'éléments. Les éléments constituant le tableau bord peuvent être de différents types, y compris des graphiques, cartes, rapports, tableaux, ressources, messages et éléments de texte. Au dessus du tableau de bord se trouve la barre de contrôle, qui affiche tous vos tableaux de bord disponibles, comprenant un champ de recherche dans le tableau de bord et un bouton **+** pour créer un nouveau tableau de bord.
 
-Le tableau de bord dispose de deux modes: visualiser et éditer/créer. Quand vous vous connectez sur DHIS2, votre dernier tableau de bord utilisé sera affiché en mode visualisation, si vous êtes connecté depuis le même ordinateur. Si vous utilisez un autre ordinateur, le premier tableau de bord marqué sera affiché. s'il n'y a pas de tableaux de bord marqué, le premier tableau de bord sera affiché. Les tableaux de bord marqués apparaissent toujours en premier dans la liste des tableaux de bord.
+The dashboard has two modes: view and edit/create. When you first log in to DHIS2, your most recently used dashboard will be displayed in view mode, if you are on the same computer as you were previously. If you are using a different computer, then the first starred dashboard will be displayed. If there are no starred dashboards, then the first dashboard (alphabetically) will be displayed. Starred dashboards always show first in the dashboard list.
 
 La capture d'écran ci-dessous montre un tableau de bord appelé "Soins prénatals", qui a été alimenté de graphiques et de cartes.
 
@@ -4090,7 +4238,7 @@ Si vous disposez des droits d'accès pour supprimer un tableau de bord, il y aur
 
 ## Afficher un tableau de bord
 
-En mode d'visualisation, vous pouvez afficher la description, marquer un tableau de bord, appliquer un filtre de tableau de bord et le partager avec d’autres utilisateurs et groupes d'utilisteurs.
+When in view mode, you can toggle showing the description, star a dashboard, apply filters, and share the dashboard with other users and groups.
 
 Pour afficher la description, cliquez sur le bouton **i** situé à droite du titre.
 
@@ -4102,9 +4250,23 @@ Vos tableaux de bord marqués sont répertoriés en premier dans la liste des ta
 
 ### Filtrer un tableau de bord
 
-Pour filtrer un tableau de bord par unité d'organisation, cliquez sur le bouton **FILTRER**. à droite du titre du tableau de bord. Sélectionnez l'unité d'organisation que vous souhaitez appliquer au tableau de bord. Cela ne concerne que vous, et n'affecter pas les autres utilisateurs. Les seuls éléments du tableau de bord concernés par le filtres d’unité d’organisation sont des éléments de visualisation (tableau croisé dynamique, graphiques, cartes et plans) dont l’unité d’organisation est configurée sur "Unité organisationnelle utilisateur". Si vous rechargez le tableau de bord, le filtre sera effacé.
+Multiple filters can be applied to a dashboard for changing the data displayed in the various dashboard items. The filters are applied to each dashboard item in the same way: each added filter overrides the original value for that dimension in the original chart, table or map (visualization). It is possible to filter on Organisation Units, Periods and other dynamic dimensions depending on the DHIS2 instance.
 
-![](resources/images/content/user/dashboard/dashboard-orgunit-filter-dialog.png)
+To add a filter, click on the **Add Filter** button and choose the dimension:
+
+![Adding a filter](resources/images/content/user/dashboard/dashboard-filters.png)
+
+A dialog opens where the filter selection can be made.
+
+![Org Unit filter selection](resources/images/content/user/dashboard/dashboard-orgunit-filter-dialog.png)
+
+Click on **Confirm** in the dialog to apply the filter to the current dashboard.
+
+Filters are not stored, so when switching to a different dashboard they are lost. Filter badges appear above the dashboard items to indicate that what is shown in the dashboard items is not the original visualization, but a manipulated one where the filters override the stored dimensions' values.
+
+![Current filters displayed as badges above the dashboard](resources/images/content/user/dashboard/dashboard-filter-badges.png)
+
+Filter badges can be clicked for opening the filter selection dialogs thus allowing for filter editing. A filter can be removed by clicking on the **Remove** button in the badge. Whenever a filter is added, edited or removed, the dashboard items reload to show the updated data. Filter badges are always visible at the top of the page when scrolling the dashboard content.
 
 ## Eléments de tableau de bord avec graphiques, tableaux croisés dynamiques et cartes
 
@@ -4116,10 +4278,11 @@ Les éléments du tableau de bord montrant les graphiques, les tableaux croisés
 
 ## Interprétations
 
-Vous pouvez rédiger des interprétations pour les graphiques, tableaux croisés dynamiques, cartes, rapport d'événement et éléments de cartes d'événements. Cliquez sur le bouton d'interprétation ![] 
-(resources/images/content/user/dashboard/dashboard-interpretations-button.png), et l'élément sera développé verticalement en dessous pour afficher les interprétations et les réponses. Vous pouvez aimer une interprétation, répondre à une interprétation et ajouter votre propre interprétation. Vous pouvez modifier ou supprimer vos propres interprétations et réponses, et si vous avez un accès modérateur, vous pouvez supprimer les interprétations des autres.
+You can write interpretations for the chart, pivot table, map, event report, and event chart items. Click on the interpretations button ![](resources/images/content/user/dashboard/dashboard-interpretations-button.png), and the item will be expanded vertically underneath to show the interpretations and replies. You can like an interpretation, reply to an interpretation, and add your own interpretation. You can edit, share or delete your own interpretations and replies, and if you have moderator access, you can delete others’ interpretations.
 
-It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combination: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
+It is possible to format the description field, and interpretations with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. The text field for writing new interpretations has a toolbar for adding rich text. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
+
+Interpretations are sorted in descending order by date, with the most recent shown on top. Interpretation replies are sorted in ascending order by date, with the oldest shown on top.
 
 ![](resources/images/content/user/dashboard/dashboard-interpretations.png)
 
@@ -4216,7 +4379,7 @@ Pour aller à l'application, cliquez sur **l'icône du message dans l'en-tête**
 
 ## Créer un commentaire
 
-1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Message de** au lieu de saisir les destinataires.
+1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Commentaire** au lieu de saisir les destinataires.
 
 2.  Le message sera créé en tant que commentaire et apparaîtra dans le dossier **Tickets** de tous les utilisateurs spécifiés.
 
@@ -4300,4 +4463,4 @@ Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et
 
 Dans la section **Voir le profil complet**, vous trouverez un résumé des détails de votre profil. Cette section comprend quelques champs que vous ne pouvez pas modifier vous-même, tels que les rôles d'utilisateur et les unités d'organisation d'utilisateur.
 
-Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2
+Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2.
