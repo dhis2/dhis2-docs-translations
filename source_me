@@ -1,13 +1,13 @@
 # source this file to cycle through the different branches, updating each from transifex content.
 ./backup.sh
 git checkout 2.31
-git fetch
+git pull
 ./backup.sh
 git checkout 2.30
-git fetch
+git pull
 ./backup.sh
 git checkout 2.29
-git fetch
+git pull
 ./backup.sh
 git checkout master
-git fetch
+git pull
