@@ -839,6 +839,26 @@ Example: Filtering where the logical operator has been switched to OR and now on
 
     /api/dataElements.json?filter=id:in:[id1,id2]&filter=code:eq:code1&rootJunction=OR
 
+### Identifiable token filter
+
+In addition to the specific property based filtering mentioned above, we also have **token** based **AND** filtering across a set of properties: id, code and name (also shortName if available). These properties are commonly referred as **identifiable**. The idea is to filter metadata whose id, name, code or short name containing something.
+
+Example: Filter all data elements containing _2nd_ in any of the following: id,name,code, shortName
+
+    api/dataElements.json?filter=identifiable:token:2nd
+
+It is also possible to specify multiple filtering values.
+
+Example: Get all data elements where _ANC visit_ is found in any of the **identifiable** properties. The system returns all data elements where both tokens (ANC and visit) are found anywhere in identifiable properties.
+
+    api/dataElements.json?filter=identifiable:token:ANC visit
+
+It is also possible to combine identifiable filter with property based filter and expect the _rootJunction_ to be applied.
+
+    api/dataElements.json?filter=identifiable:token:ANC visit&filter=displayName:ilike:tt1
+
+    api/dataElements.json?filter=identifiable:token:ANC visit&filter=displayName:ilike:tt1&rootJunction=OR
+
 ## Metadata field filter
 
 <!--DHIS2-SECTION-ID:webapi_metadata_field_filter-->
@@ -1857,7 +1877,7 @@ The topics will be created by DHIS2 if they don't exist, but be aware that they 
 
 DHIS2 supports import of metadata in the CSV format. Columns which are not required can be omitted in the CSV file, but the order will be affected. If you would like to specify columns which appear late in the order but not specify columns which appear early in the order you can include empty columns ("") for them. The following object types are supported:
 
-- Data elements
+- Eléments de données
 
 - Groupes d'éléments de données
 
@@ -1877,7 +1897,7 @@ DHIS2 supports import of metadata in the CSV format. Columns which are not requi
 
 The formats for the currently supported object types for CSV import are listed in the following sections.
 
-### Data elements
+### Eléments de données
 
 <!--DHIS2-SECTION-ID:webapi_csv_data_elements-->
 
@@ -3146,6 +3166,31 @@ The following identifier schemes are available.
 
 The attribute option is special and refers to meta-data attributes which have been marked as "unique". When using this option, "attribute" must be immediately followed by the uid of the attribute, e.g. "attributeDnrLSdo4hMl".
 
+#### Async data value import
+
+<!--DHIS2-SECTION-ID:webapi_data_values_async_import-->
+
+Data values can be sent and imported in an asynchronous fashion by supplying an _async_ query parameter set to _true_:
+
+    /api/26/dataValueSets?async=true
+
+This will initiate an asynchronous import job for which you can monitor the status at the task summaries API. The API response indicates the unique identifier of the job, type of job and the URL you can use to monitor the import job status. The response will look similar to this:
+
+    {
+      "httpStatus": "OK",
+      "httpStatusCode": 200,
+      "status": "OK",
+      "message": "Initiated dataValueImport",
+      "response": {
+        "name": "dataValueImport",
+        "id": "YR1UxOUXmzT",
+        "created": "2018-08-20T14:17:28.429",
+        "jobType": "DATAVALUE_IMPORT",
+        "relativeNotifierEndpoint": "/api/system/tasks/DATAVALUE_IMPORT/YR1UxOUXmzT"
+      }
+
+Please read the section on _asynchronous task status_ for more information.
+
 ### CSV data value format
 
 <!--DHIS2-SECTION-ID:webapi_data_values_csv-->
@@ -4276,6 +4321,141 @@ Validation results are sent out to the appropriate users once every day, but can
 
 Only unsent results are sent using this endpoint.
 
+## Data analysis
+
+<!--DHIS2-SECTION-ID:webapi_data_analysis-->
+
+Several resources for performing data analysis and finding data quality and validation issues are provided.
+
+### Analyse des règles de validation
+
+<!--DHIS2-SECTION-ID:webapi_data_analysis_validation_rules-->
+
+To run validation rules and retrieve violations:
+
+    /api/dataAnalysis/validationRules
+
+The following query parameters are supported:
+
+<table>
+<caption>Validation rule analysis query parameters</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Query parameter</th>
+<th>Description</th>
+<th>Option</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>vrg</td>
+<td>Validation rule group</td>
+<td>ID</td>
+</tr>
+<tr class="even">
+<td>ou</td>
+<td>Organisation unit</td>
+<td>ID</td>
+</tr>
+<tr class="odd">
+<td>startDate</td>
+<td>Start date for the timespan</td>
+<td>Date</td>
+</tr>
+<tr class="even">
+<td>endDate</td>
+<td>End date for the timespan</td>
+<td>Date</td>
+</tr>
+<tr class="odd">
+<td>persist</td>
+<td>Whether to persist violations in the system</td>
+<td>false | true</td>
+</tr>
+<tr class="even">
+<td>notification</td>
+<td>Whether to send notifications about violations</td>
+<td>false | true</td>
+</tr>
+</tbody>
+</table>
+
+### Standard deviation based outlier analysis
+
+<!--DHIS2-SECTION-ID:webapi_data_analysis_std_dev_outlier-->
+
+To identify data outliers based on standard deviations of the average value:
+
+    /api/dataAnalysis/stdDevOutlier
+
+The following query parameters are supported:
+
+<table>
+<caption>Standard deviation outlier analysis query parameters</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Query parameter</th>
+<th>Description</th>
+<th>Option</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ou</td>
+<td>Organisation unit</td>
+<td>ID</td>
+</tr>
+<tr class="even">
+<td>startDate</td>
+<td>Start date for the timespan</td>
+<td>Date</td>
+</tr>
+<tr class="odd">
+<td>endDate</td>
+<td>End date for the timespan</td>
+<td>Date</td>
+</tr>
+<tr class="even">
+<td>ds</td>
+<td>Data sets, parameter can be repeated</td>
+<td>ID</td>
+</tr>
+<tr class="odd">
+<td>standardDeviation</td>
+<td>Number of standard deviations from the average</td>
+<td>Numeric value</td>
+</tr>
+</tbody>
+</table>
+
+### Min/max value based outlier analysis
+
+<!--DHIS2-SECTION-ID:webapi_data_analysis_min_max_outlier-->
+
+To identify data outliers based on min/max values:
+
+    /api/dataAnalysis/minMaxOutlier
+
+The supported query parameters are equal to the _std dev based outlier analysis_ resource described above.
+
+### Follow-up data analysis
+
+To identify data marked for follow-up:
+
+    /api/dataAnalysis/followup
+
+The supported query parameters are equal to the _std dev based outlier analysis_ resource described above.
+
 ## Data integrity
 
 <!--DHIS2-SECTION-ID:webapi_data_integrity-->
@@ -4412,7 +4592,7 @@ Expressions can be any kind of valid mathematical expression, as an example:
 
     ( 2 * #{P3jJH5Tu5VC.S34ULMcHMca} ) / ( #{FQ2o8UBlcrS.S34ULMcHMca} - 200 ) * 25
 
-### Program indicators
+### ![](resources/images/pivot_table/table_layout.png)
 
 <!--DHIS2-SECTION-ID:webapi_program_indicators-->
 
@@ -5566,6 +5746,84 @@ The options for this resource is a list of users, user groups and organisation u
 
 ```
 
+### Message Attachments
+
+<!--DHIS2-SECTION-ID:webapi_message_attachments-->
+
+Creating messages with attachments is done in two steps: uploading the file to the _attachments_ resource, and then including one or several of the attachment IDs when creating a new message.
+
+A POST request to the _attachments_ resource will upload the file to the server.
+
+    curl -F file=@attachment.png -u admin:district https://play.dhis2.org/demo/api/messageConversations/attachments
+
+The request returns an object that represents the attachment. The id of this object must be used when creating a message in order to link the attachment with the message.
+
+    {
+       "created":"2018-07-20T16:54:18.210",
+       "lastUpdated":"2018-07-20T16:54:18.212",
+       "externalAccess":false,
+       "publicAccess":"--------",
+       "user":{
+          "name":"John Traore",
+          "created":"2013-04-18T17:15:08.407",
+          "lastUpdated":"2018-03-09T23:06:54.512",
+          "externalAccess":false,
+          "displayName":"John Traore",
+          "favorite":false,
+          "id":"xE7jOejl9FI"
+       },
+       "lastUpdatedBy":{
+          "id":"xE7jOejl9FI",
+          "name":"John Traore"
+       },
+       "favorite":false,
+       "id":"fTpI4GOmujz"
+    }
+
+When creating a new message, the ids can be passed in the request body to link the uploaded files to the message being created.
+
+```
+{
+  "subject": "Hey",
+  "text": "How are you?",
+  "users": [
+    {
+      "id": "OYLGMiazHtW"
+    },
+    {
+      "id": "N3PZBUlN8vq"
+    }
+  ],
+  "userGroups": [
+    {
+      "id": "ZoHNWQajIoe"
+    }
+  ],
+  "organisationUnits": [
+    {
+      "id": "DiszpKrYNg8"
+    }
+  ],
+  "attachments": [
+    {
+      "fTpI4GOmujz",
+      "h2ZsOxMFMfq"
+  ]
+}
+```
+
+When replying to a message, the ids can be passed as a request parameter.
+
+    curl -d "Yes the Mortality data set has been reported"
+      "https://play.dhis2.org/demo/api/26/messageConversations/ZjHHSjyyeJ2?attachments=fTpI4GOmujz,h2ZsOxMFMfq"
+      -H "Content-Type:text/plain" -u mobile:district -X POST -v
+
+Once a message with an attachment has been created, the attached file can be accessed with a GET request to the following URL.
+
+    https://play.dhis2.org/demo/api/26/messageConversations/<mcId>/<msgId>/attachments/<attachmentId>
+
+Where \<mcId\> is the _messageConversation_ ID, \<msgId\> is the ID of the _message_ that contains the attachment, and \<attachmentId\> is the ID of the specific _messageAttachment_.
+
 ### Tickets and Validation Result Notifications
 
 <!--DHIS2-SECTION-ID:webapi_messaging_tickets-->
@@ -6261,7 +6519,7 @@ To sum up, if you want to have e.g. "ANC 1 Coverage", "ANC 2 Coverage" and "ANC 
 <td>aggregationType</td>
 <td>string</td>
 <td>No</td>
-<td>&quot;DEFAULT&quot; | &quot;SUM&quot; |&quot;AVERAGE&quot; | &quot;AVERAGE_SUM_ORG_UNIT&quot;|&quot;LAST&quot;|&quot;LAST_AVERAGE_ORG_UNIT&quot;| &quot;COUNT&quot; | &quot;STDDEV&quot; | &quot;VARIANCE&quot; | &quot;MIN&quot; | &quot;MAX&quot;</td>
+<td>&quot;SUM&quot; |&quot;AVERAGE&quot; | &quot;AVERAGE_SUM_ORG_UNIT&quot;|&quot;LAST&quot;|&quot;LAST_AVERAGE_ORG_UNIT&quot;| &quot;COUNT&quot; | &quot;STDDEV&quot; | &quot;VARIANCE&quot; | &quot;MIN&quot; | &quot;MAX&quot;</td>
 <td>Override the data element's default aggregation type</td>
 </tr>
 <tr class="odd">
@@ -6603,7 +6861,7 @@ To sum up, if you want to have e.g. "ANC 1 Coverage", "ANC 2 Coverage" and "ANC 
 <td>aggregationType</td>
 <td>string</td>
 <td>No</td>
-<td>&quot;DEFAULT&quot; | &quot;SUM&quot; |&quot;AVERAGE&quot; | &quot;AVERAGE_SUM_ORG_UNIT&quot;|&quot;LAST&quot;|&quot;LAST_AVERAGE_ORG_UNIT&quot;| &quot;COUNT&quot; | &quot;STDDEV&quot; | &quot;VARIANCE&quot; | &quot;MIN&quot; | &quot;MAX&quot;</td>
+<td>&quot;SUM&quot; |&quot;AVERAGE&quot; | &quot;AVERAGE_SUM_ORG_UNIT&quot;|&quot;LAST&quot;|&quot;LAST_AVERAGE_ORG_UNIT&quot;| &quot;COUNT&quot; | &quot;STDDEV&quot; | &quot;VARIANCE&quot; | &quot;MIN&quot; | &quot;MAX&quot;</td>
 <td>Override the data element's default aggregation type</td>
 </tr>
 <tr class="odd">
@@ -7280,7 +7538,7 @@ The analytics resource lets you specify a range of query parameters:
 <th>Query parameter</th>
 <th>Required</th>
 <th>Description</th>
-<th>Options</th>
+<th>Options (default first)</th>
 </tr>
 </thead>
 <tbody>
@@ -7313,6 +7571,18 @@ The analytics resource lets you specify a range of query parameters:
 <td>No</td>
 <td>Filters for the data/measure, applied before aggregation is performed.</td>
 <td>EQ | GT | GE | LT | LE</td>
+</tr>
+<tr>
+<td>startDate</td>
+<td>No</td>
+<td>Start date for date range. Will be applied as a filter. Can not be used together with a period dimension or filter.</td>
+<td>Date</td>
+</tr>
+<tr>
+<td>endDate</td>
+<td>No</td>
+<td>End date for date range. Will be applied as a filter. Can not be used together with a period dimension or filter.</td>
+<td>Date</td>
 </tr>
 <tr class="even">
 <td>skipMeta</td>
@@ -7437,8 +7707,14 @@ The analytics resource lets you specify a range of query parameters:
 <tr class="even">
 <td>timeField</td>
 <td>No</td>
-<td>The time field to base event aggregation on. Applies to event data items only. Can be a predefined option or the ID of an attribute or data element having a time-based value type.</td>
-<td>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | &lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
+<td>The time field to base event aggregation on. Applies to event data items only. Can be a predefined option or the ID of an attribute or data element with a time-based value type.</td>
+<td>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | CREATED | LAST_UPDATED | &lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
+</tr>
+<tr>
+<td>orgUnitField</td>
+<td>No</td>
+<td>The organisation unit field to base event aggregation on. Applies to event data items only. Can be the ID of an attribute or data element with the Organisation unit value type. The default option is specified as omitting the query parameter.
+<td>&lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
 </tr>
 </tbody>
 </table>
@@ -7466,6 +7742,11 @@ Similar to _measureCriteria_, the _preAggregationMeasureCriteria_ query paramete
 
     /api/26/analytics?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU&dimension=pe:2014
       &dimension=ou:O6uvpzGd5pu;lc3eMKXaEfw&preAggregationMeasureCriteria=GE:10;LT:100
+
+The _startDate_ and _endDate_ parameters can be used to specify a custom date range to aggregate over. When specifying a date range you can not specify relative nor fixed periods as dimension or filter. The date range will filter the analytics response. You can use it like this:
+
+    /api/29/analytics.json?dimension=dx:fbfJHSPpUQD;cYeuwXTCPkU
+      &dimension=ou:ImspTQPwCqd&startDate=2018-01-01&endDate=2018-06-01
 
 In order to have the analytics resource generate the data in the shape of a ready-made table, you can provide the _tableLayout_ parameter with true as value. Instead of generating a plain, normalized data source, the analytics resource will now generate the data in table layout. You can use the _columns_ and _rows_ parameters with dimension identifiers separated by semi-colons as values to indicate which ones to use as table columns and rows. The column and rows dimensions must be present as a data dimension in the query (not a filter). Such a request can look like this:
 
@@ -8112,7 +8393,7 @@ The analytics event API let you specify a range of query parameters.
 <th>Query parameter</th>
 <th>Required</th>
 <th>Description</th>
-<th>Options</th>
+<th>Options (default first)</th>
 </tr>
 </thead>
 <tbody>
@@ -8233,12 +8514,18 @@ The analytics event API let you specify a range of query parameters.
 <td>false | true</td>
 </tr>
 <tr class="odd">
+<td>dataIdScheme</td>
+<td>No</td>
+<td>Id scheme to be used for data, more specifically data elements and attributes which have an option set or legend set, e.g. return the name of the option instead of the code, or the name of the legend instead of the legend ID, in the data response.</td>
+<td>NAME | CODE | UID</td>
+</tr>
+<tr class="even">
 <td>page</td>
 <td>No</td>
 <td>The page number. Default page is 1.</td>
 <td>Numeric positive value</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>pageSize</td>
 <td>No</td>
 <td>The page size. Default size is 50 items per page.</td>
@@ -8274,7 +8561,7 @@ The analytics event API let you specify a range of query parameters.
 <td>aggregationType</td>
 <td>No</td>
 <td>Aggregation type for the value dimension. Default is AVERAGE.</td>
-<td>|SUM|AVERAGE | AVERAGE_SUM_ORG_UNIT | COUNT | STDDEV | VARIANCE | MIN | MAX</td>
+<td>SUM | AVERAGE | AVERAGE_SUM_ORG_UNIT | LAST | LAST_AVERAGE_ORG_UNIT | COUNT | STDDEV | VARIANCE | MIN | MAX</td>
 </tr>
 <tr class="odd">
 <td>showHierarchy</td>
@@ -8341,6 +8628,12 @@ The analytics event API let you specify a range of query parameters.
 <td>No</td>
 <td>The time field to base event aggregation on. Applies to event data items only. Can be a predefined option or the ID of an attribute or data element having a time-based value type.</td>
 <td>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | &lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
+</tr>
+<tr>
+<td>orgUnitField</td>
+<td>No</td>
+<td>The organisation unit field to base event aggregation on. Applies to event data items only. Can be the ID of an attribute or data element with the Organisation unit value type. The default option is specified as omitting the query parameter.
+<td>&lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
 </tr>
 </tbody>
 </table>
@@ -8652,6 +8945,16 @@ To specify a value dimension with a corresponding aggregation type you can use t
 
     /api/26/analytics/events/aggregate/eBAyeGv0exc.json?stage=Zj7UnCAulEk&dimension=ou:ImspTQPwCqd
       &dimension=pe:LAST_12_MONTHS&dimension=fWIAEtYVEGk&value=qrur9Dvnyt5&aggregationType=AVERAGE
+
+To base event analytics aggregation on a specific data element or attribute of value type date or date time you can use the _timeField_ parameter:
+
+    /api/29/analytics/events/aggregate/IpHINAT79UW.json?dimension=ou:ImspTQPwCqd
+    &dimension=pe:LAST_12_MONTHS&dimension=cejWyOfXge6&stage=A03MvHHogjR&timeField=ENROLLMENT_DATE
+
+To base event analytics aggregation on a specific data element or attribute of value type organisation unit you can use the _orgUnitField_ parameter:
+
+    /api/29/analytics/events/aggregate/eBAyeGv0exc.json?dimension=ou:ImspTQPwCqd
+    &dimension=pe:THIS_YEAR&dimension=oZg33kd9taw&stage=Zj7UnCAulEk&orgUnitField=S33cRBsnXPo
 
 #### Ranges / legend sets
 
@@ -9415,6 +9718,10 @@ Category option combo update will remove obsolete and generate missing category 
 
     /api/26/maintenance/categoryOptionComboUpdate
 
+It is also possible to update category option combos for a single category combo using the following endpoint:
+
+    /api/maintenance/categoryOptionComboUpdate/categoryCombo/<category-combo-uid>
+
 Cache clearing will clear the application Hibernate cache and the analytics partition caches:
 
     /api/26/maintenance/cacheClear
@@ -9969,12 +10276,10 @@ NOTE: Recipients list will be partitioned if its size exceed MAX_ALLOWED_RECIPIE
 
     {
       "message":"Sms Text",
-
       "recipients": [
         "47XXXXXX1",
         "47XXXXXX2"
       ]
-
     }
 
 The Web API also supports a query parameter version, but the parametrised API can only be used for sending SMS to a single destination.
@@ -10200,7 +10505,8 @@ _Clickatell_
       "name" : "clickatell",
       "username": "clickatelluser",
       "password": "abc123",
-      "Auth-token": "XXXXXXXXXXXXXXXXXXXX",
+      "authtoken": "XXXXXXXXXXXXXXXXXXXX",
+      "urlTemplate": "https://platform.clickatell.com/messages",
     }
 
 _Bulksms_
@@ -10656,6 +10962,13 @@ Both creating and updating a user is supported through the web-api. The payload 
         },
         "username": "johndoe123",
         "password": "Your-password-123",
+        "skype": "john.doe",
+        "telegram": "joh.doe",
+        "whatsApp": "+1-541-754-3010",
+        "facebookMessenger": "john.doe",
+        "avatar": {
+          "id": "<fileResource id>"
+        },
         "userRoles": [
           {
             "id": "Ufph3mGRmMo"
@@ -10681,6 +10994,8 @@ After the user is created, a _Location_ header is sent back with the newly gener
     curl -X PUT -u user:pass -d @u.json -H "Content-Type: application/json" http://server/api/26/users/ID
 
 For more info about the full payload available, please see _/api/schemas/user_
+
+For more info about uploading and retrieving user avatars, please see _/fileResources_ endpoint.
 
 ### User account invitations
 
@@ -11123,66 +11438,70 @@ The available system settings are listed below.
 <td>Require periods to match period type of data set. Default: &quot;false&quot;</td>
 </tr>
 <tr class="even">
+<td>keyDataImportStrictDataElements</td>
+<td>Require data elements to be part of data set. Default: &quot;false&quot;</td>
+</tr>
+<tr class="odd">
 <td>keyDataImportStrictCategoryOptionCombos</td>
 <td>Require category option combos to match category combo of data element. Default: &quot;false&quot;</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyDataImportStrictOrganisationUnits</td>
 <td>Require organisation units to match assignment of data set. Default: &quot;false&quot;</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyDataImportStrictAttributeOptionsCombos</td>
 <td>Require attribute option combis to match category combo of data set. Default: &quot;false&quot;</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyDataImportRequireCategoryOptionCombo</td>
 <td>Require category option combo to be specified. Default: &quot;false&quot;</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyDataImportRequireAttributeOptionCombo</td>
 <td>Require attribute option combo to be specified. Default: &quot;false&quot;</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyCustomJs</td>
 <td>Custom JavaScript to be used on the website</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyCustomCss</td>
 <td>Custom CSS to be used on the website</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyCalendar</td>
 <td>The calendar type. Default: &quot;iso8601&quot;.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyDateFormat</td>
 <td>The format in which dates should be displayed. Default: &quot;yyyy-MM-dd&quot;.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>appStoreUrl</td>
 <td>The url used to point to the app store. Default: &quot;https://www.dhis2.org/appstore&quot;</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyStyle</td>
 <td>The style used on the DHIS2 webpages. Default: &quot;light_blue/light_blue.css&quot;.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyRemoteInstanceUrl</td>
 <td>Url used to connect to remote instance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyRemoteInstanceUsername</td>
 <td>Username used to connect to remote DHIS2 instance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyRemoteInstancePassword</td>
 <td>Password used to connect to remote DHIS2 instance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>keyMapzenSearchApiKey</td>
 <td>Key for the Mapzen geo search API</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>keyFileResourceRetentionStrategy</td>
 <td>Determines how long file resources associated with deleted or updated values are kept. NONE, THREE_MONTHS, ONE_YEAR, or FOREVER.</td>
 </tr>
@@ -11798,16 +12117,19 @@ For creating a new person in the system, you will be working with the _trackedEn
     {
         "trackedEntity": "tracked-entity-id",
         "orgUnit": "org-unit-id",
-        "coordinates": "[1, 1]",
+        "geometry": <GeoJson>,
         "attributes": [ {
             "attribute": "attribute-id",
             "value": "attribute-value"
         } ]
     }
 
-> **Note**
->
-> The "coordinates" field was introduced in 2.29, and accepts a coordinate or polygon as a value.
+The field "geometry" accepts a GeoJson object, where the type of the GeoJson have to match the featureType of the TrackedEntityType definition. An example GeoJson object looks like this:
+
+    {
+      "type": "Point",
+      "coordinates": [1, 1]
+    }
 
 > **Note**
 >
@@ -11839,7 +12161,7 @@ To push this to the server you can use the cURL command like this:
     curl -d @tei.json "https://play.dhis2.org/demo/api/trackedEntityInstances" -X POST
     -H "Content-Type: application/json" -u admin:district -v
 
-To create multiple instances in one request you can wrap the payload in an outer array like this and POST to the same resource as above:
+To create multiple instances in one request you can wrap the payload in an outer array like this and POST to the same resource as above:[]()
 
     {
       "trackedEntityInstances": [
@@ -11884,7 +12206,7 @@ For updating a tracked entity instance, the payload is the equal to the previous
 
     /api/trackedEntityInstances/<tracked-entity-instance-id>
 
-The payload has to contain all, even non-modified, attributes. Attributes that were present before and are not present in the current payload anymore will be removed by the system.
+The payload has to contain all, even non-modified, attributes and relationships. Attributes or relationships that were present before and are not present in the current payload any more will be removed from the system. This means that if attributes/relationships are empty in the current payload, all existing attributes/relationships will be deleted from the system. From 2.31, it is possible to ignore empty attributes/relationships in the current payload. A request parameter of _ignoreEmptyCollection_ set to **true** can be used in case you do not wish to send in any attributes/relationships and also do not want them to be deleted from the system.
 
 It is not allowed to update an already deleted tracked entity instance. Also, it is not allowed to mark a tracked entity instance as deleted via an update request. The same rules apply to enrollments and events.
 
@@ -13715,6 +14037,12 @@ This section explains how to read out the events that have been stored in the DH
 <td>Attribute category option identifiers, separated with ; (must be combined with <em>attributeCc</em>)</td>
 </tr>
 <tr class="even">
+<td>async</td>
+<td>false | true</td>
+<td>false</td>
+<td>Indicates whether the import should be done asynchronous or synchronous.</td>
+</tr>
+<tr class="odd">
 <td>includeDeleted</td>
 <td>boolean</td>
 <td>false</td>
@@ -13869,13 +14197,13 @@ _Example: Bulk deletion of events:_
     curl -X POST -d @data.json -H "Content-Type: application/json"
       "http://server/api/29/events?strategy=DELETE"
 
-### UIDs Reuse and Items Deletion via POST and PUT methods
+### Identifier reuse and item deletion via POST and PUT methods
 
 <!--DHIS2-SECTION-ID:webapi_updating_and_deleting_items-->
 
-As it was already stated above, tracker endpoints _/trackedEntityInstances_, _/enrollments_, _/events_ fully support CRUD. What is important to mention is that the system keeps track of used UIDs. Therefore, a once created and then deleted item (event, enrollment, …) cannot be created and/or updated again. If you try to delete an already deleted item, system is transparent and does return a success as deletion of an already deleted item means no change.
+Tracker endpoints _/trackedEntityInstances_, _/enrollments_, _/events_ support CRUD operations. The system keeps track of used identifiers. Therefore, an item which has been created and then deleted (e.g. events, enrollments) cannot be created or updated again. If attempting to delete an already deleted item, the system returns a success response as deletion of an already deleted item implies no change.
 
-The second thing to mention is that it is not allowed to delete an item via an update (_PUT_) or create (_POST_) method. Therefore, an attribute _deleted_ is completely ignored in both _PUT_ and _POST_ methods, and in _POST_ method it is by default set to _false_.
+The system does not allow to delete an item via an update (_PUT_) or create (_POST_) method. Therefore, an attribute _deleted_ is ignored in both _PUT_ and _POST_ methods, and in _POST_ method it is by default set to _false_.
 
 ### Import parameters
 
@@ -14078,14 +14406,6 @@ It is possible to temporarily override this ownership privilege for a program th
 It is possible to transfer the ownership of a tracked entity-program from one org unit to another. This will be useful in case of patient referrals or migrations. Only an owner (or users who have broken the glass) can transfer the ownership. To transfer ownership of a tracked entity-program to another organisation unit, you can issue a PUT request as shown:
 
     /api/30/tracker/ownership/transfer?trackedEntityInstance=DiszpKrYNg8&program=eBAyeGv0exc&ou=EJNxP3WreNP
-
-## Anonymous Events API
-
-<!--DHIS2-SECTION-ID:webapi_anonymous_events_api-->
-
-Anonymous events API has only 1 enpoint and it is the same endpoint as is used in Tracker API for CRUD operations over Events: _/api/29/events_
-
-For detailed documentation, see [Events](#webapi_events)
 
 ## Adresses électroniques
 
@@ -15419,7 +15739,7 @@ The following table shows the valid combinations of phases, table types and temp
 </thead>
 <tbody>
 <tr class="odd">
-<td>RESOURCE_TABLE_POPULATED</td>
+<td rowspan="12">RESOURCE_TABLE_POPULATED</td>
 <td>ORG_UNIT_STRUCTURE</td>
 <td>_orgunitstructure_temp</td>
 </tr>
@@ -15468,8 +15788,8 @@ The following table shows the valid combinations of phases, table types and temp
 <td>_dataapprovalminlevel_temp</td>
 </tr>
 <tr class="odd">
-<td>ANALYTICS_TABLE_POPULATED</td>
-<td>DATA_VALUE, COMPLETENESS</td>
+<td rowspan="7">ANALYTICS_TABLE_POPULATED</td>
+<td>DATA_VALUE</td>
 <td>analytics_temp</td>
 </tr>
 <tr class="even">
@@ -16110,28 +16430,29 @@ Once you have done this, invoke the following commands
 
 At this point, you should have a functional R installation on your machine.
 
-Next, lets see if everything is working by simpling invoking `R` from the command line.
+Next, lets see if everything is working by simply invoking `R` from the command line.
 
-    foo@bar:~$ R
+```
+R version 3.4.4 (2018-03-15) -- "Someone to Lean On"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
 
-    R version 2.14.1 (2011-12-22)
-    Copyright (C) 2011 The R Foundation for Statistical Computing
-    ISBN 3-900051-07-0
-    Platform: i686-pc-linux-gnu (32-bit)
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
 
-    R is free software and comes with ABSOLUTELY NO WARRANTY.
-    You are welcome to redistribute it under certain conditions.
-    Type 'license()' or 'licence()' for distribution details.
+  Natural language support but running in an English locale
 
-    R is a collaborative project with many contributors.
-    Type 'contributors()' for more information and
-    'citation()' on how to cite R or R packages in publications.
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
 
-    Type 'demo()' for some demos, 'help()' for on-line help, or
-    'help.start()' for an HTML browser interface to help.
-    Type 'q()' to quit R.
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
 
-    >
+>
+```
 
 ## Using ODBC to retrieve data from DHIS2 into R
 
@@ -16259,81 +16580,6 @@ Of course, this could be accomplished much more elegantly, but for the purpose o
 We can see that the male and female attendances are very similar for each month of the year, with seemingly higher male attendance relative to female attendance in the month of December.
 
 In this example, we showed how to retrieve data from the DHIS2 database and manipulate in with some simple R commands. The basic pattern for using DHIS2 and R together, will be the retrieval of data from the DHIS2 database with an SQL query into an R data frame, followed by whatever routines (statistical analysis, plotting, etc) which may be required.
-
-## Using R with MyDatamart
-
-<!--DHIS2-SECTION-ID:rsetup_mydatamart-->
-
-MyDatamart provides useful interface to the DHIS2 database by making a local copy of the database available on a users desktop. This means that the user does not need direct access to the database and the data can be worked with offline on the users local machine. In this example, we will have used the [demo database](http://apps.dhis2.org/demo). Data was downloaded at the district level for Jan 2011-Dec 201l. Consult the MyDatamart section in this manual for more detailed information.
-
-First, lets load some required R packages. If you do not have these packages already installed in your version of R, you will need to do so before proceeding with the example.
-
-    library("DBI")
-    library("RSQLite")
-    library("lattice")
-    library("latticeExtra")
-
-Next, we are going to connect to the local copy of the MyDatamart database. In this case, it was located at C:\\dhis2\\sl.dmart.
-
-    dbPath<-"C:\\dhis2\\sl.dmart"
-    drv<-dbDriver("SQLite")
-    db<-dbConnect(drv,dbPath)
-
-Let suppose we have been asked to compare ANC 1, 2, 3 coverage rates for each district for 2011. We can define an SQL query to retrieve data from the MyDatamart database into an R data frame as follows.
-
-    #An SQL query which will retreive all indicators
-    #at OU2 le
-    sql<-"SELECT * FROM pivotsource_indicator_ou2_m
-    WHERE year = '2011'"
-    #Execute the query into a new result set
-    rs<-dbSendQuery(db,sql)
-    #Put the entire result set into a new data frame
-    Inds<-fetch(rs,n=-1)
-    #Clean up a bit
-    dbClearResult(rs)
-    dbDisconnect(db)
-
-We used one of the pre-existing Pivot Source queries in the database to get all of the indicator values. Of course, we could have retrieved only the ANC indicators, but we did not exactly know how the data was structured, or how the columns were named, so lets take a closer look.
-
-    #Get the name of the columns
-    colnames(Inds)
-    #output not shown for brevity
-    levels(as.factor(Inds$indshort))
-
-We see from the `colnames` command that there is an column called "indshort" which looks like it contains some indicator names. We can see the names using the second command. After we have determined which ones we need (ANC 1, 2, and 3), lets further subset the data so that we only have these.
-
-    #Subset the data for ANC
-    ANC<-Inds[grep("ANC (1|2|3) Coverage",as.factor(Inds$indshort)),]
-
-We just used R's grep function to retrieve all the rows and columns of the Inds data frame which matched the regular expression "ANC (1|2|3) Coverage" and put this into a new data frame called "ANC".
-
-By looking at the data with the `str(ANC)` command, we will notice that the time periods are not ordered correctly, so lets fix this before we try and create a plot of the data.
-
-    #Lets reorder the months
-    MonthOrder<-c('Jan','Feb','Mar','Apr',
-    'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec')
-    ANC$month<-factor(ANC$month,levels=MonthOrder)
-
-Next, we need to actually calculate the indicator value from the numerator, factor and denominator.
-
-    #Calculate the indicator value
-    ANC$value<-ANC$numxfactor/ANC$denominatorvalue
-
-Finally, lets create a simple trellis plot which compares ANC 1, 2, 3 for each district by month and save it to our local working directory in a file called "District_ANC.png".
-
-    png(filename="District_ANC.png",width=1024,height=768)
-    plot.new()
-     xyplot(value ~ month | ou2, data=ANC, type="a", main="District ANC Comparison Sierra Leone 2011",
-     groups=indshort,xlab="Month",ylab="ANC Coverage",
-     scales = list(x = list(rot=90)),
-     key = simpleKey(levels(factor(ANC$indshort)),
-     points=FALSE,lines=TRUE,corner=c(1,1)))
-     mtext(date(), side=1, line=3, outer=F, adj=0, cex=0.7)
-    dev.off()
-
-The results of which are displayed below.
-
-![](resources/images/content/developer/r/District_ANC.png)
 
 ## Mapping with R and PostgreSQL
 
@@ -16580,49 +16826,61 @@ In this simple example, we have shown how to use PL/R with the DHIS2 database an
 
 DHIS2 has a powerful Web API which can be used to integrate applications together. In this section, we will illustrate a few trivial examples of the use of the Web API, and how we can retrieve data and metadata for use in R. The Web API uses basic HTTP authentication (as described in the Web API section of this document). Using two R packages "RCurl" and "XML", we will be able to work with the output of the API in R. In the first example, we will get some metadata from the database.
 
-    #We are going to need these two libraries
-    require(RCurl)
-    require(XML)
-    #This is a URL endpoint for a report table which we can
-    #get from the WebAPI.
+```
+#We are going to need these two libraries
+require(httr)
+require(magrittr)
+base.url<-"https://play.dhis2.org/dev/"
+url<-paste0(base.url,"api/me")
+username<-"admin"
+password<-"district"
+login<-GET(url,)
 
-    url<-"https://apps.dhis2.org/dev/api/reportTables/KJFbpIymTAo/data.csv"
-    #Lets get the response and we do not need the headers
-    #This site has some issues with its SSL certificate
-    #so lets not verify it.
-    response<-getURL(url,userpwd="admin:district"
-    ,httpauth = 1L, header=FALSE,ssl.verifypeer = FALSE)
-    #Unquote the data
-    data<-noquote(response)
-    #here is the data.
-    mydata<-read.table(textConnection(data),sep=",",header=T)
-    head(mydata)
+url<-paste0(base.url,"api/reportTables/KJFbpIymTAo/data.csv",authenticate(username,password))
+mydata<-GET(url) %>% content(.,"text/csv")
+head(mydata)
+```
 
 Here, we have shown how to get some aggregate data from the DHIS2 demo database using the DHIS2's Web API.
 
 In the next code example, we will retrieve some metadata, namely a list of data elements and their unique identifiers.
 
-    #Get the list of data elements. Turn off paging and links
-    #This site has some issues with its SSL certificate
-    #so lets not verify it.
-    url<-"https://apps.dhis2.org/dev/api/dataElements.xml?
-    paging=false&links=false"
-    response<-getURL(url,userpwd="admin:district",
-    httpauth = 1L, header=FALSE,ssl.verifypeer = FALSE)
-    #We ned to parse the result
-    bri<-xmlParse(response)
-    #And get the root
-    r<-xmlRoot(bri)
-    #Parse out what we need explicitly, in this case from the first node
-    #Just get the names and ids as separate arrays
-    de_names<-xmlSApply(r[['dataElements']],xmlGetAttr,"name")
-    de_id<-xmlSApply(r[['dataElements']],xmlGetAttr,"id")
-    #Lets bind them together
-    #but we need to be careful for missing attribute values
-    foo<-cbind(de_names,de_id)
-    #Recast this as a data frame
-    data_elements<-as.data.frame(foo,
-    stringsAsFactors=FALSE,row.names=1:nrow(foo))
-    head(data_elements)
+```
 
-Note that the values which we are interested in are stored as XML attributes and were parsed into two separate matrices and then combined together into a single data frame.
+#Get the list of data elements. Turn off paging and only get a few attributes.
+require(httr)
+
+
+username<-"admin"
+password<-"district"
+base.url<-"https://play.dhis2.org/dev/"
+
+login<-function(username,password,base.url) {
+url<-paste0(base.url,"api/me")
+r<-GET(url,authenticate(username,password))
+if(r$status == 200L) { print("Logged in successfully!")} else {print("Could not login")}
+}
+
+getDataElements<-function(base.url) {
+
+url<-paste0(base.url,"api/dataElements?fields=id,name,shortName")
+r<-content(GET(url,authenticate(username,password)),as="parsed")
+do.call(rbind.data.frame,r$dataElements)
+}
+
+login(username,password,base.url)
+data_elements<-getDataElements(base.url)
+head(data_elements)
+```
+
+The object `data_elements` should now contain a data frame of all data elements in the system.
+
+```
+                                         name          id
+2   Accute Flaccid Paralysis (Deaths < 5 yrs) FTRrcoaog83
+210   Acute Flaccid Paralysis (AFP) follow-up P3jJH5Tu5VC
+3           Acute Flaccid Paralysis (AFP) new FQ2o8UBlcrS
+4     Acute Flaccid Paralysis (AFP) referrals M62VHgYT2n0
+5        Additional notes related to facility uF1DLnZNlWe
+6                              Admission Date eMyVanycQSC
+```

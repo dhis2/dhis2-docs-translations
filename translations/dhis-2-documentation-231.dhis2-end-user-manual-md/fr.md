@@ -445,7 +445,7 @@ Il peut être utile de saisir des données pour plusieurs unités d'organisation
 
 <!--DHIS2-SECTION-ID:about_data_quality-->
 
-L'application **Qualité des données** contient des outils pour valider l'exactitude et la fiabilité des données dans le système. Vous pouvez contrôler la qualité des données à l'aide des règles de validation des contrôles statistiques variés. La qualité des données dispose de dimensions différentes:
+The **Data Quality** app contains tools to validate the accuracy and reliability of the data in the system. You can assess different dimensions of data quality as outlined in the table below:
 
 <table>
 <colgroup>
@@ -480,7 +480,7 @@ L'application **Qualité des données** contient des outils pour valider l'exact
 
 Vous pouvez contrôler la qualité des données de différentes manières, par exemple:
 
-- Au moment de la saisie des données, DHIS2 peut examiner les données saisies pour vérifier si elles se situent entre les valeurs maximales et minimales de la plage de valeurs de cet élément de données (basé sur les données précédentes enregistrées).
+- At point of data entry, DHIS 2 can check the data entered to see if it falls within the minimum maximum value ranges of that data element (based on all previous data registered).
 
 - En définissant des règles de validation, qui peuvent être exécutées une fois que l'utilisateur a terminé la saisie de données. L'utilisateur peut également vérifier les données saisies pour une période particulière et une unité d'organisation par rapport aux règles de validation et afficher les violations de ces règles.
 
@@ -508,7 +508,7 @@ Une règle de validation pourrait affirmer que "Les cas suspects de paludisme te
 
 L'analyse des règles de validation teste les règles de validation par rapport aux données enregistrées dans le système. Les violations de ces règles sont signalées lorsque la condition définie dans l'expression de règle de validation n'est pas remplie, ce qui signifie quand la condition est fausse.
 
-Vous pouvez configurer une analyse de règleS de validation pour envoyer automatiquement les informations sur les violations aux groupes d'utilisateurs sélectionnés. Ces messages sont appelés _notifications de validation_ et sont créés dans l'application **Maintenance**. Les notifications de validation sont envoyées via le système de messagerie interne DHIS2.
+You can configure a validation rule analysis to automatically send out information about validation violations to selected user groups. These messages are called _validation notifications_ and you create them in the **Maintenance** app. Validation notifications are sent via the internal DHIS 2 messaging system.
 
 ### Workflow
 
@@ -518,7 +518,7 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 3.  Exécutez l'analyse des règles de validation, automatiquement ou manuellement.
 
-    - Dans l'application **Administration des données**, vous planifiez la validation de l'analyse des règles à exécuter automatiquement pour toutes les règles de validation associées à une ou plusieurs notifications de validation. Après que le le système ait exécuté l'analyse, les violations des règles (s'il y en a) s'afficheront dans les notifications de validation envoyées via le système de messagerie interne DHIS2.
+    - In the **Data Administration** app, you schedule the validation rule analysis to run automatically for all validation rules included in one or several validation notifications. After the system has run the analysis, you'll see the validation violations (if any) in the validation notifications sent via the internal DHIS 2 messaging system.
 
     - Dans l'application **Qualité des données**, vous exécutez l'analyse des règles de validation manuellement pour celles qui sont sélectionnées. Après que le processus d'analyse soit terminé, une liste de violations de règles s'affichera.
 
@@ -526,11 +526,11 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 > **Note**
 >
-> Seules les règles de validation associées à une ou plusieurs notifications de validation seront prises en compte dans l'analyse des règles de validation. Si il n'y a pas de notification de validation correspondnte à une règle de validation, le système n'a pas où envoyer les violations de validation.
+> Only validation rules that are included in one or several validation notifications will be a part of the validation rule analysis. If there is no corresponding validation notification for a validation rule, no notification will be sent.
 
 > **Note**
 >
-> Lors de l'exécution automatique de l'analyse des règles de validation, les résultats non maitenus, persisteront pendant cette exécution. Les résultats maintenus ne sont actuellement accessibles que par l'API.
+> While running validation rule analysis automatically, any results not already persisted, will be persisted during this run. Persisted results can currently only be accessed trough the API. Consult the developers guide for more information about how persisted validation rule violations can be accessed.
 
 1.  Vérifiez que vous avez créé toutes les règles de validation, groupes de règles de validation et notifications de validation dont vous avez besoin.
 
@@ -544,7 +544,7 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 ### Exécuter une analyse de règles de validation manuellement
 
-![](resources/images/content/user/dhis2UserManual/Validation_Rule_Analysis.png)
+![](resources/images/content/user/data_quality/validation_rule_analysis.png)
 
 1.  Vérifiez que vous avez créé toutes les règles de validation, groupes de règles de validation et notifications de validation dont vous avez besoin.
 
@@ -570,7 +570,7 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
     La durée du processus d'analyse dépend de la quantité de données à analyser. S'il n'y a aucune violation des règles de validation, vous verrez un message disant _La validation a été passée avec succès_. Dans le cas ou il y'a des violations de validation, elles seront présentées dans une liste.
 
-    ![](resources/images/content/user/dhis2UserManual/Validation_Rule_Analysis_Result.png)
+    ![](resources/images/content/user/data_quality/validation_rule_analysis_result.png)
 
 9.  (Facultatif) Cliquez sur l'icône Afficher les détails pour obtenir plus d'informations sur une violation de validation. Dans la fenêtre pop-up, vous trouverez des informations sur les éléments de données inclus dans les règles de validation et leur valeurs de données correspondantes. Vous pouvez utiliser ces informations pour identifier la source de la violation de la règle de validation.
 
@@ -588,17 +588,15 @@ Vous pouvez configurer une analyse de règleS de validation pour envoyer automat
 
 ### A propos de l'analyse des aberrations d'écart-type
 
-L'analyse des valeurs aberrantes d'écart-type identifie les valeurs qui sont numériquement distantes du reste des données. L'analyse est basée sur la distribution normale standard. Le système calcule la moyenne, en se basant sur des valeurs depuis le début, pour une combinaison spécifique d'unités d'organisation, d'un élément de données, d'une combinaison de choix de catégories et des options de combinaison d'attributs. Il est possible que les valeurs aberrantes surviennent par pur hasard, mais il s'agit souvent d'une erreur de mesure ou une distribution à queue lourde qui conduit à des nombres trop élevés. Vous devriez vous détailler les erreurs de mesure et essayer de les corriger avant de les éliminer de l'analyse.
+The standard deviation outlier analysis identifies values that are numerically distant from the rest of the data, potentially indicating that they are outliers. The analysis is based on the standard normal distribution. DHIS 2 calculates the mean of all values for an organisation unit, data element, category option combination and attribute option combination. Outliers can occur by chance of course, but can potentially indicate a measurement or data entry error.
 
-> **Attention**
+> **Note**
 >
-> Il n'est pas recommandé d'utiliser des outils ou des interprétations qui se basent sur une distribution normale pour les distributions à queue lourde.
->
-> Par exemple: l'analyse des valeurs aberrantes de l'écarttype n'est pas un outil approprié si vous vous attendez à d'énormes variations saisonnières des données.
+> As indicated above, this data quality analysis is only appropriate for data which is actually normally distributed. Data which has large seasonal variation, or which may be distributed according to other statistical models (e.g. logistical ) may lead values being flagged which actually should be considered valid. It is therefore recommended to confirm first, whether the data actually is normally distributed before running a standard deviation outlier analysis.
 
 ### Exécuter une analyse des aberrations d'écart-type
 
-![](resources/images/content/user/dhis2UserManual/Data_Quality_Std_Deviation_Analysis.png)
+![](resources/images/content/user/data_quality/std_dev_analysis.png)
 
 1.  Ouvrez l'application **Qualité des données** et cliquez sur **Std dev outlier analysis**.
 
@@ -610,7 +608,7 @@ L'analyse des valeurs aberrantes d'écart-type identifie les valeurs qui sont nu
 
     Tous les enfants de l'unité d'organisation seront inclus. L'analyse est faite sur des données brutes "sous" l'unité d'organisation parente, pas sur des données agrégées.
 
-5.  Sélectionnez un nombre d'écarts-types.
+5.  Select the number of standard deviations.
 
     Ceci fait référence au nombre d'écarts-types par rapport à la moyenne autorisés au-dessus duquel les données sont identifiées comme valeurs abérrantes.
 
@@ -618,23 +616,13 @@ L'analyse des valeurs aberrantes d'écart-type identifie les valeurs qui sont nu
 
     La durée du processus d'analyse dépend de la quantité des données à analyser. S'il existe des valeurs aberrantes, elles seront présentées dans une liste.
 
-    ![](resources/images/content/user/data_quality/std-dev-outlier-analysis-result.png)
+    ![](resources/images/content/user/data_quality/std_dev_analysis_outlier_result.png)
 
-    Pour chaque valeur aberrante, vous verrez l'élément de données, l'unité d'organisation, la période, la valeur minimale, la valeur réelle et la valeur maximale. Les valeurs minimales et maximales se rapportent aux valeurs de bordure dérivées du nombre d'écarts-types sélectionnés pour l'analyse.
+    For each outlier, you will see the data element, organisation unit, period, minimum value, actual value and maximum value. The minimum and maximum values refer to the border values derived from the number of standard deviations selected for the analysis.
 
 > **Astuce**
 >
 > Cliquez sur l'icône étoile pour marquer une valeur abérrante pour un suivi ultérieur.
-
-### Modifier une valeur abérrante par rapport à un écart-type.
-
-Vous pouvez modifier une valeur aberrante directement dans la liste des résultats d'analyse:
-
-1.  Dans la colonne de valeur, cliquez sur le champ contenant la valeur que vous souhaitez modifier.
-
-2.  Entrez une valeur, puis naviguez en dehors de ce champ soit en cliquant sur Tab ou en cliquant en dehors du champ.
-
-    Le système envoie une alerte si la valeur est toujours en dehors des valeurs minimales et maximales définies. Cependant, la valeur sera enregistrée dans dans tous les cas. La couleur de fond du champ sera rouge si la valeur est en dehors de la plage, et verte si elle y est comprise.
 
 ## Analyse des valeurs aberrantes minimales et maximales
 
@@ -642,7 +630,7 @@ Vous pouvez modifier une valeur aberrante directement dans la liste des résulta
 
 ### A propos de l'analyse des valeurs aberrantes minimales et maximales
 
-Vous pouvez vérifier la qualité des données au moment de la saisie en définissant une plage de valeurs maximales minimales pour chaque élément de données. Vous pouvez les créer manuellement ou les générer automatiquement.
+You can verify the data quality at the point of data entry by setting a minimun/maximum value range for each data value. You can define the value ranges manually or generate them automatically.
 
 La plage de valeur générée automatiquement ne convient que pour des données normalement distribuées. DHIS2 déterminera la moyenne arithmétique et l'écart-type de toutes les valeurs pour un élément de données, des options de combinaison de catégories, une unité d'organisation et une combinaison d'attributs. Le système calculera ensuite la plage de valeurs maximales et minimales sur la base du **Facteur d'analyse de l'écart-type des données** spécifié dans l'application **Paramètres système**.
 
@@ -658,7 +646,7 @@ Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas 
 
     - Dans l'application **Administration des données**, vous pouvez générer des plages de valeur automatiquement
 
-    - Dans l'application **Saisie des données**, vous pouvez définir manuellement les plages de valeurs pour chaque champ.
+    - In the **Data Entry** app, you may set value ranges manually.
 
 2.  Dans l'application **Qualité des données**, vous pouvez exécuter **L'analyse des valeurs aberrantes mini-maxi**.
 
@@ -674,13 +662,13 @@ Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas 
 
 Vous pouvez générer des plages de valeurs maximales et minimales calculées par le set de données dans **L'application d'administration des données**. Les nouvelles plages de valeurs remplaceront toutes les valeurs que le système a calculé précédemment.
 
-1.  Configurez le **Facteur d'analyse des valeurs d'écart-type des données**:
+1.  Set the **Data analysis standard deviation (std dev) factor**:
 
     1.  Ouvrez l'application **Paramètres système**, puis cliquez sur **Général**.
 
     2.  Dans le champ **Facteur d'analyse des valeurs d'écart-type des données**, entrez une valeur.
 
-        Ceci définit le nombre d'écarts-types à utiliser dans l'analyse des valeurs aberrantes. La valeur par défaut est de 2. Une valeur élevée aidentifiera moins de valeurs aberrantes qu'une valeur faible.
+        This sets the number of standard deviations to use in the outlier analysis. The default value is 2. Higher values indicate a broader distribution, which may lead to outliers not being flagged correctly by the analysis.
 
 2.  Ouvrez **L'application administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
 
@@ -692,15 +680,15 @@ Vous pouvez générer des plages de valeurs maximales et minimales calculées pa
 
     De nouvelles plages de valeurs maximales et minimales pour tous les éléments du set de données sélectionnés pour toutes les unités d'organisation (y compris les descendants) des unités d'organisation sélectionnées sont générés.
 
-#### Créer une plage de valeurs manuellement
+#### Create minimum/maximum value range manually
 
 ![](resources/images/content/user/data_quality/set_min_max_manually.png)
 
 1.  Dans l'application de **saisie de données**, ouvrez un modèle de saisie.
 
-2.  Double-cliquez sur le champs auquel vous souhaitez affecter une fourchette de valeurs.
+2.  Double-click the field for which you want to set the minimum/maximum value range.
 
-3.  Entrez **la limite Mini** et **la limite Maxi**.
+3.  Enter **Min limit** and **Max limit** in the dialog that appears.
 
 4.  Cliquez sur **Sauvegarder**.
 
@@ -716,15 +704,13 @@ Vous pouvez générer des plages de valeurs maximales et minimales calculées pa
 
 #### Supprimer une plage de valeurs minimum maximum
 
-![](resources/images/content/user/data_quality/generate_min_max.png)
-
 Vous pouvez supprimer définitivement toutes les plages de valeurs maximales minimales pour des sets de données et unités d'organisation dans l'application **Administration des données**.
 
 1.  Ouvrez **L'application administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
 
 2.  Sélectionnez un set(s) de données.
 
-3.  Sélectionnez une **unité d'organisation**.
+3.  Select an **Organisation unit**. Note, that the selection cascades to descendant organisation units!
 
 4.  Cliquez sur **Supprimer**.
 
@@ -766,19 +752,27 @@ L'analyse de suivi crée une liste de toutes les valeurs de données marquées p
 
 ### Créer une liste de valeurs de données marquées pour un suivi ultérieur
 
+![](resources/images/content/user/data_quality/follow_up_analysis.png)
+
 1.  Ouvrez l'application **Qualité des données** et cliquez sur **Analyse de suivi**.
 
-2.  Sélectionnez une **unité d'organisation**.
+2.  Select a data set or multiple data sets.
+
+3.  Select a parent **Organisation unit**.
 
     La durée du processus d'analyse dépend de la quantité de données à analyser. S'il existe des valeurs de données marquées pour un suivi, elles seront présentées sous forme d'une liste.
 
-    ![](resources/images/content/user/data_quality/data_quality_follow_up.png)
+4.  Select a **Start Date** and **End Date** which defines the periods which you are interested in looking for values which have been marked for follow up.
 
-3.  (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+5.  Press **Follow up** to generate a list of values which have been marked for follow up.
 
-> **Astuce**
+6.  (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+
+![](resources/images/content/user/data_quality/follow_up_analysis_result.png)
+
+> **Tip**
 >
-> Cliquez sur l'icône étoile pour supprimer le suivi ultérieur de la valeur de donnée.
+> Click the star icon to remove the follow-up tag from the data value. You can also enter a comment in the field to indicate any additional information regarding the value.
 
 # Using reporting functionality
 
@@ -1478,9 +1472,43 @@ Si vous souhaitez visualiser une petite partie de votre tableau croisé dynamiqu
 
     Votre séléction s'ouvre sous forme de carte.
 
+# Data Visualizer
+
+<!--DHIS2-SECTION-ID:data_visualizer-->
+
+## Creating and editing charts
+
+When you open the data-visualizer app from the dhis2 menu, you are presented with a blank slate and you can start creating your chart right away.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-new.png)
+
+Select the desired chart type from the selector in the upper left corner:
+
+![](resources/images/content/user/data-visualizer/data-visualizer-chart-type.png)
+
+From the dimension menu on the left you can select the dimension you want to show in your chart, including data, period, organisation units and dynamic dimensions.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-dimensions.png)
+
+You can also change the selections by clicking on the chips in the layout area.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-layout-area.png)
+
+## Viewing chart interpretations
+
+When viewing a chart, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The chart description will also be shown.
+
+To view the chart according to the date of a particular interpretation, click on the interpretation. This will regenerate the chart with the relevant date, which is indicated next to the chart title.
+
+![](resources/images/content/user/data-visualizer/data-visualizer-view-interpretation.png)
+
+Clicking on the back arrow inside the interpretations panel will clear the interpretation and regenerate the chart with the current date.
+
 # Using the Data Visualizer app
 
 <!--DHIS2-SECTION-ID:data_vis-->
+
+This chapter refers to the legacy version of the data visualizer. For the current version, please refer to the [new data visualizer](./data_visualizer.html) chapter.
 
 ## A propos de l'application de visualisation de données
 
@@ -2295,33 +2323,33 @@ Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Fro
 Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
 
 <table>
-<caption> Afficher les informations de l'unité d'organisation </caption>
+<caption>View organisation unit information</caption>
 <colgroup>
-<col style="width:40%"/>
-<col style="width:59%"/>
+<col style="width: 40%" />
+<col style="width: 59%" />
 </colgroup>
 <thead>
-<trclass ="header">
-<th>Fonction</th>
+<tr class="header">
+<th>Function</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
-<trclass="impair">
-<td><p> Afficher les informations pour la période en cours </p></td>
-<td><ol style="list-style-type: decimal">
-<li><p> Cliquez sur une infrastructure.</p></li>
+<tr class="odd">
+<td><p>View information for the current period</p></td>
+<td><ol type="1">
+<li><p>Click a facility.</p></li>
 </ol></td>
 </tr>
-<trclass="even">
-<td><p>Afficher les informations pour une période sélectionnée</p></td>
-<td><ol style="list-style-type: decimal">
-<li><p>Faites un clique droit sur une infrastructure, puis cliquez sur <strong>Afficher les informations</strong>.</p> </li>
-<li><p>Dans la section <strong>Données de l'infrastructure</strong>, sélectionnez une période.</p> </li>
+<tr class="even">
+<td><p>View information for a selected period</p></td>
+<td><ol type="1">
+<li><p>Right-click a facility and click <strong>Show information</strong>.</p></li>
+<li><p>In the <strong>Infrastructural data</strong> section, select a period.</p></li>
 </ol>
 <blockquote>
-<p><strong> Remarque </strong></p>
-<p> Vous configurez les données d'infrastructure affichées dans l'application <strong>Paramètres système</strong>.</p>
+<p><strong>Note</strong></p>
+<p>You configure the displayed infrastructural data in the <strong>System Settings</strong> app.</p>
 </blockquote></td>
 </tr>
 </tbody>
@@ -2755,7 +2783,7 @@ Lorsque vous avez créé une carte, vous pouvez la visualiser sous forme de tabl
 
 L'application Maps est introduite dans la version 2.29 et sert de remplacement DE l'application GIS en offrant une interface plus intuitive et conviviale.
 
-Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir parmi différentes cartes de base. Vous pouvez créer des cartes thématiques de zones et de points, visualiser les établissements en fonction des classifications et visualiser les bassins versants pour chaque infrastructure. Vous pouvez marquer les zones et les points et effectuer une recherche et filtrer en utilisant divers critères. Vous pouvez déplacer des points et définir des emplacements à la volée. Les cartes peuvent être enregistrées en tant que favorites et partagées avec d'autres utilisateurs et groupes d'utilisateurs.
+With the Maps app you can overlay multiple layers and choose among different base maps. You can create thematic maps of areas and points, view facilities based on classifications, and visualize catchment areas for each facility. You can add labels to areas and points, and search and filter using various criteria. You can move points and set locations on the fly. Maps can be saved as favorites and shared with other users and groups, or downloaded as an image.
 
 > **Note**
 >
@@ -2765,7 +2793,7 @@ Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir par
 
 - Le panneau **calques** situé à gauche de l'espace de travail affiche un aperçu des couches cartographiques pour la carte actuelle:
 
-  - Au fur et à mesure que vous ajoutez des calques, utilisez le bouton (+) Ajouter un calque, ils sont organisés et gérés dans ce panneau.
+  - As layers are added, using the **(+) Add layer** button, they are arranged and managed in this panel.
 
   - La **carte de référence** est toujours affichée dans le panneau. La carte de référence est OSM Light et est sélectionnée par défaut. OpenStreetMap Detaild, Google Streets et Google Hybrid sont également disponibles. Vous pouvez utiliser ces cartes en arrière-plans. Passez d'une carte à une autre en séléctionnant l'image souhaitée.
 
@@ -2773,31 +2801,55 @@ Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir par
 
 <!-- end list -->
 
-- Le bouton **Favoris** en haut à gauche vous permet de sauvegarder et d'ouvrer les cartes:
+- The **File** button near the top left allows you to open and save maps:
 
   - Nouveau
 
-    effacera tous les calques existants pour créer une nouvelle carte thématique.
+    will clear any existing map layers to create a new map.
 
   - Ouvrir
 
-    affichera une boîte de dialogue **Favoris** pour sélectionner une carte thématique. Les favoris peuvent également être renommés, partagés et supprimés à travers la boîte de dialogue Favoris. _Le titre du favori actuel s'affiche dans l'en-tête au-dessus du bouton Favoris._
+    will display a dialog box with a list of existing maps where they be opened, renamed, shared and deleted. _The title of the current map is displayed in the header bar above the File button._
 
   - Sauvegarder
 
-    enregistrera toutes les modifications apportées au favori actuel.
+    will save any changes to the current map.
 
   - Enregistrer sous
 
-    sous enregistrera la carte thématique actuelle en tant que nouveau favori.
+    will save the current map with a new name.
 
-  - Écrire l'interprétation
+  - Rename
 
-    ouvrira un dialogue où une interprétation pour le courant favori peut être rédigée.
+    allows you to change the name and/or description of the current map.
+
+  - Translate
+
+    allows you to translate the name and/or description of the current map.
+
+  - Share
+
+    will open a dialog where the current map can be shared with everyone or a group of users.
 
   - Obtenir le lien
 
-    fournira un lien direct et un lien API vers le favori actuel.
+    will provide a direct link to the current map.
+
+  - Delete
+
+    deletes the current map.
+
+<!-- end list -->
+
+- The **Download** button next to the File button allows you to download the current map as a PNG image.
+
+<!-- end list -->
+
+- The **Interpretations** button at top right opens an interpretations panel on the right side of the workspace. The button is only clickable if the map is saved.
+
+  - **Details** shows information about the current map.
+
+  - **Interpretations** allows you to view, add, edit and share interpretations about the current map.
 
 <!-- end list -->
 
@@ -2813,10 +2865,6 @@ Avec l'application MAPS, vous pouvez superposer plusieurs couches et choisir par
 
 - Faites un clic droit sur la carte pour afficher la longitude et la latitude de cet emplacement.
 
-- L'icône d'accueil en haut à droite de l'espace de travail vous ramènera dans le tableau de bord DHIS2.
-
-- Le bouton À propos affiche les informations sur la version du système.
-
 **Carte de référence**
 
 Les calques de la carte de référence sont représentées par des calques _cartes_ dans le panneau comme:
@@ -2827,13 +2875,13 @@ En haut de la carte de référence, de gauche à droite, se trouvent:
 
 - Le titre de la carte de référence sélectionnée
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de référence
 
 Au milieu de la carte de fond de référence figure la liste des cartes de référence disponibles. la carte de référence actuelle est mise en surbrillance.
 
 En bas de la carte de référence se trouvent:
+
+- Un symbole d'oeil pour basculer la visibilité du calque
 
 - Un curseur pour modifier la transparence du calque
 
@@ -2849,13 +2897,15 @@ En bas de la carte de référence se trouvent:
 
 3.  Sélectionnez un calque à ajouter à la carte actuelle. Les options possibles sont:
 
+    - [Thématique](#using_maps_thematic_layer)
+
     - [Événements](#using_maps_event_layer)
+
+    - [Tracked entities](#using_maps_tracked_entity_layer)
 
     - [Infrastructure](#using_maps_facility_layer)
 
-    - [Thématique](#using_maps_thematic_layer)
-
-    - [Frontières](#using_maps_thematic_layer)
+    - [Frontières](#using_maps_boundary_layer)
 
     En outre, il existe plusieurs calques fournis par Google Earth et autres services:
 
@@ -2871,13 +2921,199 @@ En bas de la carte de référence se trouvent:
 
     - Lumières nocturnes
 
-    _Superposition de calques_ est un calque externe] (#using_maps_external_map_layers) défini dans la base de données utilisée pour l'exemple ci-dessus
+    _Labels overlay_ is an [external layer](#using_maps_external_map_layers) defined in the Maintenance app.
+
+## Gérer les calques thématiques
+
+<!--DHIS2-SECTION-ID:using_maps_thematic_layer-->
+
+_Les calques thématiques_ représentent la variation spatiale des distributions géographiques. Sélectionnez votre combinaison indicateur/élément de données, période et niveau de l'unité d'organisation. Si votre base de données contient des coordonnées et des valeurs de données agrégées pour ces unités d'organisation, elles apparaîtront sur la carte.
+
+> **Note**
+>
+> You must generate the DHIS2 analytics tables to have aggregated data values available.
+
+![](resources/images/content/user/maps/maps_thematic_mapping.png)
+
+Les calques thématiques sont représentés par des calques _ cartes _ dans le panneau des calques, par exemple
+
+En haut de la carte thématique, de gauche à droite, vous trouverez:
+
+- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+
+- Le titre et la période associés au calque
+
+- Un symbole de flèche pour réduire et développer la carte thématique
+
+Au centre de la carte thématique se trouve une légende indiquant les plages de valeurs affichées sur le calque.
+
+En bas de la carte thématique, de gauche à droite, se trouvent:
+
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+
+- Un symbole d'oeil pour basculer la visibilité du calque
+
+- Un curseur pour modifier la transparence du calque
+
+- A more actions (three dots) button with additional options:
+
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
+
+### Créer un calque thématique
+
+Pour créer un calque d'événement, choisissez **Thématique** dans la section **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque d'événements.
+
+1.  Dans l'onglet **DATA**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_DATA.png)
+
+    - Sélectionnez un type de données puis sélectionnez respectivement le groupe et l'élément cible. Les champs disponibles dépendent du type d'article sélectionné.
+
+    - Sélectionnez une valeur dans le champ **Type d'agrégation** pour les valeurs de données à afficher sur la carte. Par défaut, "Par élément de données" est sélectionné. Les valeurs alternatives sont: Nombre; Moyenne; Somme; Norme déviation; Variance; Min; Max. Voir également [Aggregation operators](https://dhis2.github.io/dhis2-docs/master/en/user/html/ch10s05.html#d0e8082).
+
+2.  Dans l'onglet **PÉRIODE**
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_PERIOD.png)
+
+    - sélectionnez la période sur laquelle les données thématiques sont agrégées. Vous pouvez sélectionner une période fixe ou une période relative.
+
+      - Période fixe
+
+        Dans le champ **Type de période**, sélectionnez la longueur de la période, puis sélectionnez la cible dans le champ **Période**.
+
+      - Période relative
+
+        Dans le champ **Type de période**, sélectionnez **Relatif**, puis sélectionnez une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**, dans le champ **Période**.
+
+      - Start/end dates
+
+        In the **Period type** field select **Start/end dates** and fill in a start date and an end date.
+
+3.  Dans l'onglet **Unités d'Org.**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_ORG_UNITS.png)
+
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+
+      - One or more specific organisation units, organisation unit levels in the hierarchy, organisation unit groups, or
+
+      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+
+<!--DHIS2-SECTION-ID:using_maps_thematic_layer_style-->
+
+4.  Dans l'onglet **STYLE**:
+
+    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_STYLE.png)
+
+    - Sélectionnez la légende **Automatique** ou **Prédéfinie**.
+
+      - Les types de légende automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait allusion à la taille des classes de légende. Configuerez :
+
+        - des intervalles égaux
+
+          la plage de chaque intervalle sera **(la plus haute valeur de données - la plus basse valeur de données / nombre de classes)**
+
+        - Comptes égaux
+
+          le créateur de la légende tente de distribuer les unités d'organisation uniformément.
+
+      - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
+
+5.  Cliquez sur **AJOUTER UN CALQUE**.
+
+### Modifier un calque thématique
+
+1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
+
+2.  Modifiez le réglage des onglets DATA, PERIODe, UNITES D'ORG et STYLE comme vous le souhaitez.
+
+3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+
+### Filtrer les valeurs dans un calque thématique
+
+Les calques thématiques ont une option **table de données** qui peut être activée ou désactivée.
+
+![](resources/images/content/user/maps/maps_thematic_layer_data_table.png)
+
+La table de données affiche les données qui forment le calque thématique.
+
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+
+- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+
+  - NOM
+
+    filtrer par nom dans le texte donné
+
+  - VALEUR
+
+    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple: 2,\>3&\<8
+
+  - LÉGENDE
+
+    filtrer par légende dans le texte donné
+
+  - INTERVALLE
+
+    filtrer par plages dans le texte donné
+
+  - NIVEAU
+
+    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
+
+  - PARENT
+
+    filtrer par noms de parent dans le texte donné
+
+  - Identifiant
+
+    filtrer par Identifiant le texte donné
+
+  - TYPE
+
+    filtrer par types d'affichage GIS dans le texte donné
+
+  - COULEUR
+
+    filtrer par noms de couleurs dans le texte donné
+
+> **Note**
+>
+> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+
+### Rechercher une unité d'organisation
+
+Le champ de filtre NOM dans la table de données constitue un moyen efficace de rechercher des unités organisationnelles individuelles.
+
+### Naviguer entre les hiérarchies d'organisation
+
+Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
+
+1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
+
+2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
+
+    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Du même principe, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
+
+### Supprimer le calque thématique
+
+Pour effacer toutes les données d'un calque thématique:
+
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
+
+    Le calque est supprimé de la carte actuelle.
 
 ## Gérer les calques d'événement
 
 <!--DHIS2-SECTION-ID:using_maps_event_layer-->
 
-Le calque d'événements affiche l'emplacement géographique des événements enregistrés dans le suivi de DHIS2. À condition que les événements aient des coordonnées GPS associées, vous pouvez utiliser ce calque pour passer des données agrégées affichées dans les calques thématiques à l'événement sous-jacent.
+The event layer displays the geographical location of events registered in the DHIS2 tracker. Provided that events have associated coordinates, you can use this layer to drill down from the aggregated data displayed in the thematic layers to the underlying individual events or cases.
 
 Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
 
@@ -2891,8 +3127,6 @@ En haut de la carte de l'événement, de gauche à droite, se trouvent:
 
 - Le titre et la période associés au calque
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de l'événement
 
 Au centre de la carte de l'événement se trouve une légende indiquant le style du calque.
@@ -2901,15 +3135,23 @@ En bas de la carte de l'événement, de gauche à droite, se trouvent:
 
 - Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
 
+- Un symbole d'oeil pour basculer la visibilité du calque
+
 - Un curseur pour modifier la transparence du calque
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- A more actions (three dots) button with additional options:
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
 
 ### Créer un calque d'événement
 
 <!--DHIS2-SECTION-ID:maps_create_event_layer-->
 
-Pour créer un calque d'événements, choisissez **Evénements** dans la fenêtre **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque d'événements.
+To create an event layer, choose **Events** on the **Add layer** selection. This opens the Events layer configuration dialog.
 
 1.  Dans l'onglet **DATA**:
 
@@ -2941,11 +3183,15 @@ Pour créer un calque d'événements, choisissez **Evénements** dans la fenêtr
 
     - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
 
-      - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
-
       - Pour les données de type _set d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
 
-      Plusieurs filtres peuvent être ajoutés. Cliquez sur le X à l'extrême droite du filtre pour l'enlever.
+      - For data item of type _number_, you can select operators like equal, not equal, greater than or less than.
+
+      - For data item og type _boolean_ (yes/no), you can check the box if the condition should be valid or true.
+
+      - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
+
+      Multiple filters may be added. Click the trash button on the right of the filter to remove it.
 
 4.  Dans l'onglet **Unités d'Org.**:
 
@@ -2961,11 +3207,21 @@ Pour créer un calque d'événements, choisissez **Evénements** dans la fenêtr
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_STYLE.png)
 
-    - Sélectionnez **Événements de groupe** pour regrouper des événements à proximité, ou **afficher tous les événements** pour afficher les événements individuellement.
+    - Select **Group events** to group nearby events (cluster), or **View all events** to display events individually.
 
-    - Sélectionnez une couleur pour les points d'événement ou regroupement d'événements.
+    - Select a **color** for the event or cluster points.
 
-    - Sélectionnez le rayon (entre 1 et 20) pour les événements regroupés; également connu sous le nom de **clusters**.
+    - Select the **radius** (between 1 and 20) for the events.
+
+    - Select **Show buffer** to display visual buffer around each event. The radius of the buffer can be modified here. This option is only available if you select **View all events** above.
+
+    - Select a **Style by data element** to colorise the events according to a data value. The options varies for different data types:
+
+      - **Option sets**: Select a color for each option in an option set. You can set default colors for an option in the Maintenance app.
+
+      - **Numbers**: You can style a numeric data element in [the same way as thematic layers](#using_maps_thematic_layer_style) using automatic or predefined legends.
+
+      - **Booleans**: Select a color for true/yes and another for false/no.
 
 6.  Cliquez sur **AJOUTER UN CALQUE**.
 
@@ -2997,11 +3253,133 @@ Pour les événements dans une carte cluster, vous pouvez modifier les informati
 
 7.  Cliquez sur **Mettre à jour**.
 
+### Download raw event layer data
+
+The raw data for event layers can be downloaded in GeoJSON format for more advanced geo-analytics and processing in desktop GIS software such as [QGIS](https://www.qgis.org/). The downloaded data includes all individual events as GeoJSON features, including attributes for each data element selected for **Display in reports**.
+
+![](resources/images/content/user/maps/maps_data_download_dialog.png)
+
+- In the layer card to the left, click the _more actions_ (three dots) icon and then on **Download data**
+
+- Select the **ID format** to use as the key for Data Element values in the downloaded GeoJSON file. There are three options available:
+
+  - **ID** - Use the unique ID of the data element
+  - **Name** - Use the human-friendly name of the data element (translated)
+  - **Code** - Use the code of the data element
+
+- Select whether or not to **Use human-readable keys** for other Event attributes, such as Program Stage, Latitude, Longitude, Event Data, and Organization Unit ID, Name, and Code. When this option is **not** selected these values will be the computer-friendly ID instead of the human-readable (and translated) name.
+
+- Click the **DOWNLOAD** button to generate and download a GeoJSON file. The data will be requested from the DHIS2 server and processed by the maps application. This operation may take several minutes to complete.
+
+- Once the GeoJSON file has been downloaded it can be imported into most standard GIS software applications.
+
+> Note that the downloaded data does not include style information as it is not natively supported by the GeoJSON format. Styles can optionally be recreated in external GIS applications using the attributes of each feature.
+
 ### Effacer le calque de l'événement
 
 Pour effacer toutes les données de calque d'un événement d'une carte:
 
-1.  Dans le panneau des calques, cliquez sur l'icône de suppression (corbeille) du calque de l'événement d'une carte.
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
+
+    Le calque est supprimé de la carte actuelle.
+
+## Manage tracked entity layers
+
+<!--DHIS2-SECTION-ID:using_maps_tracked_entity_layer-->
+
+The tracked entity layer displays the geographical location of tracked entities registered in the DHIS2. Provided that tracked entities have associated point or polygon coordinates, you can explore these on a map.
+
+![](resources/images/content/user/maps/maps_tracked_entity_layer.png)
+
+Tracked entity layers are represented by layer cards in the layer panel such as:
+
+Along the top of the tracked entity card from left to right are:
+
+- A grab field to allow dragging and re-ordering layers with the mouse.
+
+- The title and period associated with the layer.
+
+- An arrow symbol to collapse and expand the tracked entity card.
+
+In the middle of the tracked entity card is a legend indicating the styling of the layer.
+
+Along the bottom of the tracked entity card from left to right are:
+
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+
+- Un symbole d'oeil pour basculer la visibilité du calque
+
+- Un curseur pour modifier la transparence du calque
+
+- A more actions (three dots) button with additional options:
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
+
+### Create a tracked entity layer
+
+<!--DHIS2-SECTION-ID:maps_create_tracked_enity_layer-->
+
+To create an tracked entity layer, choose **Tracked entities** on the **Add layer** selection. This opens the Tracked entity layer configuration dialog.
+
+1.  Dans l'onglet **DATA**:
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_DATA.png)
+
+    - Select the **Tracked Entity Type** you want to show on the map.
+
+    - Select a **Program** where the tracked entities belong.
+
+    - Set the **Program status** to be **Active** or **Completed**.
+
+    - Set the **Follow up** status of the tracked entity for the given program.
+
+2.  Dans l'onglet **PÉRIODE**
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_PERIOD.png)
+
+    - If no program is selected, you can set start and end dates when the tracked entities were last updated.
+
+    - If a program is selected, you can set start and end dates for the program period.
+
+3.  Dans l'onglet **Unités d'Org.**:
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_ORG_UNITS.png)
+
+    - Select the organisation units you want to include in the layer. You have 3 selection modes:
+
+      - **Selected only**: Include tracked entities belonging to selected org units only.
+
+      - **Selected and below**: Included tracked entities in and right below selected org units.
+
+      - **Selected and all below**: Included tracked entities in and all below selected org units.
+
+4.  Dans l'onglet **STYLE**:
+
+    ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_STYLE.png)
+
+    - Select a **color** for the tracked entities points and polygons.
+
+    - Select the **point size** (radius between 1 and 20) for the points.
+
+    - Select **Show buffer** to display visual buffer around each tracked entity. The buffer distance in meters can be modified here.
+
+5.  Click **ADD/UPDATE LAYER**.
+
+### Modify a tracked entity layer
+
+1.  In the layer panel, click the edit (pencil) icon on the tracked entity layer card.
+
+2.  Modify the setting on the DATA, PERIOD, ORG UNIT and STYLE tabs as desired.
+
+3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+
+### Clear a tracked entity layer
+
+To clear a tracked entity layer from a map:
+
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
     Le calque est supprimé de la carte actuelle.
 
@@ -3025,7 +3403,7 @@ En haut de la carte des infrastructures, de gauche à droite, se trouvent:
 
 - Un symbole d'oeil pour basculer la visibilité du calque
 
-- An arrow symbol to collapse and expand the facilities card
+- !!!PALD - MISSING!!!
 
 Au centre de la carte des infrastructures se trouve une légende indiquant la représentation du groupe.
 
@@ -3033,11 +3411,17 @@ En bas de la carte des infrastructures, de gauche à droite, se trouvent:
 
 - Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
 
-- Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
-
 - Un curseur pour modifier la transparence du calque
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- A more actions (three dots) button with additional options:
+
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
 
 ### Créer un calque d'infrastructure
 
@@ -3121,7 +3505,7 @@ Le champ de filtre par NOM dans la table de données constitue un moyen efficace
 
 Pour effacer toutes les données d'un calque
 
-1.  Dans le panneau Calque, cliquez sur l'icône Supprimer (corbeille) du panneau
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
     Le calque est supprimé de la carte actuelle.
 
@@ -3148,219 +3532,41 @@ Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Fro
 Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
 
 <table>
-<caption> Afficher les informations de l'unité d'organisation </caption>
+<caption>View organisation unit information</caption>
 <colgroup>
-<col width="40%"/>
-<col width="59%"/>
+<col style="width: 40%" />
+<col style="width: 59%" />
 </colgroup>
 <thead>
-<trclass ="header">
-<th>Fonction</th>
+<tr class="header">
+<th>Function</th>
 <th>Action</th>
 </tr>
 </thead>
 <tbody>
-<trclass="impair">
-<td><p> Afficher les informations pour la période en cours </p></td>
-<td><ol style="list-style-type: decimal">
-<li><p> Cliquez sur une infrastructure.</p></li>
+<tr class="odd">
+<td><p>View information for the current period</p></td>
+<td><ol type="1">
+<li><p>Click a facility.</p></li>
 </ol></td>
 </tr>
-<trclass="even">
-<td><p> Afficher les informations pour une période sélectionnée </p></td>
-<td><ol style="list-style-type: decimal">
-<li><p> Faites un clique droit sur une infrastructure, puis cliquez sur <strong> Afficher les informations </strong>.</p> </li>
-<li><p> Dans la section <strong> Données de l'infrastructure </strong>, sélectionnez une période. </p> </li>
+<tr class="even">
+<td><p>View information for a selected period</p></td>
+<td><ol type="1">
+<li><p>Right-click a facility and click <strong>Show information</strong>.</p></li>
+<li><p>In the <strong>Infrastructural data</strong> section, select a period.</p></li>
 </ol>
 <blockquote>
-<p><strong> Remarque </strong></p>
-<p> Vous configurez les données d'infrastructure affichées dans l'application <strong> Paramètres système </strong>.</p>
+<p><strong>Note</strong></p>
+<p>You configure the displayed infrastructural data in the <strong>System Settings</strong> app.</p>
 </blockquote></td>
 </tr>
 </tbody>
 </table>
 
-## Gérer les calques thématiques
-
-<!--DHIS2-SECTION-ID:using_maps_thematic_layer-->
-
-_Les calques thématiques_ représentent la variation spatiale des distributions géographiques. Sélectionnez votre combinaison indicateur/élément de données, période et niveau de l'unité d'organisation. Si votre base de données contient des coordonnées et des valeurs de données agrégées pour ces unités d'organisation, elles apparaîtront sur la carte.
-
-> **Note**
->
-> Vous devez actualiser les tables d'analyse DHIS2 pour que les valeurs des données agrégées soient disponibles
-
-![](resources/images/content/user/maps/maps_thematic_mapping.png)
-
-Les calques thématiques sont représentés par des calques _ cartes _ dans le panneau des calques, par exemple
-
-En haut de la carte thématique, de gauche à droite, vous trouverez:
-
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
-
-- Le titre et la période associés au calque
-
-- Un symbole d'oeil pour basculer la visibilité du calque
-
-- Un symbole de flèche pour réduire et développer la carte thématique
-
-Au centre de la carte thématique se trouve une légende indiquant les plages de valeurs affichées sur le calque.
-
-En bas de la carte thématique, de gauche à droite, se trouvent:
-
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
-
-- Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
-
-- Un curseur pour modifier la transparence du calque
-
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
-
-### Créer un calque thématique
-
-Pour créer un calque d'événement, choisissez **Thématique** dans la section **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque d'événements.
-
-1.  Dans l'onglet **DATA**:
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_DATA.png)
-
-    - Sélectionnez un type de données puis sélectionnez respectivement le groupe et l'élément cible. Les champs disponibles dépendent du type d'article sélectionné.
-
-    - Sélectionnez une valeur dans le champ **Type d'agrégation** pour les valeurs de données à afficher sur la carte. Par défaut, "Par élément de données" est sélectionné. Les valeurs alternatives sont: Nombre; Moyenne; Somme; Norme déviation; Variance; Min; Max. Voir également [Aggregation operators](https://dhis2.github.io/dhis2-docs/master/en/user/html/ch10s05.html#d0e8082).
-
-2.  Dans l'onglet **PÉRIODE**
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_PERIOD.png)
-
-    - sélectionnez la période sur laquelle les données thématiques sont agrégées. Vous pouvez sélectionner une période fixe ou une période relative.
-
-      - Période fixe
-
-        Dans le champ **Type de période**, sélectionnez la longueur de la période, puis sélectionnez la cible dans le champ **Période**.
-
-      - Période relative
-
-        Dans le champ **Type de période**, sélectionnez **Relatif**, puis sélectionnez une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**, dans le champ **Période**.
-
-3.  Dans l'onglet **Unités d'Org.**:
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_ORG_UNITS.png)
-
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
-
-      - une ou plusieurs unités d'organisation spécifiques, ou
-
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
-
-4.  Dans l'onglet **STYLE**:
-
-    ![](resources/images/content/user/maps/maps_thematic_layer_dialog_STYLE.png)
-
-    - Sélectionnez la légende **Automatique** ou **Prédéfinie**.
-
-      - Les types de légende automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait allusion à la taille des classes de légende. Configuerez :
-
-        - des intervalles égaux
-
-          the range of each interval will be \*\*highest data value
-
-          - valeur de données la plus basse / nombre de classes\*\*
-
-        <!-- end list -->
-
-        - Comptes égaux
-
-          le créateur de la légende tente de distribuer les unités d'organisation uniformément.
-
-      - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
-
-5.  Cliquez sur **AJOUTER UN CALQUE**.
-
-### Modifier un calque thématique
-
-1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
-
-2.  Modifiez le réglage des onglets DATA, PERIODe, UNITES D'ORG et STYLE comme vous le souhaitez.
-
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
-
-### Filtrer les valeurs dans un calque thématique
-
-Les calques thématiques ont une option **table de données** qui peut être activée ou désactivée.
-
-![](resources/images/content/user/maps/maps_thematic_layer_data_table0.png)
-
-La table de données affiche les données qui forment le calque thématique.
-
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
-
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
-
-  - NOM
-
-    filtrer par nom dans le texte donné
-
-  - VALEUR
-
-    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple: 2,\>3&\<8
-
-  - LÉGENDE
-
-    filtrer par légende dans le texte donné
-
-  - INTERVALLE
-
-    filtrer par plages dans le texte donné
-
-  - NIVEAU
-
-    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
-
-  - PARENT
-
-    filtrer par noms de parent dans le texte donné
-
-  - Identifiant
-
-    filtrer par Identifiant le texte donné
-
-  - TYPE
-
-    filtrer par types d'affichage GIS dans le texte donné
-
-  - COULEUR
-
-    filtrer par noms de couleurs dans le texte donné
-
-![](resources/images/content/user/maps/maps_thematic_layer_data_table1.png)
-
-> **Note**
->
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
-
-### Rechercher une unité d'organisation
-
-Le champ de filtre NOM dans la table de données constitue un moyen efficace de rechercher des unités organisationnelles individuelles.
-
-### Naviguer entre les hiérarchies d'organisation
-
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
-
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
-
-2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
-
-    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Du même principe, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
-
-### Supprimer le calque thématique
-
-Pour effacer toutes les données d'un calque thématique:
-
-1.  Dans le panneau Calque, cliquez sur l'icône Supprimer (corbeille) du panneau du calque
-
-    Le calque est supprimé de la carte actuelle.
-
 ## Gérer les calques limites
+
+<!--DHIS2-SECTION-ID:using_maps_boundary_layer-->
 
 Le calque limite affiche les bordures et les emplacements de votre unité d'organisation. Ce calque est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
 
@@ -3374,19 +3580,25 @@ En haut de la carte de délimitation de gauche à droite se trouvent:
 
 - Le titre **limites**
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de délimitation
 
 Au bas de la carte de délimitation, de gauche à droite, se trouvent:
 
 - Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
 
-- Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+- Un symbole d'oeil pour basculer la visibilité du calque
 
 - Un curseur pour modifier la transparence du calque
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- A more actions (three dots) button with additional options:
+
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+
+  - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
+
+  - **Edit layer** is the same as edit button above
+
+  - **Remove layer** will remove this layer from the current map.
 
 ### Créer un calque limite
 
@@ -3482,7 +3694,7 @@ Vous pouvez modifier la cible de la couche limite dans la hiérarchie sans en ut
 
 Pour effacer toutes les données d'un calque limite:
 
-1.  Dans le panneau Calque, cliquez sur l'icône Supprimer (corbeille) du panneau calque
+1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
     Le calque est supprimé de la carte actuelle.
 
@@ -3542,8 +3754,6 @@ En haut de la carte superposée, de gauche à droite, vous trouverez:
 
 - le titre du calque de la carte externe
 
-- Un symbole d'oeil pour basculer la visibilité du calque
-
 - Un symbole de flèche pour réduire et développer la carte de superposition
 
 En bas de la carte de superposition, de gauche à droite, se trouvent:
@@ -3560,105 +3770,79 @@ Voici quelques exemples de calques externes:
 
 ![](resources/images/content/user/maps/maps_aerial_imagery.png)
 
-> **Note**
->
-> Pour définir des calques de cartes externes, reportez-vous à la [???](#manage_external_maplayer).
+## File menu
 
-## Gérer les cartes favorites
+<!--DHIS2-SECTION-ID:using_maps_file_menu-->
 
-<!--DHIS2-SECTION-ID:using_maps_favorites-->
+Use the **File menu** to manage your maps. Several menu items will be disabled until you open or save a map.
 
-L'enregistrement de vos cartes en tant que favoris facilite leur restauration ultérieure. Cela vous vous permet également de les partager avec d'autres utilisateurs en tant qu'interprétation ou de les mettre sur le tableau de bord. Vous pouvez enregistrer tous les types de configurations de calques en tant que favoris.
+Saving your maps makes it easy to restore them later. It also gives you the opportunity to share them with other users as an interpretation or put it on the dashboard. You can save all types of layer configurations as a favorite.
 
-### Ouvrir un favori
+### Créer une nouvelle carte
 
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
+Click **File** \> **New**.
 
-    La boîte de dialogue **Favoris** s'ouvre.
+NB\! This will clear the current map layers you have without saving.
 
-2.  Recherchez le favori que vous souhaitez ouvrir. Vous pouvez soit utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori préalablement enregistré. La liste est filtrée par chaque caractère que vous entrez.
+### Open a new map
 
-3.  Cliquez sur le nom pour ouvrir ce favori.
+1.  Click **File** \> **Open**. A dialog box opens with a list of maps.
 
-### Enregistrer une carte en tant que nouveau favori
+2.  Find the favorite you want to open. You can either use \< and \> or the search field to find a saved map. The list is filtered on every character that you enter. You can filter the list by selecting **Show all**, **Created by me** or **Created by others**.
 
-Lorsque vous avez créé une carte, il est pratique de l'enregistrer en tant que favori:
+3.  Click the name of the map you want to open.
 
-1.  Sélectionnez **Enregistrer sous** dans le menu **Favoris**.
+### Save a map
 
-    La boîte de dialogue **Enregistrer comme nouveau favori** s'ouvre.
+When you have created a map it is convenient to save it for later use:
 
-2.  Dans le champ de texte, tapez le nom que vous voulez donner à votre carte
+1.  Click **File** \> **Save**.
+
+2.  Enter a **Name** (required) and a **Description** (optional) the first time you save a map.
 
 3.  Cliquez sur **SAUVEGARDER**.
 
-    Votre favori est ajouté à la liste.
+### Save a copy of a map
 
-### Remplacer le favori actuel
+1.  Click **File** \> **Save as...**
 
-Sélectionnez **SAUVEGARDER** dans le menu **Favoris**.
+2.  Enter a **Name** (required) and a **Description** (optional) for the map.
 
-### Renommer un favori
+3.  Cliquez sur **SAUVEGARDER**.
 
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
+### Rename a map
 
-    La boîte de dialogue **Favoris** s'ouvre.
+1.  Click **File** \> **Rename**.
 
-2.  Recherchez le favori que vous souhaitez renommer.
+2.  Enter a new **Name** and/or **Description** for your map.
 
-    Vous pouvez utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori enregistré.
+3.  Click **RENAME**. The map is updated.
 
-3.  Cliquez sur l'icône Plus d'options (trois points) à droite de la ligne du favori et sélectionnez **Renommer**.
+### Translate a map
 
-    La boîte de dialogue **Renommer le favori** s'ouvre.
+1.  Click **File** \> **Translate**.
 
-4.  Modifiez le nom et/ou la description.
+2.  Select the **Locale** (language) your translation.
 
-5.  Cliquez sur **SAUVEGARDER**.
+3.  Enter a translated **Name** and **Description**. The original text will show below the field.
 
-    Le favori est mis à jour.
+4.  Cliquez sur **SAUVEGARDER**.
 
-### Supprimer un favori
+### Modify sharing settings for a map
 
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
+After you have created a map and saved it, you can share the map with everyone or a user group. To modify the sharing settings:
 
-    La boîte de dialogue **Favoris** s'ouvre.
+1.  Click **File** \> **Share**. The sharing settings dialog opens.
 
-2.  Recherchez le favori que vous souhaitez supprimer.
-
-    Vous pouvez utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône Plus d'options (trois points) à droite de la ligne du favori et sélectionnez **Supprimer**.
-
-    Une boîte de dialogue de confirmation s'affiche.
-
-4.  Cliquez sur **SUPPRIMER** pour confirmer que vous souhaitez supprimer le favori.
-
-### Modifier les paramètres de partage d'un favori
-
-Après avoir créé une carte et l'avoir enregistrée en tant que document favori, vous pouvez la partager avec tout les utilisateurs ou un groupe d'utilisateurs. Pour modifier les paramètres de partage :
-
-1.  Sélectionnez **Ouvrir** dans le menu **Favoris**.
-
-    La boîte de dialogue **Favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez partager.
-
-    Vous pouvez utiliser **\<** et **\>** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône Plus d'options (trois points) à droite de la ligne du favori et sélectionnez **Partager**.
-
-    La boîte de dialogue **Paramètres de partage** s'ouvre.
-
-4.  Dans la zone de texte, recherchez le nom de l'utilisateur ou du groupe d'utilisateurs avec lequel vous souhaitez partager votre favori et sélectionnez-le.
+2.  Dans la zone de texte, recherchez le nom de l'utilisateur ou du groupe d'utilisateurs avec lequel vous souhaitez partager votre favori et sélectionnez-le.
 
     L'utilisateur ou le groupe choisi est ajouté à la liste des destinataires.
 
     Répétez cette étape pour ajouter plus de groupes d'utilisateurs.
 
-5.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
+3.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
 
-6.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
+4.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
 
     - Aucun (uniquement pour les groupes par défaut, car ils ne peuvent pas être supprimés)
 
@@ -3666,33 +3850,87 @@ Après avoir créé une carte et l'avoir enregistrée en tant que document favor
 
     - Lecture et écriture
 
-7.  Cliquez sur **FERMER** pour fermer la boîte de dialogue.
+5.  Cliquez sur **FERMER** pour fermer la boîte de dialogue.
 
-### Partager l'interprétation d'une carte
+### Get the link to a map
+
+1.  Click **File** \> **Get link**. A link dialog opens.
+
+2.  Copy the link.
+
+### Delete a map
+
+1.  Click **File** \> **Delete**. A confirmation dialog is displayed.
+
+2.  Click **DELETE** to confirm that you want to delete the favorite. Your map is deleted and the layers are cleared from the view.
+
+## Map interpretations
 
 <!--DHIS2-SECTION-ID:mapsInterpretation-->
 
-Pour certaines ressources liées à l'analyse dans DHIS2, vous pouvez partager des données d'interprétation. Une interprétation est un lien vers la ressource pertinente avec un texte exprimant un aperçu des données.
+An interpretation is a description of a map at a given period. This information is visible in the **Dashboard app**. Click **Interpretations** in the top right of the workspace to open the interpretations panel. The button is only clickable if the map is saved.
 
-Pour créer une interprétation d’une carte et la partager avec tous les utilisateurs du système:
+![](resources/images/content/user/maps/maps_interpretations_panel.png)
 
-1.  Sélectionnez **Ecrire une interprétation** dans le menu **Favoris**.
+### Afficher les interprétations basées sur des périodes relatives
 
-    La boîte de dialogue **Ecrire interprétation** s'ouvre.
+Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation.
+1.  Ouvrez un favori avec des interprétations.
 
-3.  Cliquez sur **SAUVEGARDER**.
+2.  Click **Interpretations** in the top right of the workspace to open the interpretations panel.
 
-    La boîte de dialogue se ferme automatiquement. Vous pouvez visualiser l'interprétation sur le **Tableau de bord**.
+3.  Click an interpretation. Your map displays the data and the date based on when the interpretation was created. To view other interpretations, click them.
+
+### Write interpretation for a map
+
+To create an interpretation, you first need to create a map and save it. If you've shared your map with other people, the interpretation you write is visible to those people.
+
+1.  Ouvrez un favori avec des interprétations.
+
+2.  Click **Interpretations** in the top right of the workspace to open the interpretations panel.
+
+3.  Click + to write a new interpretations.
+
+4.  In the text field, type a comment, question or interpretation. You can also mention other users with '@username'. Start by typing '@' plus the first letters of the username or real name and a mentioning bar will display the available users. Mentioned users will receive an internal DHIS2 message with the interpretation or comment. You can see the interpretation in the **Dashboard app**.
+
+5.  Click **SAVE** if you want your interpretation to have the same sharing settings as the map.
+
+    Click **SAVE & SHARE** if you want to change the sharing settings (see below) for your interpretation.
+
+### Change sharing settings for an interpretation
+
+1.  Click an interpretation (see how to view an interpretation above).
+
+2.  Click **Share** below the interpretation. The sharing settings dialog opens.
+
+3.  Search for and add a users and user groups that you want to share your map with.
+
+4.  Change sharing settings for the users you want to modify:
+
+    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
+
+    - **Lecture uniquement**: tout le monde peut consulter l'objet.
+
+    - **No access**: The public won't have access to the object. This setting is only applicable to Public access.
+
+5.  Click **CLOSE** when sharing settings are updated.
 
 ## Enregistrer une carte en tant qu'image
 
 <!--DHIS2-SECTION-ID:using_maps_image_export-->
 
-1.  Faîtes une capture d'écran de la carte avec l'outil de votre choix.
+You can download your map as an image by clicking on the Download button in the top menu
 
-2.  Enregistrez la capture d'écran au format souhaité.
+![](resources/images/content/user/maps/maps_download.png)
+
+Map download is not supported in Internet Explorer or Safari, we recommend to use Google Chrome og Firefox.
+
+1.  Select if you want to include the map name or not. This option is only available if the map is saved.
+
+2.  Select if you want to inclide the map legend. You can position the legend in one of the 4 corners of your map.
+
+3.  Click **Download** to download your map.
 
 ## Rechercher un emplacement
 
@@ -3881,9 +4119,7 @@ Les éléments du tableau de bord montrant les graphiques, les tableaux croisés
 Vous pouvez rédiger des interprétations pour les graphiques, tableaux croisés dynamiques, cartes, rapport d'événement et éléments de cartes d'événements. Cliquez sur le bouton d'interprétation ![] 
 (resources/images/content/user/dashboard/dashboard-interpretations-button.png), et l'élément sera développé verticalement en dessous pour afficher les interprétations et les réponses. Vous pouvez aimer une interprétation, répondre à une interprétation et ajouter votre propre interprétation. Vous pouvez modifier ou supprimer vos propres interprétations et réponses, et si vous avez un accès modérateur, vous pouvez supprimer les interprétations des autres.
 
-It is possible to format the description field, and interpretations with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. The text field for writing new interpretations have a toolbar for adding rich text. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
-
-Interpretations are sorted by date descending, with the most recent shown on top. Interpretation replies are sorted by date ascending, with the oldest shown on top.
+It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combination: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
 
 ![](resources/images/content/user/dashboard/dashboard-interpretations.png)
 
@@ -3980,7 +4216,7 @@ Pour aller à l'application, cliquez sur **l'icône du message dans l'en-tête**
 
 ## Créer un commentaire
 
-1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Commentaire** au lieu de saisir les destinataires.
+1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Message de** au lieu de saisir les destinataires.
 
 2.  Le message sera créé en tant que commentaire et apparaîtra dans le dossier **Tickets** de tous les utilisateurs spécifiés.
 
@@ -4064,4 +4300,4 @@ Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et
 
 Dans la section **Voir le profil complet**, vous trouverez un résumé des détails de votre profil. Cette section comprend quelques champs que vous ne pouvez pas modifier vous-même, tels que les rôles d'utilisateur et les unités d'organisation d'utilisateur.
 
-Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2.
+Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2
