@@ -4,6 +4,7 @@ BRANCHES=( "2.29" "2.30" "2.31" "2.32" "master" )
 
 for branch in ${BRANCHES[@]}
 do
+  git reset --hard
   git checkout -B $branch
   git pull origin $branch
   rm -rf .tx
