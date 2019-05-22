@@ -7,7 +7,7 @@ Repository for backing up document translations managed with transifex
 To backup translations, checkout the master branch, then:
 
 ```
-source source_me
+./backup.sh
 ```
 
 _This assumes you have linked with the DHIS2 transifex account (i.e. have the relevant ~/.transifexrc file on your system)_

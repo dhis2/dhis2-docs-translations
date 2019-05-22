@@ -5,15 +5,17 @@ BRANCHES=( "2.29" "2.30" "2.31" "2.32" "master" )
 for branch in ${BRANCHES[@]}
 do
   git reset --hard
-  local out=$(git rev-parse --verify "origin/${branch}" 2>&1)
 
+  out=$(git rev-parse --verify "origin/${branch}" 2>&1)
   if [[ "$out" == fatal* ]]; then
       echo "creating branch: ${branch}"
-      git branch "$branch"
+      git checkout -b $branch
+  else
+      git checkout $branch
+      git pull origin $branch
   fi
-  git checkout $branch
-  git pull origin $branch
-  mkdir .tx
+
+  mkdir -p .tx
   echo "[main]" > .tx/config
   echo "host = https://www.transifex.com" >> .tx/config
 
@@ -26,13 +28,10 @@ do
 
   for lang in ${LANGUAGES[@]}
   do
-    rm -rf ${lang}
-    rm -f source_me
     tx pull -l ${lang}
-    git add translations
   done
 
-  rm -rf .tx
+  git add .
   git commit -m "sync latest doc translations for branch $branch"
   git push origin $branch
 
