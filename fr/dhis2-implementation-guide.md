@@ -41,7 +41,11 @@ Différents styles de texte ont été utilisés pour mettre en avant des parties
 
 Les liens vers des sites externes ou références croisées sont affichés en bleu et soulignés comme [ceci.](http://www.dhis2.org).
 
-Les références bibliographiques sont affichées entre crochets comme ceci Store2007. Une référence complète peut être trouvée dans la bibliographie à la fin du présent document.
+<!--
+Bibliographic references will displayed in square brackets like this
+Store2007. A full reference can be found in the bibliography contained
+at the end of this document.
+-->
 
 # A quick guide to DHIS2 implementation
 
@@ -1119,6 +1123,10 @@ Specifies the delay between WAL write operations. Setting this to a high value w
 
 _SSD only._ Sets the query planner's estimate of the cost of a non-sequentially-fetched disk page. A low value will cause the system to prefer index scans over sequential scans. A low value makes sense for databases running on SSDs or being heavily cached in memory. The default value is 4.0 which is reasonable for traditional disks.
 
+    max_locks_per_transaction = 96
+
+Specifies the average number of object locks allocated for each transaction. This is set mainly to allow upgrade routines which touch a large number of tables to complete.
+
 Restart PostgreSQL by invoking `sudo /etc/init.d/postgresql restart`
 
 ### Database configuration
@@ -1180,23 +1188,31 @@ You can also ensure that the appropriate environment variables are set by instal
 
     sudo apt-get install oracle-java8-set-default
 
+### System Settings
+
+<!--DHIS2-SECTION-ID:Provide global system settings-->
+
+Following system settings will be provided in dhis.conf. Previously these were configured in Settings app.
+
+    # server.base.url = https://play.dhis2.org/dev
+
 ### Tomcat and DHIS2 installation
 
 <!--DHIS2-SECTION-ID:install_tomcat_dhis2_installation-->
 
 To install the Tomcat servlet container we will utilize the Tomcat user package by invoking:
 
-    sudo apt-get install tomcat7-user
+    sudo apt-get install tomcat8-user
 
 This package lets us easily create a new Tomcat instance. The instance will be created in the current directory. An appropriate location is the home directory of the dhis user:
 
     cd /home/dhis/
-    sudo tomcat7-instance-create tomcat-dhis
+    sudo tomcat8-instance-create tomcat-dhis
     sudo chown -R test:test test-dhis/
 
 This will create an instance in a directory called _tomcat-dhis_. Note that the tomcat7-user package allows for creating any number of dhis instances if that is desired.
 
-Next edit the file _tomcat-dhis/bin/setenv.sh_ and add the lines below. The first line will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS2 will search for the _dhis.conf_ configuration file. Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see _/java-7-openjdk-amd64_ Note that you should adjust this to your environment:
+Next edit the file _tomcat-dhis/bin/setenv.sh_ and add the lines below. The first line will set the location of your Java Runtime Environment, the second will dedicate memory to Tomcat and the third will set the location for where DHIS2 will search for the _dhis.conf_ configuration file. Please check that the path the Java binaries are correct as they might vary from system to system, e.g. on AMD systems you might see _/java-8-openjdk-amd64_ Note that you should adjust this to your environment:
 
     export JAVA_HOME='/usr/lib/jvm/java-8-oracle/'
     export JAVA_OPTS='-Xmx7500m -Xms4000m'
@@ -1209,9 +1225,19 @@ The Tomcat configiration file is located in _tomcat-dhis/conf/server.xml_. The e
       redirectPort="8443"
       URIEncoding="UTF-8" />
 
-The next step is to download the DHIS2 WAR file and place it into the webapps directory of Tomcat. You can download the DHIS2 version 2.23 WAR release like this (replace 2.23 with your preferred version if necessary):
+The next step is to download the DHIS2 WAR file and place it into the webapps directory of Tomcat. You can download the DHIS2 version 2.30 WAR release like this (replace 2.30 with your preferred version if necessary):
 
-    wget https://www.dhis2.org/download/releases/2.26/dhis.war
+```
+    wget https://releases.dhis2.org/2.30/dhis.war
+```
+
+> **Note**
+>
+> Alternatively, for patch releases, the folder structure is based on the patch release ID in a subfolder under the main release. For example, you can download the DHIS2 version 2.31.1 WAR release like this (replace 2.31 with your preferred version, and 2.31.1 with you preferred patch, if necessary):
+>
+> ```
+>    wget https://releases.dhis2.org/2.31/2.31.1/dhis.war
+> ```
 
 Move the WAR file into the Tomcat webapps directory. We want to call the WAR file ROOT.war in order to make it available at localhost directly without a context path:
 
@@ -1559,6 +1585,14 @@ http {
 DHIS 2 keeps server-side state for user sessions to a limited degree. Using "sticky sessions" is a simple approach to avoid replicating the server session state by routing requests from the same client to the same server. The _ip_hash_ directive in the upstream element ensures this.
 
 Note that several instructions have been omitted for brevity in the above example. Consult the reverse proxy section for a detailed configuration guide.
+
+## Analytics cache configuration
+
+<!--DHIS2-SECTION-ID:install_analytics_cache_configuration-->
+
+DHIS 2 supports a server-side cache for analytics API responses, used by all of the analytics web apps. This cache sits within the DHIS 2 application and hence is protected by the DHIS 2 authentication and security layer. You can configure the expiration of cached entries in seconds. To enable the cache you can define the `analytics.cache.expiration` property in `dhis.conf`. The example below enabled the cache and sets expiration to one hour.
+
+    analytics.cache.expiration = 3600
 
 ## Starting Tomcat at boot time
 
@@ -2017,6 +2051,8 @@ The following describes the full set of configuration options for the _dhis.conf
     # SQL view protected tables, can be 'on', 'off'
     # system.sql_view_table_protection = on
 
+    # server.base.url = https://play.dhis2.org/dev
+
     # ----------------------------------------------------------------------
     # Encryption
     # ----------------------------------------------------------------------
@@ -2068,6 +2104,13 @@ The following describes the full set of configuration options for the _dhis.conf
 
     # Node identifier, optional, useful in clusters
     # node.id = 'node-1'
+
+    # ----------------------------------------------------------------------
+    # Analytics
+    # ----------------------------------------------------------------------
+
+    # Analytics server-side cache expiration in seconds
+    # analytics.cache.expiration = 3600
 
     # ----------------------------------------------------------------------
     # System monitoring
