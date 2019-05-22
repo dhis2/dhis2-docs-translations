@@ -1,51 +1,43 @@
 [main]
 host = https://www.transifex.com
 
-[dhis-2-documentation-master.dhis2-android-user-man-md]
-file_filter = <lang>/dhis2-android-user-man.md
-minimum_perc = 0
-source_file = en/dhis2-android-user-man.md
+[dhis-2-documentation-232.bookinfo-md]
+file_filter = translations/dhis-2-documentation-232.bookinfo-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
 
-[dhis-2-documentation-master.dhis2-developer-manual-md]
-file_filter = <lang>/dhis2-developer-manual.md
-minimum_perc = 0
-source_file = en/dhis2-developer-manual.md
+[dhis-2-documentation-232.dhis2-android-user-man-md]
+file_filter = translations/dhis-2-documentation-232.dhis2-android-user-man-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
 
-[dhis-2-documentation-master.dhis2-end-user-manual-md]
-file_filter = <lang>/dhis2-end-user-manual.md
-minimum_perc = 0
-source_file = en/dhis2-end-user-manual.md
+[dhis-2-documentation-232.dhis2-developer-manual-md]
+file_filter = translations/dhis-2-documentation-232.dhis2-developer-manual-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
 
-[dhis-2-documentation-master.dhis2-implementation-guide-md]
-file_filter = <lang>/dhis2-implementation-guide.md
-minimum_perc = 0
-source_file = en/dhis2-implementation-guide.md
+[dhis-2-documentation-232.dhis2-draft-chapters-md]
+file_filter = translations/dhis-2-documentation-232.dhis2-draft-chapters-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
 
-[dhis-2-documentation-master.dhis2-user-manual-en-md]
-file_filter = <lang>/dhis2-user-manual-en.md
-minimum_perc = 0
-source_file = en/dhis2-user-manual-en.md
+[dhis-2-documentation-232.dhis2-end-user-manual-md]
+file_filter = translations/dhis-2-documentation-232.dhis2-end-user-manual-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
 
-[dhis-2-documentation-master.user-stories-book-md]
-file_filter = <lang>/user-stories-book.md
-minimum_perc = 0
-source_file = en/user-stories-book.md
+[dhis-2-documentation-232.dhis2-implementation-guide-md]
+file_filter = translations/dhis-2-documentation-232.dhis2-implementation-guide-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
 
-[dhis-2-documentation-master.bookinfo-md]
-file_filter = <lang>/bookinfo.md
-minimum_perc = 0
-source_file = en/bookinfo.md
+[dhis-2-documentation-232.dhis2-user-manual-en-md]
+file_filter = translations/dhis-2-documentation-232.dhis2-user-manual-en-md/<lang>.md
 source_lang = en
 type = GITHUBMARKDOWN
+
+[dhis-2-documentation-232.user-stories-book-md]
+file_filter = translations/dhis-2-documentation-232.user-stories-book-md/<lang>.md
+source_lang = en
+type = GITHUBMARKDOWN
+
