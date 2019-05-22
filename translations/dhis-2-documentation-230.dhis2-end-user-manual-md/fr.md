@@ -8,11 +8,11 @@ title: Guide de l'utilisateur final de DHIS2
 
 <!--DHIS2-SECTION-ID:about_this_guide_-->
 
-La documentation de DHIS2 est un effort collectif est a été développée par l'équipe de développement mais aussi par les utilisateurs. Bien que ce guide vise à être complet, il se peut que certaines fonctionnalités aient été omises ou doivent encore être documentées. Cette section explique certaines des conventions utilisées dans le document.
+La documentation de DHIS2 est un effort collectif est à été développée par l'équipe de développement mais aussi par les utilisateurs. Bien que ce guide vise à être complet, il se peut que certaines fonctionnaliés aient été omises ou doivent encore être documentées. Cette section explique certaines des conventions utilisées dans le document
 
-DHIS2 est une application fonctionnant dans un navigateur. Dans la plupart des cas, des impressions d'écran ont été incluse pour une meilleure compréhension. Des raccourçis vers diverses fonctionnalités sont affiché comme **Élément de donnée** \> **Groupe d'éléments de données**. Le symbole "\>" indique que vous devez cliquer sur **Élément de donnée** et ensuite sur **Groupe d'éléments de données**.
+DHIS2 est une application fonctionnant dans un navigateur. Dans la plupart des cas, des impressions d'écran ont été incluse pour une meilleure compréhension. Des raccourçis vers diverses fonctionnalités sont affiché comme **Element de donnée** \> **Groupe d'élément de données**. Le symbole "\>" indique que vous devez cliquer sur **Element de donnée** et ensuite sur **Groupe d'élément de données**
 
-Différents styles de texte ont été utilisés pour mettre en avant des parties importantes ou des types particuliers de texte comme par exemple du code source. Chaque convention est expliquée ci-dessous :
+Differents styles de texte ont été utilisés pour mettre en avant des parties importantes ou des types particulier de texte comme par exemple du code source. Chaque convention est expliquée ci-dessous:
 
 > **Note**
 >
@@ -30,7 +30,7 @@ Différents styles de texte ont été utilisés pour mettre en avant des parties
 >
 > L'information dans ces sections doit être lue avec attention. Ne pas la suivre peut mener à des résultats innattendus
 
-> **Danger**
+> **Attention**
 >
 > L'information dans ces sections doit être lue avec attention. Ne pas la suivre peut mener à des pertes de données ou des problèmes de stabilité dans le système.
 
@@ -67,7 +67,7 @@ Le forfait live de DHIS2 est le moyen le plus simple d'utiliser DHIS2 sur votre 
 
 Vous devez vous assurer d'avoir une version actualisée de JAVA Runtime sur votre dispositif. Selon votre système d'exploitation, il existe différentes méthodes pour installer JAVA. Vous pouvez vous référer à ce [siteweb](http://java.sun.com/javase/downloads/index.jsp) pour plus détails sur l'installation de JAVA.
 
-#### À partir d'une base de données vide
+#### A partir d'une base de données vierge
 
 Le forfait live inclut une base de données de démonstration semblable à celle sur la [démo en ligne](http://apps.dhis2.org/demo/) (qui est basée sur l'indice HMIS national de la Sierra Leone), et si vous souhaitez commencer avec un système/base de données vierge et construire votre propre système vous devez suivre les étapes suivantes:
 
@@ -910,13 +910,13 @@ Pour générer un rapport, sélectionnez d'abord une unité d'org dans l'arbores
 
 <!--DHIS2-SECTION-ID:generate_analytics_tables-->
 
-DHIS2 génère des tables de base de données que le système utilise ensuite comme base pour diverses fonctions d'analyse. Ces tables vous seront également utiles si vous écrivez des rapports SQL avancés. Dans l'application **Rapports**, vous pouvez exécuter les tables immédiatement ou les programmer pour qu'elles soient exécutées à intervalles réguliers. Ceci signifie que vous pouvez actualiser les analyses récentes à la demande et afficher les tableaux croisés dynamiques mis à jour sans attendre que toutes les données des dernières années soient traitées encore.
+DHIS2 génère des tables de bases de données que le système utilise ensuite comme base pour diverses fonctions d'analyse. Ces tables sont également utiles si vous écrivez des rapports SQL avancés. Dans l'application **Administration des données**, vous pouvez exécuter la génération de tables immédiatement. Si vous souhaitez planifier leur exécution à intervalles réguliers, vous pouvez paramétrer cela dans l'application **Planificateur**. Cela signifie que vous pouvez actualiser des analyses récentes à la demande et visualiser des tableaux croisés dynamiques à jour sans attendre le traitement de toutes les données des dernières années.
 
 > **Note**
 >
 > Vous pouvez également générer les tables via l'API Web. Cette tâche est généralement effectuée par un administrateur système.
 
-1.  Ouvrez l'application **Rapports** et cliquez sur **Analyses**.
+1.  Ouvrez l'application **Administration des données** et cliquez sur **Tables d'Analyse**.
 
 2.  Sélectionnez les parties du processus d'analyse que vous souhaitez ignorer:
 
@@ -1271,7 +1271,7 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez retrouver cette information dans l'application **Tableau de bord**.
+2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -1284,6 +1284,16 @@ Une interprétation est un lien vers une ressource avec une description des donn
     - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
+
+### S'abonner à un favori
+
+Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
+
+1.  Ouvrez un favori.
+
+2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
+
+3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
 
 ### Créer un lien vers un favori
 
@@ -1908,7 +1918,7 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
 
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez retrouver cette information dans l'application **Tableau de bord**.
+2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
 
 3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
 
@@ -1921,6 +1931,16 @@ Une interprétation est un lien vers une ressource avec une description des donn
     - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
+
+### S'abonner à un favori
+
+Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
+
+1.  Ouvrez un favori.
+
+2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
+
+3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
 
 ### Créer un lien vers un favori
 
@@ -2092,7 +2112,7 @@ Vous pouvez utiliser quatre calques vectoriels pour créer une carte thématique
 
     - calque d'installation
 
-    - couche frontière
+    - calque limite
 
     - Calque thématique 1 - 4
 
@@ -3005,7 +3025,7 @@ En haut de la carte des infrastructures, de gauche à droite, se trouvent:
 
 - Un symbole d'oeil pour basculer la visibilité du calque
 
-- !!!PALD - MISSING!!!
+- An arrow symbol to collapse and expand the facilities card
 
 Au centre de la carte des infrastructures se trouve une légende indiquant la représentation du groupe.
 
@@ -3242,7 +3262,9 @@ Pour créer un calque d'événement, choisissez **Thématique** dans la section 
 
         - des intervalles égaux
 
-          la plage de chaque intervalle sera **(la plus haute valeur de données - la plus basse valeur de données / nombre de classes)**
+          the range of each interval will be \*\*highest data value
+
+          - valeur de données la plus basse / nombre de classes\*\*
 
         <!-- end list -->
 
@@ -3776,7 +3798,7 @@ Ajoutez des éléments au tableau de bord en effectuant une recherche à partir 
 
 - Eléments d'espacement
 
-La liste des éléments du menu déroulant affiche initialement les 5 premiers disponibles dans chaque catégorie, en fonction du texte de recherche que vous avez entré. Des adresses mail, des zones de texte et des éléments d'espacement se trouvent également dans la liste déroulante. Pour voir plus d'éléments, cliquez sur **AFFICHER PLUS**, et la liste pour ce type sera étendue à 15 articles. Si vous ne trouvez toujours pas l'article que vous cherchez, essayez avec un texte de recherche plus spécifique.
+La liste des éléments de la liste déroulante affiche initialement les 5 premiers disponibles dans chaque catégorie, en fonction du texte de recherche que vous avez entré. Les courriers électroniques, les zones de texte et les éléments d'espacement se trouvent également dans la liste déroulante. Pour afficher plus d'éléments, cliquez sur **VOIR PLUS**, et la liste pour ce type sera étendue à 15 éléments. Si vous ne trouvez toujours pas l'élément qu'il vous faut, essayez de saisir un texte de recherche plus spécifique.
 
 ![](resources/images/content/user/dashboard/dashboard-item-selector.png)
 
@@ -3790,11 +3812,9 @@ Le tableau de bord est configuré avec le paramètre "anti-gravité" pour le pos
 
 ![](resources/images/content/user/dashboard/dashboard-spacer-edit-mode.png)
 
-**Elément d'espacement dans le mode visualisation:**
+**Spacer en mode visualisation **
 
 ![](resources/images/content/user/dashboard/dashboard-spacer-view-mode.png)
-
-\</section\>
 
 ## Supprimer des éléments
 
@@ -3803,8 +3823,6 @@ Supprimer des éléments en cliquant sur la corbeille rouge en haut à droite de
 ## Sauvegarder le tableau de bord
 
 Lors de la création ou de la modification d'un tableau de bord, les modifications ne sont enregistrées que si vous cliquez sur le bouton **ENREGISTRER LES MODIFICATIONS** dans la barre de modification du tableau de bord en haut de la page. Si vous ne souhaitez pas enregistrer vos modifications, cliquez sur le bouton **QUITTER SANS SAUVEGARDER** en haut à droite. Vous serez alors renvoyé aen mode visualisation avec le tableau de bord que vous consultiez précédemment.
-
-\</section\>
 
 ## Editer un tableau de bord existant
 
@@ -3831,8 +3849,6 @@ Vous pouvez ajouter des traductions du titre et de la description du tableau de 
 ## Supprimer un tableau de bord
 
 Si vous disposez des droits d'accès pour supprimer un tableau de bord, il y aura un Bouton **SUPPRIMER** situé au-dessus du tableau de bord, en mode édition. La boîte de dialogue de confirmation s’affichera pour confirmer que vous souhaitez supprimer le tableau de bord.
-
-\</section\>
 
 ## Afficher un tableau de bord
 
@@ -3862,7 +3878,12 @@ Les éléments du tableau de bord montrant les graphiques, les tableaux croisés
 
 ## Interprétations
 
-Vous pouvez écrire des interprétations pour les graphiques, tableaux croisés dynamiques, cartes, rapports d'événements, et éléments de graphiques d'événements. Cliquez sur le bouton d'interprétations ![](resources/images/content/user/dashboard/dashboard-interpretations-button.png), et l'élément sera développé verticalement en dessous pour montrer les interprétations et réponses. Vous pouvez aimer une interprétation, répondre à une interprétation, et ajouter votre propre interprétation. Vous pouvez supprimer vos propres interprétations et réponses, et si vous avez un accès modérateur, vous pouvez supprimer les interprétations des autres utilisateurs.
+Vous pouvez rédiger des interprétations pour les graphiques, tableaux croisés dynamiques, cartes, rapport d'événement et éléments de cartes d'événements. Cliquez sur le bouton d'interprétation ![] 
+(resources/images/content/user/dashboard/dashboard-interpretations-button.png), et l'élément sera développé verticalement en dessous pour afficher les interprétations et les réponses. Vous pouvez aimer une interprétation, répondre à une interprétation et ajouter votre propre interprétation. Vous pouvez modifier ou supprimer vos propres interprétations et réponses, et si vous avez un accès modérateur, vous pouvez supprimer les interprétations des autres.
+
+It is possible to format the description field, and interpretations with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. The text field for writing new interpretations have a toolbar for adding rich text. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
+
+Interpretations are sorted by date descending, with the most recent shown on top. Interpretation replies are sorted by date ascending, with the oldest shown on top.
 
 ![](resources/images/content/user/dashboard/dashboard-interpretations.png)
 
@@ -3894,7 +3915,9 @@ Les groupes d’utilisateurs qui ont été ajoutés manuellement peuvent se voir
 
   Permet aux groupes d'utilisateurs de modifier le tableau de bord en plus de le visualiser. L’édition permet de modifier la mise en page, de redimensionner et de supprimer des éléments, renommer/supprimer le tableau de bord, etc.
 
-\</section\>
+Vous pouvez fournir aux utilisateurs l'URL du tableau de bord, ce qui leur pemet de naviguer directement dans le tableau de bord. Pour obtenir l'URL du tableau de bord, il suffit d''y accéder en mode visualisation et de copier l'URL du navigateur. Par exemple, l'URL du tableau de bord des soins anténatals dans play.dhis2.org/demo est:
+
+https://play.dhis2.org/demo/dhis-web-dashboard/\#/nghVC4wtyzi
 
 # Messaging
 
@@ -3904,37 +3927,52 @@ Les groupes d’utilisateurs qui ont été ajoutés manuellement peuvent se voir
 
 ## A propos des messages et des commentaires
 
-![](resources/images/content/user/dashboard/dashboard_messages_queue.png)
+![](resources/images/content/user/messaging/view_inbox.png)
 
 Dans DHIS2, vous pouvez envoyer des messages et des commentaires aux utilisateurs, à des groupes d'utilisateurs et aux unités d'organisation. Lorsque vous envoyez un commentaire, il est routé vers un groupe d'utilisateurs particulier appelé groupe de destinataires. Si vous êtes membre de ce groupe d'utilisateurs, vous avez accès aux outils de gestion des commentaires. Vous pouvez, par exemple, définir le statut d'un nouveau commentaire à "En attente" pendant que vous attendez d'avoir plus d'informations.
 
 En plus des messages entre utilisateurs et des commentaires, en fonction de votre configuration, le système vous enverra également des messages génériques. Ces messages peuvent être déclenchés par différents événements, y compris les échecs et défaillances de tâches en arrière-plan et la validation des résultats d'analyse. Les outils de gestion des commentaires sont également disponibles pour les résultats de validation et la priorité sera attribuée à l'importance de la règle de validation violée.
 
+Pour aller à l'application, cliquez sur **l'icône du message dans l'en-tête** ou recherchez l'application **Messagerie** dans le champ de recherche des applications.
+
 > **Note**
 >
-> Les messages et les commentaires ne sont pas envoyés au courrier électronique des utilisateurs, les messages apparaissent uniquement dans DHIS2.
+> Les messages et les commentaires ne sont pas envoyés aux adresses électroniques des utilisateurs, ils n'apparaissent que dans DHIS2.
+>
+> Avec 2.30, nous avons introduit une nouvelle application de messagerie qui offre une expérience de messagerie plus étoffée. Plus précisément:
+>
+> - Basculez entre la vue liste et la vue compacte en cliquant sur l'icône située dans le coin supérieur droit.
+>
+> - La vue en liste est simpliste et donne une bonne vue d'ensemble de tous les messages. Elle est particulièrement adaptée aux commentaires et messages de validation.
+> - La vue compacte est un moyen moderne de voir les messages, l’utilisateur ayant plus d’informations dans une seule vue. Il est donc plus facile de visionner et de répondre à plusieurs messages.
+>
+> La première capture d'écran de cette section affiche la vue liste, tandis que la capture d'écran de la section **Lire un message** affiche la vue compacte.
+>
+> - Un nouveau champ de recherche est ajouté pour permettre à l'utilisateur de rechercher des messages. La recherche fonctionne par filtration des messages sur différents attributs; sujet, texte et expéditeurs. Cela signifie que vous pouvez affiner la liste de conversation en entrant un mot de recherche.
+>
+> - Une fonctionnalité d'actualisation automatique est ajoutée afin que l'application récupère les nouveaux messages à un intervalle défini, toutes les 5 minutes. Cette fonctionnalité est désactivée par défaut.
+>
+> - Pour chaque conversation, vous pouvez ajouter des participants à la conversation. Ceci est très utile si vous souhaitez participer à cette conversation ou si quelqu'un doit également voir les informations. Il n'est pas possible de supprimer des participants d'une conversation.
 
 ## Créer un message
 
-![](resources/images/content/user/dashboard/dashboard_message.png)
+![](resources/images/content/user/messaging/create_private_message.png)
 
-1.  Dans le **Tableau de bord**, cliquez sur **Messages**.
+1.  Cliquez sur **Composer**.
 
-2.  Cliquez sur **Écrire un message**.
+2.  Définissez qui vous souhaitez recevoir le message. Vous pouvez envoyer un message aux unités d'organisation, aux utilisateurs et à des groupes d'utilisateurs.
 
-3.  Définissez qui vous souhaitez recevoir le message. Vous pouvez envoyer un message aux unités d'organisation, aux utilisateurs et à des groupes d'utilisateurs.
+    - Dans le champ **À**, vous pouvez rechercher des unités d'organisation, des utilisateurs et des groupes d'utilisateurs et sélectionner les destinataires souhaités.
 
-    - Dans le champ **To org unit**, sélectionnez les unités d'organisation ou groupe d'unités d'organisation auquel vous souhaitez envoyer le message.
+3.  Saisissez un objet et le corps du message.
 
-    - Dans le champ **À l'utilisateur**, sélectionnez les utilisateurs ou les groupes d'utilisateurs auquels vous souhaitez envoyer le message.
-
-4.  Saisissez un objet et le corps du message.
-
-5.  Cliquez sur **Envoyer**.
+4.  Cliquez sur **Envoyer**.
 
 ## Lire un message
 
-1.  Dans le **Tableau de bord**, cliquez sur **Messages**.
+![](resources/images/content/user/messaging/read_message.png)
+
+1.  Sélectionnez le type de message approprié à gauche.
 
 2.  Cliquez sur un message.
 
@@ -3942,56 +3980,65 @@ En plus des messages entre utilisateurs et des commentaires, en fonction de votr
 
 ## Créer un commentaire
 
-1.  Dans le **Tableau de bord**, cliquez sur **Rédiger un commentaire**.
+1.  Suivez les étapes pour créer un message, en sélectionnant uniquement **Commentaire** au lieu de saisir les destinataires.
 
-2.  Saisissez un objet et un commentaire.
+2.  Le message sera créé en tant que commentaire et apparaîtra dans le dossier **Tickets** de tous les utilisateurs spécifiés.
 
-3.  Cliquez sur **Envoyer**.
+## Pièces jointes.
 
-    Le commentaire apparaîtra dans tous les boîtes de réception de tous les utilisateurs concernés.
+Avec 2.31, nous avons ajouté les pièces jointes aux messages. Lors de la création ou de la réponse dans une conversation, vous avez la possibilité d'ajouter des pièces jointes. Il n’existe actuellement aucune limitation quant au type ou à la taille du fichier.
 
-## Gérer les commentaires
+## Gérer les commentaires et validations
 
 > **Note**
 >
-> Vous ne verrez les commentaires et aurez accès aux outils de gestion commentaires que si vous êtes membre du groupe d'utilisateurs configuré à les gérer.
+> Vous ne verrez que les commentaires et aurez accès aux outils de traitement  si vous êtes membre du groupe d'utilisateurs autorisés à gérer les commentaires.
+>
+> Avec la nouvelle application, vous gérez les outils  pour les tickets et les messages de validation via le menu d'icônes qui apparaît lors de la visualisation d'un message ou de la vérification des messages dans la liste de conversations.
 
-![](resources/images/content/user/dashboard/dashboard_messages_manage.png)
+### Tous les messages sont sélectionnés.
 
-Vous recevrez des commentaires dans votre boîte de réception **Messages**. Pour commentaires, vous disposez des options suivantes en plus des options standards valables pour les messages:
+![Tous les messages sont séléctionnés](resources/images/content/user/messaging/view_validation_select_all.png)
 
-<table>
+### Tous les messages sont sélectionnés et le sélecteur de choix étendu est sélectionné
+
+![Tous les messages sont sélectionnés et le sélecteur de choix étendu est sélectionné](resources/images/content/user/messaging/view_validation_select_all_icon_menu.png)
+
+Vous recevrez des commentaires dans votre dossier **Tickets** et des messages de validation dans votre dossier **Validation**. Pour les commentaires et les messages de validation, vous disposez des options suivantes, en plus de celles des messages:
+
+<table style="width:100%;">
 <caption>Outils de gestion des commentaires</caption>
 <colgroup>
-<col largeur="23%"/>
-<col width="76%"/>
+<col width="23%" />
+<col width="76%" />
 </colgroup>
 <thead>
-<trclass="header">
+<tr class="header">
 <th>Fonction</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
-<trclass="impair">
+<tr class="odd">
 <td><p><strong>Priorité</strong></p></td>
-<td><p>Vous pouvez marquer un commentaire avec différentes priorités: <strong>neutre</strong>, <strong>Faible</strong>, <strong>Moyenne</strong> ou <strong>Élevée</strong >.</p>
+<td><p>Vous pouvez marquer un commentaire avec différentes priorités: <strong>neutre</strong>, <strong>Faible</strong>, <strong>Moyenne</strong> ou <strong>Élevée</strong>.</p>
 <p>Définir la priorité facilite la distinction du commentaire que vous devez résoudre en premier et ceux pouvant attendre.</p></td>
 </tr>
-<trclass="even">
-<td><p><strong>État</strong></p></ td>
+<tr class="even">
+<td><p><strong>Statut</strong></p></td>
 <td><p>Tous les commentaires reçoivent le statut <strong>Ouvert</strong> à la création.</p>
-<p>Pour garder une traçabilité les commentaires existants, vous pouvez définir le statut sur <strong>En attente</strong> , <strong>non valide</strong> ou <strong>Résolu</strong>.</p>
-<p>Vous pouvez filtrer les commentaires dans votre boîte de réception en fonction de leur statut. Cela facilite le basculement entre les commentaires et les messages normaux.</p></td>
+<p>Pour garder une traçabilité des commentaires existants, vous pouvez définir le statut sur <strong>En attente</strong>, <strong>non valide</strong> ou <strong>Résolu</strong>.</p>
+<p>Vous pouvez filtrer les commentaires dans votre boîte de réception en fonction de leur statut. Ceci facilite le basculement entre les commentaires et les messages normaux.</p></td>
 </tr>
-<tr class="impair">
+<tr class="odd">
 <td><p><strong>Attribué à</strong></p></td>
-<td><p>Vous pouvez affecter un commentaire à n'importe quel membre du groupe d'utilisateurs configuré autorisé à les gérer</p>
-<p><strong>Aucun</strong> signifie que vous n'avez affecté aucun utilisateur au commentaire.</p></td>
+<td><p>Vous pouvez affecter un commentaire à n'importe quel membre du groupe d'utilisateurs autorisé à les gérer.</p>
+<p></p>
+<p><strong>-</strong> Aucun signifie que vous n'avez affecté aucun utilisateur au commentaire.</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Réponse interne</strong></p></td>
-<td><p>Lorsque vous travaillez dans une équipe de traitement des commentaires, vous pouvez en discuter avant de répondre à l'expéditeur. Vous pouvez conserver cette discussion dans la même conversation que le commentaire lui-même.</p>
+<td><p>Lorsque vous travaillez au sein d'une équipe de traitement des commentaires, vous pouvez en discuter avant de répondre à l'expéditeur. Vous pouvez conserver cette discussion dans la même conversation que le commentaire lui-même.</p>
 <p>Pour envoyer une réponse dans le groupe d'utilisateurs de traitement des commentaires, cliquez sur <strong>Réponse interne</strong>.</p></td>
 </tr>
 </tbody>
@@ -4013,4 +4060,8 @@ Dans **Paramètres de l'utilisateur**, vous pouvez modifier la langue d'affichag
 
 Dans **Profil de l'utilisateur**, vous pouvez ajouter des informations personnelles à votre profil comme votre adresse électronique, votre numéro de téléphone mobile, votre date de naissance, votre photo de profil et plus. Lorsque vous envoyez des messages, la personne qui les reçoit peut visualiser ces détails de votre profil. Vous pouvez également fournir des noms de compte pour divers services de messagerie directe, qui seront utilisés par le système.
 
-Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe.
+Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et configurer l'authentification à 2 facteurs. La configuration de l'authentification à 2 facteurs requiert le téléchargement de l'application Google Authenticator sur votre appareil mobile.
+
+Dans la section **Voir le profil complet**, vous trouverez un résumé des détails de votre profil. Cette section comprend quelques champs que vous ne pouvez pas modifier vous-même, tels que les rôles d'utilisateur et les unités d'organisation d'utilisateur.
+
+Dans la section **A propos de DHIS2**, vous trouverez une liste détaillée sur l'instance DHIS2.

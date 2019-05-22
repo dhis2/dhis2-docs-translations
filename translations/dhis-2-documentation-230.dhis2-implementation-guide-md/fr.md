@@ -898,13 +898,13 @@ DHIS2 is a database intensive application and requires that your server has an a
 
 - CPU cores: 4 CPU cores for a small instance, 8 CPU cores for a medium or large instance.
 
-- Disk: Ideally use an SSD. Otherwise use a 7200 rpm disk. Minimum read speed is 150 Mb/s, 200 Mb/s is good, 350 Mb/s or better is ideal. In terms of disk space, at least 60 GB is recommended, but will depend entirely on the amount of data which is contained in the data value tables. Analytics tables require a significant amount of disk space. Plan ahead and ensure that your server can be upgraded with more disk space as it becomes needed.
+- Disk: Ideally use an SSD. Otherwise use a 7200 rpm disk. Minimum read speed is 150 Mb/s, 200 Mb/s is good, 350 Mb/s or better is ideal. In terms of disk space, at least 60 GB is reccomended, but will depend entirely on the amount of data which is contained in the data value tables. Analytics tables require a significant amount of disk space. Plan ahead and ensure that your server can be upgraded with more disk space as it becomes needed.
 
 ## Software requirements
 
 <!--DHIS2-SECTION-ID:install_software_requirements-->
 
-This version of DHIS 2 requires the following software versions to operate.
+Later DHIS2 versions require the following software versions to operate.
 
 - Java JRE version 8 or later.
 
@@ -912,7 +912,7 @@ This version of DHIS 2 requires the following software versions to operate.
 
 - PostgreSQL database version 9.4 or later.
 
-- PostGIS database extension version 2.2 or later - required if you need to use the COORDINATE data type.
+- PostGIS database extension version 2.2 or later.
 
 - Tomcat servlet container version 8 or later, or other Servlet API 3.1 compliant servlet containers like Jetty 9.
 
@@ -1346,11 +1346,23 @@ Note that you must restart your servlet container for the changes to take effect
 
 <!--DHIS2-SECTION-ID:install_web_server_cluster_configuration-->
 
+This section describes how to set up the DHIS 2 application to run in a cluster.
+
+### Clustering overview
+
+<!--DHIS2-SECTION-ID:install_cluster_configuration_introduction-->
+
 Clustering is a common technique for improving system scalability and availability. Clustering refers to setting up multiple web servers such as Tomcat instances and have them serve a single application. Clustering allows for _scaling out_ an application in the sense that new servers can be added to improve performance. It also allows for _high availability_ as the system can tolerate instances going down without making the system inaccessible to users.
 
-When setting up multiple Tomcat instances there is a need for making the instances aware of each other. Each DHIS 2 instance will keep a local data cache. When an update is done on one instance, the caches on the other instances must be notified so that they can be invalidated and avoid becoming stale.
+When setting up multiple Tomcat instances there is a need for making the instances aware of each other. This awareness will enable DHIS 2 to keep the local data (Hibernate) caches in sync and in a consistent state. When an update is done on one instance, the caches on the other instances must be notified so that they can be invalidated and avoid becoming stale.
 
-### Cluster configuration
+There are two aspects to configure in _dhis.conf_ in order to run DHIS 2 in a cluster.
+
+- Each instance must specify the other DHIS 2 application members of the cluster.
+
+- An instance of the Redis data store must be installed and connection information must be configured for each DHIS 2 application instance.
+
+### Cluster instance configuration
 
 <!--DHIS2-SECTION-ID:install_cluster_configuration-->
 
@@ -1387,6 +1399,50 @@ For _server B_ available at hostname _193.157.199.132_ the following can be spec
     cluster.members = 193.157.199.131:4001
 
 You must restart each Tomcat instance to make the changes take effect. The two instances have now been made aware of each other and DHIS 2 will ensure that their caches are kept in sync.
+
+### Cluster shared data store configuration
+
+<!--DHIS2-SECTION-ID:install_cluster_configuration_redis-->
+
+In a cluster setup, a _Redis_ instance is required and will handle shared user sessions, application cache and cluster node leadership.
+
+For optimum performance, _Redis Keyspace events_ for Generic commands and Expired events needs to be enabled in your Redis Server. If you are using any cloud platform managed Redis server (like AWS ElastiCache for Redis or Azure Cache for Redis), you will have to enable keyspace event notifications using the respective cloud interfaces. If you are setting up a standalone Redis server, enabling keyspace event notifications can be done in the _redis.conf_ file by adding/uncommenting the following line
+
+```
+notify-keyspace-events Egx
+```
+
+DHIS2 will connect to Redis if the _redis.enabled_ configuration property in _dhis.conf_ is set to _true_ along with the following four properties:
+
+1.  _redis.host_: Specifies where the redis server is running. Defaults to _localhost_.
+
+2.  _redis.port_: Specifies the port in which the redis server is listening. Defaults to _6379_.
+
+3.  _redis.password_: Specifies the authentication password.
+
+4.  _redis.use.ssl_: Specifies whether the Redis server has SSL enabled. Defaults to _false_.
+
+Whenever Redis is enabled, DHIS2 will automatically assign one of the running instances as the leader of the cluster. The leader instance will be used to execute jobs or scheduled tasks that should be run exclusively by one instance. Optionally, you can configure the _leader.time.to.live.minutes_ property in _dhis.conf_ to set up how frequently the leader election needs to occur. It also gives an indication of how long it would take for another instance to take over as the leader after the previous leader has shutdown/crashed. The default value is 2 minutes. Note that assigning a leader in the cluster is only done if Redis is enabled. An example snippet of the _dhis.conf_ configuration file with Redis enabled and leader election time configured is shown below.
+
+```
+# Redis Configuration
+
+# Mandatory if redis has to be enabled.
+redis.enabled = true
+
+redis.host = 193.158.100.111
+
+redis.port = 6379
+
+redis.password = yourpassword
+
+# Optional, defaults to false.
+redis.use.ssl = false
+
+# Optional, defaults to 2 minutes.
+leader.time.to.live.minutes=4
+
+```
 
 ### Load balancing
 
@@ -2327,7 +2383,7 @@ Multiple users can access DHIS2 simultaneously and each user can have different 
 
 - You can create as many users, user roles and user groups as you need.
 
-- You can assign specific authorities to each user.
+- You can assign specific authorities to user groups or individual users via user roles.
 
 - You can create multiple user roles each with their own authorities.
 
@@ -2398,7 +2454,7 @@ You manager users, user roles and user groups in the **Users** app.
 <tbody>
 <tr class="odd">
 <td><p>User</p></td>
-<td><p>Create, edit, clone, disable, assign search organisation units, display by organisation unit, delete and show details</p></td>
+<td><p>Create, edit, invite, clone, disable, display by organisation unit, delete and show details</p></td>
 </tr>
 <tr class="even">
 <td><p>User role</p></td>
@@ -2475,13 +2531,13 @@ See also:
 
 5.  Assign the users to organisation units.
 
-6.  Assign data sets to the user role.
+6.  (Optional) Group users in user groups.
 
-7.  (Optional) Group users in user groups.
+7.  Share datasets with users or user-groups via the Sharing Dialog in Data set management section of the Maintenance app
 
 > **Tip**
 >
-> For users to be able to enter data, you must add them to both a data set and an organisational unit level.
+> For users to be able to enter data, you must add them to an organisational unit level and share a dataset with them.
 
 ## Example: user management in a health system
 

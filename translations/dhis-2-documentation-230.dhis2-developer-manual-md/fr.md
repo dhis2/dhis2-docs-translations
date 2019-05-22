@@ -45,6 +45,14 @@ And more information about authorities (and if a user have a certain authority) 
 
 The DHIS2 Web API supports _Basic authentication_. Basic authentication is a technique for clients to send login credentials over HTTP to a web server. Technically speaking, the username is appended with a colon and the password, Base64-encoded, prefixed Basic and supplied as the value of the _Authorization_ HTTP header. More formally that is`Authorization: Basic base64encode(username:password)` Most network-aware development frameworks provides support for authentication using Basic, such as Apache HttpClient, Spring RestTemplate and C\# WebClient. An important note is that this authentication scheme provides no security since the username and password is sent in plain text and can be easily decoded. Using it is recommended only if the server is using SSL/TLS (HTTPS) to encrypt communication between itself and the client. Consider it a hard requirement to provide secure interactions with the Web API.
 
+### Two factor authentication
+
+<!--DHIS2-SECTION-ID:webapi_2fa-->
+
+As of 2.30 DHIS2 supports two factor authentication. This means that you can enable 2FA in your user settings which means that you will be prompted for a 2FA code at login. You can read more about 2FA here:
+
+    https://www.google.com/landing/2step/
+
 ### OAuth2
 
 <!--DHIS2-SECTION-ID:webapi_oauth2-->
@@ -1818,6 +1826,31 @@ Inside DHIS2 it communicates with AMQP using a topic exchange called "dhis2" (un
 
 Where type can be any type inside of DHIS2 (data element, indicator, org unit, etc.), action is _CREATE, UPDATE, DELETE_ and _id_ is the id of the type being handled. The event also contains a payload, for _CREATE_ and _DELETE_ this is the full serialized version of the object, for _UPDATE_ its a patch containing the updates that are happening on that object.
 
+## Kafka integration
+
+<!--DHIS2-SECTION-ID:webapi_kafka_integration-->
+
+Kafka integration was added in 2.30 and is currently supported for doing bulk imports of tracker data (tracked entities, enrollments, events), to integrate with kafka you need to first install and configure Kafka (see <https://docs.confluent.io/current/installation/installing_cp/index.html> for more information), then update your "dhis.conf" with at least the "_kafka.bootstrap-servers_" key, an example can be seen below (only _bootstrap-servers_ is required, the rest is just to show the defaults):
+
+    kafka.bootstrap-servers = localhost:9092
+    kafka.client-id = dhis2
+    kafka.retries = 10
+    kafka.max-poll-records = 1000
+
+After adding this, you will need to create the topics that you are interested in using, below we will show how that is done for tracker data (the only currently supported topics).
+
+### Kafka tracker integration
+
+For doing bulk imports of tracker data, 3 new endpoints has been created:
+
+    /api/trackedEntityInstances/queue (topic: bulk-tracked-entities)
+    /api/enrollments/queue (topic: bulk-enrollments)
+    /api/events/queue (topic: bulk-events)
+
+You can use these endpoints exactly as you would with the normal tracker endpoint, the only difference is that they are all asynchronous, and you will need to get the import summaries using normal task summary approach. Internally there is a scheduled system job called "Kafka Job" which runs every second to check for new objects waiting in Kafka.
+
+The topics will be created by DHIS2 if they don't exist, but be aware that they will then have their basic default settings applied (1 replication factor, and 1 partition only).
+
 ## CSV metadata import
 
 <!--DHIS2-SECTION-ID:webapi_csv_metadata_import-->
@@ -2405,6 +2438,32 @@ To make a dashboard a favorite you can make a _POST_ request (no content type re
 To remove a dashboard as a favorite you can make a _DELETE_ request using the same URL as above.
 
 The favorite status will appear as a boolean _favorite_ field on the object (e.g. the dashboard) in the metadata response.
+
+## Subscriptions
+
+<!--DHIS2-SECTION-ID:webapi_subscription-->
+
+A logged user can subscribe to certain types of objects. Currently subscribable objects are those of type Chart, EventChart, EventReport, Map and ReportTable.
+
+To get the subscribers of an object (return an array of user IDs) you can make a _GET_ request:
+
+    /api/30/<object-type>/<object-id>/subscribers
+
+See example as follows:
+
+    /api/30/charts/DkPKc1EUmC2/subscribers
+
+To check whether the current user is subscribed to an object (returns a boolean) you can perform a _GET_ call:
+
+    /api/30/<object-type>/<object-id>/subscribed
+
+See example as follows:
+
+    /api/30/charts/DkPKc1EUmC2/subscribed
+
+To subscribe/de-subscribe to an object you perform a _POST/DELETE_ request (no content type required):
+
+    /api/30/<object-type>/<object-id>/subscriber
 
 ## File resources
 
@@ -3685,611 +3744,11 @@ DHIS2 exposes an endpoint to GET adx data sets at _/api/dataValueSets_ using _ap
 
 Note the query parameters are the same as are used with DXF data. An important difference is that the identifiers for dataSet and orgUnit are assumed to be codes rather than uids.
 
-## Événements
-
-<!--DHIS2-SECTION-ID:webapi_events-->
-
-This section is about sending and reading events.
-
-    /api/26/events
-
-### Sending events
-
-<!--DHIS2-SECTION-ID:webapi_sending_events-->
-
-DHIS2 supports three kinds of events: single events with no registration (also referred to as anonymous events), single event with registration and multiple events with registration. Registration implies that the data is linked to a tracked entity instance which is identified using some sort of identifier.
-
-To send events to DHIS2 you must interact with the _events_ resource. The approach to sending events is similar to sending aggregate data values. You will need a _program_ which can be looked up using the _programs_ resource, an _orgUnit_ which can be looked up using the _organisationUnits_ resource, and a list of valid data element identifiers which can be looked up using the _dataElements_ resource. For events with registration, a _tracked entity instance_ identifier is required, read about how to get this in the section about the _trackedEntityInstances_ resource. For sending events to programs with multiple stages, you will need to also include the _programStage_ identifier, the identifiers for programStages can be found in the _programStages_ resource.
-
-A simple single event with no registration example payload in XML format where we send events from the "Inpatient morbidity and mortality" program for the "Ngelehun CHC" facility in the demo database can be seen below:
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8"
-      eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
-      <coordinate latitude="59.8" longitude="10.9" />
-      <dataValues>
-        <dataValue dataElement="qrur9Dvnyt5" value="22" />
-        <dataValue dataElement="oZg33kd9taw" value="Male" />
-        <dataValue dataElement="msodh3rEMJa" value="2013-05-18" />
-      </dataValues>
-    </event>
-
-To perform some testing we can save the XML payload as a file called*event.xml* and send it as a POST request to the events resource in the API using curl with the following command:
-
-    curl -d @event.xml "https://play.dhis2.org/demo/api/26/events"
-      -H "Content-Type:application/xml" -u admin:district -v
-
-The same payload in JSON format looks like this:
-
-    {
-      "program": "eBAyeGv0exc",
-      "orgUnit": "DiszpKrYNg8",
-      "eventDate": "2013-05-17",
-      "status": "COMPLETED",
-      "storedBy": "admin",
-      "coordinate": {
-        "latitude": 59.8,
-        "longitude": 10.9
-      },
-      "dataValues": [
-        { "dataElement": "qrur9Dvnyt5", "value": "22" },
-        { "dataElement": "oZg33kd9taw", "value": "Male" },
-        { "dataElement": "msodh3rEMJa", "value": "2013-05-18" }
-      ]
-    }
-
-To send this you can save it to a file called _event.json_ and use curl like this:
-
-    curl -d @event.json "localhost/api/26/events" -H "Content-Type:application/json" -u admin:district -v
-
-We also support sending multiple events at the same time. A payload in XML format might look like this:
-
-    <?xml version="1.0" encoding="utf-8"?>
-    <events>
-        <event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8"
-          eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
-          <coordinate latitude="59.8" longitude="10.9" />
-          <dataValues>
-            <dataValue dataElement="qrur9Dvnyt5" value="22" />
-            <dataValue dataElement="oZg33kd9taw" value="Male" />
-          </dataValues>
-        </event>
-        <event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8"
-          eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
-          <coordinate latitude="59.8" longitude="10.9" />
-          <dataValues>
-            <dataValue dataElement="qrur9Dvnyt5" value="26" />
-            <dataValue dataElement="oZg33kd9taw" value="Female" />
-          </dataValues>
-        </event>
-    </events>
-
-You will receive an import summary with the response which can be inspected in order to get information about the outcome of the request, like how many values were imported successfully. The payload in JSON format looks like this:
-
-    {
-      "events": [
-      {
-        "program": "eBAyeGv0exc",
-        "orgUnit": "DiszpKrYNg8",
-        "eventDate": "2013-05-17",
-        "status": "COMPLETED",
-        "storedBy": "admin",
-        "coordinate": {
-          "latitude": "59.8",
-          "longitude": "10.9"
-        },
-        "dataValues": [
-          { "dataElement": "qrur9Dvnyt5", "value": "22" },
-          { "dataElement": "oZg33kd9taw", "value": "Male" }
-        ] },
-      {
-        "program": "eBAyeGv0exc",
-        "orgUnit": "DiszpKrYNg8",
-        "eventDate": "2013-05-17",
-        "status": "COMPLETED",
-        "storedBy": "admin",
-        "coordinate": {
-          "latitude": "59.8",
-          "longitude": "10.9"
-        },
-        "dataValues": [
-          { "dataElement": "qrur9Dvnyt5", "value": "26" },
-          { "dataElement": "oZg33kd9taw", "value": "Female" }
-        ] }
-      ]
-    }
-
-As part of the import summary you will also get the identifier _reference_ to the event you just sent, together with a _href_ element which points to the server location of this event. The table below describes the meaning of each element.
-
-<table>
-<caption>Events resource format</caption>
-<colgroup>
-<col width="13%" />
-<col width="8%" />
-<col width="8%" />
-<col width="30%" />
-<col width="38%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Type</th>
-<th>Required</th>
-<th>Options (default first)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>program</td>
-<td>string</td>
-<td>true</td>
-<td></td>
-<td>Identifier of the single event with no registration program</td>
-</tr>
-<tr class="even">
-<td>orgUnit</td>
-<td>string</td>
-<td>true</td>
-<td></td>
-<td>Identifier of the organisation unit where the event took place</td>
-</tr>
-<tr class="odd">
-<td>eventDate</td>
-<td>date</td>
-<td>true</td>
-<td></td>
-<td>The date of when the event occured</td>
-</tr>
-<tr class="even">
-<td>status</td>
-<td>enum</td>
-<td>false</td>
-<td>ACTIVE | COMPLETED | VISITED | SCHEDULE | OVERDUE | SKIPPED</td>
-<td>Whether the event is complete or not</td>
-</tr>
-<tr class="odd">
-<td>storedBy</td>
-<td>string</td>
-<td>false</td>
-<td>Defaults to current user</td>
-<td>Who stored this event (can be username, system-name etc)</td>
-</tr>
-<tr class="even">
-<td>coordinate</td>
-<td>double</td>
-<td>false</td>
-<td></td>
-<td>Refers to wher the event took place geographically (latitude and longitude)</td>
-</tr>
-<tr class="odd">
-<td>dataElement</td>
-<td>string</td>
-<td>true</td>
-<td></td>
-<td>Identifier of data element</td>
-</tr>
-<tr class="even">
-<td>value</td>
-<td>string</td>
-<td>true</td>
-<td></td>
-<td>Data value or measure for this event</td>
-</tr>
-</tbody>
-</table>
-
-**OrgUnit matching**: By default the orgUnit parameter will match on the ID, you can also select the orgUnit id matching scheme by using the parameter orgUnitIdScheme=SCHEME, where the options are: _ID_, _UID_, _UUID_, _CODE_, and _NAME_. There is also the _ATTRIBUTE:_ scheme, which matches on a _unique_ metadata attribute value.
-
-**Update**: To update an existing event, the format of the payload is the same, but the URL you are posting to must add the identifier to the end of the URL string and the request must be PUT.
-
-    curl -X PUT -d @updated_event.xml "localhost/api/26/events/ID"
-      -H "Content-Type: application/xml" -u admin:district
-
-    curl -X PUT -d @updated_event.json "localhost/api/26/events/ID"
-      -H "Content-Type: application/json" -u admin:district
-
-**Delete**: To delete an existing event, all you need is to send a DELETE request with a identifier reference to the server you are using.
-
-    curl -X DELETE "localhost/api/26/events/ID" -u admin:district
-
-**Get**: To get an existing event you can issue a GET request including the identifier like this:
-
-    curl "localhost/api/26/events/ID" -H "Content-Type: application/xml" -u admin:district
-
-#### Import parameters
-
-The import process can be customized using a set of import parameters:
-
-<table>
-<caption>Import parameters</caption>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Values (default first)</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>dataElementIdScheme</td>
-<td>id | name | code | attribute:ID</td>
-<td>Property of the data element object to use to map the data values.</td>
-</tr>
-<tr class="even">
-<td>orgUnitIdScheme</td>
-<td>id | name | code | attribute:ID</td>
-<td>Property of the org unit object to use to map the data values.</td>
-</tr>
-<tr class="odd">
-<td>idScheme</td>
-<td>id | name | code| attribute:ID</td>
-<td>Property of all objects including data elements, org units and category option combos, to use to map the data values.</td>
-</tr>
-<tr class="even">
-<td>dryRun</td>
-<td>false | true</td>
-<td>Whether to save changes on the server or just return the import summary.</td>
-</tr>
-<tr class="odd">
-<td>importStrategy</td>
-<td>CREATE | UPDATE | CREATE_AND_UPDATE | DELETE</td>
-<td>Save objects of all, new or update import status on the server.</td>
-</tr>
-<tr class="even">
-<td>skipNotifications</td>
-<td>true | false</td>
-<td>Indicates whether to send notifications for completed events.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>importReportMode</td>
-<td>FULL, ERRORS, DEBUG</td>
-<td>Sets the <strong>ImportReport</strong> mode, controls how much is reported back after the import is done. <strong>ERRORS</strong> only includes <em>ObjectReports</em> for object which has errors. <strong>FULL</strong> returns an <em>ObjectReport</em> for all objects imported, and <strong>DEBUG</strong> returns the same plus a name for the object (if available).</td>
-</tr>
-</tbody>
-</table>
-
-### CSV Import / Export
-
-<!--DHIS2-SECTION-ID:webapi_events_csv_import_export-->
-
-In addition to XML and JSON for event import/export, in DHIS2.17 we introduced support for the CSV format. Support for this format builds on what was described in the last section, so here we will only write about what the CSV specific parts are.
-
-To use the CSV format you must either use the _/api/events.csv_ endpoint, or add _content-type: text/csv_ for import, and _accept: text/csv_ for export when using the _/api/events_ endpoint.
-
-The order of column in the CSV which are used for both export and import is as follows:
-
-<table>
-<caption>CSV column</caption>
-<thead>
-<tr class="header">
-<th>Index</th>
-<th>Key</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>event</td>
-<td>identifier</td>
-<td>Identifier of event</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>status</td>
-<td>enum</td>
-<td>Status of event, can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>program</td>
-<td>identifier</td>
-<td>Identifier of program</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td>programStage</td>
-<td>identifier</td>
-<td>Identifier of program stage</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>enrollment</td>
-<td>identifier</td>
-<td>Identifier of enrollment (program stage instance)</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td>orgUnit</td>
-<td>identifier</td>
-<td>Identifier of organisation unit</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td>eventDate</td>
-<td>date</td>
-<td>Event date</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td>dueDate</td>
-<td>date</td>
-<td>Due Date</td>
-</tr>
-<tr class="odd">
-<td>9</td>
-<td>latitude</td>
-<td>double</td>
-<td>Latitude where event happened</td>
-</tr>
-<tr class="even">
-<td>10</td>
-<td>longitude</td>
-<td>double</td>
-<td>Longitude where event happened</td>
-</tr>
-<tr class="odd">
-<td>11</td>
-<td>dataElement</td>
-<td>identifier</td>
-<td>Identifier of data element</td>
-</tr>
-<tr class="even">
-<td>12</td>
-<td>value</td>
-<td>string</td>
-<td>Value / measure of event</td>
-</tr>
-<tr class="odd">
-<td>13</td>
-<td>storedBy</td>
-<td>string</td>
-<td>Event was stored by (defaults to current user)</td>
-</tr>
-<tr class="even">
-<td>14</td>
-<td>providedElsewhere</td>
-<td>boolean</td>
-<td>Was this value collected somewhere else</td>
-</tr>
-</tbody>
-</table>
-
-_Example of 2 events with 2 different data value each:_
-
-    EJNxP3WreNP,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,1,,
-    EJNxP3WreNP,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,2,,
-    qPEdI1xn7k0,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,3,,
-    qPEdI1xn7k0,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,4,,
-
-### Querying and reading events
-
-<!--DHIS2-SECTION-ID:webapi_querying_reading_events-->
-
-This section explains how to read out the events that have been stored in the DHIS2 instance. For more advanced uses of the event data, please see the section on event analytics. The output format from the _/api/events_ endpoint will match the format that is used to send events to it (which the analytics event api does not support). Both XML and JSON are supported, either through adding .json/.xml or by setting the appropriate _Accept_ header. The query is paged by default and the default page size is 50 events, _field_ filtering works as it does for metadata, add the _fields_ parameter and include your wanted properties, i.e. _?fields=program,status_.
-
-<table>
-<caption>Events resource query parameters</caption>
-<thead>
-<tr class="header">
-<th>Key</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>program</td>
-<td>identifier</td>
-<td>true (if not programStage is provided)</td>
-<td>Identifier of program</td>
-</tr>
-<tr class="even">
-<td>programStage</td>
-<td>identifier</td>
-<td>false</td>
-<td>Identifier of program stage</td>
-</tr>
-<tr class="odd">
-<td>programStatus</td>
-<td>enum</td>
-<td>false</td>
-<td>Status of event in program, ca be ACTIVE | COMPLETED | CANCELLED</td>
-</tr>
-<tr class="even">
-<td>followUp</td>
-<td>boolean</td>
-<td>false</td>
-<td>Whether event is considered for follow up in program, can be true | false or omitted.</td>
-</tr>
-<tr class="odd">
-<td>trackedEntityInstance</td>
-<td>identifier</td>
-<td>false</td>
-<td>Identifier of tracked entity instance</td>
-</tr>
-<tr class="even">
-<td>orgUnit</td>
-<td>identifier</td>
-<td>true</td>
-<td>Identifier of organisation unit</td>
-</tr>
-<tr class="odd">
-<td>ouMode</td>
-<td>enum</td>
-<td>false</td>
-<td>Org unit selection mode, can be SELECTED | CHILDREN | DESCENDANTS</td>
-</tr>
-<tr class="even">
-<td>startDate</td>
-<td>date</td>
-<td>false</td>
-<td>Only events newer than this date</td>
-</tr>
-<tr class="odd">
-<td>endDate</td>
-<td>date</td>
-<td>false</td>
-<td>Only events older than this date</td>
-</tr>
-<tr class="even">
-<td>status</td>
-<td>enum</td>
-<td>false</td>
-<td>Status of event, can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED</td>
-</tr>
-<tr class="odd">
-<td>lastUpdatedStartDate</td>
-<td>date</td>
-<td>false</td>
-<td>Filter for events which were updated after this date.</td>
-</tr>
-<tr class="even">
-<td>lastUpdatedEndDate</td>
-<td>date</td>
-<td>false</td>
-<td>Filter for events which were updated up until this date.</td>
-</tr>
-<tr class="odd">
-<td>skipMeta</td>
-<td>boolean</td>
-<td>false</td>
-<td>Exclude the meta data part of response (improves performance)</td>
-</tr>
-<tr class="even">
-<td>page</td>
-<td>integer</td>
-<td>false</td>
-<td>Page number</td>
-</tr>
-<tr class="odd">
-<td>pageSize</td>
-<td>integer</td>
-<td>falase</td>
-<td>Number of items in each page</td>
-</tr>
-<tr class="even">
-<td>totalPages</td>
-<td>boolean</td>
-<td>false</td>
-<td>Indicates whether to include the total number of pages in the paging response.</td>
-</tr>
-<tr class="odd">
-<td>skipPaging</td>
-<td>boolean</td>
-<td>false</td>
-<td>Indicates whether to skip paging in the query and return all events.</td>
-</tr>
-<tr class="even">
-<td>dataElementIdScheme</td>
-<td>string</td>
-<td>false</td>
-<td>Data element ID scheme to use for export, valid options are UID and CODE</td>
-</tr>
-<tr class="odd">
-<td>categoryOptionComboIdScheme</td>
-<td>string</td>
-<td>false</td>
-<td>Category Option Combo ID scheme to use for export, valid options are UID and CODE</td>
-</tr>
-<tr class="even">
-<td>orgUnitIdScheme</td>
-<td>string</td>
-<td>false</td>
-<td>Organisation Unit ID scheme to use for export, valid options are UID and CODE</td>
-</tr>
-<tr class="odd">
-<td>programIdScheme</td>
-<td>string</td>
-<td>false</td>
-<td>Program ID scheme to use for export, valid options are UID and CODE</td>
-</tr>
-<tr class="even">
-<td>programStageIdScheme</td>
-<td>string</td>
-<td>false</td>
-<td>Program Stage ID scheme to use for export, valid options are UID and CODE</td>
-</tr>
-<tr class="odd">
-<td>idScheme</td>
-<td>string</td>
-<td>false</td>
-<td>Allows to set id scheme for data element, category option combo, orgUnit, program and program stage at once.</td>
-</tr>
-<tr class="even">
-<td>order</td>
-<td>string</td>
-<td>false</td>
-<td>The order of which to retreive the events from the API. Usage: order=&lt;property&gt;:asc/desc - Ascending order is default.
-<p>Properties: event | program | programStage | enrollment | enrollmentStatus | orgUnit | orgUnitName | trackedEntityInstance | eventDate | followup | status | dueDate | storedBy | created | lastUpdated | completedBy | completedDate</p>
-<pre><code>order=orgUnitName:DESC</code></pre>
-<pre><code>order=lastUpdated:ASC</code></pre></td>
-</tr>
-<tr class="odd">
-<td>event</td>
-<td>comma delimited strings</td>
-<td>false</td>
-<td>Filter the result down to a limited set of IDs by using <em>event=id1;id2</em>.</td>
-</tr>
-<tr class="even">
-<td>includeDeleted</td>
-<td>boolean</td>
-<td>false</td>
-<td>When true, soft deleted events will be included in your query result.</td>
-</tr>
-</tbody>
-</table>
-
-#### Examples
-
-Query for all events with children of a certain organisation unit:
-
-    /api/26/events.json?orgUnit=YuQRtpLP10I&ouMode=CHILDREN
-
-Query for all events with all descendants of a certain organisation unit, implying all organisation units in the sub-hierarchy:
-
-    /api/26/events.json?orgUnit=O6uvpzGd5pu&ouMode=DESCENDANTS
-
-Query for all events with a certain program and organisation unit:
-
-    /api/26/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
-
-Query for all events with a certain program and organisation unit, sorting by due date ascending:
-
-    /api/26/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc&order=dueDate
-
-Query for the 10 events with the newest event date in a certain program and organisation unit - by paging and ordering by due date descending:
-
-    /api/26/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
-      &order=eventDate:desc&pageSize=10&page=1
-
-Query for all events with a certain program and organisation unit for a specific tracked entity instance:
-
-    /api/26/events.json?orgUnit=DiszpKrYNg8
-      &program=eBAyeGv0exc&trackedEntityInstance=gfVxE3ALA9m
-
-Query for all events with a certain program and organisation unit older or equal to 2014-02-03:
-
-    /api/26/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc&endDate=2014-02-03
-
-Query for all events with a certain program stage, organisation unit and tracked entity instance in the year 2014:
-
-    /api/26/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
-      &trackedEntityInstance=gfVxE3ALA9m&startDate=2014-01-01&endDate=2014-12-31
-
 ## Program rules
 
 <!--DHIS2-SECTION-ID:webapi_program_rules-->
 
-This section is about sending and reading program rules, and explains the program rules data model. The program rules gives functionality to configure dynamic behavior in the programs in DHIS.
+This section is about sending and reading program rules, and explains the program rules data model. The program rules gives functionality to configure dynamic behaviour in the programs in DHIS2.
 
 ### Program rule model
 
@@ -4306,9 +3765,9 @@ The following table gives a detailed overview over the programRule model.
 <table style="width:100%;">
 <caption>programRule</caption>
 <colgroup>
-<col width="16%" />
-<col width="66%" />
-<col width="16%" />
+<col style="width: 16%" />
+<col style="width: 66%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4325,12 +3784,12 @@ The following table gives a detailed overview over the programRule model.
 </tr>
 <tr class="even">
 <td>name</td>
-<td>The name with which the program rule will be displayed to dhis configurators. Not visisble to the end user of the program.</td>
+<td>The name with which the program rule will be displayed to dhis2 configurators. Not visible to the end user of the program.</td>
 <td>Compulsory</td>
 </tr>
 <tr class="odd">
 <td>description</td>
-<td>The description of the program rule, can be used by configurators to describe the rule. Not visisble to the end user of the program.</td>
+<td>The description of the program rule, can be used by configurators to describe the rule. Not visible to the end user of the program.</td>
 <td>Compulsory</td>
 </tr>
 <tr class="even">
@@ -4359,9 +3818,9 @@ The following table gives a detailed overview over the programRuleAction model.
 <table style="width:100%;">
 <caption>programRuleAction</caption>
 <colgroup>
-<col width="16%" />
-<col width="66%" />
-<col width="16%" />
+<col style="width: 16%" />
+<col style="width: 66%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4439,16 +3898,21 @@ The following table gives a detailed overview over the programRuleAction model.
 <li><p><em>dataElement</em> - if defined, this data element will be set to be mandatory in the data entry form.</p></li>
 <li><p><em>trackedEntityAttribute</em> - if defined, this tracked entity attribute will be set to mandatory in the registration form or profile.</p></li>
 </ul></li>
-<li><p><strong>SENDMESSAGE</strong> - Send message at completion of event/enrollment</p>
+<li><p><strong>SENDMESSAGE</strong> - To send message at completion of event/enrollment or at data value update.</p>
 <ul>
 <li><p><em>messageTemplate</em> - if defined, this template will be delivered either as SMS or EMAIL depending upon DeliveryChannel value in message template.</p></li>
+</ul></li>
+<li><p><strong>SCHEDULEMESSAGE</strong> - To schedule message at completion of event/enrollment or at data value update.</p>
+<ul>
+<li><p><em>messageTemplate</em> - if defined, this template will be delivered either as SMS or EMAIL depending upon DeliveryChannel value in message template.</p></li>
+<li><p><em>Date to send message</em> - Expression which is going to be used for evaluation of scheduled date.</p></li>
 </ul></li>
 </ul></td>
 <td>Compulsory</td>
 </tr>
 <tr class="odd">
 <td>location</td>
-<td>Used for actionType DISPLAYKEYVALUEPAIR and DISPLAYTEXT to designate which widget to display the text or keyvalyepair in. Compulsory for DISPLAYKEYVALUEPAIR and DISPLAYTEXT.</td>
+<td>Used for actionType DISPLAYKEYVALUEPAIR and DISPLAYTEXT to designate which widget to display the text or keyvaluepair in. Compulsory for DISPLAYKEYVALUEPAIR and DISPLAYTEXT.</td>
 <td>See description</td>
 </tr>
 <tr class="even">
@@ -4472,6 +3936,16 @@ The following table gives a detailed overview over the programRuleAction model.
 <td>See description</td>
 </tr>
 <tr class="even">
+<td>option</td>
+<td>Used for linking rule actions to options. See the actionType overview for a detailed explanation for how it is used in each of the action types. Optional for HIDEOPTION</td>
+<td>See description</td>
+</tr>
+<tr class="odd">
+<td>optionGroup</td>
+<td>Used for linking rule actions to optionGroups. See the actionType overview for a detailed explanation for how it is used in each of the action types. Compulsory for SHOWOPTIONGROUP, HIDEOPTIONGROUP.</td>
+<td>See description</td>
+</tr>
+<tr class="even">
 <td>programStage</td>
 <td>Only used for CREATEEVENT rule actions. Compulsory for CREATEEEVENT.</td>
 <td>See description</td>
@@ -4491,9 +3965,9 @@ The following table gives a detailed overview over the programRuleVariable model
 <table style="width:100%;">
 <caption>programRuleVariable</caption>
 <colgroup>
-<col width="16%" />
-<col width="66%" />
-<col width="16%" />
+<col style="width: 16%" />
+<col style="width: 66%" />
+<col style="width: 16%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4513,9 +3987,9 @@ The following table gives a detailed overview over the programRuleVariable model
 <td>sourceType</td>
 <td>Defines how this variable is populated with data from the enrollment and events.
 <ul>
-<li><p>DATAELEMENT_NEWEST_EVENT_PROGRAM_STAGE - In tracker capture, gets the newest value that exists for a dataelement, within the events of a given program stage in the current enrollment. In event capture, gets the newest value among the 10 newest events on the organisation unit.</p></li>
-<li><p>DATAELEMENT_NEWEST_EVENT_PROGRAM - In tracker capture, get the newest value that exists for a dataelement across the whole enrollment. In event capture, gets the newest value among the 10 newest events on the organisation unit.</p></li>
-<li><p>DATAELEMENT_CURRENT_EVENT - Gets the value of the given dataelement in the current event only.</p></li>
+<li><p>DATAELEMENT_NEWEST_EVENT_PROGRAM_STAGE - In tracker capture, gets the newest value that exists for a data element, within the events of a given program stage in the current enrollment. In event capture, gets the newest value among the 10 newest events on the organisation unit.</p></li>
+<li><p>DATAELEMENT_NEWEST_EVENT_PROGRAM - In tracker capture, get the newest value that exists for a data element across the whole enrollment. In event capture, gets the newest value among the 10 newest events on the organisation unit.</p></li>
+<li><p>DATAELEMENT_CURRENT_EVENT - Gets the value of the given data element in the current event only.</p></li>
 <li><p>DATAELEMENT_PREVIOUS_EVENT - In tracker capture, gets the newest value that exists among events in the program that precedes the current event. In event capture, gets the newvest value among the 10 preceeding events registered on the organisation unit.</p></li>
 <li><p>CALCULATED_VALUE - Used to reserve a variable name that will be assigned by a ASSIGN program rule action</p></li>
 <li><p>TEI_ATTRIBUTE - Gets the value of a given tracked entity attribute</p></li>
@@ -4560,9 +4034,9 @@ To retrieve information about a form (which corresponds to a data set and its se
 <table>
 <caption>Form query parameters</caption>
 <colgroup>
-<col width="12%" />
-<col width="12%" />
-<col width="74%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 74%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4613,13 +4087,15 @@ When it comes to custom data entry forms, this resource also allows for creating
 
 ## Documents
 
+<!--DHIS2-SECTION-ID:webapi_documents-->
+
 References to files can be stored with the document resource.
 
 <table>
 <caption>Document fields</caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4638,7 +4114,7 @@ References to files can be stored with the document resource.
 </tr>
 <tr class="odd">
 <td>url</td>
-<td>the location of the file. URL for external files. File resource id for internal ones (see <a href="#webapi_file_resources">section_title</a>)</td>
+<td>the location of the file. URL for external files. File resource id for internal ones (see <a href="#webapi_file_resources">File resources</a>)</td>
 </tr>
 </tbody>
 </table>
@@ -4649,7 +4125,7 @@ A GET request to the documents endpoint will return all documents:
 
 A POST request to the doucuments endpoint will create a new document:
 
-    curl -X POST -d @document.json -H "Content-type: allication/json"
+    curl -X POST -d @document.json -H "Content-type: application/json"
       http://dhis.domain/api/29/documents
 
     {
@@ -4691,8 +4167,8 @@ The validation rules have a left side and a right side, which is compared for va
 <table>
 <caption>Operators</caption>
 <colgroup>
-<col width="28%" />
-<col width="71%" />
+<col style="width: 28%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4745,8 +4221,8 @@ The left side and right side expressions have a _missing value strategy_. This r
 <table>
 <caption>Missing value strategies</caption>
 <colgroup>
-<col width="28%" />
-<col width="71%" />
+<col style="width: 28%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4778,13 +4254,13 @@ Validation results are persisted results of violations found during a validation
 
 1.  Generating analytics based on the stored results.
 
-2.  Peristed results that has not generated a notification, will do so, once.
+2.  Persisted results that has not generated a notification, will do so, once.
 
 3.  Keeping track of whether or not the result has generated a notification.
 
 4.  Skipping rules that have been already checked when running validation analysis.
 
-This means if you don't persist your results, you will be unable to generate analytics for validation results, if checked, results will generate notfications every time it's found and running validation analysis might be slower.
+This means if you don't persist your results, you will be unable to generate analytics for validation results, if checked, results will generate notifications every time it's found and running validation analysis might be slower.
 
 The validation results persisted can be viewed at the following endpoint:
 
@@ -4798,7 +4274,7 @@ Validation results are sent out to the appropriate users once every day, but can
 
     /api/26/validation/sendNotifications
 
-Only unsendt results are sendt using this endpoint.
+Only unsent results are sent using this endpoint.
 
 ## Data integrity
 
@@ -4814,7 +4290,7 @@ The operation of measuring data integrity is a fairly resource (and time) demand
 
     curl -X POST https://dhis.domain/api/26/dataIntegrity
 
-If successful the request will return HTTP 202 immediately. The location header of the response points to the resource used to check the status of the request. Forming a GET request to the given location yields an empty JSON response if the task has not yet completed and a JSON taskSummary object when the task is done. Polling (conservatively) to this resource can hence be used to wait for the task to finish.
+If successful the request will return HTTP 202 immediately. The location header of the response points to the resource used to check the status of the request. The payload also contains a json object of the job created. Forming a GET request to the given location yields an empty JSON response if the task has not yet completed and a JSON taskSummary object when the task is done. Polling (conservatively) to this resource can hence be used to wait for the task to finish.
 
 ### Fetching the result
 
@@ -4845,9 +4321,9 @@ Indicators represent expressions which can be calculated and presented as a resu
 <table>
 <caption>Indicator variables</caption>
 <colgroup>
-<col width="39%" />
-<col width="22%" />
-<col width="37%" />
+<col style="width: 39%" />
+<col style="width: 22%" />
+<col style="width: 37%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4860,7 +4336,7 @@ Indicators represent expressions which can be calculated and presented as a resu
 <tr class="odd">
 <td>#{&lt;dataelement-id&gt;.&lt;categoryoptcombo-id&gt;.&lt;attributeoptcombo-id&gt;}</td>
 <td>Data element operand</td>
-<td>Refers to a combination of an aggregate data element and a category option combination. Both category and attribute option combo ids are optional, and a wilcard &quot;*&quot; symbol can be used to indicate any value.</td>
+<td>Refers to a combination of an aggregate data element and a category option combination. Both category and attribute option combo ids are optional, and a wildcard &quot;*&quot; symbol can be used to indicate any value.</td>
 </tr>
 <tr class="even">
 <td>#{&lt;dataelement-id&gt;}</td>
@@ -4949,8 +4425,8 @@ Program indicators can contain information collected in a program. Indicators ha
 <table>
 <caption>Program indicator variables</caption>
 <colgroup>
-<col width="31%" />
-<col width="68%" />
+<col style="width: 31%" />
+<col style="width: 68%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -4968,7 +4444,7 @@ Program indicators can contain information collected in a program. Indicators ha
 <td>Refers to a tracked entity attribute.</td>
 </tr>
 <tr class="odd">
-<td>V{&lt;varible-id&gt;}</td>
+<td>V{&lt;variable-id&gt;}</td>
 <td>Refers to a program variable.</td>
 </tr>
 <tr class="even">
@@ -5036,9 +4512,9 @@ The import process supports the following query parameters:
 <table>
 <caption>Complete data set registrations query parameters</caption>
 <colgroup>
-<col width="16%" />
-<col width="18%" />
-<col width="64%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 64%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5050,22 +4526,22 @@ The import process supports the following query parameters:
 <tbody>
 <tr class="odd">
 <td>dataSetIdScheme</td>
-<td>id | name | code | attribute:ID</td>
+<td>id | name | code | attribute:ID</td>
 <td>Property of the data set to use to map the complete registrations.</td>
 </tr>
 <tr class="even">
 <td>orgUnitIdScheme</td>
-<td>id | name | code | attribute:ID</td>
+<td>id | name | code | attribute:ID</td>
 <td>Property of the organisation unit to use to map the complete registrations.</td>
 </tr>
 <tr class="odd">
 <td>attributeOptionComboIdScheme</td>
-<td>id | name | code | attribute:ID</td>
+<td>id | name | code | attribute:ID</td>
 <td>Property of the attribute option combos to use to map the complete registrations.</td>
 </tr>
 <tr class="even">
 <td>idScheme</td>
-<td>id | name | code | attribute:ID</td>
+<td>id | name | code | attribute:ID</td>
 <td>Property of all objects including data sets, org units and attribute option combos, to use to map the complete registrations.</td>
 </tr>
 <tr class="odd">
@@ -5075,7 +4551,7 @@ The import process supports the following query parameters:
 </tr>
 <tr class="even">
 <td>dryRun</td>
-<td>false | true</td>
+<td>false | true</td>
 <td>Whether registration applies to sub units</td>
 </tr>
 <tr class="odd">
@@ -5085,12 +4561,12 @@ The import process supports the following query parameters:
 </tr>
 <tr class="even">
 <td>skipExistingCheck</td>
-<td>false | true</td>
+<td>false | true</td>
 <td>Skip checks for existing complete registrations. Improves performance. Only use for empty databases or when the registrations to import do not exist already.</td>
 </tr>
 <tr class="odd">
 <td>async</td>
-<td>false | true</td>
+<td>false | true</td>
 <td>Indicates whether the import should be done asynchronous or synchronous. The former is suitable for very large imports as it ensures that the request does not time out, although it has a significant performance overhead. The latter is faster but requires the connection to persist until the process is finished.</td>
 </tr>
 </tbody>
@@ -5105,8 +4581,8 @@ This section explains how to retrieve data set completeness registrations. We wi
 <table>
 <caption>Data value set query parameters</caption>
 <colgroup>
-<col width="18%" />
-<col width="81%" />
+<col style="width: 18%" />
+<col style="width: 81%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5176,7 +4652,7 @@ This section explains how to retrieve data set completeness registrations. We wi
 
 The dataSet and orgUnit parameters can be repeated in order to include multiple data sets and organisation units.
 
-The period, start/end date, created and createdDuration parameters provde multple ways to set the time dimension for the request, thus only one can be used. For example, it doesn't make sense to both set the start/end date and to set the periods.
+The period, start/end date, created and createdDuration parameters provide multiple ways to set the time dimension for the request, thus only one can be used. For example, it doesn't make sense to both set the start/end date and to set the periods.
 
 An example request looks like this:
 
@@ -5199,9 +4675,9 @@ This resource supports _DELETE_ for un-registration. The following query paramet
 <table>
 <caption>Complete data set registrations query parameters</caption>
 <colgroup>
-<col width="16%" />
-<col width="18%" />
-<col width="64%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 64%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5263,9 +4739,9 @@ To get approval information for a data set you can issue a GET request similar t
 <table style="width:100%;">
 <caption>Data approval query parameters</caption>
 <colgroup>
-<col width="16%" />
-<col width="18%" />
-<col width="64%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 64%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5298,7 +4774,7 @@ To get approval information for a data set you can issue a GET request similar t
 </tbody>
 </table>
 
-(Note: for backwards compatibility, the partameter ds for data set may be given instaed of wf for workflow in this and other data approval requests as described below. If the data set is given, the workflow associated with that data set will be used.)
+(Note: for backwards compatibility, the parameter ds for data set may be given instead of wf for workflow in this and other data approval requests as described below. If the data set is given, the workflow associated with that data set will be used.)
 
 This will give you a response something like this:
 
@@ -5315,8 +4791,8 @@ The returned parameters are:
 <table>
 <caption>Data approval query parameters</caption>
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5351,8 +4827,8 @@ The returned parameters are:
 <table>
 <caption>Data approval states</caption>
 <colgroup>
-<col width="33%" />
-<col width="66%" />
+<col style="width: 33%" />
+<col style="width: 66%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5408,7 +4884,7 @@ Note that when querying for the status of data approval, you may specify any com
 
 - You may specify individual attribute category options. The approval status is determined by whether data is approved for an attribute category option combination that includes one or more of these options.
 
-- You may specify a time period that is longer than the period for the data set at which the data is entered and approvede. The approval status is determined by whether the data is approved for all the data set periods within the period you specify.
+- You may specify a time period that is longer than the period for the data set at which the data is entered and approved. The approval status is determined by whether the data is approved for all the data set periods within the period you specify.
 
 For data sets which are associated with a category combo you might want to fetch data approval records for individual attribute option combos from the following resource:
 
@@ -5431,9 +4907,9 @@ These requests contain the following parameters:
 <table style="width:100%;">
 <caption>Data approval action parameters</caption>
 <colgroup>
-<col width="16%" />
-<col width="18%" />
-<col width="64%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 64%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5468,7 +4944,7 @@ These requests contain the following parameters:
 
 Note that, unlike querying the data approval status, you must specify parameters that correspond to a selection of data that could be approved. In particular, both of the following must be true:
 
-- The organisation unit's level must be specified by an approval level in the workfow.
+- The organisation unit's level must be specified by an approval level in the workflow.
 
 - The time period specified must match the period type of the workflow.
 
@@ -5525,9 +5001,9 @@ The endpoint for aggregate data value audits is located at _/api/audits/dataValu
 <table>
 <caption>Aggregate data value query parameters</caption>
 <colgroup>
-<col width="12%" />
-<col width="14%" />
-<col width="72%" />
+<col style="width: 12%" />
+<col style="width: 14%" />
+<col style="width: 72%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5588,9 +5064,9 @@ The endpoint for tracked entity data value audits is located at _/api/audits/tra
 <table>
 <caption>Tracked entity data value query parameters</caption>
 <colgroup>
-<col width="12%" />
-<col width="16%" />
-<col width="71%" />
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 71%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5641,9 +5117,9 @@ The endpoint for tracked entity attribute value audits is located at _/api/audit
 <table>
 <caption>Tracked entity attribute value query parameters</caption>
 <colgroup>
-<col width="12%" />
-<col width="16%" />
-<col width="70%" />
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 70%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5685,6 +5161,141 @@ Get all audits which have attribute with ID VqEFza8wbwA:
 
     /api/26/audits/trackedEntityAttributeValue?tea=VqEFza8wbwA
 
+### Tracked entity instance audits
+
+<!--DHIS2-SECTION-ID:webapi_tracked_entity_instance_audits-->
+
+Once auditing is enabled for tracked entity instances (by setting allowAuditLog of tracked entity types to true), all read and search operations are logged. The endpoint for accessing audit logs is api/audits/trackedEntityInstance. Below are available parameters to interact with this endpoint.
+
+<table>
+<caption>Tracked entity instance audit query parameters</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tei</td>
+<td>Tracked Entity Instance</td>
+<td>One or more tracked entity instance identifiers</td>
+</tr>
+<tr class="even">
+<td>user</td>
+<td>User</td>
+<td>One or more user identifiers</td>
+</tr>
+<tr class="odd">
+<td>auditType</td>
+<td>SEARCH | READ</td>
+<td>Audit type to filter for</td>
+</tr>
+<tr class="even">
+<td>startDate</td>
+<td>Start date</td>
+<td>Start date for audit filtering in yyyy-mm-dd format.</td>
+</tr>
+<tr class="odd">
+<td>endDate</td>
+<td>End date</td>
+<td>End date for audit filtering in yyyy-mm-dd format.</td>
+</tr>
+<tr class="even">
+<td>skipPaging</td>
+<td>false | true</td>
+<td>Turn paging on / off.</td>
+</tr>
+<tr class="odd">
+<td>page</td>
+<td>1 (default)</td>
+<td>Specific page to ask for.</td>
+</tr>
+<tr class="even">
+<td>pageSize</td>
+<td>50 (default)</td>
+<td>Page size.</td>
+</tr>
+</tbody>
+</table>
+
+Get all tracked entity instance audits of type READ with startDate=2018-03-01 and endDate=2018-04-24 in a page size of 5:
+
+    api/27/audits/trackedEntityInstance.json?startDate=2018-03-01&endDate=2018-04-24&auditType=READ&pageSize=5
+
+### Enrollment audits
+
+<!--DHIS2-SECTION-ID:webapi_enrollment_audits-->
+
+Once auditing is enabled for enrollments (**by setting allowAuditLog of tracker programs to true**), all read operations are logged. The endpoint for accessing audit logs is api/audits/enrollment. Below are available parameters to interact with this endpoint.
+
+<table>
+<caption>Enrollment audit query parameters</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>en</td>
+<td>Enrollment</td>
+<td>One or more tracked entity instance identifiers</td>
+</tr>
+<tr class="even">
+<td>user</td>
+<td>User</td>
+<td>One or more user identifiers</td>
+</tr>
+<tr class="odd">
+<td>startDate</td>
+<td>Start date</td>
+<td>Start date for audit filtering in yyyy-mm-dd format.</td>
+</tr>
+<tr class="even">
+<td>endDate</td>
+<td>End date</td>
+<td>End date for audit filtering in yyyy-mm-dd format.</td>
+</tr>
+<tr class="odd">
+<td>skipPaging</td>
+<td>false | true</td>
+<td>Turn paging on / off.</td>
+</tr>
+<tr class="even">
+<td>page</td>
+<td>1 (default)</td>
+<td>Specific page to ask for.</td>
+</tr>
+<tr class="odd">
+<td>pageSize</td>
+<td>50 (default)</td>
+<td>Page size.</td>
+</tr>
+</tbody>
+</table>
+
+Get all enrollment audits with startDate=2018-03-01 and endDate=2018-04-24 in a page size of 5:
+
+    api/audits/enrollment.json?startDate=2018-03-01&endDate=2018-04-24&pageSize=5
+
+Get all enrollment audits for user admin
+
+    api/audits/enrollment.json?user=admin
+
 ### Data approval audits
 
 The endpoint for data approval audits is located at /api/audits/dataApproval, and the available parameters are displayed in the table below.
@@ -5692,9 +5303,9 @@ The endpoint for data approval audits is located at /api/audits/dataApproval, an
 <table>
 <caption><strong>Data approval query parameters</strong></caption>
 <colgroup>
-<col width="12%" />
-<col width="16%" />
-<col width="70%" />
+<col style="width: 12%" />
+<col style="width: 16%" />
+<col style="width: 70%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5848,7 +5459,7 @@ A corresponding payload in JSON and POST command look like this:
 
 If all is well we receive a _201 Created_ HTTP status code. Also note that we receive a *Location*HTTP header which value informs us of the URL of the newly created message conversation resource - this can be used by a consumer to perform further action.
 
-We will now pretend to be the mobile user and read te message which was just sent by dispatching a GET request to the _messageConversations_ resource. We supply an _Accept_ header with _application/xml_ as the value to indicate that we are interested in the XML resource representation and we authenticate as the _mobile_ user:
+We will now pretend to be the mobile user and read the message which was just sent by dispatching a GET request to the _messageConversations_ resource. We supply an _Accept_ header with _application/xml_ as the value to indicate that we are interested in the XML resource representation and we authenticate as the _mobile_ user:
 
     curl "https://play.dhis2.org/demo/api/26/messageConversations"
       -H "Accept:application/xml" -u mobile:district -X GET -v
@@ -5870,6 +5481,12 @@ From the response we are able to read the identifier of the newly sent message w
       -H "Content-Type:text/plain" -u mobile:district -X POST -v
 
 If all went according to plan you will receive a _200 OK_ status code.
+
+In 2.30 we added an URL search parameter:
+
+    queryString=?&queryOperator=?
+
+The filter searches for matches in subject, messages' text and messages' senders for message conversations. The default query operator is token due to better text search, but you can supply your own operator.
 
 ### Managing messages
 
@@ -5903,7 +5520,7 @@ If you have sufficient permissions, conversations can be removed on behalf of an
     curl "https://play.dhis2.org/demo/api/26/messageConversations?mc=WzMRrCosqc0&mc=lxCjiigqrJm&user=PhzytPW3g2J"
       -X DELETE -u admin:district
 
-As indicated, batch removals will return the same message format as for single operations. The list of removed objects will reflect successful removals performed. Partially errorenous requests (i.e. non-existing id) will therefore not cancel the entire batch operation.
+As indicated, batch removals will return the same message format as for single operations. The list of removed objects will reflect successful removals performed. Partially erroneous requests (i.e. non-existing id) will therefore not cancel the entire batch operation.
 
 Messages carry a boolean _read_ property. This allows tracking whether a user has seen (opened) a message or not. In a typical application scenario (e.g. the DHIS2 web portal) a message will be marked read as soon as the user opens it for the first time. However, users might want to manage the read or unread status of their messages in order to keep track of certain conversations.
 
@@ -5919,6 +5536,36 @@ The response is a _200 OK_ with the following JSON body:
 
     { "markedRead" : [ "ZrKML5WiyFm", "Gc03smoTm6q" ] }
 
+In 2.30 we have included the option to add recipients to an existing message conversation. The resource is located at
+
+    https://play.dhis2.org/demo/api/30/messageConversations/id/recipients
+
+The options for this resource is a list of users, user groups and organisation units. The request should look like this:
+
+```
+{
+    "users": [
+        {
+        "id": "OYLGMiazHtW"
+        },
+        {
+        "id": "N3PZBUlN8vq"
+        }
+    ],
+    "userGroups": [
+        {
+        "id": "DiszpKrYNg8"
+        }
+    ],
+    "organisationUnits": [
+        {
+        "id": "DiszpKrYNg8"
+        }
+    ]
+}
+
+```
+
 ### Tickets and Validation Result Notifications
 
 <!--DHIS2-SECTION-ID:webapi_messaging_tickets-->
@@ -5931,11 +5578,13 @@ You can use the "write feedback" tool to create tickets and messages. The only d
 
 In 2.29, messages generated by validation analysis now also be used in the status and priority properties. By default, messages generated by validation analysis will inherit the priority of the validation rule in question, or the highest importance if the message contains multiple rules.
 
+In 2.30, validation rules can be assigned to any user while tickets still need to be assigned to a user in the system's feedback recipient group.
+
 <table>
 <caption>A list of valid status and priority values</caption>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col style="width: 50%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -5973,17 +5622,17 @@ You can also add an internal message to a ticket, which can only be seen by user
 
 <!--DHIS2-SECTION-ID:webapi_interpretations-->
 
-For resources related to data analysis in DHIS 2, such as pivot tables, charts, maps, event reports and event charts, you can write and share data interpretations. An interpretation can be a comment, question, observation or interpretation about a data report or visualization.
+For resources related to data analysis in DHIS2, such as pivot tables, charts, maps, event reports and event charts, you can write and share data interpretations. An interpretation can be a comment, question, observation or interpretation about a data report or visualization.
 
-    /api/26/interpretations
+    /api/30/interpretations
 
 ### Reading interpretations
 
 <!--DHIS2-SECTION-ID:webapi_reading_interpretations-->
 
-To read interpretations we will interact with the _/api/26/interpretations_ resource. A typical GET request using field filtering can look like this:
+To read interpretations we will interact with the _/api/30/interpretations_ resource. A typical GET request using field filtering can look like this:
 
-    GET /api/26/interpretations?fields=*,comments[id,text,user]
+    GET /api/30/interpretations?fields=*,comments[id,text,user,mentions]
 
 The output in JSON response format could look like below (additional fields omitted for brevity):
 
@@ -6012,17 +5661,35 @@ The output in JSON response format could look like below (additional fields omit
             "chart": {
               "id": "HDEDqV3yv3H"
             },
+            mentions: [
+            {
+              "created": "2018-06-25T10:25:54.498",
+              "username": "boateng"
+            }
+            ],
             "comments": [{
                 "id": "iB4Etq8yTE6",
-                "text": "This report indicates a surge",
+                "text": "This report indicates a surge.",
                 "user": {
                     "id": "B4XIfwOcGyI"
                 }, {
                 "id": "iB4Etq8yTE6",
-                "text": "Likely caused by heavy rainfall",
+                "text": "Likely caused by heavy rainfall.",
                 "user": {
                     "id": "B4XIfwOcGyI"
+                },
+                {
+                "id": "SIjkdENan8p",
+                "text": "Have a look at this @boateng.",
+                "user": {
+                  "id": "xE7jOejl9FI"
+                },
+                "mentions": [{
+                  "created": "2018-06-25T10:03:52.316",
+                  "username": "boateng"
                 }]
+                }
+              }]
             }
         }]
     }
@@ -6030,8 +5697,8 @@ The output in JSON response format could look like below (additional fields omit
 <table>
 <caption>Interpretation fields</caption>
 <colgroup>
-<col width="25%" />
-<col width="75%" />
+<col style="width: 25%" />
+<col style="width: 75%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6084,18 +5751,34 @@ The output in JSON response format could look like below (additional fields omit
 <td>comments</td>
 <td>Array of comments for the interpretation. The text field holds the actual comment.</td>
 </tr>
+<tr class="even">
+<td>mentions</td>
+<td>Array of mentions for the interpretation. A list of users identifiers.</td>
+</tr>
 </tbody>
 </table>
 
-For all analytical objects you can append _/data_ to the URL to retrieve the data associated with the resource (as apposed to the metadata). As an example, by following the map link and appending /data one can retrieve a PNG (image) representation of the thematic map through the following URL:
+For all analytical objects you can append _/data_ to the URL to retrieve the data associated with the resource (as opposed to the metadata). As an example, by following the map link and appending /data one can retrieve a PNG (image) representation of the thematic map through the following URL:
 
-    https://play.dhis2.org/demo/api/26/maps/bhmHJ4ZCdCd/data
+    https://play.dhis2.org/demo/api/30/maps/bhmHJ4ZCdCd/data
+
+For all analytical objects you can filter by _mentions_. To retrieve all the interpretations/comments where a user has been mentioned you have three options. You can filter by the interpretation mentions (mentions in the interpretation description):
+
+    GET /api/30/interpretations?fields=*,comments[*]&filter=mentions.username:in:[boateng]
+
+You can filter by the interpretation comments mentions (mentions in any comment):
+
+    GET /api/30/interpretations?fields=*,comments[*]&filter=comments.mentions.username:in:[boateng]
+
+or you can filter by intepretations which contains the mentions either in the interpretation or in any comment (OR junction):
+
+    GET /api/30/interpretations?fields=*,comments[*]&filter=mentions:in:[boateng]
 
 ### Writing interpretations
 
 <!--DHIS2-SECTION-ID:webapi_writing_interpretations-->
 
-When writing interpretations you will supply the interpretation text as the request body using a POST request with content type "text/plain". The URL pattern looks like the below, where {object-type} refers to the type of the object being interpreted, and {object-id} refers to the identifier of the obejct being interpreted.
+When writing interpretations you will supply the interpretation text as the request body using a POST request with content type "text/plain". The URL pattern looks like the below, where {object-type} refers to the type of the object being interpreted, and {object-id} refers to the identifier of the object being interpreted.
 
     /api/26/interpretations/{object-type}/{object-id}
 
@@ -6176,7 +5859,7 @@ A like will be added for the currently authenticated user. A user can only like 
 
 To remove a like for an interpretation you can use a DELETE request to the same resource as for the like operation.
 
-The like status of an intepretation can be viewed by looking at the regular Web API representation:
+The like status of an interpretation can be viewed by looking at the regular Web API representation:
 
     GET /api/26/interpretations/{id}
 
@@ -6198,15 +5881,15 @@ The like information is found in the _likes_ field, which represents the number 
 
 <!--DHIS2-SECTION-ID:webapi_viewing_analytical_resource_representations-->
 
-DHIS2 has several resources for data analysis. These resources include _charts_, _maps_, _reportTables_, _reports_ and _documents_. By visiting these resources you will retrieve information about the resource. For instance, by navigating to _api/charts/R0DVGvXDUNP_ the response will contain the name, last date of modication and so on for the chart. To retrieve the analytical representation, for instance a PNG representation of the chart, you can append _/data_ to all these resources. For instance, by visiting _api/charts/R0DVGvXDUNP/data_ the system will return a PNG image of the chart.
+DHIS2 has several resources for data analysis. These resources include _charts_, _maps_, _reportTables_, _reports_ and _documents_. By visiting these resources you will retrieve information about the resource. For instance, by navigating to _api/charts/R0DVGvXDUNP_ the response will contain the name, last date of modification and so on for the chart. To retrieve the analytical representation, for instance a PNG representation of the chart, you can append _/data_ to all these resources. For instance, by visiting _api/charts/R0DVGvXDUNP/data_ the system will return a PNG image of the chart.
 
 <table>
 <caption>Analytical resources</caption>
 <colgroup>
-<col width="17%" />
-<col width="17%" />
-<col width="32%" />
-<col width="32%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 32%" />
+<col style="width: 32%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6261,9 +5944,9 @@ The data content of the analytical representations can be modified by providing 
 <table>
 <caption>Data query parameters</caption>
 <colgroup>
-<col width="21%" />
-<col width="28%" />
-<col width="50%" />
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 50%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6284,8 +5967,8 @@ The data content of the analytical representations can be modified by providing 
 <table>
 <caption>Query parameters for png / image types (charts, maps)</caption>
 <colgroup>
-<col width="21%" />
-<col width="78%" />
+<col style="width: 21%" />
+<col style="width: 78%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -6397,7 +6080,7 @@ We start by having a look at what the complete html file could look like. This s
     </body>
     </html>
 
-Two files are included in the header section of the HTML document. The first file is the jQuery javascript library (we use the DHIS2 content delivery network in this case). The second file is the Pivot table plug-in. Make sure the path is pointing to your DHIS2 server installation.
+Two files are included in the header section of the HTML document. The first file is the jQuery JavaScript library (we use the DHIS2 content delivery network in this case). The second file is the Pivot table plug-in. Make sure the path is pointing to your DHIS2 server installation.
 
 Now let us have a look at the various options for the Pivot tables. One property is required: _el_ (please refer to the table below). Now, if you want to refer to pre-defined tables already made inside DHIS2 it is sufficient to provide the additional _id_ parameter. If you instead want to configure a pivot table dynamically you should omit the id parameter and provide data dimensions inside a _columns_ array, a _rows_ array and optionally a _filters_ array instead.
 
@@ -7617,7 +7300,7 @@ The analytics resource lets you specify a range of query parameters:
 <td>aggregationType</td>
 <td>No</td>
 <td>Aggregation type to use in the aggregation process.</td>
-<td>SUM | AVERAGE |AVERAGE_SUM_ORG_UNIT|LAST|LAST_AVERAGE_ORG_UNIT| COUNT | STDDEV | VARIANCE|MIN|MAX</td>
+<td>SUM | AVERAGE | AVERAGE_SUM_ORG_UNIT | LAST | LAST_AVERAGE_ORG_UNIT | COUNT | STDDEV | VARIANCE | MIN | MAX</td>
 </tr>
 <tr class="even">
 <td>measureCriteria</td>
@@ -7707,13 +7390,13 @@ The analytics resource lets you specify a range of query parameters:
 <td>outputIdScheme</td>
 <td>No</td>
 <td>Identifier scheme to use for metadata items the query response, can be identifier, code or attributes.</td>
-<td>UID | CODE |NAME| ATTRIBUTE:&lt;UID&gt;</td>
+<td>UID | CODE |NAME| ATTRIBUTE:&lt;ID&gt;</td>
 </tr>
 <tr class="odd">
 <td>inputIdScheme</td>
 <td>No</td>
 <td>Identifier scheme to use for metadata items in the query request, can be identifier, code or attributes.</td>
-<td>UID | CODE | ATTRIBUTE:&lt;UID&gt;</td>
+<td>UID | CODE | ATTRIBUTE:&lt;ID&gt;</td>
 </tr>
 <tr class="even">
 <td>approvalLevel</td>
@@ -7748,8 +7431,14 @@ The analytics resource lets you specify a range of query parameters:
 <tr class="odd">
 <td>order</td>
 <td>No</td>
-<td>Specify ordering of rows based on value</td>
+<td>Specify ordering of rows based on value.</td>
 <td>ASC | DESC</td>
+</tr>
+<tr class="even">
+<td>timeField</td>
+<td>No</td>
+<td>The time field to base event aggregation on. Applies to event data items only. Can be a predefined option or the ID of an attribute or data element having a time-based value type.</td>
+<td>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | &lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
 </tr>
 </tbody>
 </table>
@@ -8647,16 +8336,22 @@ The analytics event API let you specify a range of query parameters.
 <td>Produce aggregate values for the data dimensions (as opposed to dimension items).</td>
 <td>false | true</td>
 </tr>
+<tr class="odd">
+<td>timeField</td>
+<td>No</td>
+<td>The time field to base event aggregation on. Applies to event data items only. Can be a predefined option or the ID of an attribute or data element having a time-based value type.</td>
+<td>EVENT_DATE | ENROLLMENT_DATE | INCIDENT_DATE | DUE_DATE | COMPLETED_DATE | &lt;Attribute ID&gt; | &lt;Data element ID&gt;</td>
+</tr>
 </tbody>
 </table>
 
 <table>
 <caption>Query parameters for cluster event analytics only</caption>
 <colgroup>
-<col width="20%" />
-<col width="11%" />
-<col width="49%" />
-<col width="19%" />
+<col style="width: 20%" />
+<col style="width: 11%" />
+<col style="width: 49%" />
+<col style="width: 19%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -9863,15 +9558,17 @@ You can detect the outcome of the authentication by inspecting the _HTTP status 
 
 ### View asynchronous task status
 
-Several tasks which typically take a significant time to complete can be performed asynchronously. After initiating an async task you can poll the status through the _system/tasks_ resource by suppling the task category of interest.
+<!--DHIS2-SECTION-ID:webapi_system_resource_view_async_task_status-->
 
-When polling for the task status you need to authenticate as the same user which initiated the task. The following task categories are supported.
+Tasks which often take a long time to complete can be performed asynchronously. After initiating an async task you can poll the status through the _system/tasks_ resource by supplying the task category and the task identifier of interest.
+
+When polling for the task status you need to authenticate as the same user which initiated the task. The following task categories are supported:
 
 <table>
 <caption>Task categories</caption>
 <colgroup>
-<col width="21%" />
-<col width="78%" />
+<col style="width: 21%" />
+<col style="width: 78%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -9881,11 +9578,11 @@ When polling for the task status you need to authenticate as the same user which
 </thead>
 <tbody>
 <tr class="odd">
-<td>ANALYTICSTABLE_UPDATE</td>
+<td>ANALYTICS_TABLE</td>
 <td>Generation of the analytics tables.</td>
 </tr>
 <tr class="even">
-<td>RESOURCETABLE_UPDATE</td>
+<td>RESOURCE_TABLE</td>
 <td>Generation of the resource tables.</td>
 </tr>
 <tr class="odd">
@@ -9901,38 +9598,154 @@ When polling for the task status you need to authenticate as the same user which
 <td>Import of events.</td>
 </tr>
 <tr class="even">
+<td>ENROLLMENT_IMPORT</td>
+<td>Import of enrollments.</td>
+</tr>
+<tr class="odd">
+<td>TEI_IMPORT</td>
+<td>Import of tracked entity instances.</td>
+</tr>
+<tr class="even">
 <td>METADATA_IMPORT</td>
 <td>Import of metadata.</td>
 </tr>
 <tr class="odd">
-<td>DATAINTEGRITY</td>
+<td>DATA_INTEGRITY</td>
 <td>Processing of data integrity checks.</td>
 </tr>
 </tbody>
 </table>
 
-You can poll tasks through a GET request to the system tasks resource:
+Each asynchronous task is automatically assigned an identifier which can be used to monitor the status of the task. This task identifier is returned by the API when you initiate an async task through the various async-enabled endpoints.
+
+#### Monitoring a task
+
+You can poll the task status through a GET request to the system tasks resource like this:
+
+    /api/29/system/tasks/{task-category-id}/{task-id}
+
+An example request may look like this:
+
+    /api/29/system/tasks/DATAVALUE_IMPORT/j8Ki6TgreFw
+
+The response will provide information about the status, such as the notification level, category, time and status. The _completed_ property indicates whether the process is considered to be complete.
+
+    [{
+        "uid": "hpiaeMy7wFX",
+        "level": "INFO",
+        "category": "DATAVALUE_IMPORT",
+        "time": "2015-09-02T07:43:14.595+0000",
+        "message": "Import done",
+        "completed": true
+    }]
+
+#### Monitoring all tasks for a category
+
+You can poll all tasks for a specific category through a GET request to the system tasks resource:
 
     /api/26/system/tasks/{task-category-id}
 
-A request to poll for the status of a data value import task looks like this:
+An example request to poll for the status of data value import tasks looks like this:
 
     /api/26/system/tasks/DATAVALUE_IMPORT
 
-The response will provide information about the status, such as the notification level, category, time and status. The completed property indicates whether the process is considered to be complete.
+#### Monitor all tasks
 
-    [
-        {
-            "uid": "hpiaeMy7wFX",
-            "level": "INFO",
-            "category": "DATAVALUE_IMPORT",
-            "time": "2015-09-02T07:43:14.595+0000",
-            "message": "Import done",
-            "completed": true
-        }
-    ]
+You can request a list of all currently running tasks in the system with a GET request to the system tasks resource:
+
+    /api/29/system/tasks
+
+The response will look similar to this:
+
+    [{
+        "EVENT_IMPORT": {},
+        "DATA_STATISTICS": {},
+        "RESOURCE_TABLE": {},
+        "FILE_RESOURCE_CLEANUP": {},
+        "METADATA_IMPORT": {},
+        "CREDENTIALS_EXPIRY_ALERT": {},
+        "SMS_SEND": {},
+        "MOCK": {},
+        "ANALYTICSTABLE_UPDATE": {},
+        "COMPLETE_DATA_SET_REGISTRATION_IMPORT": {},
+        "DATAVALUE_IMPORT": {},
+        "DATA_SET_NOTIFICATION": {},
+        "DATA_INTEGRITY": {
+            "OB1qGRlCzap": [{
+                "uid": "LdHQK0PXZyF",
+                "level": "INFO",
+                "category": "DATA_INTEGRITY",
+                "time": "2018-03-26T15:02:32.171",
+                "message": "Data integrity checks completed in 38.31 seconds.",
+                "completed": true
+            }]
+        },
+        "PUSH_ANALYSIS": {},
+        "MONITORING": {},
+        "VALIDATION_RESULTS_NOTIFICATION": {},
+        "REMOVE_EXPIRED_RESERVED_VALUES": {},
+        "DATA_SYNC": {},
+        "SEND_SCHEDULED_MESSAGE": {},
+        "DATAVALUE_IMPORT_INTERNAL": {},
+        "PROGRAM_NOTIFICATIONS": {},
+        "META_DATA_SYNC": {},
+        "ANALYTICS_TABLE": {},
+        "PREDICTOR": {}
+    }]
+
+### View asynchronous task summaries
+
+The task summaries resource allows you to retrieve a summary of an asynchronous task invocation. You need to specify the category and optionally the identifier of the task. The task identifier can be retrieved from the response of the API request which initiated the asynchronous task.
+
+To retrieve the summary of a specific task you can issue a request to:
+
+    /api/29/system/taskSummaries/{task-category-id}/{task-id}
+
+An example request might look like this:
+
+    /api/29/system/taskSummaries/DATAVALUE_IMPORT/k72jHfF13J1
+
+The response will look similar to this:
+
+    {
+        "responseType": "ImportSummary",
+        "status": "SUCCESS",
+        "importOptions": {
+            "idSchemes": {},
+            "dryRun": false,
+            "async": true,
+            "importStrategy": "CREATE_AND_UPDATE",
+            "mergeMode": "REPLACE",
+            "reportMode": "FULL",
+            "skipExistingCheck": false,
+            "sharing": false,
+            "skipNotifications": false,
+            "datasetAllowsPeriods": false,
+            "strictPeriods": false,
+            "strictCategoryOptionCombos": false,
+            "strictAttributeOptionCombos": false,
+            "strictOrganisationUnits": false,
+            "requireCategoryOptionCombo": false,
+            "requireAttributeOptionCombo": false,
+            "skipPatternValidation": false
+        },
+        "description": "Import process completed successfully",
+        "importCount": {
+            "imported": 0,
+            "updated": 431,
+            "ignored": 0,
+            "deleted": 0
+        },
+        "dataSetComplete": "false"
+    }
+
+You might also retrieve import summaries for multiple tasks of a specific category with a request like this:
+
+    /api/29/system/taskSummaries/{task-category-id}
 
 ### Get appearance information
+
+<!--DHIS2-SECTION-ID:webapi_system_resource_get_appearance_information-->
 
 You can retrieve the available flag icons in JSON format with a GET request:
 
@@ -10785,16 +10598,21 @@ The _users_ resource offers additional query parameters beyond the standard para
 <td>Filter on users who are associated with the organisation unit with the given identifier.</td>
 </tr>
 <tr class="odd">
+<td>userOrgUnits</td>
+<td>false | true</td>
+<td>Filter on users who are associated with the organisation units linked to the currently logged in user.</td>
+</tr>
+<tr class="even">
 <td>includeChildren</td>
 <td>false | true</td>
 <td>Includes users from all children organisation units of the ou parameter.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>page</td>
 <td>Number</td>
 <td>The page number.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>pageSize</td>
 <td>Number</td>
 <td>The page size.</td>
@@ -11957,15 +11775,21 @@ For PDF you can send a _POST_ request to the following URL with Content-type _ap
 </tbody>
 </table>
 
-## Tracked entity instance management
+## Tracker Web API
+
+<!--DHIS2-SECTION-ID:webapi_tracker_api-->
+
+Tracker Web API consists of 3 endpoints that have full CRUD (create, read, update, delete) support. The 3 endpoints are _/api/29/trackedEntityInstances_ _/api/29/enrollments_ and _/api/29/events_ and they are responsible for Tracked entity instance, Enrollment and Event items.
+
+### Tracked entity instance management
 
 <!--DHIS2-SECTION-ID:webapi_tracked_entity_instance_management-->
 
-Tracked entity instances have full CRUD (create, read, update, delete) support in the Web-API. Together with the API for enrollment most operations needed for working with tracked entity instances and programs are supported.
+Tracked entity instances have full CRUD support in the Web-API. Together with the API for enrollment most operations needed for working with tracked entity instances and programs are supported.
 
-    /api/26/trackedEntityInstances
+    /api/29/trackedEntityInstances
 
-### Creating a new tracked entity instance
+#### Creating a new tracked entity instance
 
 <!--DHIS2-SECTION-ID:webapi_creating_tei-->
 
@@ -12050,7 +11874,9 @@ To create multiple instances in one request you can wrap the payload in an outer
       ]
     }
 
-### Updating a tracked entity instance
+The system does not allow the creation of a tracked entity instance (as well as enrollment and event) with an UID that was already used in the system. That means that UIDs cannot be reused.
+
+#### Updating a tracked entity instance
 
 <!--DHIS2-SECTION-ID:webapi_updating_tei-->
 
@@ -12058,77 +11884,17 @@ For updating a tracked entity instance, the payload is the equal to the previous
 
     /api/trackedEntityInstances/<tracked-entity-instance-id>
 
-### Deleting a tracked entity instance
+The payload has to contain all, even non-modified, attributes. Attributes that were present before and are not present in the current payload anymore will be removed by the system.
+
+It is not allowed to update an already deleted tracked entity instance. Also, it is not allowed to mark a tracked entity instance as deleted via an update request. The same rules apply to enrollments and events.
+
+#### Deleting a tracked entity instance
 
 <!--DHIS2-SECTION-ID:webapi_deleting_tei-->
 
-To delete a tracked entity instance you can make a request to the URL identifiying the tracked entity instance with the HTTP **DELETE** method. The URL is equal to the one above used for update.
+In order to delete a tracked entity instance, make a request to the URL identifying the tracked entity instance with the HTTP **DELETE** method. The URL is equal to the one above used for update.
 
-### Enrolling a tracked entity instance into a program
-
-<!--DHIS2-SECTION-ID:webapi_enrolling_tei-->
-
-For enrolling persons into a program, you will need to first get the identifier of the person from the _trackedEntityInstances_ resource. Then, you will need to get the program identifier from the _programs_ resource. A template payload can be seen below:
-
-    {
-      "trackedEntityInstance": "ZRyCnJ1qUXS",
-      "orgUnit": "ImspTQPwCqd",
-      "program": "S8uo8AlvYMz",
-      "enrollmentDate": "2013-09-17",
-      "incidentDate": "2013-09-17"
-    }
-
-This payload should be used in a **POST** request to the enrollments resource identified by the following URL:
-
-    /api/enrollments
-
-For cancelling or completing an enrollment, you can make a **PUT** request to the _enrollments_ resource, including the identifier and the action you want to perform. For cancelling an enrollment for a tracked entity instance:
-
-    /api/enrollments/<enrollment-id>/cancelled
-
-For completing a enrollment for a tracked entity instance you can make a **PUT** request to the following URL:
-
-    /api/enrollments/<enrollment-id>/completed
-
-For deleting a enrollment, you can make a **DELETE** request to the following URL:
-
-    /api/enrollments/<enrollment-id>
-
-### Update strategies
-
-<!--DHIS2-SECTION-ID:webapi_tei_update_strategies-->
-
-Two update strategies for tracked entity instance are supported: enrollment and event creation. This is useful when you have generated an identifier on the client side and are not sure if it was created or not on the server.
-
-<table>
-<caption>Available tracker strategies</caption>
-<colgroup>
-<col width="24%" />
-<col width="75%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>CREATE</td>
-<td>Create only, this is the default behavior.</td>
-</tr>
-<tr class="even">
-<td>CREATE_AND_UPDATE</td>
-<td>Try and match the ID, if it exist then update, if not create.</td>
-</tr>
-</tbody>
-</table>
-
-To change the parameter, please use the strategy parameter:
-
-    POST /api/trackedEntityInstances?strategy=CREATE_AND_UPDATE
-
-### Create and enroll tracked entity instances
+#### Create and enroll tracked entity instances
 
 <!--DHIS2-SECTION-ID:webapi_create_enroll_tei-->
 
@@ -12154,18 +11920,104 @@ It is also possible to both create (and update) a tracked entity instance and at
          } ]
     }
 
-You would send this to the server as you would normally when creating or updating a new tracked entity instane.
+You would send this to the server as you would normally when creating or updating a new tracked entity instance.
 
     curl -X POST -d @tei.json -H "Content-Type: application/json"
-      -u user:pass http://server/api/26/trackedEntityInstances
+      -u user:pass http://server/api/29/trackedEntityInstances
 
-### Generated tracked entity instance attributes
+#### Complete example of payload including: tracked entity instance, enrollment and event
+
+<!--DHIS2-SECTION-ID:webapi_create_enroll_tei_create_event-->
+
+It is also possible to create (and update) a tracked entity instance, at the same time enroll into a program and create an event.
+
+    {
+        "trackedEntityType": "nEenWmSyUEp",
+        "orgUnit": "DiszpKrYNg8",
+        "attributes": [
+          {
+            "attribute": "w75KJ2mc4zz",
+            "value": "Joe"
+          },
+          {
+            "attribute": "zDhUuAYrxNC",
+            "value": "Rufus"
+          },
+          {
+             "attribute":"cejWyOfXge6",
+             "value":"Male"
+          }
+        ],
+        "enrollments":[
+          {
+             "orgUnit":"DiszpKrYNg8",
+             "program":"ur1Edk5Oe2n",
+             "enrollmentDate":"2017-09-15",
+             "incidentDate":"2017-09-15",
+             "events":[
+                {
+                   "program":"ur1Edk5Oe2n",
+                   "orgUnit":"DiszpKrYNg8",
+                   "eventDate":"2017-10-17",
+                   "status":"COMPLETED",
+                   "storedBy":"admin",
+                   "programStage":"EPEcjy3FWmI",
+                   "coordinate":{
+                      "latitude":"59.8",
+                      "longitude":"10.9"
+                   },
+                   "dataValues":[
+                      {
+                         "dataElement":"qrur9Dvnyt5",
+                         "value":"22"
+                      },
+                      {
+                         "dataElement":"oZg33kd9taw",
+                         "value":"Male"
+                      }
+                   ]
+                },
+                {
+                   "program":"ur1Edk5Oe2n",
+                   "orgUnit":"DiszpKrYNg8",
+                   "eventDate":"2017-10-17",
+                   "status":"COMPLETED",
+                   "storedBy":"admin",
+                   "programStage":"EPEcjy3FWmI",
+                   "coordinate":{
+                      "latitude":"59.8",
+                      "longitude":"10.9"
+                   },
+                   "dataValues":[
+                      {
+                         "dataElement":"qrur9Dvnyt5",
+                         "value":"26"
+                      },
+                      {
+                         "dataElement":"oZg33kd9taw",
+                         "value":"Female"
+                      }
+                   ]
+                }
+             ]
+          }
+       ]
+    }
+
+Note: The example above can fail if provided UIDs are not present in the system.
+
+You would send this to the server as you would normally when creating or updating a new tracked entity instance.
+
+    curl -X POST -d @tei.json -H "Content-Type: application/json"
+      -u user:pass http://server/api/29/trackedEntityInstances
+
+#### Generated tracked entity instance attributes
 
 <!--DHIS2-SECTION-ID:webapi_generate_tei_attributes-->
 
 Tracked entity instance attributes that is using automatic generation of unique values has three endpoints that is used by apps. The endpoints are all used for generating and reserving values.
 
-In 2.29 we introduced TextPattern for defining and generating these patterns. You can read more about [working with TextPattern here](#create-scorecards-pivot-table). All existing patterns will be converted to a valid TextPattern when upgrading to 2.29.
+In 2.29 we introduced TextPattern for defining and generating these patterns. All existing patterns will be converted to a valid TextPattern when upgrading to 2.29.
 
 > **Note**
 >
@@ -12177,7 +12029,7 @@ A TextPattern can contain variables that change based on different factors. Some
 
 This endpoint will return a map of required and optional values, that the server will inject into the TextPattern when generating new values. Required variables have to be supplied for the generation, but optional variables should only be supplied if you know what you are doing.
 
-    GET /api/trackedEntityAttributes/Gs1ICEQTPlG/requiredValues
+    GET /api/29/trackedEntityAttributes/Gs1ICEQTPlG/requiredValues
 
     {
         "REQUIRED": [
@@ -12198,7 +12050,7 @@ If your TextPattern includes required values, you can pass them as parameters li
 
 The expiration time can also be overridden at the time of generation, by adding the ?expiration=\<number-of-days\> to the request.
 
-    GET /api/trackedEntityAttributes/Gs1ICEQTPlG/generate?ORG_UNIT_CODE=OSLO
+    GET /api/29/trackedEntityAttributes/Gs1ICEQTPlG/generate?ORG_UNIT_CODE=OSLO
 
     {
         "ownerObject": "TRACKEDENTITYATTRIBUTE",
@@ -12219,7 +12071,7 @@ If your TextPattern includes required values, you can pass them as parameters li
 
 Similar to the /generate endpoint, this endpoint can also specify the expiration time in the same way. By adding the ?expiration=\<number-of-days\> you can override the default 60 days.
 
-    GET /api/trackedEntityAttributes/Gs1ICEQTPlG/generateAndReserve?numberToReserve=3&ORG_UNIT_CODE=OSLO
+    GET /api/29/trackedEntityAttributes/Gs1ICEQTPlG/generateAndReserve?numberToReserve=3&ORG_UNIT_CODE=OSLO
 
     [
         {
@@ -12338,7 +12190,7 @@ To query for tracked entity instances you can interact with the _/api/trackedEnt
 </tr>
 <tr class="odd">
 <td>ouMode</td>
-<td>The mode of selecting organisation units, can be SELECTED | CHILDREN | DESCENDANTS | ACCESSIBLE | CAPTURE | ALL. Default is SELECTED, which refers to the selected organisation units only. See table below for explanations.</td>
+<td>The mode of selecting organisation units, can be SELECTED | CHILDREN | DESCENDANTS | ACCESSIBLE | CAPTURE | ALL. Default is SELECTED, which refers to the selected selected organisation units only. See table below for explanations.</td>
 </tr>
 <tr class="even">
 <td>program</td>
@@ -12449,42 +12301,42 @@ The query is case insensitive. The following rules apply to the query parameters
 
 A query for all instances associated with a specific organisation unit can look like this:
 
-    api/trackedEntityInstances.json?ou=DiszpKrYNg8
+    api/29/trackedEntityInstances.json?ou=DiszpKrYNg8
 
 To query for instances using one attribute with a filter and one attribute without a filter, with one organisation unit using the descendants organisation unit query mode:
 
-    api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&filter=AMpUYgxuCaE&ou=DiszpKrYNg8;yMCshbaVExv
+    api/29/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&filter=AMpUYgxuCaE&ou=DiszpKrYNg8;yMCshbaVExv
 
 A query for instances where one attribute is included in the response and one attribute us used as a filter:
 
-    api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&filter=AMpUYgxuCaE:LIKE:Road&ou=DiszpKrYNg8
+    api/29/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&filter=AMpUYgxuCaE:LIKE:Road&ou=DiszpKrYNg8
 
 A query where multiple operand and filters are specified for a filter item:
 
-    api/trackedEntityInstances.json?ou=DiszpKrYNg8&program=ur1Edk5Oe2n&filter=lw1SqmMlnfh:GT:150:LT:190
+    api/29/trackedEntityInstances.json?ou=DiszpKrYNg8&program=ur1Edk5Oe2n&filter=lw1SqmMlnfh:GT:150:LT:190
 
 To query on an attribute using multiple values in an IN filter:
 
-    api/trackedEntityInstances.json?ou=DiszpKrYNg8&filter=dv3nChNSIxy:IN:Scott;Jimmy;Santiago
+    api/29/trackedEntityInstances.json?ou=DiszpKrYNg8&filter=dv3nChNSIxy:IN:Scott;Jimmy;Santiago
 
 To constrain the response to instances which are part of a specific program you can include a program query parameter:
 
-    api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu
+    api/29/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu
     &ouMode=DESCENDANTS&program=ur1Edk5Oe2n
 
 To specify program enrollment dates as part of the query:
 
-    api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu&program=ur1Edk5Oe2n
+    api/29/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu&program=ur1Edk5Oe2n
     &programStartDate=2013-01-01&programEndDate=2013-09-01
 
 To constrain the response to instances of a specific tracked entity you can include a tracked entity query parameter:
 
-    api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu
+    api/29/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu
     &ouMode=DESCENDANTS&trackedEntity=cyl5vuJ5ETQ
 
 By default the instances are returned in pages of size 50, to change this you can use the page and pageSize query parameters:
 
-    api/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu
+    api/29/trackedEntityInstances.json?filter=zHXD5Ve1Efw:EQ:A&ou=O6uvpzGd5pu
     &ouMode=DESCENDANTS&page=2&pageSize=3
 
 You can use a range of operators for the filtering:
@@ -12737,7 +12589,7 @@ To query for tracked entity instances you can interact with the _/api/trackedEnt
 </tr>
 <tr class="even">
 <td>ou</td>
-<td>Organisation unit idenfiers, separated by &quot;;&quot;.</td>
+<td>Organisation unit identifiers, separated by &quot;;&quot;.</td>
 </tr>
 <tr class="odd">
 <td>ouMode</td>
@@ -12765,11 +12617,11 @@ To query for tracked entity instances you can interact with the _/api/trackedEnt
 </tr>
 <tr class="odd">
 <td>trackedEntity</td>
-<td>Tracked entity identifer. Restricts instances to the given tracked instance type.</td>
+<td>Tracked entity identifier. Restricts instances to the given tracked instance type.</td>
 </tr>
 <tr class="even">
 <td>eventStatus</td>
-<td>Status of any event associated with the given program and the tracked entity instance. Can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED.</td>
+<td>Status of any event associated with the given program and the tracked entity instance. Can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED.</td>
 </tr>
 <tr class="odd">
 <td>eventStartDate</td>
@@ -12834,6 +12686,10 @@ The available organisation unit selection modes are explained in the following t
 <td>All descendants of the data view organisation units associated with the current user. Will fall back to data capture organisation units associated with the current user if the former is not defined.</td>
 </tr>
 <tr class="odd">
+<td>CAPTURE</td>
+<td>The data capture organisation units associated with the current user and all children, i.e. all organisation units in the sub-hierarchy.</td>
+</tr>
+<tr class="even">
 <td>ALL</td>
 <td>All organisation units in the system. Requires authority.</td>
 </tr>
@@ -12870,64 +12726,64 @@ You can specify queries with words separated by space - in that situation the sy
 
 A query for all instances associated with a specific organisation unit can look like this:
 
-    /api/26/trackedEntityInstances/query.json?ou=DiszpKrYNg8
+    /api/29/trackedEntityInstances/query.json?ou=DiszpKrYNg8
 
 A query on all attributes for a specific value and organisation unit, using an exact word match:
 
-    /api/26/trackedEntityInstances/query.json?query=scott&ou=DiszpKrYNg8
+    /api/29/trackedEntityInstances/query.json?query=scott&ou=DiszpKrYNg8
 
 A query on all attributes for a specific value, using a partial word match:
 
-    /api/26/trackedEntityInstances/query.json?query=LIKE:scott&ou=DiszpKrYNg8
+    /api/29/trackedEntityInstances/query.json?query=LIKE:scott&ou=DiszpKrYNg8
 
 You can query on multiple words separated by the the URL character for space which is %20, will use a logical AND query for each word:
 
-    /api/26/trackedEntityInstances/query.json?query=isabel%20may&ou=DiszpKrYNg8
+    /api/29/trackedEntityInstances/query.json?query=isabel%20may&ou=DiszpKrYNg8
 
 A query where the attributes to include in the response are specified:
 
-    /api/26/trackedEntityInstances/query.json?query=isabel&attribute=dv3nChNSIxy&attribute=AMpUYgxuCaE&ou=DiszpKrYNg8
+    /api/29/trackedEntityInstances/query.json?query=isabel&attribute=dv3nChNSIxy&attribute=AMpUYgxuCaE&ou=DiszpKrYNg8
 
 To query for instances using one attribute with a filter and one attribute without a filter, with one organisation unit using the descendants organisation unit query mode:
 
-    /api/26/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A
+    /api/29/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A
       &attribute=AMpUYgxuCaE&ou=DiszpKrYNg8;yMCshbaVExv
 
 A query for instances where one attribute is included in the response and one attribute us used as a filter:
 
-    /api/26/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A&filter=AMpUYgxuCaE:LIKE:Road&ou=DiszpKrYNg8
+    /api/29/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A&filter=AMpUYgxuCaE:LIKE:Road&ou=DiszpKrYNg8
 
 A query where multiple operand and filters are specified for a filter item:
 
-    /api/26/trackedEntityInstances/query.json?ou=DiszpKrYNg8&program=ur1Edk5Oe2n&filter=lw1SqmMlnfh:GT:150:LT:190
+    /api/29/trackedEntityInstances/query.json?ou=DiszpKrYNg8&program=ur1Edk5Oe2n&filter=lw1SqmMlnfh:GT:150:LT:190
 
 To query on an attribute using multiple values in an IN filter:
 
-    /api/26/trackedEntityInstances/query.json?ou=DiszpKrYNg8&attribute=dv3nChNSIxy:IN:Scott;Jimmy;Santiago
+    /api/29/trackedEntityInstances/query.json?ou=DiszpKrYNg8&attribute=dv3nChNSIxy:IN:Scott;Jimmy;Santiago
 
 To constrain the response to instances which are part of a specific program you can include a program query parameter:
 
-    /api/26/trackedEntityInstances/query.json?filter=zHXD5Ve1Efw:EQ:A
+    /api/29/trackedEntityInstances/query.json?filter=zHXD5Ve1Efw:EQ:A
       &ou=O6uvpzGd5pu&ouMode=DESCENDANTS&program=ur1Edk5Oe2n
 
 To specify program enrollment dates as part of the query:
 
-    /api/26/trackedEntityInstances/query.json?filter=zHXD5Ve1Efw:EQ:A
+    /api/29/trackedEntityInstances/query.json?filter=zHXD5Ve1Efw:EQ:A
       &ou=O6uvpzGd5pu&program=ur1Edk5Oe2n&programStartDate=2013-01-01&programEndDate=2013-09-01
 
 To constrain the response to instances of a specific tracked entity you can include a tracked entity query parameter:
 
-    /api/26/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A
+    /api/29/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A
       &ou=O6uvpzGd5pu&ouMode=DESCENDANTS&trackedEntity=cyl5vuJ5ETQ
 
 By default the instances are returned in pages of size 50, to change this you can use the page and pageSize query parameters:
 
-    /api/26/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A
+    /api/29/trackedEntityInstances/query.json?attribute=zHXD5Ve1Efw:EQ:A
       &ou=O6uvpzGd5pu&ouMode=DESCENDANTS&page=2&pageSize=3
 
 To query for instances which have events of a given status within a given time span:
 
-    /api/26/trackedEntityInstances/query.json?ou=O6uvpzGd5pu
+    /api/29/trackedEntityInstances/query.json?ou=O6uvpzGd5pu
       &program=ur1Edk5Oe2n&eventStatus=LATE_VISIT
       &eventStartDate=2014-01-01&eventEndDate=2014-09-01
 
@@ -13142,7 +12998,7 @@ For creating and updating a tracked entity instance filter in the system, you wi
 </tr>
 <tr class="odd">
 <td>eventCreatedPeriod</td>
-<td>Period object containing a period in which the event must be created. See <em>Period</em> definition delow.</td>
+<td>Period object containing a period in which the event must be created. See <em>Period</em> definition below.</td>
 <td>{ &quot;periodFrom&quot;: -15, &quot;periodTo&quot;: 15}</td>
 </tr>
 </tbody>
@@ -13174,7 +13030,7 @@ For creating and updating a tracked entity instance filter in the system, you wi
 To query for tracked entity instance filters in the system, you can interact with the _/api/trackedEntityInstanceFilters_ resource.
 
 <table>
-<caption>Tracked entity instance filters query paramateres</caption>
+<caption>Tracked entity instance filters query parameters</caption>
 <colgroup>
 <col style="width: 50%" />
 <col style="width: 50%" />
@@ -13193,23 +13049,61 @@ To query for tracked entity instance filters in the system, you can interact wit
 </tbody>
 </table>
 
-## Enrollment instance query
+### Enrollment management
+
+<!--DHIS2-SECTION-ID:webapi_enrollment_management-->
+
+Enrollments have full CRUD support in the Web-API. Together with the API for tracked entity instances most operations needed for working with tracked entity instances and programs are supported.
+
+    /api/29/enrollments
+
+#### Enrolling a tracked entity instance into a program
+
+<!--DHIS2-SECTION-ID:webapi_enrolling_tei-->
+
+For enrolling persons into a program, you will need to first get the identifier of the person from the _trackedEntityInstances_ resource. Then, you will need to get the program identifier from the _programs_ resource. A template payload can be seen below:
+
+    {
+      "trackedEntityInstance": "ZRyCnJ1qUXS",
+      "orgUnit": "ImspTQPwCqd",
+      "program": "S8uo8AlvYMz",
+      "enrollmentDate": "2013-09-17",
+      "incidentDate": "2013-09-17"
+    }
+
+This payload should be used in a **POST** request to the enrollments resource identified by the following URL:
+
+    /api/29/enrollments
+
+For cancelling or completing an enrollment, you can make a **PUT** request to the _enrollments_ resource, including the identifier and the action you want to perform. For cancelling an enrollment for a tracked entity instance:
+
+    /api/29/enrollments/<enrollment-id>/cancelled
+
+For completing a enrollment for a tracked entity instance you can make a **PUT** request to the following URL:
+
+    /api/29/enrollments/<enrollment-id>/completed
+
+For deleting a enrollment, you can make a **DELETE** request to the following URL:
+
+    /api/29/enrollments/<enrollment-id>
+
+#### Enrollment instance query
 
 <!--DHIS2-SECTION-ID:webapi_enrollment_instance_query-->
 
-To query for tracked entity instances you can interact with the _/api/enrollments_ resource.
+To query for enrollments you can interact with the _/api/enrollments_ resource.
 
-    /api/26/enrollments
+    /api/29/enrollments
 
-### Request syntax
+##### Request syntax
 
 <!--DHIS2-SECTION-ID:webapi_enrollment_query_request_syntax-->
 
 <table style="width:100%;">
-<caption>Tracked entity instances query parameters</caption>
+<caption>Enrollment query parameters</caption>
 <colgroup>
-<col width="15%" />
-<col width="84%" />
+<col style="width: 15%" />
+<col style="width: 84%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -13220,11 +13114,11 @@ To query for tracked entity instances you can interact with the _/api/enrollment
 <tbody>
 <tr class="odd">
 <td>ou</td>
-<td>Organisation unit idenfiers, separated by &quot;;&quot;.</td>
+<td>Organisation unit identifiers, separated by &quot;;&quot;.</td>
 </tr>
 <tr class="even">
 <td>ouMode</td>
-<td>The mode of selecting organisation units, can be SELECTED | CHILDREN | DESCENDANTS | ACCESSIBLE | ALL. Default is SELECTED, which refers to the selected organisation units only. See table below for explanations.</td>
+<td>The mode of selecting organisation units, can be SELECTED | CHILDREN | DESCENDANTS | ACCESSIBLE | CAPTURE | ALL. Default is SELECTED, which refers to the selected selected organisation units only. See table below for explanations.</td>
 </tr>
 <tr class="odd">
 <td>program</td>
@@ -13248,7 +13142,7 @@ To query for tracked entity instances you can interact with the _/api/enrollment
 </tr>
 <tr class="even">
 <td>trackedEntity</td>
-<td>Tracked entity identifer. Restricts instances to the given tracked instance type.</td>
+<td>Tracked entity identifier. Restricts instances to the given tracked instance type.</td>
 </tr>
 <tr class="odd">
 <td>trackedEntityInstsane</td>
@@ -13269,6 +13163,10 @@ To query for tracked entity instances you can interact with the _/api/enrollment
 <tr class="odd">
 <td>skipPaging</td>
 <td>Indicates whether paging should be ignored and all rows should be returned.</td>
+</tr>
+<tr class="even">
+<td>includeDeleted</td>
+<td>Indicates whether to include soft deleted enrollments or not. It is false by default.</td>
 </tr>
 </tbody>
 </table>
@@ -13311,7 +13209,7 @@ The available organisation unit selection modes are explained in the following t
 </tbody>
 </table>
 
-You can specify queries with words separated by space - in that situation the system will query for each word independently and return records where each word is contained in any attribute. A query item can be specified once as an attribute and once as a filter if needed. The query is case insensitive. The following rules apply to the query parameters.
+The query is case insensitive. The following rules apply to the query parameters.
 
 - At least one organisation unit must be specified using the _ou_ parameter (one or many), or _ouMode=ALL_ must be specified.
 
@@ -13323,31 +13221,31 @@ You can specify queries with words separated by space - in that situation the sy
 
 - If _programStartDate_ or _programEndDate_ is specified then _program_ must also be specified.
 
-A query for all instances associated with a specific organisation unit can look like this:
+A query for all enrollments associated with a specific organisation unit can look like this:
 
-    /api/26/enrollments.json?ou=DiszpKrYNg8
+    /api/29/enrollments.json?ou=DiszpKrYNg8
 
-To constrain the response to instances which are part of a specific program you can include a program query parameter:
+To constrain the response to enrollments which are part of a specific program you can include a program query parameter:
 
-    /api/26/enrollments.json?ou=O6uvpzGd5pu&ouMode=DESCENDANTS&program=ur1Edk5Oe2n
+    /api/29/enrollments.json?ou=O6uvpzGd5pu&ouMode=DESCENDANTS&program=ur1Edk5Oe2n
 
 To specify program enrollment dates as part of the query:
 
-    /api/26/enrollments.json?&ou=O6uvpzGd5pu&program=ur1Edk5Oe2n&programStartDate=2013-01-01&programEndDate=2013-09-01
+    /api/29/enrollments.json?&ou=O6uvpzGd5pu&program=ur1Edk5Oe2n&programStartDate=2013-01-01&programEndDate=2013-09-01
 
-To constrain the response to instances of a specific tracked entity you can include a tracked entity query parameter:
+To constrain the response to enrollments of a specific tracked entity you can include a tracked entity query parameter:
 
-    /api/26/enrollments.json?ou=O6uvpzGd5pu&ouMode=DESCENDANTS&trackedEntity=cyl5vuJ5ETQ
+    /api/29/enrollments.json?ou=O6uvpzGd5pu&ouMode=DESCENDANTS&trackedEntity=cyl5vuJ5ETQ
 
-To constrain the response to instances of a specific tracked entity instance you can include a tracked entity instance query parameter, in this case we are restricted it to available enrollments viewable for current user:
+To constrain the response to enrollments of a specific tracked entity instance you can include a tracked entity instance query parameter, in this case we have restricted it to available enrollments viewable for current user:
 
-    /api/26/enrollments.json?ouMode=ACCESSIBLE&trackedEntityInstance=tphfdyIiVL6
+    /api/29/enrollments.json?ouMode=ACCESSIBLE&trackedEntityInstance=tphfdyIiVL6
 
-By default the instances are returned in pages of size 50, to change this you can use the page and pageSize query parameters:
+By default the enrollments are returned in pages of size 50, to change this you can use the page and pageSize query parameters:
 
-    /api/26/enrollments.json?ou=O6uvpzGd5pu&ouMode=DESCENDANTS&page=2&pageSize=3
+    /api/29/enrollments.json?ou=O6uvpzGd5pu&ouMode=DESCENDANTS&page=2&pageSize=3
 
-### Response format
+##### Response format
 
 <!--DHIS2-SECTION-ID:webapi_enrollment_query_response_format-->
 
@@ -13379,7 +13277,554 @@ The response in JSON/XML is in object format and can look like the following (pl
         ]
     }
 
-## Tracker bulk deletion
+### Événements
+
+<!--DHIS2-SECTION-ID:webapi_events-->
+
+This section is about sending and reading events.
+
+    /api/29/events
+
+#### Sending events
+
+<!--DHIS2-SECTION-ID:webapi_sending_events-->
+
+DHIS2 supports three kinds of events: single events with no registration (also referred to as anonymous events), single event with registration and multiple events with registration. Registration implies that the data is linked to a tracked entity instance which is identified using some sort of identifier.
+
+To send events to DHIS2 you must interact with the _events_ resource. The approach to sending events is similar to sending aggregate data values. You will need a _program_ which can be looked up using the _programs_ resource, an _orgUnit_ which can be looked up using the _organisationUnits_ resource, and a list of valid data element identifiers which can be looked up using the _dataElements_ resource. For events with registration, a _tracked entity instance_ identifier is required, read about how to get this in the section about the _trackedEntityInstances_ resource. For sending events to programs with multiple stages, you will need to also include the _programStage_ identifier, the identifiers for programStages can be found in the _programStages_ resource.
+
+A simple single event with no registration example payload in XML format where we send events from the "Inpatient morbidity and mortality" program for the "Ngelehun CHC" facility in the demo database can be seen below:
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8"
+      eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
+      <coordinate latitude="59.8" longitude="10.9" />
+      <dataValues>
+        <dataValue dataElement="qrur9Dvnyt5" value="22" />
+        <dataValue dataElement="oZg33kd9taw" value="Male" />
+        <dataValue dataElement="msodh3rEMJa" value="2013-05-18" />
+      </dataValues>
+    </event>
+
+To perform some testing we can save the XML payload as a file called*event.xml* and send it as a POST request to the events resource in the API using curl with the following command:
+
+    curl -d @event.xml "https://play.dhis2.org/demo/api/29/events"
+      -H "Content-Type:application/xml" -u admin:district -v
+
+The same payload in JSON format looks like this:
+
+    {
+      "program": "eBAyeGv0exc",
+      "orgUnit": "DiszpKrYNg8",
+      "eventDate": "2013-05-17",
+      "status": "COMPLETED",
+      "completedDate": "2013-05-18",
+      "storedBy": "admin",
+      "coordinate": {
+        "latitude": 59.8,
+        "longitude": 10.9
+      },
+      "dataValues": [
+        { "dataElement": "qrur9Dvnyt5", "value": "22" },
+        { "dataElement": "oZg33kd9taw", "value": "Male" },
+        { "dataElement": "msodh3rEMJa", "value": "2013-05-18" }
+      ]
+    }
+
+To send this you can save it to a file called _event.json_ and use curl like this:
+
+    curl -d @event.json "localhost/api/29/events" -H "Content-Type:application/json" -u admin:district -v
+
+We also support sending multiple events at the same time. A payload in XML format might look like this:
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <events>
+        <event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8"
+          eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
+          <coordinate latitude="59.8" longitude="10.9" />
+          <dataValues>
+            <dataValue dataElement="qrur9Dvnyt5" value="22" />
+            <dataValue dataElement="oZg33kd9taw" value="Male" />
+          </dataValues>
+        </event>
+        <event program="eBAyeGv0exc" orgUnit="DiszpKrYNg8"
+          eventDate="2013-05-17" status="COMPLETED" storedBy="admin">
+          <coordinate latitude="59.8" longitude="10.9" />
+          <dataValues>
+            <dataValue dataElement="qrur9Dvnyt5" value="26" />
+            <dataValue dataElement="oZg33kd9taw" value="Female" />
+          </dataValues>
+        </event>
+    </events>
+
+You will receive an import summary with the response which can be inspected in order to get information about the outcome of the request, like how many values were imported successfully. The payload in JSON format looks like this:
+
+    {
+      "events": [
+      {
+        "program": "eBAyeGv0exc",
+        "orgUnit": "DiszpKrYNg8",
+        "eventDate": "2013-05-17",
+        "status": "COMPLETED",
+        "storedBy": "admin",
+        "coordinate": {
+          "latitude": "59.8",
+          "longitude": "10.9"
+        },
+        "dataValues": [
+          { "dataElement": "qrur9Dvnyt5", "value": "22" },
+          { "dataElement": "oZg33kd9taw", "value": "Male" }
+        ] },
+      {
+        "program": "eBAyeGv0exc",
+        "orgUnit": "DiszpKrYNg8",
+        "eventDate": "2013-05-17",
+        "status": "COMPLETED",
+        "storedBy": "admin",
+        "coordinate": {
+          "latitude": "59.8",
+          "longitude": "10.9"
+        },
+        "dataValues": [
+          { "dataElement": "qrur9Dvnyt5", "value": "26" },
+          { "dataElement": "oZg33kd9taw", "value": "Female" }
+        ] }
+      ]
+    }
+
+From 2.30 you can also use GeoJson to store any kind of geometry on your event. An example payload using GeoJson instead of the former latitude and longitude properties can be seen here:
+
+    {
+      "program": "eBAyeGv0exc",
+      "orgUnit": "DiszpKrYNg8",
+      "eventDate": "2013-05-17",
+      "status": "COMPLETED",
+      "storedBy": "admin",
+      "geometry": {
+        "type": "POINT",
+        "coordinates": [59.8, 10.9]
+      },
+      "dataValues": [
+        { "dataElement": "qrur9Dvnyt5", "value": "22" },
+        { "dataElement": "oZg33kd9taw", "value": "Male" },
+        { "dataElement": "msodh3rEMJa", "value": "2013-05-18" }
+      ]
+    }
+
+As part of the import summary you will also get the identifier _reference_ to the event you just sent, together with a _href_ element which points to the server location of this event. The table below describes the meaning of each element.
+
+<table>
+<caption>Events resource format</caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 30%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Options (default first)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>program</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>Identifier of the single event with no registration program</td>
+</tr>
+<tr class="even">
+<td>orgUnit</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>Identifier of the organisation unit where the event took place</td>
+</tr>
+<tr class="odd">
+<td>eventDate</td>
+<td>date</td>
+<td>true</td>
+<td></td>
+<td>The date of when the event occurred</td>
+</tr>
+<tr class="even">
+<td>completedDate</td>
+<td>date</td>
+<td>false</td>
+<td></td>
+<td>The date of when the event is completed. If not provided, the current date is selected as the event completed date</td>
+</tr>
+<tr class="odd">
+<td>status</td>
+<td>enum</td>
+<td>false</td>
+<td>ACTIVE | COMPLETED | VISITED | SCHEDULE | OVERDUE | SKIPPED</td>
+<td>Whether the event is complete or not</td>
+</tr>
+<tr class="even">
+<td>storedBy</td>
+<td>string</td>
+<td>false</td>
+<td>Defaults to current user</td>
+<td>Who stored this event (can be username, system-name etc)</td>
+</tr>
+<tr class="odd">
+<td>coordinate</td>
+<td>double</td>
+<td>false</td>
+<td></td>
+<td>Refers to where the event took place geographically (latitude and longitude)</td>
+</tr>
+<tr class="even">
+<td>dataElement</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>Identifier of data element</td>
+</tr>
+<tr class="odd">
+<td>value</td>
+<td>string</td>
+<td>true</td>
+<td></td>
+<td>Data value or measure for this event</td>
+</tr>
+</tbody>
+</table>
+
+**OrgUnit matching**: By default the orgUnit parameter will match on the ID, you can also select the orgUnit id matching scheme by using the parameter orgUnitIdScheme=SCHEME, where the options are: _ID_, _UID_, _UUID_, _CODE_, and _NAME_. There is also the _ATTRIBUTE:_ scheme, which matches on a _unique_ metadata attribute value.
+
+#### Updating events
+
+<!--DHIS2-SECTION-ID:webapi_updating_events-->
+
+To update an existing event, the format of the payload is the same, but the URL you are posting to must add the identifier to the end of the URL string and the request must be PUT.
+
+The payload has to contain all, even non-modified, attributes. Attributes that were present before and are not present in the current payload any more will be removed by the system.
+
+It is not allowed to update an already deleted event. (The same applies to tracked entity instance and enrollment.)
+
+    curl -X PUT -d @updated_event.xml "localhost/api/29/events/ID"
+      -H "Content-Type: application/xml" -u admin:district
+
+    curl -X PUT -d @updated_event.json "localhost/api/29/events/ID"
+      -H "Content-Type: application/json" -u admin:district
+
+#### Deleting events
+
+<!--DHIS2-SECTION-ID:webapi_deleting_events-->
+
+To delete an existing event, all you need is to send a DELETE request with a identifier reference to the server you are using.
+
+    curl -X DELETE "localhost/api/29/events/ID" -u admin:district
+
+#### Getting events
+
+<!--DHIS2-SECTION-ID:webapi_getting_events-->
+
+To get an existing event you can issue a GET request including the identifier like this:
+
+    curl "localhost/api/29/events/ID" -H "Content-Type: application/xml" -u admin:district
+
+#### Querying and reading events
+
+<!--DHIS2-SECTION-ID:webapi_querying_reading_events-->
+
+This section explains how to read out the events that have been stored in the DHIS2 instance. For more advanced uses of the event data, please see the section on event analytics. The output format from the _/api/events_ endpoint will match the format that is used to send events to it (which the analytics event api does not support). Both XML and JSON are supported, either through adding .json/.xml or by setting the appropriate _Accept_ header. The query is paged by default and the default page size is 50 events, _field_ filtering works as it does for metadata, add the _fields_ parameter and include your wanted properties, i.e. _?fields=program,status_.
+
+<table>
+<caption>Events resource query parameters</caption>
+<thead>
+<tr class="header">
+<th>Key</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>program</td>
+<td>identifier</td>
+<td>true (if not programStage is provided)</td>
+<td>Identifier of program</td>
+</tr>
+<tr class="even">
+<td>programStage</td>
+<td>identifier</td>
+<td>false</td>
+<td>Identifier of program stage</td>
+</tr>
+<tr class="odd">
+<td>programStatus</td>
+<td>enum</td>
+<td>false</td>
+<td>Status of event in program, ca be ACTIVE | COMPLETED | CANCELLED</td>
+</tr>
+<tr class="even">
+<td>followUp</td>
+<td>boolean</td>
+<td>false</td>
+<td>Whether event is considered for follow up in program, can be true | false or omitted.</td>
+</tr>
+<tr class="odd">
+<td>trackedEntityInstance</td>
+<td>identifier</td>
+<td>false</td>
+<td>Identifier of tracked entity instance</td>
+</tr>
+<tr class="even">
+<td>orgUnit</td>
+<td>identifier</td>
+<td>true</td>
+<td>Identifier of organisation unit</td>
+</tr>
+<tr class="odd">
+<td>ouMode</td>
+<td>enum</td>
+<td>false</td>
+<td>Org unit selection mode, can be SELECTED | CHILDREN | DESCENDANTS</td>
+</tr>
+<tr class="even">
+<td>startDate</td>
+<td>date</td>
+<td>false</td>
+<td>Only events newer than this date</td>
+</tr>
+<tr class="odd">
+<td>endDate</td>
+<td>date</td>
+<td>false</td>
+<td>Only events older than this date</td>
+</tr>
+<tr class="even">
+<td>status</td>
+<td>enum</td>
+<td>false</td>
+<td>Status of event, can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED</td>
+</tr>
+<tr class="odd">
+<td>lastUpdatedStartDate</td>
+<td>date</td>
+<td>false</td>
+<td>Filter for events which were updated after this date.</td>
+</tr>
+<tr class="even">
+<td>lastUpdatedEndDate</td>
+<td>date</td>
+<td>false</td>
+<td>Filter for events which were updated up until this date.</td>
+</tr>
+<tr class="odd">
+<td>skipMeta</td>
+<td>boolean</td>
+<td>false</td>
+<td>Exclude the meta data part of response (improves performance)</td>
+</tr>
+<tr class="even">
+<td>page</td>
+<td>integer</td>
+<td>false</td>
+<td>Page number</td>
+</tr>
+<tr class="odd">
+<td>pageSize</td>
+<td>integer</td>
+<td>falase</td>
+<td>Number of items in each page</td>
+</tr>
+<tr class="even">
+<td>totalPages</td>
+<td>boolean</td>
+<td>false</td>
+<td>Indicates whether to include the total number of pages in the paging response.</td>
+</tr>
+<tr class="odd">
+<td>skipPaging</td>
+<td>boolean</td>
+<td>false</td>
+<td>Indicates whether to skip paging in the query and return all events.</td>
+</tr>
+<tr class="even">
+<td>dataElementIdScheme</td>
+<td>string</td>
+<td>false</td>
+<td>Data element ID scheme to use for export, valid options are UID and CODE</td>
+</tr>
+<tr class="odd">
+<td>categoryOptionComboIdScheme</td>
+<td>string</td>
+<td>false</td>
+<td>Category Option Combo ID scheme to use for export, valid options are UID and CODE</td>
+</tr>
+<tr class="even">
+<td>orgUnitIdScheme</td>
+<td>string</td>
+<td>false</td>
+<td>Organisation Unit ID scheme to use for export, valid options are UID and CODE</td>
+</tr>
+<tr class="odd">
+<td>programIdScheme</td>
+<td>string</td>
+<td>false</td>
+<td>Program ID scheme to use for export, valid options are UID and CODE</td>
+</tr>
+<tr class="even">
+<td>programStageIdScheme</td>
+<td>string</td>
+<td>false</td>
+<td>Program Stage ID scheme to use for export, valid options are UID and CODE</td>
+</tr>
+<tr class="odd">
+<td>idScheme</td>
+<td>string</td>
+<td>false</td>
+<td>Allows to set id scheme for data element, category option combo, orgUnit, program and program stage at once.</td>
+</tr>
+<tr class="even">
+<td>order</td>
+<td>string</td>
+<td>false</td>
+<td>The order of which to retrieve the events from the API. Usage: order=&lt;property&gt;:asc/desc - Ascending order is default.
+<p>Properties: event | program | programStage | enrollment | enrollmentStatus | orgUnit | orgUnitName | trackedEntityInstance | eventDate | followup | status | dueDate | storedBy | created | lastUpdated | completedBy | completedDate</p>
+<pre><code>order=orgUnitName:DESC</code></pre>
+<pre><code>order=lastUpdated:ASC</code></pre></td>
+</tr>
+<tr class="odd">
+<td>event</td>
+<td>comma delimited strings</td>
+<td>false</td>
+<td>Filter the result down to a limited set of IDs by using <em>event=id1;id2</em>.</td>
+</tr>
+<tr class="even">
+<td>attributeCc**</td>
+<td>string</td>
+<td>false</td>
+<td>Attribute category combo identifier (must be combined with <em>attributeCos</em>)</td>
+</tr>
+<tr class="odd">
+<td>attributeCos**</td>
+<td>string</td>
+<td>false</td>
+<td>Attribute category option identifiers, separated with ; (must be combined with <em>attributeCc</em>)</td>
+</tr>
+<tr class="even">
+<td>includeDeleted</td>
+<td>boolean</td>
+<td>false</td>
+<td>When true, soft deleted events will be included in your query result.</td>
+</tr>
+</tbody>
+</table>
+
+\*\***Note:** If the query contains neither _attributeCC_ nor _attributeCos_, the server returns events for all attribute option combos where the user has read access.
+
+##### Examples
+
+Query for all events with children of a certain organisation unit:
+
+    /api/29/events.json?orgUnit=YuQRtpLP10I&ouMode=CHILDREN
+
+Query for all events with all descendants of a certain organisation unit, implying all organisation units in the sub-hierarchy:
+
+    /api/29/events.json?orgUnit=O6uvpzGd5pu&ouMode=DESCENDANTS
+
+Query for all events with a certain program and organisation unit:
+
+    /api/29/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
+
+Query for all events with a certain program and organisation unit, sorting by due date ascending:
+
+    /api/29/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc&order=dueDate
+
+Query for the 10 events with the newest event date in a certain program and organisation unit - by paging and ordering by due date descending:
+
+    /api/29/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
+      &order=eventDate:desc&pageSize=10&page=1
+
+Query for all events with a certain program and organisation unit for a specific tracked entity instance:
+
+    /api/29/events.json?orgUnit=DiszpKrYNg8
+      &program=eBAyeGv0exc&trackedEntityInstance=gfVxE3ALA9m
+
+Query for all events with a certain program and organisation unit older or equal to 2014-02-03:
+
+    /api/29/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc&endDate=2014-02-03
+
+Query for all events with a certain program stage, organisation unit and tracked entity instance in the year 2014:
+
+    /api/29/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
+      &trackedEntityInstance=gfVxE3ALA9m&startDate=2014-01-01&endDate=2014-12-31
+
+#### Event grid query
+
+In addition to the above event query end point, there is an event grid query end point where a more compact "grid" format of events are returned. This is possible by interacting with /api/events/query.json|xml|xls|csv endpoint.
+
+    /api/26/events/query
+
+Most of the query parameters mentioned in event querying and reading section above are valid here. However, since the grid to be returned comes with specific set of columns that apply to all rows (events), it is mandatory to specify a program stage. It is not possible to mix events from different programs or program stages in the return.
+
+Returning events from a single program stage, also opens up for new functionality - for example sorting and searching events based on their data element values. api/events/query has support for this. Below are some examples
+
+A query to return an event grid containing only selected data elements for a program stage
+
+    /api/28/events/query.json?orgUnit=DiszpKrYNg8&programStage=Zj7UnCAulEk&dataElement=qrur9Dvnyt5,fWIAEtYVEGk,K6uUAvq500H&order=lastUpdated:desc&pageSize=50&page=1&totalPages=true
+
+A query to return an event grid containing all data elements of a program stage
+
+    /api/28/events/query.json?orgUnit=DiszpKrYNg8&programStage=Zj7UnCAulEk&includeAllDataElements=true
+
+A query to filter events based on data element value
+
+    /api/28/events/query.json?orgUnit=DiszpKrYNg8&programStage=Zj7UnCAulEk&filter=qrur9Dvnyt5:GT:20:LT:50
+
+In addition to the filtering, the above example also illustrates one thing: the fact that there are no data elements mentioned to be returned in the grid. When this happens, the system defaults back to return only those data elements marked "Display in report" under program stage configuration.
+
+We can also extend the above query to return us a grid sorted (asc|desc) based on data element value
+
+    /api/28/events/query.json?orgUnit=DiszpKrYNg8&programStage=Zj7UnCAulEk&filter=qrur9Dvnyt5:GT:20:LT:50&order=qrur9Dvnyt5:desc
+
+### Update strategies
+
+<!--DHIS2-SECTION-ID:webapi_tei_update_strategies-->
+
+Two update strategies for all 3 tracker endpoints are supported: enrollment and event creation. This is useful when you have generated an identifier on the client side and are not sure if it was created or not on the server.
+
+<table>
+<caption>Available tracker strategies</caption>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 75%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CREATE</td>
+<td>Create only, this is the default behavior.</td>
+</tr>
+<tr class="even">
+<td>CREATE_AND_UPDATE</td>
+<td>Try and match the ID, if it exist then update, if not create.</td>
+</tr>
+</tbody>
+</table>
+
+To change the parameter, please use the strategy parameter:
+
+    POST /api/29/trackedEntityInstances?strategy=CREATE_AND_UPDATE
+
+### Tracker bulk deletion
 
 <!--DHIS2-SECTION-ID:webapi_tracker_bulk_deletion-->
 
@@ -13396,7 +13841,7 @@ _Example: Bulk deletion of tracked entity instances:_
     }
 
     curl -X POST -d @data.json -H "Content-Type: application/json"
-      "http://server/api/26/trackedEntityInstasnces?strategy=DELETE"
+      "http://server/api/29/trackedEntityInstasnces?strategy=DELETE"
 
 _Example: Bulk deletion of enrollments:_
 
@@ -13409,7 +13854,7 @@ _Example: Bulk deletion of enrollments:_
     }
 
     curl -X POST -d @data.json -H "Content-Type: application/json"
-      "http://server/api/26/enrollments?strategy=DELETE"
+      "http://server/api/29/enrollments?strategy=DELETE"
 
 _Example: Bulk deletion of events:_
 
@@ -13422,7 +13867,225 @@ _Example: Bulk deletion of events:_
     }
 
     curl -X POST -d @data.json -H "Content-Type: application/json"
-      "http://server/api/26/events?strategy=DELETE"
+      "http://server/api/29/events?strategy=DELETE"
+
+### UIDs Reuse and Items Deletion via POST and PUT methods
+
+<!--DHIS2-SECTION-ID:webapi_updating_and_deleting_items-->
+
+As it was already stated above, tracker endpoints _/trackedEntityInstances_, _/enrollments_, _/events_ fully support CRUD. What is important to mention is that the system keeps track of used UIDs. Therefore, a once created and then deleted item (event, enrollment, …) cannot be created and/or updated again. If you try to delete an already deleted item, system is transparent and does return a success as deletion of an already deleted item means no change.
+
+The second thing to mention is that it is not allowed to delete an item via an update (_PUT_) or create (_POST_) method. Therefore, an attribute _deleted_ is completely ignored in both _PUT_ and _POST_ methods, and in _POST_ method it is by default set to _false_.
+
+### Import parameters
+
+<!--DHIS2-SECTION-ID:webapi_import_parameters-->
+
+The import process can be customized using a set of import parameters:
+
+<table>
+<caption>Import parameters</caption>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Values (default first)</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>dataElementIdScheme</td>
+<td>id | name | code | attribute:ID</td>
+<td>Property of the data element object to use to map the data values.</td>
+</tr>
+<tr class="even">
+<td>orgUnitIdScheme</td>
+<td>id | name | code | attribute:ID</td>
+<td>Property of the org unit object to use to map the data values.</td>
+</tr>
+<tr class="odd">
+<td>idScheme</td>
+<td>id | name | code| attribute:ID</td>
+<td>Property of all objects including data elements, org units and category option combos, to use to map the data values.</td>
+</tr>
+<tr class="even">
+<td>dryRun</td>
+<td>false | true</td>
+<td>Whether to save changes on the server or just return the import summary.</td>
+</tr>
+<tr class="odd">
+<td>strategy</td>
+<td>CREATE | UPDATE | CREATE_AND_UPDATE | DELETE</td>
+<td>Save objects of all, new or update import status on the server.</td>
+</tr>
+<tr class="even">
+<td>skipNotifications</td>
+<td>true | false</td>
+<td>Indicates whether to send notifications for completed events.</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>importReportMode</td>
+<td>FULL, ERRORS, DEBUG</td>
+<td>Sets the <strong>ImportReport</strong> mode, controls how much is reported back after the import is done. <strong>ERRORS</strong> only includes <em>ObjectReports</em> for object which has errors. <strong>FULL</strong> returns an <em>ObjectReport</em> for all objects imported, and <strong>DEBUG</strong> returns the same plus a name for the object (if available).</td>
+</tr>
+</tbody>
+</table>
+
+#### CSV Import / Export
+
+<!--DHIS2-SECTION-ID:webapi_events_csv_import_export-->
+
+In addition to XML and JSON for event import/export, in DHIS2.17 we introduced support for the CSV format. Support for this format builds on what was described in the last section, so here we will only write about what the CSV specific parts are.
+
+To use the CSV format you must either use the _/api/events.csv_ endpoint, or add _content-type: text/csv_ for import, and _accept: text/csv_ for export when using the _/api/events_ endpoint.
+
+The order of column in the CSV which are used for both export and import is as follows:
+
+<table>
+<caption>CSV column</caption>
+<thead>
+<tr class="header">
+<th>Index</th>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>event</td>
+<td>identifier</td>
+<td>Identifier of event</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>status</td>
+<td>enum</td>
+<td>Status of event, can be ACTIVE | COMPLETED | VISITED | SCHEDULED | OVERDUE | SKIPPED</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>program</td>
+<td>identifier</td>
+<td>Identifier of program</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>programStage</td>
+<td>identifier</td>
+<td>Identifier of program stage</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>enrollment</td>
+<td>identifier</td>
+<td>Identifier of enrollment (program instance)</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>orgUnit</td>
+<td>identifier</td>
+<td>Identifier of organisation unit</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>eventDate</td>
+<td>date</td>
+<td>Event date</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>dueDate</td>
+<td>date</td>
+<td>Due Date</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>latitude</td>
+<td>double</td>
+<td>Latitude where event happened</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>longitude</td>
+<td>double</td>
+<td>Longitude where event happened</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>dataElement</td>
+<td>identifier</td>
+<td>Identifier of data element</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>value</td>
+<td>string</td>
+<td>Value / measure of event</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>storedBy</td>
+<td>string</td>
+<td>Event was stored by (defaults to current user)</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>providedElsewhere</td>
+<td>boolean</td>
+<td>Was this value collected somewhere else</td>
+</tr>
+</tbody>
+</table>
+
+_Example of 2 events with 2 different data value each:_
+
+    EJNxP3WreNP,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,1,,
+    EJNxP3WreNP,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,2,,
+    qPEdI1xn7k0,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,3,,
+    qPEdI1xn7k0,COMPLETED,<pid>,<psid>,<enrollment-id>,<ou>,2016-01-01,2016-01-01,,,<de>,4,,
+
+#### Import strategy: SYNC
+
+<!--DHIS2-SECTION-ID:webapi_sync_import_strategy-->
+
+The import strategy SYNC should be used only by internal synchronization task and not for regular import. The SYNC strategy allows all 3 operations: CREATE, UPDATE, DELETE to be present in the payload at the same time.
+
+### Tracker Ownership Management
+
+<!--DHIS2-SECTION-ID:webapi_tracker_ownership_management-->
+
+A new concept called Tracker Ownership is introduced from 2.30. There will now be one owner organisation unit for a tracked entity instance in the context of a program. Programs that are configured with an access level of _PROTECTED_ or _CLOSED_ will adhere to the ownership privileges. Only those users belonging to the owning org unit for a tracked entity-program combination will be able to access the data related to that program for that tracked entity.
+
+#### Tracker Ownership Override : Break the Glass
+
+<!--DHIS2-SECTION-ID:webapi_tracker_ownership_override_api-->
+
+It is possible to temporarily override this ownership privilege for a program that is configured with an access level of _PROTECTED_. Any user will be able to temporarily gain access to the program related data, if the user specifies a reason for accessing the tracked entity-program data. This act of temporarily gaining access is termed as _breaking the glass_. Currently, the temporary access is granted for 3 hours. DHIS2 audits breaking the glass along with the reason specified by the user. It is not possible to gain temporary access to a program that has been configured with an access level of _CLOSED_. To break the glass for a tracked entity program combination, you can issue a POST request as shown:
+
+    /api/30/tracker/ownership/override?trackedEntityInstance=DiszpKrYNg8&program=eBAyeGv0exc&reason=patient+showed+up+for+emergency+care
+
+#### Tracker Ownership Transfer
+
+<!--DHIS2-SECTION-ID:webapi_tracker_ownership_transfer_api-->
+
+It is possible to transfer the ownership of a tracked entity-program from one org unit to another. This will be useful in case of patient referrals or migrations. Only an owner (or users who have broken the glass) can transfer the ownership. To transfer ownership of a tracked entity-program to another organisation unit, you can issue a PUT request as shown:
+
+    /api/30/tracker/ownership/transfer?trackedEntityInstance=DiszpKrYNg8&program=eBAyeGv0exc&ou=EJNxP3WreNP
+
+## Anonymous Events API
+
+<!--DHIS2-SECTION-ID:webapi_anonymous_events_api-->
+
+Anonymous events API has only 1 enpoint and it is the same endpoint as is used in Tracker API for CRUD operations over Events: _/api/29/events_
+
+For detailed documentation, see [Events](#webapi_events)
 
 ## Adresses électroniques
 
@@ -14714,12 +15377,12 @@ Analytics table hooks have the following fields:
 </tr>
 <tr class="odd">
 <td>resourceTableType</td>
-<td><p>See &quot;Table type&quot; in &quot;Overview of phases, table types and temporary tables&quot;</p></td>
+<td><p>See column &quot;Table type&quot; in table &quot;Phases, table types and temporary tables&quot; below</p></td>
 <td>The type of resource table for which to invoke the SQL script. Applies only for hooks defined with the RESOURCE_TABLE_POPULATED phase.</td>
 </tr>
 <tr class="even">
 <td>analyticsTableType</td>
-<td>DATA_VALUE, COMPLETENESS, COMPLETENESS_TARGET, ORG_UNIT_TARGET, EVENT, ENROLLMENT, VALIDATION_RESULT</td>
+<td>See column &quot;Table type&quot; in table &quot;Phases, table types and temporary tables&quot; below</td>
 <td>The type of analytics table for which to invoke the SQL script. Applies only for hooks defined with the ANALYTICS_TABLE_POPULATED phase.</td>
 </tr>
 <tr class="odd">
@@ -14730,20 +15393,22 @@ Analytics table hooks have the following fields:
 </tbody>
 </table>
 
-The _ANALYTICS_TABLE_POPULATED_ phase takes place after the analytics table has been populated, but before indexes have been created and the temp table has been swapped with the main table. As a result, the SQL script should refer to the analytics temp table, e.g. _analytics_temp_, _analytics_completeness_temp_, _analytics_completenesstarget_temp_, _analytics_orgunittarget_temp_, _analytics_event_temp\_\<program-uid\>_.
+The _ANALYTICS_TABLE_POPULATED_ phase takes place after the analytics table has been populated, but before indexes have been created and the temp table has been swapped with the main table. As a result, the SQL script should refer to the analytics temp table, e.g. _analytics_temp_, _analytics_completeness_temp_.
 
 This applies also to the _RESOURCE_TABLE_POPULATED_ phase, which takes place after the resource table has been populated, but before indexes have been created and the temp table has been swapped with the main table. As a result, the SQL script should refer to the resource temp table, e.g. _\_orgunitstructure_temp_, _\_categorystructure_temp_.
 
 You should define only one of the _resourceTableType_ and _analyticsTableType_ fields, depending on which _phase_ is defined.
 
-Only the table type you select will have it's temporary table available when the hook is run. The following table shows the valid combinations of phase, table types and temporary tables.
+You can refer to the temporary database table which matches the specified hook table type only (other temporary tables will not be available). As an example, if you specify _ORG_UNIT_STRUCTURE_ as the resource table type, you can refer to the _\_orgunitstructure_temp_ temporary database table only.
+
+The following table shows the valid combinations of phases, table types and temporary tables.
 
 <table>
-<caption>Overview of phases, table types and temporary tables</caption>
+<caption>Phases, table types and temporary tables</caption>
 <colgroup>
-<col width="27%" />
-<col width="39%" />
-<col width="33%" />
+<col style="width: 27%" />
+<col style="width: 39%" />
+<col style="width: 33%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -14897,6 +15562,35 @@ An example curl command looks like this:
     curl "localhost:8080/api/synchronization/metadataPull" -X POST
       -d "https://dhis2.org/metadata-repo/221/trainingland-org-units/metadata.json"
       -H "Content-Type:text/plain" -u admin:district -v
+
+## Icons
+
+<!--DHIS2-SECTION-ID:webapi_icons-->
+
+DHIS2 includes a collection of icons that can be used to give visual context to metadata. These icons can be accessed through the icons resource.
+
+    GET /api/icons
+
+This endpoint returns a list of information about the available icons. Each entry contains information about the icon, and a reference to the actual icon.
+
+    {
+      key: "mosquito_outline",
+      description: "",
+      keywords: [
+        "malaria",
+        "mosquito",
+        "denge"
+      ],
+      href: "<dhis server>/api/icons/mosquito_outline/icon.svg"
+    }
+
+The keywords can be used to filter which icons to return. Passing a list of keywords with the request will only return icons that match all the keywords:
+
+    GET /api/icons?keywords=shape,small
+
+A list of all unique keywords can be found at the keywords resource:
+
+    GET /api/icons/keywords
 
 # Applications
 
