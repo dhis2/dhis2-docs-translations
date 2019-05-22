@@ -5,9 +5,18 @@ BRANCHES=( "2.29" "2.30" "2.31" "2.32" "master" )
 for branch in ${BRANCHES[@]}
 do
   git reset --hard
-  git checkout -B $branch
+  local out=$(git rev-parse --verify "origin/${branch}" 2>&1)
+
+  if [[ "$out" == fatal* ]]; then
+      echo "creating branch: ${branch}"
+      git branch "$branch"
+  fi
+  git checkout $branch
   git pull origin $branch
-  rm -rf .tx
+  mkdir .tx
+  echo "[main]" > .tx/config
+  echo "host = https://www.transifex.com" >> .tx/config
+
   tx config mapping-remote https://www.transifex.com/hisp-uio/dhis-2-documentation-${branch//.}
 
   # include translated languages here
