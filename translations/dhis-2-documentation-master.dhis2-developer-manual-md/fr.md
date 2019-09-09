@@ -1025,6 +1025,11 @@ Multiple transformers can be used by repeating the transformer syntax:
 <td>Arg1: page,Arg2: pageSize</td>
 <td>Pages a collection, default pageSize is 50.</td>
 </tr>
+<tr class="even">
+<td>pluck</td>
+<td>Optional Arg1: fieldName</td>
+<td>Converts an array of objects to an array of a selected field of that object. By default the first field that is returned by the collection is used (normally the ID).</td>
+</tr>
 </tbody>
 </table>
 
@@ -1043,6 +1048,12 @@ Examples of transformer usage.
     /api/26/dataElements/ID?fields=id~rename(i),name~rename(n)
 
     /api/26/dataElementGroups?fields=id,displayName,dataElements~paging(1;20)
+
+    Include an array with IDs of the organisation units:
+    /api/31/categoryOptions.json?fields=id,organisationUnits~pluck
+
+    Include an array with the names of the organisation units (collection only returns field name):
+    /api/31/categoryOptions.json?fields=id,organisationUnits~pluck[name]
 
 ## Metadata create, read, update, delete, validate
 
@@ -1474,7 +1485,7 @@ The importer allows you to import metadata exported with the new exporter. The v
 </tr>
 <tr class="odd">
 <td>mergeMode</td>
-<td>MERGE, REPLACE</td>
+<td>REPLACE, MERGE</td>
 <td>Sets the merge mode, when doing updates we have two ways of merging the old object with the new one, <strong>MERGE</strong> mode will only overwrite the old property if the new one is not-null, for <strong>REPLACE</strong> mode all properties are overwritten regardless of null or not.</td>
 </tr>
 <tr class="even">
@@ -3563,7 +3574,7 @@ The following constraints apply to the data value sets resource:
 
 This example will show how to send individual data values to be saved in a request. This can be achieved by sending a _POST_ request to the _dataValues_ resource:
 
-    https://play.dhis2.org/demo/api/26/dataValues
+    /api/26/dataValues
 
 The following query parameters are supported for this resource:
 
@@ -3604,13 +3615,13 @@ The following query parameters are supported for this resource:
 </tr>
 <tr class="odd">
 <td>cc</td>
-<td>No (must combine with cp)</td>
-<td>Attribute combo identifier</td>
+<td>No (must be combined with cp)</td>
+<td>Attribute category combo identifier</td>
 </tr>
 <tr class="even">
 <td>cp</td>
-<td>No (must combine with cc)</td>
-<td>Attribute option identifiers, separated with ; for multiple values</td>
+<td>No (must be combined with cc)</td>
+<td>Attribute category option identifiers, separated with ; for multiple values</td>
 </tr>
 <tr class="odd">
 <td>ds</td>
@@ -3641,7 +3652,7 @@ If any of the identifiers given are invalid, if the data value or comment are in
       &pe=201301&ou=DiszpKrYNg8&co=Prlt0C1RF0s&value=12"
       -X POST -u admin:district -v
 
-This resource also allows a special syntax for associating the value to an attribute option combination. This can be done by sending the identifier of the attribute combination, together with the identifier(s) of the attribute option(s) which the value represents within the combination. An example looks like this:
+This resource also allows a special syntax for associating the value to an attribute option combination. This can be done by sending the identifier of the attribute category combination, together with the identifiers of the attribute category options which the value represents within the combination. The category combination is specified with the `cc` parameter, while the category options are specified as a semi-colon separated string with the `cp` parameter. It is necessary to ensure that the category options are all part of the category combination. An example looks like this:
 
     curl "https://play.dhis2.org/demo/api/26/dataValues?de=s46m5MS0hxu&ou=DiszpKrYNg8
       &pe=201308&cc=dzjKKQq0cSO&cp=wbrDrL2aYEc;btOyqprQ9e8&value=26"
@@ -7456,9 +7467,56 @@ A more tailored response can be obtained by specifying specific fields in the re
 
 <!--DHIS2-SECTION-ID:webapi_searching_dasboards-->
 
-When setting a dashboard it is convenient from a consumer point of view to be able to search for various analytical resources using the _/dashboards/q_ resource. This resource lets you search for matches on the name property of the following objects: charts, maps, report tables, users, reports and resources. You can do a search by making a _GET_ request on the following resource URL pattern, where my-query should be replaced by the preferred search query:
+When a user is building a dashboard it is convenient to be able to search for various analytical resources using the _/dashboards/q_ resource. This resource lets you search for matches on the name property of the following objects: charts, maps, report tables, users, reports and resources. You can do a search by making a _GET_ request on the following resource URL pattern, where my-query should be replaced by the preferred search query:
 
-    /api/26/dashboards/q/my-query.json
+    /api/32/dashboards/q/my-query.json
+
+For example, this query:
+
+    /api/32/dashboards/q/ma?count=6&maxCount=20&max=CHART&max=MAP
+
+Will search for the following:
+
+- analytical object name contains the string "ma"
+- return up to 6 of each type
+- for CHART and MAP types, return up to 20
+
+<table>
+<caption>dashboards/q query parameters</caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 44%" />
+<col style="width: 35%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Query parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>count</td>
+<td>The number of items of each type to return</td>
+<td>Positive integer</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>maxCount</td>
+<td>The number of items of max types to return</td>
+<td>Positive integer</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>max</td>
+<td>The type to return the maxCount for</td>
+<td>String [CHART|MAP|REPORT_TABLE|USER|REPORT|RESOURCE]</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
 
 JSON and XML response formats are supported. The response in JSON format will contain references to matching resources and counts of how many matches were found in total and for each type of resource. It will look similar to this:
 
@@ -9411,13 +9469,13 @@ The analytics enrollment query API let you specify a range of query parameters.
 <td>asc</td>
 <td>No</td>
 <td>Dimensions to be sorted ascending, can reference enrollment date, incident date, org unit name and code.</td>
-<td> ENROLLMENTDATE | INCIDENTDATE| OUNAME | OUCODE </td>
+<td> ENROLLMENTDATE | INCIDENTDATE| OUNAME | OUCODE </td>
 </tr>
 <tr>
 <td>desc</td>
 <td>No</td>
 <td>Dimensions to be sorted descending, can reference enrollment date, incident date, org unit name and code.</td>
-<td> ENROLLMENTDATE | INCIDENTDATE| OUNAME | OUCODE </td>
+<td> ENROLLMENTDATE | INCIDENTDATE| OUNAME | OUCODE </td>
 </tr>
 <td>hierarchyMeta</td>
 <td>No</td>
@@ -11225,28 +11283,101 @@ _SMPP Gateway_
 _GenericHttp_
 
     {
-      "name" : "generic",
-      "messageParameter": "message",
-      "recipientParameter": "msisdn",
-      "urlTemplate": "http://localhost:template",
-      "useGet":"true",
+      "name": "Generic",
+      "configurationTemplate": "{\"to\": \"${recipients}\",\"body\": \"${text}\"}",
+      "useGet": false,
+      "contentType": "APPLICATION_JSON",
+      "urlTemplate":"https://samplegateway.com/messages",
       "parameters": [
         {
-          "key": "username",
-          "value": "user12",
-          "classified": "false",
-          "header": "false"
+            "header": true,
+            "encode": false,
+            "key": "username",
+            "value": "user_uio",
+            "confidential": true
         },
         {
-          "key": "password",
-          "value": "XXX",
-          "classified": "true",
-                "header": "false"
+            "header": true,
+            "encode": false,
+            "key": "password",
+            "value": "123abcxyz",
+            "confidential": true
         }
-      ]
+      ],
+      "isDefault": false
     }
 
-In generic http gateway any number of parameters can be added. Header can be set to true if any of them is required to be sent in http header. HTTP.OK will be returned if configurations are saved successfully otherwise _Error_
+In generic http gateway any number of parameters can be added.
+
+<table>
+<caption>Generic SMS gateway parameters</caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 73%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name</td>
+<td>String</td>
+<td>name of the gateway</td>
+</tr>
+<tr class="even">
+<td>configurationTemplate</td>
+<td>String</td>
+<td>Configuration template which get populated with parameter values. For example configuration template given above will be populated like this { "to": "+27001234567", "body": "Hello World!"}</td>
+</tr>
+<tr class="odd">
+<td>useGet</td>
+<td>Boolean</td>
+<td>Http POST nethod will be used by default. In order to change it and Http GET, user can set useGet flag to true.</td>
+</tr>
+<tr class="even">
+<td>contentType</td>
+<td>String</td>
+<td>Content type specify what type of data is being sent. Supported types are APPLICATION_JSON, APPLICATION_XML, FORM_URL_ENCODED, TEXT_PLAIN</td>
+</tr>
+<tr class="odd">
+<td>urlTemplate</td>
+<td>String</td>
+<td>Url template</td>
+</tr>
+<tr class="even">
+<td>header</td>
+<td>Boolean</td>
+<td>If parameter needs to be sent in Http headers</td>
+</tr>
+<tr class="odd">
+<td>encode</td>
+<td>Boolean</td>
+<td>If parameter needs to be encoded</td>
+</tr>
+<tr class="even">
+<td>key</td>
+<td>String</td>
+<td>parameter key</td>
+</tr>
+<tr class="odd">
+<td>value</td>
+<td>String</td>
+<td>parameter value</td>
+</tr>
+<tr class="even">
+<td>confidential</td>
+<td>Boolean</td>
+<td>If parameter is confidential. This parameter will not be exposed through API</td>
+</tr>
+</tbody>
+</table>
+
+HTTP.OK will be returned if configurations are saved successfully otherwise _Error_
 
 ## SMS Commands
 
@@ -13241,17 +13372,21 @@ To query for tracked entity instances you can interact with the _/api/trackedEnt
 </tr>
 <tr class="even">
 <td>lastUpdatedStartDate</td>
-<td>Filter for events which were updated after this date.</td>
+<td>Filter for events which were updated after this date. Cannot be used together with <em>lastUpdatedDuration</em>.</td>
 </tr>
 <tr class="odd">
 <td>lastUpdatedEndDate</td>
-<td>Filter for events which were updated up until this date.</td>
-</tr
+<td>Filter for events which were updated up until this date. Cannot be used together with <em>lastUpdatedDuration</em>.</td>
+</tr>
 <tr class="even">
+<td>lastUpdatedDuration</td>
+<td>Include only items which are updated within the given duration. The format is <value><time-unit>, where the supported time units are “d” (days), “h” (hours), “m” (minutes) and “s” (seconds). Cannot be used together with <em>lastUpdatedStartDate</em> and/or <em>lastUpdatedEndDate</em>.</td>
+</tr>
+<tr class="odd">
 <td>assignedUserMode</td>
 <td>Restricts result to tei with events assigned based on the assigned user selection mode, can be CURRENT | PROVIDED | NONE | ANY.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>assignedUser</td>
 <td>Filter the result down to a limited set of teis with events that are assigned to the given user IDs by using <em>assignedUser=id1;id2</em>.This parameter will be considered only if assignedUserMode is either PROVIDED or null. The API will error out, if for example, assignedUserMode=CURRENT and assignedUser=someId</td>
 </tbody>
@@ -14165,30 +14300,34 @@ To query for enrollments you can interact with the _/api/enrollments_ resource.
 <td>End date of enrollment in the given program for the tracked entity instance.</td>
 </tr>
 <tr class="even">
+<td>lastUpdatedDuration</td>
+<td>Include only items which are updated within the given duration. The format is <value><time-unit>, where the supported time units are “d” (days), “h” (hours), “m” (minutes) and “s” (seconds).</td>
+</tr>
+<tr class="odd">
 <td>trackedEntity</td>
 <td>Tracked entity identifier. Restricts instances to the given tracked instance type.</td>
 </tr>
-<tr class="odd">
-<td>trackedEntityInstsane</td>
+<tr class="even">
+<td>trackedEntityInstance</td>
 <td>Tracked entity instance identifier. Should not be used together with trackedEntity.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>page</td>
 <td>The page number. Default page is 1.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>pageSize</td>
 <td>The page size. Default size is 50 rows per page.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>totalPages</td>
 <td>Indicates whether to include the total number of pages in the paging response (implies higher response time).</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>skipPaging</td>
 <td>Indicates whether paging should be ignored and all rows should be returned.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>includeDeleted</td>
 <td>Indicates whether to include soft deleted enrollments or not. It is false by default.</td>
 </tr>
@@ -14649,81 +14788,87 @@ This section explains how to read out the events that have been stored in the DH
 <td>lastUpdatedStartDate</td>
 <td>date</td>
 <td>false</td>
-<td>Filter for events which were updated after this date.</td>
+<td>Filter for events which were updated after this date. Cannot be used together with <em>lastUpdatedDuration</em>.</td>
 </tr>
 <tr class="even">
 <td>lastUpdatedEndDate</td>
 <td>date</td>
 <td>false</td>
-<td>Filter for events which were updated up until this date.</td>
+<td>Filter for events which were updated up until this date. Cannot be used together with <em>lastUpdatedDuration</em>.</td>
 </tr>
 <tr class="odd">
+<td>lastUpdatedDuration</td>
+<td>string</td>
+<td>false</td>
+<td>Include only items which are updated within the given duration. The format is <value><time-unit>, where the supported time units are “d” (days), “h” (hours), “m” (minutes) and “s” (seconds). Cannot be used together with <em>lastUpdatedStartDate</em> and/or <em>lastUpdatedEndDate</em>.</td>
+</tr>
+<tr class="even">
 <td>skipMeta</td>
 <td>boolean</td>
 <td>false</td>
 <td>Exclude the meta data part of response (improves performance)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>page</td>
 <td>integer</td>
 <td>false</td>
 <td>Page number</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>pageSize</td>
 <td>integer</td>
 <td>false</td>
 <td>Number of items in each page</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>totalPages</td>
 <td>boolean</td>
 <td>false</td>
 <td>Indicates whether to include the total number of pages in the paging response.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>skipPaging</td>
 <td>boolean</td>
 <td>false</td>
 <td>Indicates whether to skip paging in the query and return all events.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>dataElementIdScheme</td>
 <td>string</td>
 <td>false</td>
 <td>Data element ID scheme to use for export, valid options are UID and CODE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>categoryOptionComboIdScheme</td>
 <td>string</td>
 <td>false</td>
 <td>Category Option Combo ID scheme to use for export, valid options are UID and CODE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>orgUnitIdScheme</td>
 <td>string</td>
 <td>false</td>
 <td>Organisation Unit ID scheme to use for export, valid options are UID and CODE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>programIdScheme</td>
 <td>string</td>
 <td>false</td>
 <td>Program ID scheme to use for export, valid options are UID and CODE</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>programStageIdScheme</td>
 <td>string</td>
 <td>false</td>
 <td>Program Stage ID scheme to use for export, valid options are UID and CODE</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>idScheme</td>
 <td>string</td>
 <td>false</td>
 <td>Allows to set id scheme for data element, category option combo, orgUnit, program and program stage at once.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>order</td>
 <td>string</td>
 <td>false</td>
@@ -14732,20 +14877,26 @@ This section explains how to read out the events that have been stored in the DH
 <pre><code>order=orgUnitName:DESC</code></pre>
 <pre><code>order=lastUpdated:ASC</code></pre></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>event</td>
-<td>comma delimited strings</td>
+<td>comma delimited string</td>
 <td>false</td>
 <td>Filter the result down to a limited set of IDs by using <em>event=id1;id2</em>.</td>
 </tr>
+<tr class="odd">
+<td>skipEventId</td>
+<td>boolean</td>
+<td>false</td>
+<td>Skips event identifiers in the response</td>
+</tr>
 <tr class="even">
-<td>attributeCc**</td>
+<td>attributeCc (**)</td>
 <td>string</td>
 <td>false</td>
 <td>Attribute category combo identifier (must be combined with <em>attributeCos</em>)</td>
 </tr>
 <tr class="odd">
-<td>attributeCos**</td>
+<td>attributeCos (**)</td>
 <td>string</td>
 <td>false</td>
 <td>Attribute category option identifiers, separated with ; (must be combined with <em>attributeCc</em>)</td>
@@ -14777,7 +14928,7 @@ This section explains how to read out the events that have been stored in the DH
 </tbody>
 </table>
 
-\*\***Note:** If the query contains neither _attributeCC_ nor _attributeCos_, the server returns events for all attribute option combos where the user has read access.
+\*\* **Note:** If the query contains neither _attributeCC_ nor _attributeCos_, the server returns events for all attribute option combos where the user has read access.
 
 ##### Examples
 
@@ -14815,6 +14966,10 @@ Query for all events with a certain program stage, organisation unit and tracked
 
     /api/29/events.json?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc
       &trackedEntityInstance=gfVxE3ALA9m&startDate=2014-01-01&endDate=2014-12-31
+
+Query files associated with event data values. In specific case when fetching image file an additional parameter can be provided to fetch image with different dimensions. If dimension is not provided, system will return original image. Parameter will be ignored in case of fetching non image files e.g pdf. Possible dimension values are _small_, _medium_ and _large_. Any value other than those mentioned will be discarded and original image will be returned.
+
+    /api/30/events/files?eventUid=hcmcWlYkg9u&dataElementUid=C0W4aFuVm4P&dimension=small
 
 #### Event grid query
 
@@ -15312,7 +15467,7 @@ _Example: Bulk deletion of tracked entity instances:_
     }
 
     curl -X POST -d @data.json -H "Content-Type: application/json"
-      "http://server/api/29/trackedEntityInstasnces?strategy=DELETE"
+      "http://server/api/29/trackedEntityInstances?strategy=DELETE"
 
 _Example: Bulk deletion of enrollments:_
 
@@ -15562,44 +15717,46 @@ It is possible to transfer the ownership of a tracked entity-program from one or
 
     /api/30/tracker/ownership/transfer?trackedEntityInstance=DiszpKrYNg8&program=eBAyeGv0exc&ou=EJNxP3WreNP
 
-## Potential Duplicate api
+## Potential Duplicates
 
-Potential Duplicates are the records we work with in the deduplication feature of DHIS 2. Due to the nature of the deduplication feature, the api for working with Potential Duplicates are somewhat restricted.
+Potential duplicates are records we work with in the data deduplication feature. Due to the nature of the deduplication feature, this API endpoint is somewhat restricted.
 
-A Potential Duplicate represents a singe record, or a pair of records that are suspected to be a duplicate.
+A potential duplicate represents a single or pair of records which are suspected to be a duplicate.
 
-The basic payload of a Potential Duplicate looks like this:
+The payload of a potential duplicate looks like this:
 
-      {
-        "teiA": "<id>",
-        "teiB": "<id>|null"
-        "status": "OPEN|INVALID|MERGED"
-      }
+    {
+      "teiA": "<id>",
+      "teiB": "<id>|null"
+      "status": "OPEN|INVALID|MERGED"
+    }
 
-You can retrieve a list of Potential duplicates using the following endpoint:
+You can retrieve a list of potential duplicates using the following endpoint:
 
-          GET /api/potentialDuplicates
+    GET /api/potentialDuplicates
 
-Additionally you can inspect individual records using:
+Additionally you can inspect individual records:
 
-          GET /api/potentialDuplicates/<id>
+    GET /api/potentialDuplicates/<id>
 
-To create a new Potential Duplicate, you can use this endpoint:
+To create a new potential duplicate, you can use this endpoint:
 
-          POST /api/potentialDuplicates
+    POST /api/potentialDuplicates
 
-The payload you provide needs atleast teiA to be a valid trackedEntityInstance, but teiB is optional. If teiB is set, it also needs to point to an existing trackedEntityInstance.
+The payload you provide needs at least _teiA_ to be a valid tracked entity instance; _teiB_ is optional. If _teiB_ is set, it also needs to point to an existing tracked entity instance.
 
-          {
-              "teiA": "<id>", (required)
-              "teiB": "<id>" (optional)
-          }
+    {
+        "teiA": "<id>", (required)
+        "teiB": "<id>" (optional)
+    }
 
-You cannot update or delete Potential Duplicates. However, you can mark them as INVALID. You can mark a record as INVALID using the following endpoint:
+You can mark a potential duplicate as _invalid_ to tell the system that the potential duplicate has been investigated and deemed to be not a duplicate. To do so you can use the following endpoint:
 
-          PUT /api/potentialDuplicates/<id>/invalidate
+    PUT /api/potentialDuplicates/<id>/invalidation
 
-Marking a Potential Duplicate as INVALID will indicate the record is not a valid duplicate, and can be considered the same as removing the record. The record is still persisted in the database.
+To hard delete a potential duplicate:
+
+    DELETE /api/potentialDuplicates/<id>
 
 ## Adresses électroniques
 
@@ -16113,7 +16270,7 @@ To force a reload of currently installed apps, you can issue the following comma
 
 > **Note**
 >
-> Previous to 2.28, installed apps would only be stored on the instace's local filesystem.
+> Previous to 2.28, installed apps would only be stored on the instance's local filesystem.
 
 If the DHIS2 instance has been configured to use cloud storage, apps will now be installed and stored on the cloud service. This will enable multiple instances share the same versions on installed apps, instead of installing the same apps on each individual instance.
 

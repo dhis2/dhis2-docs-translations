@@ -1073,7 +1073,7 @@ Return to your session by invoking `exit` You now have a PostgreSQL user called 
 
 The _PostGIS_ extension is needed for several GIS/mapping features to work. DHIS 2 will attempt to install the PostGIS extension during startup. If the DHIS 2 database user does not have permission to create extensions you can create it from the console using the _postgres_ user with the following commands:
 
-    sudo -u postgres psql -c "create extension postgis;" dhis
+    sudo -u postgres psql -c "create extension postgis;" dhis2
 
 Exit the console and return to your previous user with _\\q_ followed by _exit_.
 
@@ -1129,7 +1129,7 @@ Specifies the average number of object locks allocated for each transaction. Thi
 
 Restart PostgreSQL by invoking `sudo /etc/init.d/postgresql restart`
 
-### Database configuration
+### System configuration
 
 <!--DHIS2-SECTION-ID:install_database_configuration-->
 
@@ -1138,6 +1138,10 @@ The database connection information is provided to DHIS2 through a configuration
     sudo -u dhis nano /home/dhis/config/dhis.conf
 
 A configuration file for PostgreSQL corresponding to the above setup has these properties:
+
+    # ----------------------------------------------------------------------
+    # Database connection
+    # ----------------------------------------------------------------------
 
     # Hibernate SQL dialect
     connection.dialect = org.hibernate.dialect.PostgreSQLDialect
@@ -1154,13 +1158,19 @@ A configuration file for PostgreSQL corresponding to the above setup has these p
     # Database password
     connection.password = xxxx
 
-    # Database schema behavior, can be validate, update, create, create-drop
-    connection.schema = update
+    # ----------------------------------------------------------------------
+    # Server
+    # ----------------------------------------------------------------------
 
-    # Encryption password (sensitive)
-    encryption.password = xxxx
+    # Enable secure settings if system is deployed on HTTPS, default 'off'
+    server.https = on
 
-The _encryption.password_ property is the password used when encrypting and decrypting data in the database. Note that the password must not be changed once it has been set and data has been encrypted as the data can then no longer be decrypted. Remember to set a strong password of at least **24 characters**.
+    # Server base URL
+    # server.base.url = http://server.com/
+
+It is strongly recommended to enable the _server.https_ setting and deploying DHIS 2 over the encrypted HTTPS protocol. This setting will enable e.g. secure cookies. HTTPS deployment is required when enabled.
+
+The _server.base.url_ setting refers to the URL which the system is accessed by end users on the network.
 
 Note that the configuration file supports environment variables. This means that you can set certain properties as environment variables and have them resolved by DHIS 2, e.g. like this where _DB_PASSWD_ is the name of the environment variable:
 
@@ -1180,6 +1190,14 @@ Oracle Java 8 JDK is the recommended Java option as it provides the greatest ope
     sudo apt-get update
     sudo apt-get install oracle-java8-installer
 
+> **Note**
+>
+> The Oracle Java 8 JDK installer PPA has been discontinued. Oracle downloads now require an Oracle account. As an alternative, you may use the OpenJDK 8 version.
+>
+> ```
+>    sudo apt-get install openjdk-8-jdk
+> ```
+
 Check that your installation is okay by invoking:
 
     java -version
@@ -1187,14 +1205,6 @@ Check that your installation is okay by invoking:
 You can also ensure that the appropriate environment variables are set by installing this package:
 
     sudo apt-get install oracle-java8-set-default
-
-### System Settings
-
-<!--DHIS2-SECTION-ID:Provide global system settings-->
-
-Following system settings will be provided in dhis.conf. Previously these were configured in Settings app.
-
-    # server.base.url = https://play.dhis2.org/dev
 
 ### Tomcat and DHIS2 installation
 
@@ -1208,7 +1218,7 @@ This package lets us easily create a new Tomcat instance. The instance will be c
 
     cd /home/dhis/
     sudo tomcat8-instance-create tomcat-dhis
-    sudo chown -R test:test test-dhis/
+    sudo chown -R dhis:dhis tomcat-dhis/
 
 This will create an instance in a directory called _tomcat-dhis_. Note that the tomcat7-user package allows for creating any number of dhis instances if that is desired.
 
@@ -1218,17 +1228,17 @@ Next edit the file _tomcat-dhis/bin/setenv.sh_ and add the lines below. The firs
     export JAVA_OPTS='-Xmx7500m -Xms4000m'
     export DHIS2_HOME='/home/dhis/config'
 
-The Tomcat configiration file is located in _tomcat-dhis/conf/server.xml_. The element which defines the connection to DHIS is the _Connector_ element with port 8080. You can change the port number in the Connector element to a desired port if necessary. If UTF-8 encoding of request data is needed, make sure that the _URIEncoding_ attribute is set to _UTF-8_.
+The Tomcat configiration file is located in _tomcat-dhis/conf/server.xml_. The element which defines the connection to DHIS is the _Connector_ element with port 8080. You can change the port number in the Connector element to a desired port if necessary. The _relaxedQueryChars_ attribute is necessary to allow certain characters in URLs used by the DHIS2 front-end.
 
     <Connector port="8080" protocol="HTTP/1.1"
       connectionTimeout="20000"
       redirectPort="8443"
-      URIEncoding="UTF-8" />
+      relaxedQueryChars="[]" />
 
-The next step is to download the DHIS2 WAR file and place it into the webapps directory of Tomcat. You can download the DHIS2 version 2.30 WAR release like this (replace 2.30 with your preferred version if necessary):
+The next step is to download the DHIS2 WAR file and place it into the webapps directory of Tomcat. You can download the DHIS2 version 2.31 WAR release like this (replace 2.31 with your preferred version if necessary):
 
 ```
-    wget https://releases.dhis2.org/2.30/dhis.war
+    wget https://releases.dhis2.org/2.31/dhis.war
 ```
 
 > **Note**
@@ -1254,7 +1264,7 @@ DHIS2 should never be run as a privileged user. After you have modified the sete
     fi
 
     export CATALINA_BASE="/home/dhis/tomcat-dhis"
-    /usr/share/tomcat7/bin/startup.sh
+    /usr/share/tomcat8/bin/startup.sh
     echo "Tomcat started"
 
 ### Running DHIS2
@@ -1280,6 +1290,12 @@ To monitor the behavior of Tomcat the log is the primary source of information. 
 Assuming that the WAR file is called ROOT.war, you can now access your DHIS2 instance at the following URL:
 
     http://localhost:8080
+
+## Base URL configuration
+
+To set the base URL of the DHIS2 instance, you can specify the following property in the `dhis.conf` configuration file. This URL should point to the location where end users can reach DHIS2 over the network.
+
+    server.base.url = https://play.dhis2.org/dev
 
 ## File store configuration
 
@@ -1406,11 +1422,13 @@ DHIS2 uses an encryption algorithm classified as strong and therefore requires t
 
 <!--DHIS2-SECTION-ID:install_password_configuration-->
 
-To provide security to the encryption alogorithm you will have to set a password in the _dhis.conf_ configuration file through the _encryption.password_ property:
+To provide security to the encryption algorithm you will have to set a password in the _dhis.conf_ configuration file through the _encryption.password_ property:
 
     encryption.password = xxxx
 
-The password must be at least **24 characters long** and it is recommended to use a mix of numbers and lower- and uppercase letters. The encryption password must be kept secret.
+The _encryption.password_ property is the password used when encrypting and decrypting data in the database. Note that the password must not be changed once it has been set and data has been encrypted as the data can then no longer be decrypted.
+
+The password must be at least **24 characters long**. A mix of numbers and lower- and uppercase letters are recommended. The encryption password must be kept secret.
 
 ### Considerations for encryption
 
@@ -2039,6 +2057,16 @@ The following describes the full set of configuration options for the _dhis.conf
     # connection.pool.max_size = 40
 
     # ----------------------------------------------------------------------
+    # Server
+    # ----------------------------------------------------------------------
+
+    # Base URL to the DHIS 2 instance
+    # server.base.url = https://play.dhis2.org/dev
+
+    # Enable secure settings if system is deployed on HTTPS, can be 'off', 'on'
+    # server.https = on
+
+    # ----------------------------------------------------------------------
     # System
     # ----------------------------------------------------------------------
 
@@ -2050,8 +2078,6 @@ The following describes the full set of configuration options for the _dhis.conf
 
     # SQL view protected tables, can be 'on', 'off'
     # system.sql_view_table_protection = on
-
-    # server.base.url = https://play.dhis2.org/dev
 
     # ----------------------------------------------------------------------
     # Encryption
@@ -2708,7 +2734,7 @@ Examples of common positions are:
 <td><p>National health managers</p>
 <p>Province health managers</p></td>
 <td><p>Monitor and analyse data</p></td>
-<td><p>Access to the reports module, the <strong>GIS</strong>, <strong>Data Quality</strong> apps and the dashboard.</p></td>
+<td><p>Access to the reports module, the <strong>Maps</strong>, <strong>Data Quality</strong> apps and the dashboard.</p></td>
 <td><p>Don't need access to enter data, modify data elements or data sets.</p></td>
 </tr>
 <tr class="odd">
@@ -3367,7 +3393,7 @@ The following table shows some common problems which occur and likely remedies:
                   name]</code></p>
 <p>If it is still not running, check the log file with <code>dhis2-logview
                   [instance name]</code> to see if there is any information indicating why it has failed to start.</p>
-<p>If it is running and you can see it with netstat then you need to check your nginx configuration file to ensure that the locatio is correctly mapped.</p></td>
+<p>If it is running and you can see it with netstat then you need to check your nginx configuration file to ensure that the location is correctly mapped.</p></td>
 </tr>
 <tr class="odd">
 <td><p>You can access the site but you see a blank page in your browser.</p></td>

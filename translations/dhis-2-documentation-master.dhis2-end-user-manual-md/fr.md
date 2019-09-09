@@ -484,7 +484,7 @@ The **Data Quality** app contains tools to validate the accuracy and reliability
 
 Vous pouvez contrôler la qualité des données de différentes manières, par exemple:
 
-- At point of data entry, DHIS 2 can check the data entered to see if it falls within the minimum maximum value ranges of that data element (based on all previous data registered).
+- Au moment de la saisie des données, DHIS2 peut examiner les données saisies pour vérifier si elles se situent entre les valeurs maximales et minimales de la plage de valeurs de cet élément de données (basé sur les données précédentes enregistrées).
 
 - En définissant des règles de validation, qui peuvent être exécutées une fois que l'utilisateur a terminé la saisie de données. L'utilisateur peut également vérifier les données saisies pour une période particulière et une unité d'organisation par rapport aux règles de validation et afficher les violations de ces règles.
 
@@ -522,7 +522,7 @@ You can configure a validation rule analysis to automatically send out informati
 
 3.  Exécutez l'analyse des règles de validation, automatiquement ou manuellement.
 
-    - In the **Data Administration** app, you schedule the validation rule analysis to run automatically for all validation rules included in one or several validation notifications. After the system has run the analysis, you'll see the validation violations (if any) in the validation notifications sent via the internal DHIS 2 messaging system.
+    - Dans l'application **Administration des données**, vous planifiez la validation de l'analyse des règles à exécuter automatiquement pour toutes les règles de validation associées à une ou plusieurs notifications de validation. Après que le le système ait exécuté l'analyse, les violations des règles (s'il y en a) s'afficheront dans les notifications de validation envoyées via le système de messagerie interne DHIS2.
 
     - Dans l'application **Qualité des données**, vous exécutez l'analyse des règles de validation manuellement pour celles qui sont sélectionnées. Après que le processus d'analyse soit terminé, une liste de violations de règles s'affichera.
 
@@ -1580,21 +1580,21 @@ Si vous souhaitez visualiser une petite partie de votre tableau croisé dynamiqu
 
     Votre séléction s'ouvre sous forme de carte.
 
-# Data Visualizer
+# Using the Data Visualizer app
 
 <!--DHIS2-SECTION-ID:data_visualizer-->
 
-## Creating and editing charts
+## Creating and editing visualizations
 
-When you open the data-visualizer app from the dhis2 menu, you are presented with a blank slate and you can start creating your chart right away.
+When you open the data-visualizer app from the dhis2 menu, you are presented with a blank slate and you can start creating your visualization right away.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-new.png)
 
-Select the desired chart type from the selector in the upper left corner:
+Select the desired visualization type from the selector in the upper left corner:
 
-![](resources/images/content/user/data-visualizer/data-visualizer-chart-type.png)
+![](resources/images/content/user/data-visualizer/data-visualizer-visualization-type.png)
 
-From the dimension menu on the left you can select the dimension you want to show in your chart, including data, period, organisation units and dynamic dimensions.
+From the dimension menu on the left you can select the dimension you want to show in your visualization, including data, period, organisation units and dynamic dimensions.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-dimensions.png)
 
@@ -1612,1292 +1612,21 @@ In the axis management dialog you can assign data items to the two axes.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-axis-management-dialog.png)
 
-## Viewing chart interpretations
+## Viewing visualization interpretations
 
-When viewing a chart, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The chart description will also be shown. The description suppots rich text format.
+When viewing a visualization, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The visualization description will also be shown. The description suppots rich text format.
 
-To view the chart according to the date of a particular interpretation, click on the interpretation or its "View" button. This will regenerate the chart with the relevant date, which is indicated next to the chart title.
+To view the visualization according to the date of a particular interpretation, click on the interpretation or its "View" button. This will regenerate the visualization with the relevant date, which is indicated next to the visualization title.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-view-interpretation.png)
 
-Clicking on "Back to all interpretations" or the "Exit View" button inside the interpretations panel will clear the interpretation and regenerate the chart with the current date.
+Clicking on "Back to all interpretations" or the "Exit View" button inside the interpretations panel will clear the interpretation and regenerate the visualization with the current date.
 
-## See chart as map
+## See visualization as map
 
-Sometimes it can be useful to see how visualization would look like on map. To achieve this you can select "Open as: Map" chart type after you build your chart.
+Sometimes it can be useful to see how visualization would look like on map. To achieve this you can select "Open as Map" visualization type after you build your visualization.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-open-as-map.png)
-
-# Classic Data Visualizer (deprecated)
-
-<!--DHIS2-SECTION-ID:data_vis-->
-
-This chapter refers to the legacy version of the data visualizer. For the current version, please refer to the [new data visualizer](./data_visualizer.html) chapter.
-
-## About the Classic Data Visualizer app
-
-<!--DHIS2-SECTION-ID:data_vis_intro-->
-
-![](resources/images/content/user/visualizer/column_chart.png)
-
-With the ** Classic Data Visualizer** app, you can select content, for example indicators, data elements, periods and organisation units, for an analysis. The app works well over poor Internet connections and generates charts in the web browser.
-
-> **Astuce**
->
-> - Masquer et afficher les séries de données individuelles dans le graphique en cliquant directement sur l'étiquette de la série dans le graphique. Ils apparaissent soit en haut ou à droite du graphique.
->
-> - Cliquez sur la triple flèche gauche du menu central supérieur. Cette action réduit le menu de gauche et donne plus d'espace au graphique. Vous pouvez récupérer le menu en cliquant à nouveau sur le même bouton.
-
-## Créer un graphique
-
-<!--DHIS2-SECTION-ID:datavis_create_chart-->
-
-1.  Open the **Classic Data Visualizer** app and select a chart type.
-
-2.  Dans le menu de gauche, sélectionnez les métadonnées que vous souhaitez analyser. Vous devez sélectionner un ou plusieurs éléments parmi les trois dimensions - données (indicateurs, éléments de données, taux de reporting), périodes (relatives, fixes) et unités d'organisation (unités ou groupes).
-
-    > **Note**
-    >
-    > If you've access to the system settings, you can change the default period type under **General settings \> Default relative period for analysis.**
-
-    **Les 12 derniers mois** de la dimension de la période et de l'unité d'organisation racine sont sélectionnés par défaut.
-
-3.  Cliquez sur **Mise en page** et organisez les dimensions.
-
-    Vous pouvez conserver la sélection par défaut si vous le souhaitez.
-
-4.  Cliquez sur **Mettre à jour**.
-
-## Sélectionnez un type de graphique
-
-<!--DHIS2-SECTION-ID:datavis_chart_types-->
-
-The **Classic Data Visualizer** app has nine different chart types, each with different characteristics. To select a chart type:
-
-1.  Dans **Type de graphique**, cliquez sur le type de graphique dont vous avez besoin.
-
-    <table>
-    <caption>Chart types</caption>
-    <colgroup>
-    <col style="width: 33%" />
-    <col style="width: 66%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Chart type</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>Column chart</p></td>
-    <td><p>Displays information as vertical rectangular columns with lengths proportional to the values they represent.</p>
-    <p>Useful when you want to, for example, compare performance of different districts.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Stacked column chart</p></td>
-    <td><p>Displays information as vertical rectangular columns, where bars representing multiple categories are stacked on top of each other.</p>
-    <p>Useful when you want to, for example, display trends or sums of related data elements.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Bar chart</p></td>
-    <td><p>Same as column chart, only with horizontal bars.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Stacked bar chart</p></td>
-    <td><p>Same as stacked column chart, only with horizontal bars.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Line chart</p></td>
-    <td><p>Displays information as a series of points connected by straight lines. Also referred to as time series.</p>
-    <p>Useful when you want to, for example, visualize trends in indicator data over multiple time periods.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Area chart</p></td>
-    <td><p>Is based on line chart, with the space between the axis and the line filled with colors and the lines stacked on top of each other.</p>
-    <p>Useful when you want to compare the trends of related indicators.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Pie chart</p></td>
-    <td><p>Circular chart divided into sectors (or slices).</p>
-    <p>Useful when you want to, for example, visualize the proportion of data for individual data elements compared to the total sum of all data elements in the chart.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Radar chart</p></td>
-    <td><p>Displays data on axes starting from the same point. Also known as spider chart.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Speedometer chart</p></td>
-    <td><p>Semi-circle chart which displays values out of 100 %. Also referred to as a gauge chart.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-2.  Cliquez sur **Mettre à jour**.
-
-## Sélectionner les éléments de dimension
-
-<!--DHIS2-SECTION-ID:data_vis_select_dim_items-->
-
-Une dimension fait référence aux éléments décrivant les valeurs de données dans le système. Il y existe trois dimensions principales dans le système:
-
-- Données: comprend des éléments de données, des indicateurs et des sets de données (taux de reporting), décrivant le phénomène ou l'événement des données.
-
-<!-- end list -->
-
-- Périodes: Décrit quand l'événement a eu lieu.
-
-<!-- end list -->
-
-- Unités d'organisation: Décrit où l'événement a eu lieu.
-
-The Classic Data Visualizer app lets you use these dimensions completely flexible in terms of appearing as series, categories and filter.
-
-> **Note**
->
-> Vous pouvez sélectionner des éléments de dimension de différentes manières:
->
-> - Double-cliquez sur un nom d'élément de dimension.
->
-> - Mettez en surbrillance un ou plusieurs éléments de dimension et cliquez sur la flèche simple.
->
-> - Pour sélectionner tous les éléments de dimension d'une liste, cliquez sur la double flèche.
->
-> - Pour effacer les éléments de dimension, utilisez les flèches ou double-cliquez sur les noms dans la liste **Sélectionnée**.
-
-### Sélectionner des indicateurs
-
-The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
-
-1.  Cliquez sur **Données** et sélectionnez **Indicateurs**.
-
-2.  Sélectionnez un groupe d'indicateurs.
-
-    Les indicateurs du groupe sélectionné apparaissent dans la liste des **Disponibles**
-
-3.  Sélectionnez un ou plusieurs indicateurs en double-cliquant sur leurs noms.
-
-    L'indicateur passe à la liste **Sélectionnés**.
-
-### Sélectionner des éléments de données
-
-The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
-
-1.  Cliquez sur **Données** et sélectionnez **Eléments de données**.
-
-2.  Sélectionnez un groupe d'éléments de données.
-
-    Les éléments de données du groupe sélectionné apparaissent dans la liste des **Disponibles**
-
-3.  Sélectionnez un ou plusieurs éléments de données en double-cliquant sur leurs noms.
-
-    L'élément de données passe à la liste **Sélectionnés**.
-
-### Sélectionner des taux de reporting
-
-The Classic Data Visualizer app can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates are defined by data sets.
-
-1.  Cliquez sur **Données** et sélectionnez **taux de reporting**.
-
-    Les taux de reporting apparaissent dans la liste des **Disponibles**
-
-2.  Sélectionnez un ou plusieurs taux de reporting en double-cliquant sur leurs noms.
-
-    L'élément de données passe à la liste **Sélectionnés**.
-
-### Sélectionner des périodes fixes et reltives
-
-1.  Cliquez sur **Périodes**.
-
-2.  Sélectionnez une ou plusieurs périodes.
-
-    Vous pouvez combiner des périodes fixes et des périodes relatives dans le même graphique. Les périodes qui se chevauchent sont filtrées afin qu'elles n'apparaissent qu'une seule fois.
-
-    - Périodes fixes: dans la zone **Sélectionner le type de période**, sélectionnez un type de période. Vous pouvez sélectionner un nombre quelconque de périodes fixes parmi les types de période.
-
-    <!-- end list -->
-
-    - Périodes relatives: dans la partie inférieure de la section **Périodes**, sélectionnez autant de périodes relatives que vous le souhaitez. Les noms sont associés à la date du jour. Cela signifie que si le mois courant est mars et vous sélectionnez **le mois dernier**, le mois de Février sera inclus dans le graphique.
-
-### Sélectionner les unités d'organisation
-
-1.  Cliquez sur **Unités d'organisation**.
-
-2.  Cliquez sur l'icône de la boîte de vitesses.
-
-3.  Sélectionnez un **Mode de sélection** et une unité d'organisation.
-
-    Il existe trois modes de sélection différents:
-
-    <table>
-    <caption>Selection modes</caption>
-    <colgroup>
-    <col style="width: 38%" />
-    <col style="width: 61%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Selection mode</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Select organisation units</strong></p></td>
-    <td><p>Lets you select the organisation units you want to appear in the chart from the organization tree.</p>
-    <p>Select <strong>User org unit</strong> to disable the organisation unit tree and only select the organisation unit that is related to your profile.</p>
-    <p>Select <strong>User sub-units</strong> to disable the organisation unit tree and only select the sub-units of the organisation unit that is related to your profile.</p>
-    <p>Select <strong>User sub-x2-units</strong> to disable the organisation unit tree and only select organisation units two levels down from the organisation unit that is related to your profile.</p>
-    <p>This functionality is useful for administrators to create a meaningful &quot;system&quot; favorite. With this option checked all users find their respective organisation unit when they open the favorite.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Select levels</strong></p></td>
-    <td><p>Lets you select all organisation units at one or more levels, for example national or district level.</p>
-    <p>You can also select the parent organisation unit in the tree, which makes it easy to select for example, all facilities inside one or more districts.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Select groups</strong></p></td>
-    <td><p>Lets you select all organisation units inside one or several groups and parent organisation units at the same time, for example hospitals or chiefdoms.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Sélectionner des éléments de dimension supplémentaires
-
-En fonction des paramètres définis pour les groupes de sets de données des unités organisation et les groupes de sets de données des éléments de données, vous pouvez sélectionner des éléments de dimension supplémentaires depuis menu de gauche.
-
-Ici, vous pouvez ajouter des éléments de dimension tels que l'âge, le sexe, etc. Sans pour autant les ajouter en tant que sélections d'éléments de données détaillées. Ceci est utile lorsque vous souhaitez séparer ces catégories dans votre analyse.
-
-Les éléments de dimension supplémentaires que vous sélectionnez sont disponibles dans **Mise en page des graphiques** en tant que dimensions.
-
-## Sélectionner une série, une catégorie et un filtre
-
-<!--DHIS2-SECTION-ID:data_vis_series_category_filter-->
-
-![](resources/images/content/user/visualizer/chart_layout.png)
-
-Vous pouvez définir quelle dimension des données vous souhaitez voir apparaître en tnt que série, catégorie et filtre.
-
-1.  Cliquez sur **Mise en page**.
-
-2.  Faites glisser les dimensions et déposez-les dans l'espace approprié. Une seule dimension peut être dans chaque section.
-
-3.  Cliquez sur **Mettre à jour**.
-
-![](resources/images/content/user/visualizer/series_category_filter.png)
-
-- Série: une série est un set d'éléments continus et liés (par exemple, exemples de périodes ou d'éléments de données) que vous souhaitez visualiser afin de souligner les tendances ou les relations dans ses données.
-
-- Catégories: une catégorie est un ensemble d'éléments (par exemple des indicateurs ou unités d'organisation) pour lesquelles vous souhaitez comparer les données.
-
-- Filtre: La sélection du filtre filtrera les données affichées dans le graphique. Notez que si vous utilisez la dimension de données comme filtre, vous ne pouvez spécifier qu'un seul indicateur ou set de données en tant qu'élément de filtre, alors qu'avec d'autres types de dimension, vous pouvez sélectionner un nombre quelconque d'éléments.
-
-\</exemple\>
-
-## Modifier l'affichage de votre graphique
-
-<!--DHIS2-SECTION-ID:datavis_change_display-->
-
-1.  Cliquez sur **Options**.
-
-2.  Définissez les options selon vos besoins.
-
-    <table style="width:100%;">
-    <caption>Chart options</caption>
-    <colgroup>
-    <col style="width: 23%" />
-    <col style="width: 33%" />
-    <col style="width: 42%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Option</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Data</strong></p></td>
-    <td><p><strong>Show values</strong></p></td>
-    <td><p>Shows the values above the series in the chart.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Use 100% stacked values</strong></p></td>
-    <td><p>Displays 100 % stacked values in column charts.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Use cumulative values</strong></p></td>
-    <td><p>Displays cumulative values in line charts.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Hide empty categories</strong></p></td>
-    <td><p>Hides the category items with no data from the chart.</p>
-    <p><strong>None</strong>: doesn't hide any of the empty categories</p>
-    <p><strong>Before first</strong>: hides missing values only before the first value</p>
-    <p><strong>After last</strong>: hides missing values only after the last value</p>
-    <p><strong>Before first and after last</strong>: hides missing values only before the first value and after the last value</p>
-    <p><strong>All</strong>: hides all missing values</p>
-    <p>This is useful for example when you create column and bar charts.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Trend line</strong></p></td>
-    <td><p>Displays the trend line which visualizes how your data evolves over time. For example if performance is improving or deteriorating. Useful when periods are selected as category.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Target line value/title</strong></p></td>
-    <td><p>Displays a horizontal line at the given domain value. Useful for example when you want to compare your performance to the current target.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Base line value/title</strong></p></td>
-    <td><p>Displays a horizontal line at the given domain value. Useful for example when you want to visualize how your performance has evolved since the beginning of a process.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Sort order</strong></p></td>
-    <td><p>Allows you to sort the values on your chart from either low to high or high to low.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Aggregation type</strong></p></td>
-    <td><p>Defines how the data elements or indicators will be aggregated within the chart. Some of the aggregation types are <strong>By data element</strong>, <strong>Count</strong>, <strong>Min</strong> and <strong>Max</strong>.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Events</strong></p></td>
-    <td><p><strong>Include only completed events</strong></p></td>
-    <td><p>Includes only completed events in the aggregation process. This is useful when you want for example to exclude partial events in indicator calculations.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Axes</strong></p></td>
-    <td><p><strong>Range axis min/max</strong></p></td>
-    <td><p>Defines the maximum and minimum value which will be visible on the range axis.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Range axis tick steps</strong></p></td>
-    <td><p>Defines the number of ticks which will be visible on the range axis.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Range axis decimals</strong></p></td>
-    <td><p>Defines the number of decimals which will be used for range axis values.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Range axis title</strong></p></td>
-    <td><p>Type a title here to display a label next to the range axis (also referred to as the Y axis). Useful when you want to give context information to the chart, for example about the unit of measure.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Domain axis title</strong></p></td>
-    <td><p>Type a title here to display a label below the domain axis (also referred to as the X axis). Useful when you want to give context information to the chart, for example about the period type.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Style</strong></p></td>
-    <td><p><strong>No space between columns/bars</strong></p></td>
-    <td><p>Removes the space between the columns or bars in the chart. Useful for displaying the chart as an EPI curve.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>General</strong></p></td>
-    <td><p><strong>Hide chart legend</strong></p></td>
-    <td><p>Hides the legend and leaves more room for the chart itself.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Hide chart title</strong></p></td>
-    <td><p>Hides the title (default or custom) of your chart.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Chart title</strong></p></td>
-    <td><p>Type a title here to display a custom title above the chart. If you don't enter a title, the default title is displayed.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Hide chart subtitle</strong></p></td>
-    <td><p>Hides the subtitle of your chart.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Chart subtitle</strong></p></td>
-    <td><p>Type a subtitle here to display a custom subtitle above the chart but below the title. If you don't enter a subtitle, no subtitle is displayed in the chart.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-3.  Cliquez sur **Mettre à jour**.
-
-## Gérer les favoris
-
-La sauvegarde de vos graphiques ou tableaux croisés dynamiques dans les favoris facilite leur recherche plus tard. Vous pouvez également choisir de les partager avec d'autres utilisateurs en tant qu'interprétation ou les afficher sur le tableau de bord.
-
-Vous pouvez visualisez les détails et interprétations de vos favoris dans les applications **Tableau croisé dynamique**, **Visualiseur de données**, **Visualiseur d'événement**, **Rapports d'evénements**. Utilisez le menu **Favoris** pour gérer vos favoris.
-
-### Ouvrir un favori
-
-1.  Cliquez sur **Favoris** \> **Ouvrir**.
-
-2.  Entrez le nom d'un favori dans le champ de recherche ou cliquez sur **Précédent**. et **Suivant** pour afficher les favoris.
-
-3.  Cliquez sur le nom du favori que vous souhaitez ouvrir.
-
-### Sauvegarder un favori
-
-1.  Cliquez sur **Favoris** \> **Sauvegarder**.
-
-2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
-
-3.  Cliquez sur **Sauvegarder**.
-
-### Renommer un favori
-
-1.  Cliquez sur **Favoris** \> **Renommer**.
-
-2.  Entrez le nouveau nom que vous souhaitez donner à votre favori.
-
-3.  Cliquez sur **Mettre à jour**.
-
-### Ecrire une interprétation d'un favori
-
-Une interprétation est un lien vers une ressource avec une description des données à une période donnée. Cette information est visible dans l'application **Tableau de bord**. Pour créer une interprétation, vous devez d'abord créer un favori. Si vous avez partagé votre favori avec d'autres personnes, votre interprétation sera visible pour ces personnes.
-
-1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
-
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
-
-    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
-
-3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
-
-4.  Modifiez les paramètres de partage pour les groupes d'utilisateurs que vous souhaitez modifier.
-
-    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
-
-    - **Lecture uniquement**: tout le monde peut consulter l'objet.
-
-    - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
-
-5.  Cliquez sur **Partager**.
-
-### S'abonner à un favori
-
-Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
-
-1.  Ouvrez un favori.
-
-2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
-
-3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
-
-### Créer un lien vers un favori
-
-1.  Cliquez sur **Favoris** \> **Créer un lien**.
-
-2.  Sélectionnez une des options suivantes:
-
-    - **Ouvrir dans cette application**: Vous obtenez un lien URL pour le favori que vous souhaitez partager avec d'autres utilisateurs via email ou chat.
-
-    - **Ouvrir dans un navigateur web api**: vous obtenez un lien URL de la ressource API. Il s'agit d'une ressource HTML par défaut, mais vous pouvez changer l'extension du fichier à ".json" ou ".csv".
-
-### Supprimer un favori
-
-1.  Cliquez sur **Favoris** \> **Supprimer**.
-
-2.  Cliquez sur **OK**.
-
-### Afficher les interprétations basées sur des périodes relatives
-
-Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
-
-1.  Ouvrez un favori avec des interprétations.
-
-2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
-
-3.  Cliquez sur une interprétation. Votre graphique affiche les données et la date relative en fonction de la date de création de l'interprétation. Pour voir d'autres interprétations, cliquez dessus.
-
-## Télécharger un graphique sous format image ou PDF
-
-<!--DHIS2-SECTION-ID:data_vis_save_chart-->
-
-Après avoir créé un graphique, vous pouvez le télécharger localement sur votre ordinateur ordinateur sous format image ou fichier PDF.
-
-1.  Cliquez sur **Télécharger**.
-
-2.  Sous **Graphiques**, cliquez sur **Image (.png)** ou **PDF (.pdf)**.
-
-    Le fichier est automatiquement téléchargé sur votre ordinateur. Maintenant vous pouvez par exemple, insérer le fichier image dans un document texte dans le cadre d'un rapport.
-
-## Télécharger les sources de données du graphique
-
-<!--DHIS2-SECTION-ID:data_vis_download_chart_data-->
-
-Vous pouvez télécharger les sources de données d'un graphique au format JSON, XML, Excel, CSV, JXRML, formats de données brutes SQL avec différents clés d'identification (ID, code et nom). Le document de données utilise des identifiants des éléments de dimension et ouvre une nouvelle fenêtre de navigateur pour afficher l'URL de la demande à l'API Web dans la barre d'adresse. Ceci est utile pour les développeurs d'applications et d'autres modules clients basés sur DHIS2 Web API ou pour ceux qui ont besoin d'une source de données du plan, par exemple pour l'importation pour des fins statistiques.
-
-Pour télécharger les formats standard de source de données:
-
-1.  Cliquez sur **Télécharger**.
-
-2.  Sous **Source de données standard**, cliquez sur le format que vous souhaitez télécharger.
-
-    <table>
-    <caption>Available formats</caption>
-    <colgroup>
-    <col style="width: 18%" />
-    <col style="width: 33%" />
-    <col style="width: 47%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Format</p></th>
-    <th><p>Action</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>JSON</p></td>
-    <td><p>Click <strong>JSON</strong></p></td>
-    <td><p>Downloads JSON format based on ID property.</p>
-    <p>You can also download JSON format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>XML</p></td>
-    <td><p>Click <strong>XML</strong></p></td>
-    <td><p>Downloads XML format based on ID property.</p>
-    <p>You can also download XML format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Microsoft Excel</p></td>
-    <td><p>Click <strong>Microsoft Excel</strong></p></td>
-    <td><p>Downloads Microsoft Excel format based on ID property.</p>
-    <p>You can also download Microsoft Excel format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>CSV</p></td>
-    <td>Click <strong>CSV</strong></td>
-    <td><p>Downloads CSV format based on ID property.</p>
-    <p>You can also download CSV format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>JRXML</p></td>
-    <td><p>Put the cursor on <strong>Advanced</strong> and click <strong>JRXML</strong></p></td>
-    <td><p>Produces a template of a Jasper Report which can be further customized based on your exact needs and used as the basis for a standard report in DHIS 2.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Raw data SQL</p></td>
-    <td><p>Put the cursor on <strong>Advanced</strong> and click <strong>Raw data SQL</strong></p></td>
-    <td><p>Provides the actual SQL statement used to generate the data visualization. You can use it as a data source in a Jasper report, or as the basis for a SQL view.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-## Intégrer des graphiques dans toute page Web
-
-<!--DHIS2-SECTION-ID:data_vis_embedding-->
-
-Certaines ressources liées à l'analyse dans DHIS2, telles que les tableaux croisés dynamiques, les graphiques et les cartes, peuvent être intégrés à n'importe quelle page Web à l'aide d'un plug-in. Vous trouverez plus d'informations sur les plug-ins dans le chapitre API Web du _Manuel du développeur DHIS2_.
-
-Pour générer un fragment HTML que vous pouvez utiliser pour afficher le graphique dans une page web externe:
-
-1.  Cliquez sur **Partager** \> **Intégrer dans une page Web**.
-
-    La fenêtre **Intégrer dans une page Web** s'ouvre.
-
-2.  Cliquez sur **Sélectionner** pour mettre en évidence le fragment HTML.
-
-## Ouvrir un graphique sous forme de tableau croisé dynamique ou de carte
-
-- Ouvrez un **Graphique** et cliquez sur **Graphique** ou sur **Carte**.
-
-# Utiliser l'application GIS
-
-<!--DHIS2-SECTION-ID:using_gis-->
-
-## A propos de l'application GIS
-
-<!--DHIS2-SECTION-ID:about_gis-->
-
-Avec l'application GIS, vous pouvez superposer plusieurs couches et choisir parmi différentes cartes de base. Vous pouvez créer des cartes thématiques de zones et de points, visualiser les établissements en fonction des classifications et visualiser les bassins versants pour chaque infrastructure. Vous pouvez marquer les zones et les points et effectuer une recherche et filtrer en utilisant divers critères. Vous pouvez déplacer des points et définir des emplacements à la volée. Les cartes peuvent être enregistrées en tant que favorites et partagées avec d'autres personnes.
-
-> **Note**
->
-> Pour utiliser des légendes prédéfinies dans l'application **GIS**, vous devez les créer. Tout d'abord dans l'application de **Maintenance**.
-
-![](resources/images/content/user/gis/gis_main.png)
-
-- Les icônes en haut à gauche de l'espace de travail représentent les calques de la carte. Ils représentent le point de départ de l'application **GIS**.
-
-- Le panneau à droite de l’espace de travail représente un aperçu des calques:
-
-  - La carte de base par défaut est OSM Light. Si vous êtes en ligne, vous pouvez voir également OpenStreetMap, Google Streets et Google hybride. Vous pouvez utiliser ces cartes comme cartes de base et calques. Basculez entre eux en sélectionnant ou en effaçant la case à cocher.
-
-  - Si vous souhaitez augmenter ou réduire l'opacité d'un calque, utilisez les flèches haut et bas du calque sélectionné.
-
-  - Utilisez les légendes de la carte lorsque vous créez une carte thématique. Une légende explique le lien entre les valeurs et les couleurs sur votre carte.
-
-<!-- end list -->
-
-- **Zoom sur le contenu** ajuste automatiquement le niveau de zoom et la centre la position de la carte pour mettre en évidence les données.
-
-- Pour afficher des informations sur un événement, cliquez simplement dessus.
-
-- Cliquez avec le bouton droit pour afficher la longitude et la latitude de la carte.
-
-## Créer une nouvelle carte thématique
-
-<!--DHIS2-SECTION-ID:using_gis_create_map-->
-
-Vous pouvez utiliser quatre calques vectoriels pour créer une carte thématique. Le étapes pour créer une nouvelle carte thématique sont:
-
-1.  Dans le menu **Applications**, cliquez sur **GIS**.
-
-    La fenêtre **DHIS2 GIS** s'ouvre
-
-2.  Dans le menu du haut, cliquez sur une calqueque vous souhaitez ajouter à la carte.
-
-    - calque d'événement
-
-    - calque d'installation
-
-    - couche frontière
-
-    - Calque thématique 1 - 4
-
-3.  Cliquez sur **Modifier le calque** et sélectionnez les paramètres dont vous avez besoin.
-
-4.  Cliquez sur **Mettre à jour**.
-
-## Gérer les calques d'événement
-
-<!--DHIS2-SECTION-ID:using_gis_event_layer-->
-
-Le calque d'événements affiche l'emplacement géographique des événements enregistrés dans le suivi de DHIS2. À condition que les événements aient des coordonnées GPS associées, vous pouvez utiliser ce calque pour passer des données agrégées affichées dans les calques thématiques à l'événement sous-jacent.
-
-Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
-
-![](resources/images/content/user/gis/gis_event_layer.png)
-
-### Créer ou modifier un calque d'événement
-
-<!--DHIS2-SECTION-ID:gis_create_event_layer-->
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Sélectionnez un programme, puis sélectionnez une étape du programme.
-
-    Si une seule étape est disponible pour le programme, elle est automatiquement sélectionnée. Une liste d'éléments de données et d'attributs apparaîtra dans le panneau des **élements de données disponibles**.
-
-4.  Sélectionnez un élément de données ou un attribut de cette liste dans le cadre de votre requête
-
-    - Pour sélectionner, vous pouvez double-cliquer sur un élément de données ou (multi) sélectionnez et utilisez le bouton à flèche unique vers le bas. le bouton à double flèche permet de sélectionner tous les éléments de données de la liste. Tous les éléments de données sélectionnés auront leur propre ligne dans les **Éléments de données sélectionnés**.
-
-    - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
-
-    - Pour les données de type _set d’options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
-
-5.  Dans la section **Périodes**, sélectionnez la période pendant laquelle les événements ont eu lieu. Vous pouvez sélectionner une période fixe ou une période relative.
-
-    - Période fixe Dans le champ **Période**, sélectionnez **Dates de début /de fin** et remplissez une date de début et une date de fin.
-
-    - période relative Dans le champ **Période**, sélectionnez l’une des périodes relatives. par exemple **Ce mois** ou **L'année dernière**.
-
-6.  Dans la section **Unités d'organisation**, sélectionnez les unités d'organisation que vous souhaitez inclure dans la requête.
-
-7.  Dans la section **Options**, vous pouvez:
-
-    - Sélectionnez une valeur dans le champ **Coordonnées** pour les positions. indiquées sur la carte. Par défaut, "localisation de l'événement" est sélectionné. En fonction des éléments de données ou des attributs appartenant à un programme, d'autres coordonnées telles que "Position du ménage" sont disponibles.
-
-      ![](resources/images/content/user/gis/gis_coordinates.png)
-
-    - Sélectionnez ou désélectionnez **Regrouper** pour regrouper les événements à proximité.
-
-    - Allez à la section **Style** pour sélectionner une couleur pour les points du faisceau ou changer le rayon des faisceaux (entre 1 et 20).
-
-    **Regroupement** si vous souhaitez grouper des événements à proximité et modifier le style des points du faisceau.
-
-8.  Cliquez sur **Mettre à jour**.
-
-### Désactiver le regroupement
-
-Les événements sont par défaut regroupés dans une carte. Vous pouvez désactiver cette fonction pour afficher tous les événements séparément.
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Cliquez sur **Options**.
-
-4.  Décochez la case **Groupes à proximité**.
-
-5.  Cliquez sur **Mettre à jour**.
-
-### Modifier le style de regroupement
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Options**, modifiez les **Couleur des points** et **Rayon des Points**.
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Modifier les informations dans les fenêtres pop-up de l'événement
-
-Pour les événements dans une carte cluster, vous pouvez modifier les informations affichées dans la fenêtre pop-up de l'événement.
-
-![](resources/images/content/user/gis/gis_eventlayer_eventinfopopup.png)
-
-1.  Ouvrez l'application **Programmes / Attributs**.
-
-2.  Cliquez sur **Programme**.
-
-3.  Cliquez sur le programme que vous souhaitez modifier et sélectionnez **Afficher les étapes du programme**.
-
-4.  Cliquez sur le nom de l’étape du programme et sélectionnez **Modifier**.
-
-5.  Faites défiler jusqu'à la section **Éléments de données sélectionnés**.
-
-6.  Pour chaque élément de données que vous souhaitez afficher dans la fenêtre pop-up, sélectionnez **Afficher dans les rapports**.
-
-7.  Cliquez sur **Mettre à jour**.
-
-## Effacer le calque de l'événement
-
-Pour effacer toutes les données d'une carte:
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer les calques d'infrastructures
-
-<!--DHIS2-SECTION-ID:using_gis_facility_layer-->
-
-Le calque de l'infrastrcture affiche des icônes représentant les types d'établissement. Les polygones n'apparaissent pas sur la carte, assurez-vous donc de sélectionner un niveau de l'unité d'organisation incluant des intrastructures.
-
-Un polygone est une zone fermée sur une carte représentant un pays, une quartier ou un parc. Dans les GIS, un polygone est une forme définie par un ou plusieurs anneaux, on appelle forme tout chemin qui commence et se termine au même point.
-
-![](resources/images/content/user/gis/gis_facility_layer.png)
-
-### Créer ou modifier un calque d'infrstructure
-
-1.  Dans le menu du haut, cliquez sur l'icône de la couche d'installation.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Icônes de groupe d’unités d’organisation**, sélectionnez un **Set de groupes**.
-
-4.  Dans la section **Unités d'organisation**, sélectionnez un ou plusieurs unités d'organisation.
-
-5.  Dans la section **Options**, indiquez si vous souhaitez afficher les libellés et éventuellement définissez leur contenu.
-
-6.  Dans la section **Options**, indiquez si vous souhaitez afficher un cercle. avec un certain rayon autour de chaque infrastructure.
-
-7.  Cliquez sur **Mettre à jour**.
-
-### Rechercher une unité d'organisation
-
-Pour localiser une unité d'organisation sur la carte:
-
-1.  Dans le menu du haut, cliquez sur l'icône de la couche d'installation.
-
-2.  Cliquez sur **Rechercher**.
-
-    La boîte de dialogue **Recherche d'unité d'organisation** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom de l'unité d'organisation que vous recherchez ou cliquez sur un nom dans la liste.
-
-    L'unité d'organisation est mise en surbrillance sur la carte.
-
-### Supprimer un calque d'une infrastructure
-
-Pour effacer toutes les données d'un calque
-
-1.  Dans le menu du haut, cliquez sur l'icône de la couche d'installation.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer les infrastructures dans un calque
-
-Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Frontière** et **Thématique**
-
-### Relocaliser une infrastructure
-
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Relocaliser**.
-
-2.  Placez le curseur dans le nouvel emplacement.
-
-    Les nouvelles coordonnées sont stockées de manière permanente. Cette action ne peut pas être annulée.
-
-### Permuter la longitude et la latitude d'une infrastructure
-
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Permuter la longitude/latitude**.
-
-    Ceci est utile au cas ou un utilisateur inverserait les coordonnées de latitude et de longitude lors de la création de l'unité d'organisation.
-
-### Afficher les informations de l'infrastructure
-
-Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
-
-<table>
-<caption>View organisation unit information</caption>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>View information for the current period</p></td>
-<td><ol type="1">
-<li><p>Click a facility.</p></li>
-</ol></td>
-</tr>
-<tr class="even">
-<td><p>View information for a selected period</p></td>
-<td><ol type="1">
-<li><p>Right-click a facility and click <strong>Show information</strong>.</p></li>
-<li><p>In the <strong>Infrastructural data</strong> section, select a period.</p></li>
-</ol>
-<blockquote>
-<p><strong>Note</strong></p>
-<p>You configure the displayed infrastructural data in the <strong>System Settings</strong> app.</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-## Gérer les calques thématiques 1- 4
-
-<!--DHIS2-SECTION-ID:using_gis_thematic_layer-->
-
-Il existe quatre calques thématiques dans l'application GIS. Avec ces panneaux de calques vous pouvez utiliser vos données pour la cartographie thématique. Sélectionnez votre combinaison indicateur/élément de données, et période ensuite le niveau d'unité d'organisation. Si votre base de données contient des coordonnées et des valeurs de données agrégées pour ces unités d’organisation, elles apparaîtront sur la carte.
-
-> **Note**
->
-> Vous devez actualiser les tables d'analyse DHIS2 pour que les valeurs des données agrégées soient disponibles
-
-![](resources/images/content/user/gis/gis_thematic_mapping.png)
-
-### Créer ou modifier un calque thémtique
-
-1.  Dans le menu supérieur, cliquez sur l’icône du calque thématique que vous souhaitez créer ou modifier.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Données et périodes**, sélectionnez les données et les périodes que vous souhaitez afficher.
-
-4.  Dans la section **Unités d'organisation**, sélectionnez un ou plusieurs unités d'organisation.
-
-5.  Dans la section **Options**, allez à **Type de légende** et sélectionnez Automatique ou Prédéfini.
-
-    - Les types de légende automatiques signifient que l'application créera une légende définie pour vous en fonction de votre méthode what, le nombre de classes, les couleurs faibles et foncées que vous sélectionnez. La méthode fait allusion à la taille des classes de la légende.
-
-      Si vous réglez sur intervalles égaux, ce sera «valeur de carte la plus élevée - valeur de carte la plus faible / nombre de classes ».
-
-      Si vous définissez sur Egalité de contes le créateur de la légende essaiera de distribuer les unités d'organisation uniformément.
-
-      La légende apparaît sous forme de gradation régulière de la couleur de départ à la couleur finale.
-
-    - Si vous avez des installations dans votre calque thématique, vous pouvez définir le rayon pour les valeurs maximales et minimales en modifiant les valeurs dans les box **Couleurs faibles/taille** et **Taille couleurs foncées**.
-
-6.  Dans la section **Options**, indiquez si vous souhaitez afficher les libellés et éventuellement définissez leur contenu.
-
-7.  Dans le panneau Options, sélectionnez un type d'agrégation. Voir également [Aggregation operators](https://dhis2.github.io/dhis2-docs/master/en/user/html/ch10s05.html#d0e8082).
-
-8.  Cliquez sur **Mettre à jour**.
-
-### Filtrer les valeurs dans un calque thématique
-
-Le menu des calques thématiques 1-4 dispose d'une option **Filtre** en plus des options du menu des calques limites. Ceci permet d’appliquer des filtres de valeur aux unités d'organisation sur la carte. Le filtre est supprimé lorsque vous fermez la fenêtre de filtre.
-
-Pour filtrer les valeurs dans un calque thématique:
-
-1.  Dans le menu du haut, cliquez sur l’icône du calque thématique que vous souhaitez créer ou modifier.
-
-2.  Cliquez sur **Filtre ...**.
-
-3.  Modifiez les valeurs **Supérieur à** et **Et/ou inférieur à**.
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Rechercher une unité d'organisation
-
-Pour localiser une unité d'organisation dans un calque thématique:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque thématique.
-
-2.  Cliquez sur **Rechercher**.
-
-    La boîte de dialogue **Recherche d'unité d'organisation** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom de l'unité d'organisation que vous recherchez ou cliquez sur un nom dans la liste.
-
-    L'unité d'organisation est mise en surbrillance sur la carte.
-
-### Naviguer entre les hiérarchies d'organisation
-
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
-
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
-
-2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
-
-    L’option d’exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Vice versa pour l'option d'exploration au niveaux supérieurs.
-
-### Supprimer le calque thématique
-
-Pour effacer toutes les données d'un calque thématique:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque thématique.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer les calques limites
-
-Le calque limite affiche les bordures et les emplacements de votre unité d'organisation. Ce calque est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
-
-![](resources/images/content/user/gis/gis_bound_layers.png)
-
-### Créer ou modifier des calques limites
-
-1.  Dans le menu en haut à gauche, cliquez sur l'icône du calque limite.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Unités d'organisation**, sélectionnez un ou plusieurs unités d'organisation.
-
-    Vous pouvez sélectionner les unités d'organisation que vous souhaitez afficher sur la carte en sélectionner un niveau et un parent. Cela signifie "montrer toutes les organisations unités de ce niveau qui sont des enfants de ce parent ".
-
-4.  Dans la section **Options**, indiquez si vous souhaitez afficher les libellés et éventuellement définissez leur contenu.
-
-5.  Cliquez sur **Mettre à jour**.
-
-### Rechercher une unité d'organisation
-
-Pour localiser une unité d'organisation sur une carte:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque limite.
-
-2.  Cliquez sur **Rechercher**.
-
-    La boîte de dialogue **Recherche d'unité d'organisation** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom de l'unité d'organisation que vous recherchez ou cliquez sur un nom dans la liste.
-
-    L'unité d'organisation est mise en surbrillance sur la carte.
-
-### Naviguer entre les hiérarchies d'organisation
-
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
-
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
-
-2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
-
-    L’option d’exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Vice versa pour l'option d'exploration au niveaux supérieurs.
-
-### Supprimer le calque limite
-
-Pour effacer toutes les données d'un calque limite:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque limite.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer le calque Earth Engine
-
-<!--DHIS2-SECTION-ID:using_gis_gee-->
-
-![](resources/images/content/user/gis/gis_earth_eng_layer.png)
-
-Le calque Google Earth Engine vous permet d'afficher des images satellite et jeux de données géospatiales du vaste catalogue de Google. Ce calque sont utiles lorsqu'ils sont combinés avec des calques thématiques et événementiels pour améliorer l'analyse. Les calques supportés sont les suivants :
-
-- Altitude par rapport au niveau de la mer.
-
-- Lumières nocturnes: lumières des villes et autres sites représentant un éclairage persistant, y compris les torchères (à partir de 2013).
-
-- Population density: Population in 100 x 100 m grid cells (from 2010)
-
-- Température, population et couverture terrestre à n'importe quel endroit.
-
-  Cliquez avec le bouton droit sur les calques pour afficher plus d'informations, par exemple la température et l'altitude.
-
-\</listitem\> \</itemizedlist\>
-
-### Créer ou modifier un calque Earth Engine
-
-1.  Dans le menu supérieur, cliquez sur l'icône de calque **Google Earth Engine**.
-
-2.  Sélectionnez un set de données, par exemple "Altitude".
-
-3.  Sélectionnez **Valeur minimale/maximale**.
-
-    La signification de ces valeurs dépend du set de données que vous avez choisi.
-
-4.  Sélectionnez une **échelle de couleurs**.
-
-5.  Sélectionnez le nombre de **Pas**.
-
-    Le nombre de pas signifie le nombre de couleurs distinctes dans l'échelle de couleurs.
-
-6.  Cliquez sur **Mettre à jour**.
-
-## Ajouter des calques sur des cartes externes
-
-<!--DHIS2-SECTION-ID:using_gis_external_map_layers-->
-
-1.  Dans le menu supérieur, cliquez sur l'icône **Calque externe**.
-
-2.  Cliquez sur **Editer** pour ajouter un nouveau calque.
-
-3.  Sélectionnez un calque dans la liste.
-
-    ![](resources/images/content/user/gis/gis_external_layers1.png)
-
-4.  Cliquez sur **Mettre à jour**.
-
-    Pour supprimer une calque, cliquez sur **Supprimer**.
-
-    Pour masquer un calque, allez au volet du menu **Calque/Opacité** et décochez la case **Couche externe**.
-
-Voici quelques exemples de calques externes:
-
-![](resources/images/content/user/gis/gis_administrative_boundaries.png)
-
-![](resources/images/content/user/gis/gis_aerial_imagery.png)
-
-![](resources/images/content/user/gis/gis_black_basemap_and_nighttime_lights.png)
-
-![](resources/images/content/user/gis/gis_world_time_zones.png)
-
-> **Note**
->
-> Pour définir des calques externes, reportez-vous à [Maintenance app documentation](https://dhis2.github.io/dhis2-docs/master/en/user/html/manage_ext_maplayer.html).
-
-## Gérer les cartes favorites
-
-<!--DHIS2-SECTION-ID:using_gis_favorites-->
-
-![](resources/images/content/user/gis/gis_favorites.png)
-
-L'enregistrement de vos cartes en tant que favoris facilite leur restauration ultérieure. Cela vous vous permet également de les partager avec d'autres utilisateurs en tant qu'interprétation ou de les mettre sur le tableau de bord. Vous pouvez enregistrer tous les types de calques en tant que favoris. Un favori s'ouvre toujours avec la valeur par défaut carte de fond.
-
-### Enregistrer une carte en tant que nouveau favori
-
-Lorsque vous avez créé une carte, il est pratique de l'enregistrer en tant que favori:
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Cliquez sur **AJOUTER**.
-
-    La boîte de dialogue **Enregistrer comme nouveau favori** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom que vous voulez donner à votre carte
-
-4.  Cliquez sur **CREER**.
-
-    Votre favori est ajouté à la liste.
-
-### Ouvrir un favori
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez ouvrir. Vous pouvez soit utiliser **préc** et \*Suiv\*\* ou le champ de recherche pour trouver un favori préalablement enregistré. La liste est filtrée par chaque caractère que vous entrez.
-
-3.  Cliquez sur le nom pour ouvrir ce favori.
-
-### Renommer un favori
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez renommer.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône grise pour renommer à coté du nom du favori.
-
-    La boîte de dialogue **Renommer favori** s'ouvre.
-
-4.  Tapez le nouveau nom et cliquez sur **Mettre à jour**.
-
-### Remplacer le favori actuel
-
-Pour enregistrer la carte actuelle dans un favori existant (écraser):
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez écraser.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône de remplacement verte à coté du nom du favori.
-
-4.  Cliquez sur **OK** pour confirmer que vous souhaitez écraser le favori.
-
-### Partager l'interprétation d'une carte
-
-<!--DHIS2-SECTION-ID:gisInterpretation-->
-
-Pour certaines ressources liées à l'analyse dans DHIS2, vous pouvez partager des données d'interprétation. Une interprétation est un lien vers la ressource pertinente avec un texte exprimant un aperçu des données.
-
-Pour créer une interprétation d’une carte et la partager avec tous les utilisateurs du système:
-
-1.  Ouvrez ou créez une carte favorite.
-
-2.  Cliquez sur **Partager** \> **Écrire une interprétation**.
-
-    La boîte de dialogue **Ecrire interprétation** s'ouvre.
-
-3.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation.
-
-4.  Cliquez sur **Partager**.
-
-    La boîte de dialogue se ferme automatiquement. Vous pouvez visualiser l'interprétation sur le **Tableau de bord**.
-
-### Modifier les paramètres de partage d'un favori
-
-Après avoir créé une carte et l'avoir enregistrée en tant que document favori, vous pouvez la partager avec tout les utilisateurs ou un groupe d'utilisateurs. Pour modifier les paramètres de partage :
-
-1.  Cliquez sur **Favoris**.
-
-2.  Recherchez le favori que vous souhaitez partager.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône bleue de partage à coté du nom du favori.
-
-4.  Dans la zone de texte, entrez le nom du groupe d'utilisateurs avec qui vous souhaitez partager votre favori avec et cliquez sur l'icône **+**.
-
-    Le groupe d'utilisateurs choisi est ajouté à la liste des destinataires.
-
-    Répétez cette étape pour ajouter plus de groupes d'utilisateurs.
-
-5.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
-
-6.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
-
-    - Aucun
-
-    - Lecture seule
-
-    - Lecture et écriture
-
-7.  Cliquez sur **Sauvegarder**.
-
-### Supprimer un favori
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez supprimer.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône rouge de suppresion à coté du nom du favori.
-
-4.  Cliquez sur **OK** pour confirmer que vous souhaitez supprimer la favori.
-
-## Enregistrer une carte en tant qu'image
-
-<!--DHIS2-SECTION-ID:using_gis_image_export-->
-
-1.  Faîtes une capture d'écran de la carte avec l'outil de votre choix.
-
-2.  Enregistrez la capture d'écran au format souhaité.
-
-## Intégrer une carte dans une page Web externe
-
-<!--DHIS2-SECTION-ID:using_gis_embed-->
-
-Certaines ressources liées à l'analyse dans DHIS2, telles que les tableaux croisés dynamiques, les graphiques et les cartes, peuvent être intégrés à n'importe quelle page Web à l'aide d'un plug-in. Vous trouverez plus d'informations sur les plug-ins dans le chapitre API Web du _Manuel du développeur DHIS2_.
-
-Pour générer un fragment HTML que vous pouvez utiliser pour afficher la carte dans une page web externe:
-
-1.  Cliquez sur **Partager** \> **Intégrer dans une page Web**.
-
-    La fenêtre **Intégrer dans une page Web** s'ouvre.
-
-2.  Cliquez sur **Sélectionner** pour mettre en évidence le fragment HTML.
-
-## Rechercher un emplacement
-
-<!--DHIS2-SECTION-ID:using_gis_search-->
-
-La fonction de recherche d'emplcaement vous permet de rechercher presque n'importe quel lieu ou adresse. La recherche d'emplacement est optimisée par la plateforme de cartographie Mapzen. Cette fonction est utile pour localiser par exemple des sites, infrastructures, villages ou villes sur la carte.
-
-![](resources/images/content/user/gis/gis_place_search.png)
-
-1.  Sur le côté gauche de la fenêtre Cartes, cliquez sur l'icône loupe.
-
-2.  Tapez l'emplacement que vous recherchez.
-
-    Une liste des emplacements correspondants apparaît au fur et à mesure que vous tapez.
-
-3.  Dans la liste proposée, sélectionnez un emplacement. Une épingle indique l'emplacement sur la carte.
-
-## Mesurer des distances et des surfaces sur une carte
-
-<!--DHIS2-SECTION-ID:using_gis_measure_distance-->
-
-1.  Dans le coin supérieur gauche de la carte, placez le curseur sur le bouton **Mesurer distances et zones** et cliquez sur **Créer une nouvelle mesure**.
-
-2.  Ajouter des points à la carte.
-
-3.  Cliquez sur **Terminer la mesure**.
-
-## Obtenir la latitude et la longitude d'un emplacement
-
-<!--DHIS2-SECTION-ID:using_gis_latitude_longitude-->
-
-Cliquez avec le bouton droit sur un point de la carte et sélectionnez **Afficher la longitude/latitude**. Les valeurs s'affichent dans une fenêtre contextuelle.
-
-![](resources/images/content/user/gis/gis-latitude-longitude.png)
-
-## Visualiser une carte sous forme de tableau croisé dynamique ou de graphique
-
-<!--DHIS2-SECTION-ID:using_gis_integration-->
-
-Lorsque vous avez créé une carte, vous pouvez la visualiser sous forme de tableau croisé dynamique, graphique et visualisation cartographique de vos données. La fonction est inactive si les données du carte est basée sur ne peut pas être rendue sous forme de graphique ou de tableau.
-
-### Ouvrir une carte en tant que graphique
-
-1.  Cliquez sue **Graphique** \> **Ouvrez cette carte en tant que graphique**.
-
-    Votre carte actuelle s'ouvre en tant que graphique.
-
-### Ouvrir une carte en tant que tableau croisé dynamique
-
-1.  Cliquez sue **Tableau croisé dynamique** \> **Ouvrez cette carte en tant que tableau croisé dynamique**.
-
-    Votre carte actuelle s'ouvre en tant que tableau croisé dynamique.
-
-## Voir également
-
-- [Gérer les légendes](https://docs.dhis2.org/master/en/user/html/manage_legend.html)
 
 # Utilisation de l'application Maps
 
@@ -3107,15 +1836,27 @@ To create an event layer, choose **Thematic** on the **Add layer** selection. Th
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_PERIOD.png)
 
-    - sélectionnez la période sur laquelle les données thématiques sont agrégées. Vous pouvez sélectionner une période fixe ou une période relative.
-
-      - Période fixe
-
-        Dans le champ **Type de période**, sélectionnez la longueur de la période, puis sélectionnez la cible dans le champ **Période**.
+    - select the time span over which the thematic data is mapped. You can select either a relative or a fixed period.
 
       - Période relative
 
-        Dans le champ **Type de période**, sélectionnez **Relatif**, puis sélectionnez une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**, dans le champ **Période**.
+        In the **Period type** field select **Relative**, then select one of the relative periods, for example **Last year** or **Last 12 months**, in the **Period** field. If you select a relative period covering mutiple years/months/weeks/days the layer can be displayed as
+
+        - Single (aggregate)
+
+          Show aggregate values for the relative period selected (default).
+
+        - Timeline
+
+          Includes a timeline allowing you to step through the periods. Only one timeline layer can be added to the same map.
+
+        - Split map views
+
+          Show multiple maps allowing you to compare different periods side by side. Supported for relative periods with 12 items or below. Can not be combined with other layer types.
+
+      - Période fixe
+
+        Dans le champ **Type de période**, sélectionnez la durée de la période, puis sélectionnez la cible dans le champ **Période**.
 
       - Start/end dates
 
@@ -3125,17 +1866,17 @@ To create an event layer, choose **Thematic** on the **Add layer** selection. Th
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_ORG_UNITS.png)
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
       - One or more specific organisation units, organisation unit levels in the hierarchy, organisation unit groups, or
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 4.  Dans l'onglet **FILTRE**:
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_FILTER.png)
 
-    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtre à l'ensemble de données.
 
       - Select a data dimension from the drop down box. You can reduce the number of dimensions shown by using the search field. Click on the name to select a dimension.
 
@@ -3151,131 +1892,131 @@ To create an event layer, choose **Thematic** on the **Add layer** selection. Th
 
     - Sélectionnez la légende **Automatique** ou **Prédéfinie**.
 
-      - Les types de légende automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait allusion à la taille des classes de légende. Configuerez :
+      - Les types de légendes automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait désigne la taille des classes de légende. Configurez :
 
-        - des intervalles égaux
+        - Intervalles égaux
 
           la plage de chaque intervalle sera **(la plus haute valeur de données - la plus basse valeur de données / nombre de classes)**
 
-        - Comptes égaux
+        - Nombres égaux
 
-          le créateur de la légende tente de distribuer les unités d'organisation uniformément.
+          le créateur de la légende va tenter de répartir les unités d'organisation uniformément.
 
-      - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
+      - Si vous avez des infrastructures dans votre couche thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
 
-6.  Cliquez sur **AJOUTER UN CALQUE**.
+6.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Modifier un calque thématique
+### Modifier une couche thématique
 
-1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
+1.  Dans le panneau des couches, cliquez sur l'icône Édition (crayon) sur la carte de la couche thématique.
 
 2.  Modify the setting on any of the tabs as desired.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Filtrer les valeurs dans un calque thématique
+### Filtrer les valeurs dans une couche thématique
 
-Les calques thématiques ont une option **table de données** qui peut être activée ou désactivée.
+Les couches thématiques ont une option **tableau de données** qui peut être activée ou désactivée à partir de la carte de couche thématique.
 
 ![](resources/images/content/user/maps/maps_thematic_layer_data_table.png)
 
-La table de données affiche les données qui forment le calque thématique.
+La table de données affiche les données qui forment la couche thématique
 
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne tout en donnant la possibilité de basculer entre un classement ascendant et descendant.
 
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+- entrer du texte ou des expressions dans les champs de filtre situé sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit :
 
   - NOM
 
-    filtrer par nom dans le texte donné
+    filtrer par noms contenant ce texte
 
   - VALEUR
 
-    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple: 2,\>3&\<8
+    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple : 2,\>3&\<8
 
   - LÉGENDE
 
-    filtrer par légende dans le texte donné
+    filtrer par légendes contenant ce texte
 
   - INTERVALLE
 
-    filtrer par plages dans le texte donné
+    filtrer par plages contenant ce texte
 
   - NIVEAU
 
-    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
+    filtrez le niveau par nombres et/ou plages de valeurs, par exemple : 2,\>3&\<8
 
   - PARENT
 
-    filtrer par noms de parent dans le texte donné
+    filtrer par noms de parent contenant ce texte
 
   - Identifiant
 
-    filtrer par Identifiant le texte donné
+    filtrer par Identifiants contenant ce texte
 
   - TYPE
 
-    filtrer par types d'affichage GIS dans le texte donné
+    filtrer par types d'affichage SIG contenant ce texte
 
   - COULEUR
 
-    filtrer par noms de couleurs dans le texte donné
+    filtrer par noms de couleurs contenant ce texte
 
 > **Note**
 >
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+> Les filtres des tableaux de données sont temporaires et ne sont pas enregistrés avec les couches de la carte en tant que favori.
 
 ### Rechercher une unité d'organisation
 
-Le champ de filtre NOM dans la table de données constitue un moyen efficace de rechercher des unités organisationnelles individuelles.
+Le champ de filtre NOM dans le tableau de données constitue un moyen efficace de rechercher des unités d'organisation individuelles.
 
 ### Naviguer entre les hiérarchies d'organisation
 
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
+Lorsqu'il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent.
 
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
+1.  Faites un clique droit sur l'une des unités d'organisation.
 
 2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
 
-    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Du même principe, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
+    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou s'il n'y a pas de coordonnées disponibles au niveau inférieur. De même, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
 
-### Supprimer le calque thématique
+### Supprimer une couche thématique
 
-Pour effacer toutes les données d'un calque thématique:
+Pour effacer toutes les données d'une couche thématique :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-## Gérer les calques d'événement
+## Gérer les couches d'évènements
 
 <!--DHIS2-SECTION-ID:using_maps_event_layer-->
 
 The event layer displays the geographical location of events registered in the DHIS2 tracker. Provided that events have associated point or polygon coordinates, you can use this layer to drill down from the aggregated data displayed in the thematic layers to the underlying individual events or cases.
 
-Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
+Vous pouvez également afficher des évènements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers une couche thématique en utilisant des éléments de données d'évènements. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrés les événements.
 
 ![](resources/images/content/user/maps/maps_event_layer.png)
 
-Les calques d'événements sont représentées par des calques _cartes_ dans le panneau des calques, par exemple:
+Les couches d'évènements sont représentées par des couches _cartes_ dans le panneau des couches, par exemple :
 
-En haut de la carte de l'événement, de gauche à droite, se trouvent:
+En haut de la carte d'évènement, de gauche à droite, se trouvent :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- Le titre et la période associés au calque
+- Le titre et la période associés à la couche
 
-- Un symbole de flèche pour réduire et développer la carte de l'événement
+- Un symbole de flèche pour réduire et développer la carte d'évènement
 
-Au centre de la carte de l'événement se trouve une légende indiquant le style du calque.
+Au centre de la carte d'évènement se trouve une légende indiquant le style de la couche.
 
-En bas de la carte de l'événement, de gauche à droite, se trouvent:
+En bas de la carte d'évènement, de gauche à droite, se trouvent :
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
@@ -3285,21 +2026,21 @@ En bas de la carte de l'événement, de gauche à droite, se trouvent:
 
   - **Remove layer** will remove this layer from the current map.
 
-### Créer un calque d'événement
+### Créer une couche d'évènements
 
 <!--DHIS2-SECTION-ID:maps_create_event_layer-->
 
 To create an event layer, choose **Events** on the **Add layer** selection. This opens the Events layer configuration dialog.
 
-1.  Dans l'onglet **DATA**:
+1.  Dans l'onglet **DONNÉES**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_DATA.png)
 
-    - Sélectionnez un programme, puis sélectionnez une étape du programme. **L'étape** n'est affiché qu'une fois le programme sélectionné.
+    - Sélectionnez un programme, puis sélectionnez une étape du programme. **L'étape** n'est affiché qu'après la sélection d'un programme.
 
-      Si une seule étape est disponible pour le programme, elle est automatiquement sélectionnée.
+      S'il y a seulement une étape disponible pour le programme, celle-ci est automatiquement sélectionnée.
 
-    - Sélectionnez une valeur dans le champ **Coordonnées** pour les positions. indiquées sur la carte. Par défaut, "localisation de l'événement" est sélectionné. En fonction des éléments de données ou des attributs appartenant à un programme, d'autres coordonnées telles que "Position du ménage" sont disponibles.
+    - Sélectionnez une valeur dans le champ **Coordonnées** pour les positions indiquées sur la carte. Par défaut, "localisation de l'évènement" est sélectionné. En fonction des éléments de données ou des attributs appartenant à un programme, d'autres coordonnées telles que "Position du ménage" sont disponibles.
 
 2.  Dans l'onglet **PÉRIODE**
 
@@ -3313,31 +2054,31 @@ To create an event layer, choose **Events** on the **Add layer** selection. This
 
       - Période relative
 
-        Dans le champ **Période**, sélectionnez l'une des périodes relatives. par exemple **Ce mois** ou **L'année dernière**.
+        Dans le champ **Période**, sélectionnez l'une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**.
 
 3.  Dans l'onglet **Unités d'Org.**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_ORG_UNITS.png)
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
-      - une ou plusieurs unités d'organisation spécifiques, ou
+      - Une ou plusieurs unités d'organisation spécifiques, ou
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 4.  Dans l'onglet **FILTRE**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_FILTER.png)
 
-    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtre à l'ensemble de données.
 
-      - Pour les données de type _set d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
+      - Pour les données de type _ensemble d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant la flèche vers le bas ou en commençant à saisir directement dans la case pour filtrer les options.
 
       - For data item of type _number_, you can select operators like equal, not equal, greater than or less than.
 
-      - For data item og type _boolean_ (yes/no), you can check the box if the condition should be valid or true.
+      - For data item of type _boolean_ (yes/no), you can check the box if the condition should be valid or true.
 
-      - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
+      - Pour les données de type _texte_, vous aurez deux choix : **Contient** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **Est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête seront renvoyées.
 
       Multiple filters may be added. Click the trash button on the right of the filter to remove it.
 
@@ -3361,19 +2102,19 @@ To create an event layer, choose **Events** on the **Add layer** selection. This
 
       - **Booleans**: Select a color for true/yes and another for false/no.
 
-6.  Cliquez sur **AJOUTER UN CALQUE**.
+6.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Modifier un calque d'événement
+### Modifier une couche d'évènements
 
-1.  Dans le panneau de calques, cliquez sur l'icône d'édition (crayon) du calque de l'événement.
+1.  Dans le panneau de couches, cliquez sur l'icône d'édition (crayon) de la couche de l'évènement.
 
-2.  Modifiez le réglage des paramètres des onglets DATA, PERIODE, FILTRE, UNIT D'ORG et STYLE. comme vous le souhaitez.
+2.  Modifiez les paramètres des onglets DATA, PÉRIODE, FILTRE, UNITÉ D'ORG et STYLE. comme vous le souhaitez.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Modifier les informations dans les fenêtres pop-up de l'événement
+### Modifier les informations dans les fenêtres pop-up de l'évènement
 
-Pour les événements dans une carte cluster, vous pouvez modifier les informations affichées dans la fenêtre pop-up de l'événement.
+Pour les évènements dans une carte à grappes, vous pouvez modifier les informations affichées dans la fenêtre pop-up de l'évènement.
 
 ![](resources/images/content/user/maps/maps_eventlayer_eventinfopopup.png)
 
@@ -3413,13 +2154,13 @@ The raw data for event layers can be downloaded in GeoJSON format for more advan
 
 > Note that the downloaded data does not include style information as it is not natively supported by the GeoJSON format. Styles can optionally be recreated in external GIS applications using the attributes of each feature.
 
-### Effacer le calque de l'événement
+### Effacer une couche d'évènements
 
-Pour effacer toutes les données de calque d'un événement d'une carte:
+Pour effacer toutes les données de la couche d'un événement d'une carte :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
 ## Manage tracked entity layers
 
@@ -3443,11 +2184,11 @@ In the middle of the tracked entity card is a legend indicating the styling of t
 
 Along the bottom of the tracked entity card from left to right are:
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
@@ -3461,7 +2202,7 @@ Along the bottom of the tracked entity card from left to right are:
 
 To create an tracked entity layer, choose **Tracked entities** on the **Add layer** selection. This opens the Tracked entity layer configuration dialog.
 
-1.  Dans l'onglet **DATA**:
+1.  Dans l'onglet **DONNÉES**:
 
     ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_DATA.png)
 
@@ -3483,7 +2224,7 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
     - If a Tracked Entity Type with has been selected, you can select the **Display Tracked Entity relationships** checkbox
 
-    - Once checked, you can select the type of relationship to diplay on the map from the dropdown list. Only relationships FROM the selected Tracked Entity type are available.
+    - Once checked, you can select the type of relationship to display on the map from the dropdown list. Only relationships FROM the selected Tracked Entity type are available.
 
 3.  Dans l'onglet **PÉRIODE**
 
@@ -3525,7 +2266,7 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
 2.  Modify the setting on the DATA, PERIOD, ORG UNIT and STYLE tabs as desired.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
 ### Clear a tracked entity layer
 
@@ -3533,41 +2274,41 @@ To clear a tracked entity layer from a map:
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-## Gérer les calques d'infrastructures
+## Gérer les couches d'infrastructures
 
 <!--DHIS2-SECTION-ID:using_maps_facility_layer-->
 
-Le calque de l'infrastrcture affiche des icônes représentant les types d'établissement. Les polygones n'apparaissent pas sur la carte, assurez-vous donc de sélectionner un niveau de l'unité d'organisation incluant des intrastructures.
+La couche d'infrastrctures affiche des icônes représentant les types d'établissements. Les polygones n'apparaissent pas sur la carte, assurez-vous donc de sélectionner un niveau de l'unité d'organisation incluant des intrastructures.
 
-_Un polygone est une zone fermée sur une carte représentant un pays, une quartier ou un parc._
+_Un polygone est une zone fermée sur une carte représentant un pays, un quartier ou un parc._
 
 ![](resources/images/content/user/maps/maps_facility_layer.png)
 
-Les calques d'infrastructures sont représentés par des calques _cartes_ par exemple:
+Les couches d'infrastructures sont représentées par des _cartes_ de couche comme par exemple :
 
-En haut de la carte des infrastructures, de gauche à droite, se trouvent:
+En haut de la carte des infrastructures, de gauche à droite, se trouvent :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- Le titre **Infrastructure**
+- Le titre **Infrastructures**
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- !!!PALD - MISSING!!!
+- Un symbole de flèche pour réduire et agrandir la carte des infrastructures
 
-Au centre de la carte des infrastructures se trouve une légende indiquant la représentation du groupe.
+Au centre de la carte des infrastructures se trouve une légende indiquant la représentation de l'ensemble de groupes.
 
-En bas de la carte des infrastructures, de gauche à droite, se trouvent:
+En bas de la carte des infrastructures, de gauche à droite, se trouvent :
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
-  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé à la couche
 
   - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
 
@@ -3575,27 +2316,27 @@ En bas de la carte des infrastructures, de gauche à droite, se trouvent:
 
   - **Remove layer** will remove this layer from the current map.
 
-### Créer un calque d'infrastructure
+### Créer une couche d'infrastructures
 
-Pour créer un calque d'infrastructure, choisissez **Infrastructure** dans **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque de l'infrastructure.
+Pour créer une couche d'infrastructures, choisissez **Infrastructures** dans **Ajouter une couche**. La boîte de dialogue de configuration de la couche de l'infrastructure s'ouvre.
 
-1.  Dans l'onglet **SET DE GROUPES**:
+1.  Dans l'onglet **ENSEMBLE DE GROUPES**:
 
     ![](resources/images/content/user/maps/maps_facility_layer_dialog_GROUPSET.png)
 
-    - Sélectionnez un **set de groupes** dans la liste des groupes d'unités d'organisation définis pour votre instance DHIS2.
+    - Sélectionnez un **ensemble de groupes** dans la liste des ensembles de groupes d'unités d'organisation définis pour votre instance de DHIS2.
 
-2.  Dans l'onglet **UNITE D'ORGANISATION**
+2.  Dans l'onglet **UNITÉS D'ORGANISATION**
 
     ![](resources/images/content/user/maps/maps_facility_layer_dialog_ORG_UNITS.png)
 
-    - sélectionnez le(s) niveau(s) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
+    - sélectionnez le(s) niveau(x) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
-      - une ou plusieurs unités d'organisation spécifiques, ou
+      - Une ou plusieurs unités d'organisation spécifiques, ou
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 3.  Dans l'onglet **STYLE**:
 
@@ -3605,83 +2346,83 @@ Pour créer un calque d'infrastructure, choisissez **Infrastructure** dans **Ajo
 
       - Afficher les étiquettes
 
-        Permet d'afficher les marques sur le calque. La taille de police, le poids et la couleur peuvent être modifiés ici.
+        Permet d'afficher les marques sur la couche. La taille de police, le poids et la couleur peuvent être modifiés ici.
 
       - Afficher le buffer
 
-        Permet d'afficher un buffer visuel sur le calque autour de chaque infrastructure. Le rayon du buffer peut être modifié ici.
+        Permet d'afficher un buffer visuel sur la couche autour de chaque infrastructure. Le rayon du buffer peut être modifié ici.
 
-4.  Cliquez sur **AJOUTER UN CALQUE**.
+4.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Créer ou modifier un calque d'infrstructure
+### Créer ou modifier une couche d'infrastructures
 
-1.  Dans le panneau des calques, cliquez sur l'icône Édition (crayon) du calque de la carte de l'infrastructure
+1.  Dans le panneau des couches, cliquez sur l'icône Édition (crayon) de couche de la carte de l'infrastructure
 
-2.  Modifiez les paramètres dans les onglets SET DE GROUPES, UNITES D'ORGANISATION et STYLE.
+2.  Modifiez les paramètres dans les onglets ENSEMBLE DE GROUPES, UNITÉS D'ORGANISATION et STYLE.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Filtrer les valeurs dans un calque d'infrastructure
+### Filtrer les valeurs dans une couche d'infrastructures
 
-Les calques d'infrastructures ont une option **table de données** qui peut être activée ou désactivée depuis le calque de la carte de l'infrastructure.
+Les couches d'infrastructures ont une option **table de données** qui peut être activée ou désactivée depuis la couche de la carte de l'infrastructure.
 
 ![](resources/images/content/user/maps/maps_facility_layer_data_table.png)
 
-La table de données affiche les données qui composent le calque de l'infrastructure.
+La table de données affiche les données qui composent la couche de l'infrastructure.
 
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne tout en donnant la possibilité de basculer entre un classement ascendant et descendant.
 
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+- entrer du texte ou des expressions dans les champs de filtre situé sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit :
 
   - NOM
 
-    filtrer par nom dans le texte donné
+    filtrer par noms contenant ce texte
 
   - Identifiant
 
-    filtrer par Identifiant le texte donné
+    filtrer par Identifiants contenant ce texte
 
   - TYPE
 
-    filtrer par types d'affichage GIS dans le texte donné
+    filtrer par types d'affichage SIG contenant ce texte
 
 > **Note**
 >
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+> Les filtres des tableaux de données sont temporaires et ne sont pas enregistrés avec les couches de la carte en tant que favori.
 
 ### Rechercher une infrastructure
 
-Le champ de filtre par NOM dans la table de données constitue un moyen efficace de rechercher des infrastructures individuellement.
+Le champ filtre de NOMS dans le tableau de données constitue un moyen efficace de rechercher des infrastructures individuellement.
 
-### Supprimer le calque de l'infrastructure
+### Supprimer une couche d'infrastructures
 
-Pour effacer toutes les données d'un calque
+Pour effacer toutes les données d'une couche d'infrastructures :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-### Gérer les infrastructures dans un calque
+### Gérer les infrastructures dans une couche
 
-Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Frontière** et **Thématique**
+Vous pouvez avoir des infrastructures dans les couches **Infrastructure**, **Frontière** et **Thématique**
 
 #### Relocaliser une infrastructure
 
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Relocaliser**.
+1.  Faites un clique droit sur une infrastructure et cliquez sur **Relocaliser**.
 
 2.  Placez le curseur dans le nouvel emplacement.
 
-    Les nouvelles coordonnées sont stockées de manière permanente. Cette action ne peut pas être annulée.
+    Les nouvelles coordonnées sont stockées de façon permanente. Cette action ne peut pas être annulée.
 
 #### Permuter la longitude et la latitude d'une infrastructure
 
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Permuter la longitude/latitude**.
+1.  Faites un clique droit sur une infrastructure et cliquez sur **Permuter la longitude/latitude**.
 
-    Ceci est utile au cas ou un utilisateur inverserait les coordonnées de latitude et de longitude lors de la création de l'unité d'organisation.
+    Ceci est utile au cas où un utilisateur inverserait les coordonnées de latitude et de longitude lors de la création de l'unité d'organisation.
 
 #### Afficher les informations de l'infrastructure
 
-Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
+Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit :
 
 <table>
 <caption>View organisation unit information</caption>
@@ -3716,35 +2457,35 @@ Vous pouvez afficher les informations sur l'unité d'organisation définies par 
 </tbody>
 </table>
 
-## Gérer les calques limites
+## Gérer les calques frontières
 
 <!--DHIS2-SECTION-ID:using_maps_boundary_layer-->
 
-Le calque limite affiche les bordures et les emplacements de votre unité d'organisation. Ce calque est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
+La couche frontière affiche les bordures et les emplacements de votre unité d'organisation. Cette couche est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
 
 ![](resources/images/content/user/maps/maps_bound_layers.png)
 
-Les calques limites sont représentées par des calques _cartes_ dans le panneau de calques, par exemple :
+Les couches frontières sont représentées par des _cartes_ de couche dans le panneau de couches, par exemple :
 
-En haut de la carte de délimitation de gauche à droite se trouvent:
+En haut de la carte frontière, de gauche à droite, se trouvent :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- Le titre **limites**
+- Le titre **Frontières**
 
-- Un symbole de flèche pour réduire et développer la carte de délimitation
+- Un symbole de flèche pour réduire et agrandir la carte frontière
 
-Au bas de la carte de délimitation, de gauche à droite, se trouvent:
+Au bas de la carte frontière, de gauche à droite, se trouvent :
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
-  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé à la couche
 
   - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
 
@@ -3752,169 +2493,169 @@ Au bas de la carte de délimitation, de gauche à droite, se trouvent:
 
   - **Remove layer** will remove this layer from the current map.
 
-### Créer un calque limite
+### Créer une couche frontière
 
-Pour créer un calque limite, choisissez **Limites** dans la selection **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque limite.
+Pour créer une couche frontière, choisissez **Frontières** dans la selection **Ajouter une couche**. La boîte de dialogue de configuration de la couche frontière s'ouvre.
 
-1.  Dans l'onglet **UNITE D'ORGANISATION**
+1.  Dans l'onglet **UNITÉS D'ORGANISATION**
 
     ![](resources/images/content/user/maps/maps_boundary_layer_dialog_ORG_UNITS.png)
 
-    - sélectionnez le(s) niveau(s) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
+    - sélectionnez le(s) niveau(x) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
-      - une ou plusieurs unités d'organisation spécifiques, ou
+      - Une ou plusieurs unités d'organisation spécifiques, ou
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 2.  Dans l'onglet **STYLE**:
 
     ![](resources/images/content/user/maps/maps_boundary_layer_dialog_STYLE.png)
 
-    - sélectionnez le style que vous souhaitez appliquer aux limites.
+    - sélectionnez le style que vous souhaitez appliquer aux frontières.
 
       - Afficher les étiquettes
 
-        Permet d'afficher les étiquettes sur le calque. L taille de la police et le poids peuvent être modifiés ici.
+        Permet d'afficher les étiquettes sur la couche. La taille de la police et le poids peuvent être modifiés ici.
 
-      - rayon de point
+      - Rayon de point
 
-        Définit le rayon de base lorsque des éléments de type point, tels que les installations, sont présentés sur le calque limite.
+        Définit le rayon de base lorsque des éléments de type point, tels que les installations, sont présentés sur la couche frontière.
 
-3.  Cliquez sur **AJOUTER UN CALQUE**.
+3.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Modifier un calque limite
+### Modifier une couche frontière
 
-1.  Dans le panneau Calque, cliquez sur l'icône Edition (crayon) située sur le calque limite de la carte
+1.  Dans le panneau de couche, cliquez sur l'icône Édition (crayon) située sur la carte de la couche frontière.
 
-2.  Modifiez les paramètres des onglets UNITES D'ORGANISATION et STYLE à votre convenance
+2.  Modifiez les paramètres des onglets UNITÉS D'ORGANISATION et STYLE à votre convenance.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Filtrer les valeurs dans un calque limite
+### Filtrer les valeurs dans une couche frontière
 
-Les calques limites ont une option **table de données** qui peut être activée ou désactivée depuis le calque limite de la carte.
+Les couches frontières ont une option **table de données** qui peut être activée ou désactivée depuis la carte de la couche frontière.
 
 ![](resources/images/content/user/maps/maps_bound_layer_data_table.png)
 
-La table de données affiche les données qui forment le calque limite
+Le tableau de données affiche les données qui forment la couche frontière
 
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne tout en donnant la possibilité de basculer entre un classement ascendant et descendant.
 
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+- entrer du texte ou des expressions dans les champs de filtre situé sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit :
 
   - NOM
 
-    filtrer par nom dans le texte donné
+    filtrer par noms contenant ce texte
 
   - NIVEAU
 
-    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
+    filtrez le niveau par nombres et/ou plages de valeurs, par exemple : 2,\>3&\<8
 
   - PARENT
 
-    filtrer par noms de parent dans le texte donné
+    filtrer par noms de parent contenant ce texte
 
   - Identifiant
 
-    filtrer par Identifiant le texte donné
+    filtrer par Identifiants contenant ce texte
 
   - TYPE
 
-    filtrer par types d'affichage GIS dans le texte donné
+    filtrer par types d'affichage SIG contenant ce texte
 
 > **Note**
 >
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+> Les filtres des tableaux de données sont temporaires et ne sont pas enregistrés avec les couches de la carte en tant que favori.
 
-### Rechercher une unité organisationnelle
+### Rechercher une unité d'organisation
 
-Le champ de filtre NOM dans la table de données constitue un moyen efficace de recherche des unités organisationnelles individuelles affichées dans le calque limite.
+Le champ de filtre NOM dans le tableau de données constitue un moyen efficace de recherche des unités d'organisation individuelles affichées dans la couche frontière.
 
 ### Naviguer entre les hiérarchies d'organisation
 
-Vous pouvez modifier la cible de la couche limite dans la hiérarchie sans en utilisant l'interface utilisateur de niveau / parent.
+Vous pouvez modifier la cible de la couche frontière dans la hiérarchie sans utiliser l'interface utilisateur de niveau / parent.
 
-1.  Cliquez avec le bouton droit sur l'une des limites.
+1.  Faites un clique droit sur l'une des frontières.
 
 2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
 
     L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas. De même, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
 
-### Supprimer le calque limite
+### Supprimer une couche frontière
 
-Pour effacer toutes les données d'un calque limite:
+Pour effacer toutes les données d'une couche frontière :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-## Gérer le calque Earth Engine
+## Gérer une couche Earth Engine
 
 <!--DHIS2-SECTION-ID:using_maps_gee-->
 
 ![](resources/images/content/user/maps/maps_earth_eng_layer.png)
 
-Le calque Google Earth Engine vous permet d'afficher des images satellite et jeux de données géospatiales du vaste catalogue de Google. Ces calques sont utiles lorsqu'ils sont combinés avec des calques thématiques et événementiels pour améliorer l'analyse. Les calques supportés sont les suivants:
+La couche Google Earth Engine vous permet d'afficher des images satellites et des ensembles de données géospatiales du vaste catalogue de Google. Ces couches sont utiles lorsqu'elles sont combinées avec des couches thématiques et d'événements pour améliorer l'analyse. Les couches compatibles sont les suivantes :
 
-- Estimation de la densité de population avec les totaux nationaux ajustés pour correspondre à l'stimations de la division de la population des Nations Unies. cellules (à partir de 2010).
+- L'estimation de la densité de population avec les totaux nationaux ajustés pour correspondre aux estimations de la Division de la population des Nations Unies. Population dans des cellules de grille de 100 x 100 m (à partir de 2010).
 
-- Altitude par rapport au niveau de la mer. Vous pouvez ajuster les valeurs min et max afin de s'adapter au terrain dans votre région.
+- Elevation above sea-level. You can adjust the min and max values so it better represents the terrain in your region.
 
-- Température: la température de surface des terres collectée par satellite. Des points blancs apparaîtront dans les zones avec une couverture nuageuse persistante.
+- Température : la température de surface des terres recueillie par satellite. Des points blancs apparaîtront dans les zones avec une couverture nuageuse persistante.
 
-- Les précipitations recueillies par les stations satellites et météorologiques sur la sol. Les valeurs sont en millimètres sur des périodes de 5 jours. Mise à jour effetcuée tous les mois, au cours de la 3ème semaine du mois suivant.
+- Les précipitations recueillies par les stations satellites et météorologiques au sol. Les valeurs sont en millimètres sur des périodes de 5 jours. Ces valeurs sont mises à jour tous les mois, au cours de la 3ème semaine du mois suivant.
 
-- Couverture terrestre: 17 types de couverture terrestre distincts, collectés à partir de satellites.
+- Couverture terrestre : 17 types de couverture terrestre distincts collectés à partir de satellites.
 
-- Lumières nocturnes: lumières des villes et autres sites représentant un éclairage persistant, y compris les torchères (à partir de 2013).
+- Lumières nocturnes : lumières des villes et autres sites représentant un éclairage persistant, y compris les torchères (à partir de 2013).
 
-### Créer un calque Earth Engine
+### Créer une couche Earth Engine
 
-Pour créer un calque Earth Engine, choisissez le calque souhaité dans la liste **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque.
+Pour créer une couche Earth Engine, choisissez la couche souhaités dans la liste **Ajouter une couche**. Cela ouvre la boîte de dialogue de configuration de couche.
 
 1.  Dans l'onglet **STYLE**
 
     ![](resources/images/content/user/maps/maps_ee_layer_dialog_POPULATION.png)
 
-    - Modifier les paramètres intrinsèques au type de calque.
+    - Modifier les paramètres spécifiques au type de couche.
 
     - Ajustez la plage, les étapes et les couleurs de la légende comme vous le souhaitez.
 
-2.  Cliquez sur **AJOUTER UN CALQUE**.
+2.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-## Ajouter des calques sur des cartes externes
+## Ajouter des couches de carte externes
 
 <!--DHIS2-SECTION-ID:using_maps_external_map_layers-->
 
-Les calques de cartes externes sont représentées comme suit:
+Les couches de carte externes sont représentées comme suit :
 
-- Plans de base
+- Cartes de référence
 
-  Celles-ci sont disponibles dans la carte **plan de base** dans le panneau des calques et sont sélectionnés comme n'importe quel autre plan de base.
+  Celles-ci sont disponibles dans la carte **carte de référence** dans le panneau des couches et sont sélectionnéss au même titre que n'importe quelle autre carte de référence.
 
 - Les superpositions
 
-  Celles-ci sont disponibles dans la sélection **Ajouter un calque**. Contrairement aux plans de base, les superpositions peuvent être placées au-dessus ou au-dessous de toute autre calque de superposition.
+  Celles-ci sont disponibles dans la sélection **Ajouter une couche**. Contrairement aux cartes de référence, les superpositions peuvent être placées au-dessus ou au-dessous de toute autre couche de superposition.
 
-Les calques superposés sont représentés par des calques _cartes_ supplémentaires dans le panneau des calques comme suit :
+Les couches superposées sont représentées par des _cartes_ de couches supplémentaires dans le panneau des couches comme suit :
 
-En haut de la carte superposée, de gauche à droite, vous trouverez:
+En haut de la carte superposée, de gauche à droite, vous trouverez :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- le titre du calque de la carte externe
+- le titre de la couche de carte externe
 
-- Un symbole de flèche pour réduire et développer la carte de superposition
+- Un symbole de flèche pour réduire et agrandir la carte de superposition
 
-En bas de la carte de superposition, de gauche à droite, se trouvent:
+En bas de la carte de superposition, de gauche à droite, se trouvent :
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- Une icône de suppression (corbeille) pour supprimer la couche de la carte actuelle.
 
-Voici quelques exemples de calques externes:
+Voici quelques exemples de couches externes :
 
 ![](resources/images/content/user/maps/maps_black_basemap_and_nighttime_lights.png)
 
@@ -3994,7 +2735,7 @@ After you have created a map and saved it, you can share the map with everyone o
 
 3.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
 
-4.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
+4.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont les suivantes :
 
     - Aucun (uniquement pour les groupes par défaut, car ils ne peuvent pas être supprimés)
 
@@ -4026,7 +2767,7 @@ An interpretation is a description of a map at a given period. This information 
 
 ### Afficher les interprétations basées sur des périodes relatives
 
-Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
+Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière :
 
 1.  Ouvrez un favori avec des interprétations.
 
@@ -4060,9 +2801,9 @@ To create an interpretation, you first need to create a map and save it. If you'
 
 4.  Change sharing settings for the users you want to modify:
 
-    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
+    - **Lecture et écriture** : Tout le monde peut consulter et éditer l'objet.
 
-    - **Lecture uniquement**: tout le monde peut consulter l'objet.
+    - **Lecture uniquement** : tout le monde peut consulter l'objet.
 
     - **No access**: The public won't have access to the object. This setting is only applicable to Public access.
 
@@ -4076,11 +2817,11 @@ You can download your map as an image by clicking on the Download button in the 
 
 ![](resources/images/content/user/maps/maps_download.png)
 
-Map download is not supported in Internet Explorer or Safari, we recommend to use Google Chrome og Firefox.
+Map download is not supported in Internet Explorer or Safari, we recommend to use Google Chrome or Firefox.
 
 1.  Select if you want to include the map name or not. This option is only available if the map is saved.
 
-2.  Select if you want to inclide the map legend. You can position the legend in one of the 4 corners of your map.
+2.  Select if you want to include the map legend. You can position the legend in one of the 4 corners of your map.
 
 3.  Click **Download** to download your map.
 
@@ -4088,15 +2829,15 @@ Map download is not supported in Internet Explorer or Safari, we recommend to us
 
 <!--DHIS2-SECTION-ID:using_maps_search-->
 
-La fonction de recherche d'emplcaement vous permet de rechercher presque n'importe quel lieu ou adresse. Cette fonction est utile pour localiser par exemple des sites, infrastructures, villages ou villes sur la carte.
+La fonction de recherche d'emplacement vous permet de rechercher presque n'importe quel lieu ou adresse. Cette fonction est utile pour localiser par exemple des sites, structures sanitaires, villages ou villes sur la carte.
 
 ![](resources/images/content/user/maps/maps_place_search.png)
 
 1.  Sur le côté droit de la fenêtre Cartes, cliquez sur l'icône loupe.
 
-2.  Tapez l'emplacement que vous recherchez.
+2.  Saisissez l'emplacement que vous recherchez.
 
-    Une liste des emplacements correspondants apparaît au fur et à mesure que vous tapez.
+    Une liste des emplacements correspondants apparaît au fur et à mesure que vous saisissez.
 
 3.  Dans la liste proposée, sélectionnez un emplacement. Une épingle indique l'emplacement sur la carte.
 
@@ -4116,27 +2857,27 @@ La fonction de recherche d'emplcaement vous permet de rechercher presque n'impor
 
 <!--DHIS2-SECTION-ID:using_maps_latitude_longitude-->
 
-Cliquez avec le bouton droit sur un point de la carte et sélectionnez **Afficher la longitude/latitude**. Les valeurs s'affichent dans une fenêtre contextuelle.
+Faites un clique droit sur un point de la carte et sélectionnez **Afficher la longitude/latitude**. Les valeurs s'affichent dans une fenêtre pop-up.
 
 ## Voir également
 
 - [Gérer les légendes](https://docs.dhis2.org/master/en/user/html/manage_legend.html)
 
-# Managing dashboards
+# Gérer les tableaux de bord
 
 <!--DHIS2-SECTION-ID:dashboard-->
 
-## A propos des tableaux de bord
+## À propos des tableaux de bord
 
 Les tableaux de bord ont pour but d'allouer un accès rapide à différents outils d'analyse (cartes, graphiques, rapports, tableaux, etc.) à l'utilisateur. Les tableaux de bord peuvent également être partagés avec des groupes d'utilisateurs.
 
-Un utilisateur ou un administrateur peut créer un tableau de bord appelé "Soins prénatals". qui pourrait contenir toutes les informations pertinentes sur les soins prénatals. Ce tableau de bord pourrait être partagé avec le groupe d'utilisateurs appelé "contrôle ANC", qui peut concerner tous les utilisateurs du programme de contrôle ANC. Tous les utilisateurs au sein de ce groupe seraient alors en mesure de visualiser le même tableau de bord.
+Un utilisateur ou un administrateur peut créer un tableau de bord appelé "Soins prénatals" qui pourrait contenir toutes les informations ralatives aux soins prénatals. Ce tableau de bord pourrait être partagé avec le groupe d'utilisateurs appelé "contrôle ANC", qui peut concerner tous les utilisateurs du programme de contrôle ANC. Tous les utilisateurs au sein de ce groupe seraient alors en mesure de visualiser le même tableau de bord.
 
 ## Tableau de bord et barre de contrôle
 
 <!--DHIS2-SECTION-ID:dashboards_setup-->
 
-Les tableaux de bord se composent d'un titre, d'une description et d'un nombre quelconque d'éléments. Les éléments constituant le tableau bord peuvent être de différents types, y compris des graphiques, cartes, rapports, tableaux, ressources, messages et éléments de texte. Au dessus du tableau de bord se trouve la barre de contrôle, qui affiche tous vos tableaux de bord disponibles, comprenant un champ de recherche dans le tableau de bord et un bouton **+** pour créer un nouveau tableau de bord.
+Les tableaux de bord se composent d'un titre, d'une description et d'un nombre quelconque d'éléments. Les éléments constituant le tableau bord peuvent être de différents types, dont des graphiques, cartes, rapports, tableaux, ressources, messages et éléments de texte. Au dessus du tableau de bord se trouve la barre de contrôle, qui affiche tous vos tableaux de bord disponibles, comprenant un champ de recherche dans le tableau de bord et un bouton **+** pour créer un nouveau tableau de bord.
 
 The dashboard has two modes: view and edit/create. When you first log in to DHIS2, your most recently used dashboard will be displayed in view mode, if you are on the same computer as you were previously. If you are using a different computer, then the first starred dashboard will be displayed. If there are no starred dashboards, then the first dashboard (alphabetically) will be displayed. Starred dashboards always show first in the dashboard list.
 
@@ -4146,35 +2887,35 @@ La capture d'écran ci-dessous montre un tableau de bord appelé "Soins prénata
 
 ### Effectuer une recherche dans la liste de tableaux de bord
 
-Il est possible de rechercher un tableau de bord spécifique en utilisant le champ de recherche dans le menu déroulant en haut à gauche de la barre de contrôle intitulé «Rechercher un tableau de bord». La recherche ne tient pas compte de la casse, au fur et à mesure que vous tapez, la liste des tableaux de bord se rétrécira jusqu'à ceux qui correspondent à votre recherche.
+Il est possible de rechercher un tableau de bord spécifique en utilisant le champ de recherche dans le menu déroulant en haut à gauche de la barre de contrôle intitulé « Rechercher un tableau de bord ». La recherche est insensible à la casse. Au fur et à mesure que vous saisissez, la liste des tableaux de bord se rétrécie jusqu'à ceux qui correspondent à votre recherche.
 
 ### Personnaliser la taille de la barre de contrôle
 
-Vous pouvez définir une taille spécifique pour la barre de contrôle des tableaux de bord en cliquant dessus et en faisant glisser le bord inférieur. Lorsque vous relachez la souris, la nouvelle taille sera définie. En cliquant sur **AFFICHER PLUS** la barre de contrôle s'étendra à sa hauteur maximale (10 "rangées"). En cliquant sur **AFFICHER MOINS**, la taille sera réinitialisée sur celle que vous avez personnalisé.
+Vous pouvez définir une taille spécifique de la barre de contrôle des tableaux de bord en cliquant dessus et en faisant glisser le bord inférieur. Lorsque vous relachez la souris, la nouvelle taille sera définie. En cliquant sur **AFFICHER PLUS** la barre de contrôle s'étendra à sa hauteur maximale (10 "rangées"). En cliquant sur **AFFICHER MOINS**, la taille sera réinitialisée à celle que vous avez personnalisée.
 
-## Création d'un tableau de bord
+## Créer un tableau de bord
 
 Pour créer un nouveau tableau de bord, cliquez sur le bouton vert **+** situé au coin gauche de la barre de contrôle pour passer en mode création. Ajouter un titre dans le champ de titre, et éventuellement une description dans le champ description.
 
 ![](resources/images/content/user/dashboard/dashboard-add-new.png)
 
-**Mode création:**
+**Créer un mode :**
 
 ![](resources/images/content/user/dashboard/dashboard-create-mode.png)
 
 ### Ajouter des éléments au tableau de bord
 
-Ajoutez des éléments au tableau de bord en effectuant une recherche à partir du sélecteur d’élément dans la partie supérieure droite de la zone du tableau de bord. Les éléments disponibles incluent:
+Ajoutez des éléments au tableau de bord en effectuant une recherche à partir du sélecteur d’élément dans la partie supérieure droite de la zone du tableau de bord. Les éléments disponibles sont entre autres :
 
 - Tableaux croisés dynamiques
 
 - Graphiques
 
-- Plans
+- Cartes
 
-- Rapports d'événements
+- Rapports d'évènements
 
-- graphiques d'événements
+- Graphiques d'évènements
 
 - Rapports
 
@@ -4186,19 +2927,19 @@ Ajoutez des éléments au tableau de bord en effectuant une recherche à partir 
 
 - Zones de texte
 
-- Eléments d'espacement
+- Espaceur
 
 La liste des éléments de la liste déroulante affiche initialement les 5 premiers disponibles dans chaque catégorie, en fonction du texte de recherche que vous avez entré. Les courriers électroniques, les zones de texte et les éléments d'espacement se trouvent également dans la liste déroulante. Pour afficher plus d'éléments, cliquez sur **VOIR PLUS**, et la liste pour ce type sera étendue à 15 éléments. Si vous ne trouvez toujours pas l'élément qu'il vous faut, essayez de saisir un texte de recherche plus spécifique.
 
 ![](resources/images/content/user/dashboard/dashboard-item-selector.png)
 
-Une fois que vous avez sélectionné un élément, il sera ajouté en haut à gauche du tableau de bord. Les éléments ajoutés peuvent être déplacés à l'aide de la souris en en cliquant sur l'élément et en le faisant glisser vers l'emplacement souhaité. Il est également possible de modifier la taille d'un élément avec la souris en cliquant droit sur la poignée de déplacement dans le coin inférieur droit de l'élément et en glissant la souris jusqu'à la taille souhaitée.
+Une fois que vous avez sélectionné un élément, il sera ajouté en haut à gauche du tableau de bord. Les éléments ajoutés peuvent être déplacés à l'aide de la souris en en cliquant sur l'élément et en le faisant glisser vers l'emplacement souhaité. Il est également possible de modifier la taille d'un élément avec la souris en faisant un clique droit sur la poignée de glissement dans le coin inférieur droit de l'élément et en glissant la souris jusqu'à la taille souhaitée.
 
 ### Eléments d'espacement
 
-Le tableau de bord est configuré avec le paramètre "anti-gravité" pour le positionnement des articles. Cela signifie que les objets vont "monter" vers le haut jusqu'à présence d'un autre élément. Afin de forcer un espace vertical vide entre deux éléments (comme une rangée vide), vous pouvez ajouter des éléments d'espacement au tableau de bord. Ils ne sont visibles qu'en mode édition/création. En mode d'visualisation, ils ne sont pas visibles, mais occupent l’espace défini.
+Le tableau de bord est configuré avec le paramètre "anti-gravité" pour le positionnement des éléments. Cela signifie que les élément "monteront" vers le haut jusqu'à ce qu'ils atteignenet un autre élément. Afin de forcer un espace vertical vide entre deux éléments (comme une rangée vide), vous pouvez ajouter des éléments d'espacement au tableau de bord. Ils ne sont visibles qu'en mode édition/création. En mode affichage, ils ne sont pas visibles, mais occupent l’espace défini.
 
-**Elément d'espacement dans le mode édition/création:**
+**Elément d'espacement en mode édition/création:**
 
 ![](resources/images/content/user/dashboard/dashboard-spacer-edit-mode.png)
 
@@ -4208,15 +2949,15 @@ Le tableau de bord est configuré avec le paramètre "anti-gravité" pour le pos
 
 ## Supprimer des éléments
 
-Supprimer des éléments en cliquant sur la corbeille rouge en haut à droite de chaque élément. Sachez qu’en raison du réglage "anti-gravité" dans le tableau de bord, lorsque vous supprimez un élément, les éléments positionnés en dessous vont "monter" vers le haut.
+Supprimer des éléments en cliquant sur la corbeille rouge en haut à droite de chaque élément. Sachez qu’en raison du paramètre "anti-gravité" dans le tableau de bord, lorsque vous supprimez un élément, les éléments positionnés en dessous "montent" vers le haut.
 
 ## Sauvegarder le tableau de bord
 
-Lors de la création ou de la modification d'un tableau de bord, les modifications ne sont enregistrées que si vous cliquez sur le bouton **ENREGISTRER LES MODIFICATIONS** dans la barre de modification du tableau de bord en haut de la page. Si vous ne souhaitez pas enregistrer vos modifications, cliquez sur le bouton **QUITTER SANS SAUVEGARDER** en haut à droite. Vous serez alors renvoyé aen mode visualisation avec le tableau de bord que vous consultiez précédemment.
+Lors de la création ou de la modification d'un tableau de bord, les modifications ne sont enregistrées que si vous cliquez sur le bouton **ENREGISTRER LES MODIFICATIONS** dans la barre de modification du tableau de bord en haut de la page. Si vous ne souhaitez pas enregistrer vos modifications, cliquez sur le bouton **QUITTER SANS ENREGISTRER** en haut à droite. Vous serez alors renvoyé en mode affichage avec le tableau de bord que vous consultiez précédemment.
 
-## Editer un tableau de bord existant
+## Éditer un tableau de bord existant
 
-Si vous disposez des droits d'accès pour modifier le tableau de bord actif, vous trouverez un bouton **Modifier** à droite du titre du tableau de bord en mode visualisation. Cliquez sur ce bouton pour entrer en mode édition.
+Si vous disposez des droits d'accès pour modifier le tableau de bord actif, vous trouverez un bouton **Modifier** à droite du titre du tableau de bord en mode affichage. Cliquez sur ce bouton pour entrer en mode édition.
 
 ![](resources/images/content/user/dashboard/dashboard-title-bar.png)
 
@@ -4250,7 +2991,7 @@ Pour afficher la description, cliquez sur le bouton **i** situé à droite du ti
 
 ### Tableaux de bord marqués
 
-Vos tableaux de bord marqués sont répertoriés en premier dans la liste des tableaux de bord. Pour marquer un tableau de bord, cliquez sur le bouton étoile à droite du titre. Lorsque l’étoile est «coloriée», cela signifie que le tableau de bord a été marqué. Le marquage d'un tableau de bord ne s'applique qu'à vous, pas aux autres utilisateurs.
+Vos tableaux de bord marqués sont répertoriés en premier dans la liste des tableaux de bord. Pour marquer un tableau de bord, cliquez sur le bouton étoile à droite du titre. Lorsque l’étoile est «coloriée», cela signifie que le tableau de bord a été marqué. Le marquage d'un tableau de bord ne s'applique qu'à vous, et non aux autres utilisateurs.
 
 ### Filtrer un tableau de bord
 
@@ -4272,7 +3013,7 @@ Filters are not stored, so when switching to a different dashboard they are lost
 
 Filter badges can be clicked for opening the filter selection dialogs thus allowing for filter editing. A filter can be removed by clicking on the **Remove** button in the badge. Whenever a filter is added, edited or removed, the dashboard items reload to show the updated data. Filter badges are always visible at the top of the page when scrolling the dashboard content.
 
-## Eléments de tableau de bord avec graphiques, tableaux croisés dynamiques et cartes
+## Éléments de tableau de bord montrant les graphiques, tableaux croisés dynamiques et cartes
 
 ### Basculer entre les visualisations
 
@@ -4294,7 +3035,7 @@ Interpretations are sorted in descending order by date, with the most recent sho
 
 <!--DHIS2-SECTION-ID:dashboard_sharing-->
 
-Pour partager un tableau de bord avec des groupes d’utilisateurs, cliquez sur le bouton **PARTAGER** à droite du titre du tableau de bord pour afficher les paramètres de partage du tableau de bord. Pour partager le tableau de bord avec des utilisateurs spécifiques ou groupes d’utilisateurs, tapez leurs noms dans le champ de saisie pour les identifier dans les paramètres de partage du tableau de bord.
+Pour partager un tableau de bord avec des groupes d’utilisateurs, cliquez sur le bouton **PARTAGER** à droite du titre du tableau de bord pour afficher les paramètres de partage du tableau de bord. Pour partager le tableau de bord avec des utilisateurs ou groupes d’utilisateurs spécifiques, saisissez leurs noms dans le champ de saisie pour les identifier dans les paramètres de partage du tableau de bord.
 
 ![](resources/images/content/user/dashboard/dashboard-sharing-dialog.png)
 
@@ -4302,11 +3043,11 @@ Tous les tableaux de bord ont deux groupes de partage définis par défaut.
 
 - Accès externe (sans login)
 
-  Cette option, lorsqu'elle est sélectionnée, permet d'accéder au tableau de bord en tant que ressource externe. Ceci est utile lorsque vous créez un portail Web externe, mais souhaitez appeler des données d'un tableau de bord que vous avez créé en interne dans DHIS2. Par défaut, cette option n'est pas sélectionnée.
+  Cette option, lorsqu'elle est sélectionnée, permet d'accéder au tableau de bord en tant que ressource externe. Ceci est utile lorsque vous créez un portail Web externe, mais souhaitez avoir des données d'un tableau de bord que vous avez créé en interne dans DHIS2. Par défaut, cette option n'est pas sélectionnée.
 
 - Accès public (avec login)
 
-  Cette option permet de pousser le tableau de bord sélectionné à tous les utilisateurs au sein de votre instance DHIS2. Cela peut aussi être masqué de la vue du public en sélectionnant l'option "Nul", qui est l'option par défaut pour les nouveaux tableaux de bord.
+  Cette option permet de rendre disponible le tableau de bord sélectionné à tous les utilisateurs au sein de votre instance DHIS2. Cela peut aussi être masqué de la vue du public en sélectionnant l'option "Aucun", qui est l'option par défaut pour les nouveaux tableaux de bord.
 
 Les groupes d’utilisateurs qui ont été ajoutés manuellement peuvent se voir attribuer deux types d'autorisations dans le tableau de bord :
 
@@ -4322,17 +3063,17 @@ Vous pouvez fournir aux utilisateurs l'URL du tableau de bord, ce qui leur pemet
 
 https://play.dhis2.org/demo/dhis-web-dashboard/\#/nghVC4wtyzi
 
-# Messaging
+# Messagerie
 
 <!--DHIS2-SECTION-ID:messages-->
 
 <!--DHIS2-SECTION-ID:dashboard_messages-->
 
-## A propos des messages et des commentaires
+## À propos des messages et des commentaires
 
 ![](resources/images/content/user/messaging/view_inbox.png)
 
-Dans DHIS2, vous pouvez envoyer des messages et des commentaires aux utilisateurs, à des groupes d'utilisateurs et aux unités d'organisation. Lorsque vous envoyez un commentaire, il est routé vers un groupe d'utilisateurs particulier appelé groupe de destinataires. Si vous êtes membre de ce groupe d'utilisateurs, vous avez accès aux outils de gestion des commentaires. Vous pouvez, par exemple, définir le statut d'un nouveau commentaire à "En attente" pendant que vous attendez d'avoir plus d'informations.
+Dans DHIS2, vous pouvez envoyer des messages et des commentaires aux utilisateurs, à des groupes d'utilisateurs et aux unités d'organisation. Lorsque vous envoyez un commentaire, il est routé vers un groupe d'utilisateurs particulier appelé groupe de destinataires. Si vous êtes membre de ce groupe d'utilisateurs, vous avez alors accès aux outils de gestion des commentaires. Vous pouvez, par exemple, définir le statut d'un nouveau commentaire à "En attente" pendant que vous attendez d'avoir plus d'informations.
 
 En plus des messages entre utilisateurs et des commentaires, en fonction de votre configuration, le système vous enverra également des messages génériques. Ces messages peuvent être déclenchés par différents événements, y compris les échecs et défaillances de tâches en arrière-plan et la validation des résultats d'analyse. Les outils de gestion des commentaires sont également disponibles pour les résultats de validation et la priorité sera attribuée à l'importance de la règle de validation violée.
 
@@ -4363,7 +3104,7 @@ Pour aller à l'application, cliquez sur **l'icône du message dans l'en-tête**
 
 1.  Cliquez sur **Composer**.
 
-2.  Définissez qui vous souhaitez recevoir le message. Vous pouvez envoyer un message aux unités d'organisation, aux utilisateurs et à des groupes d'utilisateurs.
+2.  Définissez à qui vous souhaitez envoyer le message. Vous pouvez envoyer un message aux unités d'organisation, aux utilisateurs ainsi qu'à des groupes d'utilisateurs.
 
     - Dans le champ **À**, vous pouvez rechercher des unités d'organisation, des utilisateurs et des groupes d'utilisateurs et sélectionner les destinataires souhaités.
 
@@ -4449,19 +3190,19 @@ Vous recevrez des commentaires dans votre dossier **Tickets** et des messages de
 
 ## Configurer la fonction commentaire
 
-Pour configurer la fonction commentaire, vous devez:
+Pour configurer la fonction commentaire, vous devez :
 
 1.  Créez un groupe d'utilisateurs (par exemple, "Destinataires du commentaire") qui contient tous les utilisateurs qui devraient le recevoir.
 
 2.  Ouvrez l'application **Paramètres système** et cliquez sur **Général** \> **destinataires** et sélectionnez le groupe d'utilisateurs créé lors de l'étape précédente.
 
-# Définir les préférences du compte
+# Définir les préférences du compte d'utilisateur
 
 <!--DHIS2-SECTION-ID:user_account_preferences-->
 
-Dans **Paramètres de l'utilisateur**, vous pouvez modifier la langue d'affichage de DHIS2 et la langue de la base de données. La langue de la base de données est la traduction du contenu des métadonnées, tels que des éléments de données et des indicateurs. Vous pouvez choisir également un style d'affichage et activez ou désactivez la réception des SMS et e-mails. Si vous le souhaitez, vous pouvez utiliser un nom abrégé, tel que "Joe" dans les modules d'analyse, au lieu d'utiliser votre nom complet.
+Dans **Paramètres de l'utilisateur**, vous pouvez modifier la langue d'affichage de DHIS2 et la langue de la base de données. La langue de la base de données est la traduction du contenu des métadonnées, tels que des éléments de données et des indicateurs. Vous pouvez également choisir un style d'affichage et activez ou désactivez la réception des SMS et e-mails. Si vous le souhaitez, vous pouvez utiliser un nom abrégé, tel que "Joe" dans les modules d'analyse, au lieu d'utiliser votre nom complet.
 
-Dans **Profil de l'utilisateur**, vous pouvez ajouter des informations personnelles à votre profil comme votre adresse électronique, votre numéro de téléphone mobile, votre date de naissance, votre photo de profil et plus. Lorsque vous envoyez des messages, la personne qui les reçoit peut visualiser ces détails de votre profil. Vous pouvez également fournir des noms de compte pour divers services de messagerie directe, qui seront utilisés par le système.
+Dans **Profil de l'utilisateur**, vous pouvez ajouter des informations personnelles à votre profil comme votre adresse électronique, votre numéro de téléphone mobile, votre date de naissance, votre photo de profil et plus. Lorsque vous envoyez des messages, la personne qui les reçoit pouvant voir ces détails de votre profil. Vous pouvez également fournir des noms de compte pour divers services de messagerie directes, qui seront utilisés par le système.
 
 Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et configurer l'authentification à 2 facteurs. La configuration de l'authentification à 2 facteurs requiert le téléchargement de l'application Google Authenticator sur votre appareil mobile.
 

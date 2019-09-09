@@ -60,7 +60,7 @@ at the end of this document.
 </colgroup>
 <thead>
 <tr class="header">
-<th><p>What do you want to do?</p></th>
+<th colspan=2><p>What do you want to do?</p></th>
 <th><p>Link to documentation</p></th>
 <th><p>Related app(s)</p></th>
 </tr>
@@ -95,12 +95,6 @@ at the end of this document.
 <td><p>Visualize data in a chart</p></td>
 <td><p><a href="https://docs.dhis2.org/master/en/user/html/data_vis.html">Using the Data Visualizer app</a></p></td>
 <td><p><strong>Data Visualizer</strong></p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Visualize data in a map</p></td>
-<td><p><a href="https://docs.dhis2.org/master/en/user/html/using_gis.html">Using the GIS app</a></p></td>
-<td><p><strong>GIS</strong></p></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -146,7 +140,7 @@ at the end of this document.
 </tr>
 <tr class="even">
 <td></td>
-<td><p>Visualize statistics about how users work with the <strong>Dashboard</strong>, <strong>Pivot Table</strong>, <strong>GIS</strong>, <strong>Event Visualizer</strong>, <strong>Data Visualizer</strong> and <strong>Event Reports</strong> apps</p></td>
+<td><p>Visualize statistics about how users work with the <strong>Dashboard</strong>, <strong>Pivot Table</strong>, <strong>Maps</strong>, <strong>Event Visualizer</strong>, <strong>Data Visualizer</strong> and <strong>Event Reports</strong> apps</p></td>
 <td><p><a href="https://docs.dhis2.org/master/en/user/html/using_usage_analytics.html">Visualize usage statistics</a></p></td>
 <td><p><strong>Usage Analytics</strong></p></td>
 </tr>
@@ -207,8 +201,8 @@ at the end of this document.
 </tr>
 <tr class="even">
 <td></td>
-<td><p>Import coordinates and configure the <strong>GIS</strong> app</p></td>
-<td><p><a href="https://docs.dhis2.org/master/en/user/html/gis_creating.html">Configure the GIS app</a></p>
+<td><p>Import coordinates and configure the <strong>Maps</strong> app</p></td>
+<td><p><a href="https://docs.dhis2.org/master/en/user/html/gis_creating.html">Configure the Maps app</a></p>
 <p><a href="https://docs.dhis2.org/master/en/user/html/manage_legend.html">Manage legends</a></p>
 <p><a href="https://docs.dhis2.org/master/en/user/html/manage_external_maplayer.html">Manage external map layers</a></p></td>
 <td><p><strong>Maintenance</strong></p></td>
@@ -223,7 +217,6 @@ at the end of this document.
 <td><p>Learn about event and tracker programs</p></td>
 <td><p>Create a program</p></td>
 <td><a href="https://docs.dhis2.org/master/en/user/html/configure_programs_in_maintenance_app.html">Configure programs in the Maintenance app</a>
-<p><a href="https://docs.dhis2.org/master/en/user/html/configure_programs_in_legacy_app.html">Configure programs in the Programs/Attributes app (legacy app)</a></p></td>
 <td><p><strong>Maintenance</strong></p>
 <p><strong>Program</strong></p></td>
 </tr>
@@ -1900,7 +1893,7 @@ The top bar can be a helpful tool to see important data in a quick and easy way.
 
 ![](resources/images/content/user/tracker_capture/top_bar.png)
 
-### Chage table display mode for **Timeline Data Entry** widget
+### Change table display mode for **Timeline Data Entry** widget
 
 The **Timeline Data Entry** widget has 5 diffrent table display modes that can be selected. The different options are:
 
@@ -2049,7 +2042,7 @@ Relationships can be added either during registration, editing or viewing of an 
 
   ![register new Tracked Entity Instance](resources/images/content/user/capture_app/register_tei.png)
 
-4. Fill in the desired (and possibly manditory) attributes and enrollment details.
+4. Fill in the desired (and possibly mandatory) attributes and enrollment details.
 
 5. Click **Create Tracked Entity Instance and Link**.
 
@@ -2719,21 +2712,21 @@ Si vous souhaitez visualiser une petite partie de votre tableau croisé dynamiqu
 
     Votre séléction s'ouvre sous forme de carte.
 
-# Data Visualizer
+# Using the Data Visualizer app
 
 <!--DHIS2-SECTION-ID:data_visualizer-->
 
-## Creating and editing charts
+## Creating and editing visualizations
 
-When you open the data-visualizer app from the dhis2 menu, you are presented with a blank slate and you can start creating your chart right away.
+When you open the data-visualizer app from the dhis2 menu, you are presented with a blank slate and you can start creating your visualization right away.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-new.png)
 
-Select the desired chart type from the selector in the upper left corner:
+Select the desired visualization type from the selector in the upper left corner:
 
-![](resources/images/content/user/data-visualizer/data-visualizer-chart-type.png)
+![](resources/images/content/user/data-visualizer/data-visualizer-visualization-type.png)
 
-From the dimension menu on the left you can select the dimension you want to show in your chart, including data, period, organisation units and dynamic dimensions.
+From the dimension menu on the left you can select the dimension you want to show in your visualization, including data, period, organisation units and dynamic dimensions.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-dimensions.png)
 
@@ -2751,1292 +2744,21 @@ In the axis management dialog you can assign data items to the two axes.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-axis-management-dialog.png)
 
-## Viewing chart interpretations
+## Viewing visualization interpretations
 
-When viewing a chart, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The chart description will also be shown. The description suppots rich text format.
+When viewing a visualization, you can expand the interpretations on the right side by clicking on the Interpretations button in the upper right corner. The visualization description will also be shown. The description suppots rich text format.
 
-To view the chart according to the date of a particular interpretation, click on the interpretation or its "View" button. This will regenerate the chart with the relevant date, which is indicated next to the chart title.
+To view the visualization according to the date of a particular interpretation, click on the interpretation or its "View" button. This will regenerate the visualization with the relevant date, which is indicated next to the visualization title.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-view-interpretation.png)
 
-Clicking on "Back to all interpretations" or the "Exit View" button inside the interpretations panel will clear the interpretation and regenerate the chart with the current date.
+Clicking on "Back to all interpretations" or the "Exit View" button inside the interpretations panel will clear the interpretation and regenerate the visualization with the current date.
 
-## See chart as map
+## See visualization as map
 
-Sometimes it can be useful to see how visualization would look like on map. To achieve this you can select "Open as: Map" chart type after you build your chart.
+Sometimes it can be useful to see how visualization would look like on map. To achieve this you can select "Open as Map" visualization type after you build your visualization.
 
 ![](resources/images/content/user/data-visualizer/data-visualizer-open-as-map.png)
-
-# Classic Data Visualizer (deprecated)
-
-<!--DHIS2-SECTION-ID:data_vis-->
-
-This chapter refers to the legacy version of the data visualizer. For the current version, please refer to the [new data visualizer](./data_visualizer.html) chapter.
-
-## About the Classic Data Visualizer app
-
-<!--DHIS2-SECTION-ID:data_vis_intro-->
-
-![](resources/images/content/user/visualizer/column_chart.png)
-
-With the ** Classic Data Visualizer** app, you can select content, for example indicators, data elements, periods and organisation units, for an analysis. The app works well over poor Internet connections and generates charts in the web browser.
-
-> **Astuce**
->
-> - Masquer et afficher les séries de données individuelles dans le graphique en cliquant directement sur l'étiquette de la série dans le graphique. Ils apparaissent soit en haut ou à droite du graphique.
->
-> - Cliquez sur la triple flèche gauche du menu central supérieur. Cette action réduit le menu de gauche et donne plus d'espace au graphique. Vous pouvez récupérer le menu en cliquant à nouveau sur le même bouton.
-
-## Créer un graphique
-
-<!--DHIS2-SECTION-ID:datavis_create_chart-->
-
-1.  Open the **Classic Data Visualizer** app and select a chart type.
-
-2.  Dans le menu de gauche, sélectionnez les métadonnées que vous souhaitez analyser. Vous devez sélectionner un ou plusieurs éléments parmi les trois dimensions - données (indicateurs, éléments de données, taux de reporting), périodes (relatives, fixes) et unités d'organisation (unités ou groupes).
-
-    > **Note**
-    >
-    > If you've access to the system settings, you can change the default period type under **General settings \> Default relative period for analysis.**
-
-    **Les 12 derniers mois** de la dimension de la période et de l'unité d'organisation racine sont sélectionnés par défaut.
-
-3.  Cliquez sur **Mise en page** et organisez les dimensions.
-
-    Vous pouvez conserver la sélection par défaut si vous le souhaitez.
-
-4.  Cliquez sur **Mettre à jour**.
-
-## Sélectionnez un type de graphique
-
-<!--DHIS2-SECTION-ID:datavis_chart_types-->
-
-The **Classic Data Visualizer** app has nine different chart types, each with different characteristics. To select a chart type:
-
-1.  Dans **Type de graphique**, cliquez sur le type de graphique dont vous avez besoin.
-
-    <table>
-    <caption>Chart types</caption>
-    <colgroup>
-    <col style="width: 33%" />
-    <col style="width: 66%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Chart type</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>Column chart</p></td>
-    <td><p>Displays information as vertical rectangular columns with lengths proportional to the values they represent.</p>
-    <p>Useful when you want to, for example, compare performance of different districts.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Stacked column chart</p></td>
-    <td><p>Displays information as vertical rectangular columns, where bars representing multiple categories are stacked on top of each other.</p>
-    <p>Useful when you want to, for example, display trends or sums of related data elements.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Bar chart</p></td>
-    <td><p>Same as column chart, only with horizontal bars.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Stacked bar chart</p></td>
-    <td><p>Same as stacked column chart, only with horizontal bars.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Line chart</p></td>
-    <td><p>Displays information as a series of points connected by straight lines. Also referred to as time series.</p>
-    <p>Useful when you want to, for example, visualize trends in indicator data over multiple time periods.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Area chart</p></td>
-    <td><p>Is based on line chart, with the space between the axis and the line filled with colors and the lines stacked on top of each other.</p>
-    <p>Useful when you want to compare the trends of related indicators.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Pie chart</p></td>
-    <td><p>Circular chart divided into sectors (or slices).</p>
-    <p>Useful when you want to, for example, visualize the proportion of data for individual data elements compared to the total sum of all data elements in the chart.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Radar chart</p></td>
-    <td><p>Displays data on axes starting from the same point. Also known as spider chart.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Speedometer chart</p></td>
-    <td><p>Semi-circle chart which displays values out of 100 %. Also referred to as a gauge chart.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-2.  Cliquez sur **Mettre à jour**.
-
-## Sélectionner les éléments de dimension
-
-<!--DHIS2-SECTION-ID:data_vis_select_dim_items-->
-
-Une dimension fait référence aux éléments décrivant les valeurs de données dans le système. Il y existe trois dimensions principales dans le système:
-
-- Données: comprend des éléments de données, des indicateurs et des sets de données (taux de reporting), décrivant le phénomène ou l'événement des données.
-
-<!-- end list -->
-
-- Périodes: Décrit quand l'événement a eu lieu.
-
-<!-- end list -->
-
-- Unités d'organisation: Décrit où l'événement a eu lieu.
-
-The Classic Data Visualizer app lets you use these dimensions completely flexible in terms of appearing as series, categories and filter.
-
-> **Note**
->
-> Vous pouvez sélectionner des éléments de dimension de différentes manières:
->
-> - Double-cliquez sur un nom d'élément de dimension.
->
-> - Mettez en surbrillance un ou plusieurs éléments de dimension et cliquez sur la flèche simple.
->
-> - Pour sélectionner tous les éléments de dimension d'une liste, cliquez sur la double flèche.
->
-> - Pour effacer les éléments de dimension, utilisez les flèches ou double-cliquez sur les noms dans la liste **Sélectionnée**.
-
-### Sélectionner des indicateurs
-
-The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
-
-1.  Cliquez sur **Données** et sélectionnez **Indicateurs**.
-
-2.  Sélectionnez un groupe d'indicateurs.
-
-    Les indicateurs du groupe sélectionné apparaissent dans la liste des **Disponibles**
-
-3.  Sélectionnez un ou plusieurs indicateurs en double-cliquant sur leurs noms.
-
-    L'indicateur passe à la liste **Sélectionnés**.
-
-### Sélectionner des éléments de données
-
-The Classic Data Visualizer app can display any number of indicators and data elements in a chart. You can select both indicators and data elements to appear together in the same chart, with their order of appearance the same as the order in which they are selected.
-
-1.  Cliquez sur **Données** et sélectionnez **Eléments de données**.
-
-2.  Sélectionnez un groupe d'éléments de données.
-
-    Les éléments de données du groupe sélectionné apparaissent dans la liste des **Disponibles**
-
-3.  Sélectionnez un ou plusieurs éléments de données en double-cliquant sur leurs noms.
-
-    L'élément de données passe à la liste **Sélectionnés**.
-
-### Sélectionner des taux de reporting
-
-The Classic Data Visualizer app can display reporting rates in a chart, by itself or together with indicators and data elements. Reporting rates are defined by data sets.
-
-1.  Cliquez sur **Données** et sélectionnez **taux de reporting**.
-
-    Les taux de reporting apparaissent dans la liste des **Disponibles**
-
-2.  Sélectionnez un ou plusieurs taux de reporting en double-cliquant sur leurs noms.
-
-    L'élément de données passe à la liste **Sélectionnés**.
-
-### Sélectionner des périodes fixes et reltives
-
-1.  Cliquez sur **Périodes**.
-
-2.  Sélectionnez une ou plusieurs périodes.
-
-    Vous pouvez combiner des périodes fixes et des périodes relatives dans le même graphique. Les périodes qui se chevauchent sont filtrées afin qu'elles n'apparaissent qu'une seule fois.
-
-    - Périodes fixes: dans la zone **Sélectionner le type de période**, sélectionnez un type de période. Vous pouvez sélectionner un nombre quelconque de périodes fixes parmi les types de période.
-
-    <!-- end list -->
-
-    - Périodes relatives: dans la partie inférieure de la section **Périodes**, sélectionnez autant de périodes relatives que vous le souhaitez. Les noms sont associés à la date du jour. Cela signifie que si le mois courant est mars et vous sélectionnez **le mois dernier**, le mois de Février sera inclus dans le graphique.
-
-### Sélectionner les unités d'organisation
-
-1.  Cliquez sur **Unités d'organisation**.
-
-2.  Cliquez sur l'icône de la boîte de vitesses.
-
-3.  Sélectionnez un **Mode de sélection** et une unité d'organisation.
-
-    Il existe trois modes de sélection différents:
-
-    <table>
-    <caption>Selection modes</caption>
-    <colgroup>
-    <col style="width: 38%" />
-    <col style="width: 61%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Selection mode</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Select organisation units</strong></p></td>
-    <td><p>Lets you select the organisation units you want to appear in the chart from the organization tree.</p>
-    <p>Select <strong>User org unit</strong> to disable the organisation unit tree and only select the organisation unit that is related to your profile.</p>
-    <p>Select <strong>User sub-units</strong> to disable the organisation unit tree and only select the sub-units of the organisation unit that is related to your profile.</p>
-    <p>Select <strong>User sub-x2-units</strong> to disable the organisation unit tree and only select organisation units two levels down from the organisation unit that is related to your profile.</p>
-    <p>This functionality is useful for administrators to create a meaningful &quot;system&quot; favorite. With this option checked all users find their respective organisation unit when they open the favorite.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Select levels</strong></p></td>
-    <td><p>Lets you select all organisation units at one or more levels, for example national or district level.</p>
-    <p>You can also select the parent organisation unit in the tree, which makes it easy to select for example, all facilities inside one or more districts.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Select groups</strong></p></td>
-    <td><p>Lets you select all organisation units inside one or several groups and parent organisation units at the same time, for example hospitals or chiefdoms.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Sélectionner des éléments de dimension supplémentaires
-
-En fonction des paramètres définis pour les groupes de sets de données des unités organisation et les groupes de sets de données des éléments de données, vous pouvez sélectionner des éléments de dimension supplémentaires depuis menu de gauche.
-
-Ici, vous pouvez ajouter des éléments de dimension tels que l'âge, le sexe, etc. Sans pour autant les ajouter en tant que sélections d'éléments de données détaillées. Ceci est utile lorsque vous souhaitez séparer ces catégories dans votre analyse.
-
-Les éléments de dimension supplémentaires que vous sélectionnez sont disponibles dans **Mise en page des graphiques** en tant que dimensions.
-
-## Sélectionner une série, une catégorie et un filtre
-
-<!--DHIS2-SECTION-ID:data_vis_series_category_filter-->
-
-![](resources/images/content/user/visualizer/chart_layout.png)
-
-Vous pouvez définir quelle dimension des données vous souhaitez voir apparaître en tnt que série, catégorie et filtre.
-
-1.  Cliquez sur **Mise en page**.
-
-2.  Faites glisser les dimensions et déposez-les dans l'espace approprié. Une seule dimension peut être dans chaque section.
-
-3.  Cliquez sur **Mettre à jour**.
-
-![](resources/images/content/user/visualizer/series_category_filter.png)
-
-- Série: une série est un set d'éléments continus et liés (par exemple, exemples de périodes ou d'éléments de données) que vous souhaitez visualiser afin de souligner les tendances ou les relations dans ses données.
-
-- Catégories: une catégorie est un ensemble d'éléments (par exemple des indicateurs ou unités d'organisation) pour lesquelles vous souhaitez comparer les données.
-
-- Filtre: La sélection du filtre filtrera les données affichées dans le graphique. Notez que si vous utilisez la dimension de données comme filtre, vous ne pouvez spécifier qu'un seul indicateur ou set de données en tant qu'élément de filtre, alors qu'avec d'autres types de dimension, vous pouvez sélectionner un nombre quelconque d'éléments.
-
-\</exemple\>
-
-## Modifier l'affichage de votre graphique
-
-<!--DHIS2-SECTION-ID:datavis_change_display-->
-
-1.  Cliquez sur **Options**.
-
-2.  Définissez les options selon vos besoins.
-
-    <table style="width:100%;">
-    <caption>Chart options</caption>
-    <colgroup>
-    <col style="width: 23%" />
-    <col style="width: 33%" />
-    <col style="width: 42%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Option</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p><strong>Data</strong></p></td>
-    <td><p><strong>Show values</strong></p></td>
-    <td><p>Shows the values above the series in the chart.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Use 100% stacked values</strong></p></td>
-    <td><p>Displays 100 % stacked values in column charts.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Use cumulative values</strong></p></td>
-    <td><p>Displays cumulative values in line charts.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Hide empty categories</strong></p></td>
-    <td><p>Hides the category items with no data from the chart.</p>
-    <p><strong>None</strong>: doesn't hide any of the empty categories</p>
-    <p><strong>Before first</strong>: hides missing values only before the first value</p>
-    <p><strong>After last</strong>: hides missing values only after the last value</p>
-    <p><strong>Before first and after last</strong>: hides missing values only before the first value and after the last value</p>
-    <p><strong>All</strong>: hides all missing values</p>
-    <p>This is useful for example when you create column and bar charts.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Trend line</strong></p></td>
-    <td><p>Displays the trend line which visualizes how your data evolves over time. For example if performance is improving or deteriorating. Useful when periods are selected as category.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Target line value/title</strong></p></td>
-    <td><p>Displays a horizontal line at the given domain value. Useful for example when you want to compare your performance to the current target.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Base line value/title</strong></p></td>
-    <td><p>Displays a horizontal line at the given domain value. Useful for example when you want to visualize how your performance has evolved since the beginning of a process.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Sort order</strong></p></td>
-    <td><p>Allows you to sort the values on your chart from either low to high or high to low.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Aggregation type</strong></p></td>
-    <td><p>Defines how the data elements or indicators will be aggregated within the chart. Some of the aggregation types are <strong>By data element</strong>, <strong>Count</strong>, <strong>Min</strong> and <strong>Max</strong>.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Events</strong></p></td>
-    <td><p><strong>Include only completed events</strong></p></td>
-    <td><p>Includes only completed events in the aggregation process. This is useful when you want for example to exclude partial events in indicator calculations.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>Axes</strong></p></td>
-    <td><p><strong>Range axis min/max</strong></p></td>
-    <td><p>Defines the maximum and minimum value which will be visible on the range axis.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Range axis tick steps</strong></p></td>
-    <td><p>Defines the number of ticks which will be visible on the range axis.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Range axis decimals</strong></p></td>
-    <td><p>Defines the number of decimals which will be used for range axis values.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Range axis title</strong></p></td>
-    <td><p>Type a title here to display a label next to the range axis (also referred to as the Y axis). Useful when you want to give context information to the chart, for example about the unit of measure.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Domain axis title</strong></p></td>
-    <td><p>Type a title here to display a label below the domain axis (also referred to as the X axis). Useful when you want to give context information to the chart, for example about the period type.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p><strong>Style</strong></p></td>
-    <td><p><strong>No space between columns/bars</strong></p></td>
-    <td><p>Removes the space between the columns or bars in the chart. Useful for displaying the chart as an EPI curve.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>General</strong></p></td>
-    <td><p><strong>Hide chart legend</strong></p></td>
-    <td><p>Hides the legend and leaves more room for the chart itself.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Hide chart title</strong></p></td>
-    <td><p>Hides the title (default or custom) of your chart.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Chart title</strong></p></td>
-    <td><p>Type a title here to display a custom title above the chart. If you don't enter a title, the default title is displayed.</p></td>
-    </tr>
-    <tr class="even">
-    <td></td>
-    <td><p><strong>Hide chart subtitle</strong></p></td>
-    <td><p>Hides the subtitle of your chart.</p></td>
-    </tr>
-    <tr class="odd">
-    <td></td>
-    <td><p><strong>Chart subtitle</strong></p></td>
-    <td><p>Type a subtitle here to display a custom subtitle above the chart but below the title. If you don't enter a subtitle, no subtitle is displayed in the chart.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-3.  Cliquez sur **Mettre à jour**.
-
-## Gérer les favoris
-
-La sauvegarde de vos graphiques ou tableaux croisés dynamiques dans les favoris facilite leur recherche plus tard. Vous pouvez également choisir de les partager avec d'autres utilisateurs en tant qu'interprétation ou les afficher sur le tableau de bord.
-
-Vous pouvez visualisez les détails et interprétations de vos favoris dans les applications **Tableau croisé dynamique**, **Visualiseur de données**, **Visualiseur d'événement**, **Rapports d'evénements**. Utilisez le menu **Favoris** pour gérer vos favoris.
-
-### Ouvrir un favori
-
-1.  Cliquez sur **Favoris** \> **Ouvrir**.
-
-2.  Entrez le nom d'un favori dans le champ de recherche ou cliquez sur **Précédent**. et **Suivant** pour afficher les favoris.
-
-3.  Cliquez sur le nom du favori que vous souhaitez ouvrir.
-
-### Sauvegarder un favori
-
-1.  Cliquez sur **Favoris** \> **Sauvegarder**.
-
-2.  Enter a **Name** and a **Description** for your favorite. The description field supports a rich text format, see the interpretations section for more details.
-
-3.  Cliquez sur **Sauvegarder**.
-
-### Renommer un favori
-
-1.  Cliquez sur **Favoris** \> **Renommer**.
-
-2.  Entrez le nouveau nom que vous souhaitez donner à votre favori.
-
-3.  Cliquez sur **Mettre à jour**.
-
-### Ecrire une interprétation d'un favori
-
-Une interprétation est un lien vers une ressource avec une description des données à une période donnée. Cette information est visible dans l'application **Tableau de bord**. Pour créer une interprétation, vous devez d'abord créer un favori. Si vous avez partagé votre favori avec d'autres personnes, votre interprétation sera visible pour ces personnes.
-
-1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
-
-2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
-
-    It is possible to format the text with **bold**, _italic_ by using the Markdown style markers \* and \_ for **bold** and _italic_ respectively. Keyboard shortcuts are also available: Ctrl/Cmd + B and Ctrl/Cmd + I. A limited set of smilies is supported and can be used by typing one of the following character combinations: :) :-) :( :-( :+1 :-1. URLs are automatically detected and converted into a clickable link.
-
-3.  Recherchez un groupe d'utilisateurs avec lequel vous souhaitez partager votre favori, puis cliquez sur l'icône **+**.
-
-4.  Modifiez les paramètres de partage pour les groupes d'utilisateurs que vous souhaitez modifier.
-
-    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
-
-    - **Lecture uniquement**: tout le monde peut consulter l'objet.
-
-    - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
-
-5.  Cliquez sur **Partager**.
-
-### S'abonner à un favori
-
-Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaque fois qu'un autre utilisateur aime/crée/met à jour une interprétation ou crée/met à jour un commentaire d'interprétation de ce favori.
-
-1.  Ouvrez un favori.
-
-2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
-
-3.  Cliquez sur l'icône en cloche en haut à droite pour vous abonner à ce favori.
-
-### Créer un lien vers un favori
-
-1.  Cliquez sur **Favoris** \> **Créer un lien**.
-
-2.  Sélectionnez une des options suivantes:
-
-    - **Ouvrir dans cette application**: Vous obtenez un lien URL pour le favori que vous souhaitez partager avec d'autres utilisateurs via email ou chat.
-
-    - **Ouvrir dans un navigateur web api**: vous obtenez un lien URL de la ressource API. Il s'agit d'une ressource HTML par défaut, mais vous pouvez changer l'extension du fichier à ".json" ou ".csv".
-
-### Supprimer un favori
-
-1.  Cliquez sur **Favoris** \> **Supprimer**.
-
-2.  Cliquez sur **OK**.
-
-### Afficher les interprétations basées sur des périodes relatives
-
-Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
-
-1.  Ouvrez un favori avec des interprétations.
-
-2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
-
-3.  Cliquez sur une interprétation. Votre graphique affiche les données et la date relative en fonction de la date de création de l'interprétation. Pour voir d'autres interprétations, cliquez dessus.
-
-## Télécharger un graphique sous format image ou PDF
-
-<!--DHIS2-SECTION-ID:data_vis_save_chart-->
-
-Après avoir créé un graphique, vous pouvez le télécharger localement sur votre ordinateur ordinateur sous format image ou fichier PDF.
-
-1.  Cliquez sur **Télécharger**.
-
-2.  Sous **Graphiques**, cliquez sur **Image (.png)** ou **PDF (.pdf)**.
-
-    Le fichier est automatiquement téléchargé sur votre ordinateur. Maintenant vous pouvez par exemple, insérer le fichier image dans un document texte dans le cadre d'un rapport.
-
-## Télécharger les sources de données du graphique
-
-<!--DHIS2-SECTION-ID:data_vis_download_chart_data-->
-
-Vous pouvez télécharger les sources de données d'un graphique au format JSON, XML, Excel, CSV, JXRML, formats de données brutes SQL avec différents clés d'identification (ID, code et nom). Le document de données utilise des identifiants des éléments de dimension et ouvre une nouvelle fenêtre de navigateur pour afficher l'URL de la demande à l'API Web dans la barre d'adresse. Ceci est utile pour les développeurs d'applications et d'autres modules clients basés sur DHIS2 Web API ou pour ceux qui ont besoin d'une source de données du plan, par exemple pour l'importation pour des fins statistiques.
-
-Pour télécharger les formats standard de source de données:
-
-1.  Cliquez sur **Télécharger**.
-
-2.  Sous **Source de données standard**, cliquez sur le format que vous souhaitez télécharger.
-
-    <table>
-    <caption>Available formats</caption>
-    <colgroup>
-    <col style="width: 18%" />
-    <col style="width: 33%" />
-    <col style="width: 47%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th><p>Format</p></th>
-    <th><p>Action</p></th>
-    <th><p>Description</p></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><p>JSON</p></td>
-    <td><p>Click <strong>JSON</strong></p></td>
-    <td><p>Downloads JSON format based on ID property.</p>
-    <p>You can also download JSON format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>XML</p></td>
-    <td><p>Click <strong>XML</strong></p></td>
-    <td><p>Downloads XML format based on ID property.</p>
-    <p>You can also download XML format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>Microsoft Excel</p></td>
-    <td><p>Click <strong>Microsoft Excel</strong></p></td>
-    <td><p>Downloads Microsoft Excel format based on ID property.</p>
-    <p>You can also download Microsoft Excel format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>CSV</p></td>
-    <td>Click <strong>CSV</strong></td>
-    <td><p>Downloads CSV format based on ID property.</p>
-    <p>You can also download CSV format based on <strong>Code</strong> or <strong>Name</strong> property.</p></td>
-    </tr>
-    <tr class="odd">
-    <td><p>JRXML</p></td>
-    <td><p>Put the cursor on <strong>Advanced</strong> and click <strong>JRXML</strong></p></td>
-    <td><p>Produces a template of a Jasper Report which can be further customized based on your exact needs and used as the basis for a standard report in DHIS 2.</p></td>
-    </tr>
-    <tr class="even">
-    <td><p>Raw data SQL</p></td>
-    <td><p>Put the cursor on <strong>Advanced</strong> and click <strong>Raw data SQL</strong></p></td>
-    <td><p>Provides the actual SQL statement used to generate the data visualization. You can use it as a data source in a Jasper report, or as the basis for a SQL view.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-## Intégrer des graphiques dans toute page Web
-
-<!--DHIS2-SECTION-ID:data_vis_embedding-->
-
-Certaines ressources liées à l'analyse dans DHIS2, telles que les tableaux croisés dynamiques, les graphiques et les cartes, peuvent être intégrés à n'importe quelle page Web à l'aide d'un plug-in. Vous trouverez plus d'informations sur les plug-ins dans le chapitre API Web du _Manuel du développeur DHIS2_.
-
-Pour générer un fragment HTML que vous pouvez utiliser pour afficher le graphique dans une page web externe:
-
-1.  Cliquez sur **Partager** \> **Intégrer dans une page Web**.
-
-    La fenêtre **Intégrer dans une page Web** s'ouvre.
-
-2.  Cliquez sur **Sélectionner** pour mettre en évidence le fragment HTML.
-
-## Ouvrir un graphique sous forme de tableau croisé dynamique ou de carte
-
-- Ouvrez un **Graphique** et cliquez sur **Graphique** ou sur **Carte**.
-
-# Utiliser l'application GIS
-
-<!--DHIS2-SECTION-ID:using_gis-->
-
-## A propos de l'application GIS
-
-<!--DHIS2-SECTION-ID:about_gis-->
-
-Avec l'application GIS, vous pouvez superposer plusieurs couches et choisir parmi différentes cartes de base. Vous pouvez créer des cartes thématiques de zones et de points, visualiser les établissements en fonction des classifications et visualiser les bassins versants pour chaque infrastructure. Vous pouvez marquer les zones et les points et effectuer une recherche et filtrer en utilisant divers critères. Vous pouvez déplacer des points et définir des emplacements à la volée. Les cartes peuvent être enregistrées en tant que favorites et partagées avec d'autres personnes.
-
-> **Note**
->
-> Pour utiliser des légendes prédéfinies dans l'application **GIS**, vous devez les créer. Tout d'abord dans l'application de **Maintenance**.
-
-![](resources/images/content/user/gis/gis_main.png)
-
-- Les icônes en haut à gauche de l'espace de travail représentent les calques de la carte. Ils représentent le point de départ de l'application **GIS**.
-
-- Le panneau à droite de l’espace de travail représente un aperçu des calques:
-
-  - La carte de base par défaut est OSM Light. Si vous êtes en ligne, vous pouvez voir également OpenStreetMap, Google Streets et Google hybride. Vous pouvez utiliser ces cartes comme cartes de base et calques. Basculez entre eux en sélectionnant ou en effaçant la case à cocher.
-
-  - Si vous souhaitez augmenter ou réduire l'opacité d'un calque, utilisez les flèches haut et bas du calque sélectionné.
-
-  - Utilisez les légendes de la carte lorsque vous créez une carte thématique. Une légende explique le lien entre les valeurs et les couleurs sur votre carte.
-
-<!-- end list -->
-
-- **Zoom sur le contenu** ajuste automatiquement le niveau de zoom et la centre la position de la carte pour mettre en évidence les données.
-
-- Pour afficher des informations sur un événement, cliquez simplement dessus.
-
-- Cliquez avec le bouton droit pour afficher la longitude et la latitude de la carte.
-
-## Créer une nouvelle carte thématique
-
-<!--DHIS2-SECTION-ID:using_gis_create_map-->
-
-Vous pouvez utiliser quatre calques vectoriels pour créer une carte thématique. Le étapes pour créer une nouvelle carte thématique sont:
-
-1.  Dans le menu **Applications**, cliquez sur **GIS**.
-
-    La fenêtre **DHIS2 GIS** s'ouvre
-
-2.  Dans le menu du haut, cliquez sur une calqueque vous souhaitez ajouter à la carte.
-
-    - calque d'événement
-
-    - calque d'installation
-
-    - couche frontière
-
-    - Calque thématique 1 - 4
-
-3.  Cliquez sur **Modifier le calque** et sélectionnez les paramètres dont vous avez besoin.
-
-4.  Cliquez sur **Mettre à jour**.
-
-## Gérer les calques d'événement
-
-<!--DHIS2-SECTION-ID:using_gis_event_layer-->
-
-Le calque d'événements affiche l'emplacement géographique des événements enregistrés dans le suivi de DHIS2. À condition que les événements aient des coordonnées GPS associées, vous pouvez utiliser ce calque pour passer des données agrégées affichées dans les calques thématiques à l'événement sous-jacent.
-
-Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
-
-![](resources/images/content/user/gis/gis_event_layer.png)
-
-### Créer ou modifier un calque d'événement
-
-<!--DHIS2-SECTION-ID:gis_create_event_layer-->
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Sélectionnez un programme, puis sélectionnez une étape du programme.
-
-    Si une seule étape est disponible pour le programme, elle est automatiquement sélectionnée. Une liste d'éléments de données et d'attributs apparaîtra dans le panneau des **élements de données disponibles**.
-
-4.  Sélectionnez un élément de données ou un attribut de cette liste dans le cadre de votre requête
-
-    - Pour sélectionner, vous pouvez double-cliquer sur un élément de données ou (multi) sélectionnez et utilisez le bouton à flèche unique vers le bas. le bouton à double flèche permet de sélectionner tous les éléments de données de la liste. Tous les éléments de données sélectionnés auront leur propre ligne dans les **Éléments de données sélectionnés**.
-
-    - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
-
-    - Pour les données de type _set d’options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
-
-5.  Dans la section **Périodes**, sélectionnez la période pendant laquelle les événements ont eu lieu. Vous pouvez sélectionner une période fixe ou une période relative.
-
-    - Période fixe Dans le champ **Période**, sélectionnez **Dates de début /de fin** et remplissez une date de début et une date de fin.
-
-    - période relative Dans le champ **Période**, sélectionnez l’une des périodes relatives. par exemple **Ce mois** ou **L'année dernière**.
-
-6.  Dans la section **Unités d'organisation**, sélectionnez les unités d'organisation que vous souhaitez inclure dans la requête.
-
-7.  Dans la section **Options**, vous pouvez:
-
-    - Sélectionnez une valeur dans le champ **Coordonnées** pour les positions. indiquées sur la carte. Par défaut, "localisation de l'événement" est sélectionné. En fonction des éléments de données ou des attributs appartenant à un programme, d'autres coordonnées telles que "Position du ménage" sont disponibles.
-
-      ![](resources/images/content/user/gis/gis_coordinates.png)
-
-    - Sélectionnez ou désélectionnez **Regrouper** pour regrouper les événements à proximité.
-
-    - Allez à la section **Style** pour sélectionner une couleur pour les points du faisceau ou changer le rayon des faisceaux (entre 1 et 20).
-
-    **Regroupement** si vous souhaitez grouper des événements à proximité et modifier le style des points du faisceau.
-
-8.  Cliquez sur **Mettre à jour**.
-
-### Désactiver le regroupement
-
-Les événements sont par défaut regroupés dans une carte. Vous pouvez désactiver cette fonction pour afficher tous les événements séparément.
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Cliquez sur **Options**.
-
-4.  Décochez la case **Groupes à proximité**.
-
-5.  Cliquez sur **Mettre à jour**.
-
-### Modifier le style de regroupement
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Options**, modifiez les **Couleur des points** et **Rayon des Points**.
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Modifier les informations dans les fenêtres pop-up de l'événement
-
-Pour les événements dans une carte cluster, vous pouvez modifier les informations affichées dans la fenêtre pop-up de l'événement.
-
-![](resources/images/content/user/gis/gis_eventlayer_eventinfopopup.png)
-
-1.  Ouvrez l'application **Programmes / Attributs**.
-
-2.  Cliquez sur **Programme**.
-
-3.  Cliquez sur le programme que vous souhaitez modifier et sélectionnez **Afficher les étapes du programme**.
-
-4.  Cliquez sur le nom de l’étape du programme et sélectionnez **Modifier**.
-
-5.  Faites défiler jusqu'à la section **Éléments de données sélectionnés**.
-
-6.  Pour chaque élément de données que vous souhaitez afficher dans la fenêtre pop-up, sélectionnez **Afficher dans les rapports**.
-
-7.  Cliquez sur **Mettre à jour**.
-
-## Effacer le calque de l'événement
-
-Pour effacer toutes les données d'une carte:
-
-1.  Dans le menu du haut, cliquez sur l'icône de calque d'événement.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer les calques d'infrastructures
-
-<!--DHIS2-SECTION-ID:using_gis_facility_layer-->
-
-Le calque de l'infrastrcture affiche des icônes représentant les types d'établissement. Les polygones n'apparaissent pas sur la carte, assurez-vous donc de sélectionner un niveau de l'unité d'organisation incluant des intrastructures.
-
-Un polygone est une zone fermée sur une carte représentant un pays, une quartier ou un parc. Dans les GIS, un polygone est une forme définie par un ou plusieurs anneaux, on appelle forme tout chemin qui commence et se termine au même point.
-
-![](resources/images/content/user/gis/gis_facility_layer.png)
-
-### Créer ou modifier un calque d'infrstructure
-
-1.  Dans le menu du haut, cliquez sur l'icône de la couche d'installation.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Icônes de groupe d’unités d’organisation**, sélectionnez un **Set de groupes**.
-
-4.  Dans la section **Unités d'organisation**, sélectionnez un ou plusieurs unités d'organisation.
-
-5.  Dans la section **Options**, indiquez si vous souhaitez afficher les libellés et éventuellement définissez leur contenu.
-
-6.  Dans la section **Options**, indiquez si vous souhaitez afficher un cercle. avec un certain rayon autour de chaque infrastructure.
-
-7.  Cliquez sur **Mettre à jour**.
-
-### Rechercher une unité d'organisation
-
-Pour localiser une unité d'organisation sur la carte:
-
-1.  Dans le menu du haut, cliquez sur l'icône de la couche d'installation.
-
-2.  Cliquez sur **Rechercher**.
-
-    La boîte de dialogue **Recherche d'unité d'organisation** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom de l'unité d'organisation que vous recherchez ou cliquez sur un nom dans la liste.
-
-    L'unité d'organisation est mise en surbrillance sur la carte.
-
-### Supprimer un calque d'une infrastructure
-
-Pour effacer toutes les données d'un calque
-
-1.  Dans le menu du haut, cliquez sur l'icône de la couche d'installation.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer les infrastructures dans un calque
-
-Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Frontière** et **Thématique**
-
-### Relocaliser une infrastructure
-
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Relocaliser**.
-
-2.  Placez le curseur dans le nouvel emplacement.
-
-    Les nouvelles coordonnées sont stockées de manière permanente. Cette action ne peut pas être annulée.
-
-### Permuter la longitude et la latitude d'une infrastructure
-
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Permuter la longitude/latitude**.
-
-    Ceci est utile au cas ou un utilisateur inverserait les coordonnées de latitude et de longitude lors de la création de l'unité d'organisation.
-
-### Afficher les informations de l'infrastructure
-
-Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
-
-<table>
-<caption>View organisation unit information</caption>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Function</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>View information for the current period</p></td>
-<td><ol type="1">
-<li><p>Click a facility.</p></li>
-</ol></td>
-</tr>
-<tr class="even">
-<td><p>View information for a selected period</p></td>
-<td><ol type="1">
-<li><p>Right-click a facility and click <strong>Show information</strong>.</p></li>
-<li><p>In the <strong>Infrastructural data</strong> section, select a period.</p></li>
-</ol>
-<blockquote>
-<p><strong>Note</strong></p>
-<p>You configure the displayed infrastructural data in the <strong>System Settings</strong> app.</p>
-</blockquote></td>
-</tr>
-</tbody>
-</table>
-
-## Gérer les calques thématiques 1- 4
-
-<!--DHIS2-SECTION-ID:using_gis_thematic_layer-->
-
-Il existe quatre calques thématiques dans l'application GIS. Avec ces panneaux de calques vous pouvez utiliser vos données pour la cartographie thématique. Sélectionnez votre combinaison indicateur/élément de données, et période ensuite le niveau d'unité d'organisation. Si votre base de données contient des coordonnées et des valeurs de données agrégées pour ces unités d’organisation, elles apparaîtront sur la carte.
-
-> **Note**
->
-> Vous devez actualiser les tables d'analyse DHIS2 pour que les valeurs des données agrégées soient disponibles
-
-![](resources/images/content/user/gis/gis_thematic_mapping.png)
-
-### Créer ou modifier un calque thémtique
-
-1.  Dans le menu supérieur, cliquez sur l’icône du calque thématique que vous souhaitez créer ou modifier.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Données et périodes**, sélectionnez les données et les périodes que vous souhaitez afficher.
-
-4.  Dans la section **Unités d'organisation**, sélectionnez un ou plusieurs unités d'organisation.
-
-5.  Dans la section **Options**, allez à **Type de légende** et sélectionnez Automatique ou Prédéfini.
-
-    - Les types de légende automatiques signifient que l'application créera une légende définie pour vous en fonction de votre méthode what, le nombre de classes, les couleurs faibles et foncées que vous sélectionnez. La méthode fait allusion à la taille des classes de la légende.
-
-      Si vous réglez sur intervalles égaux, ce sera «valeur de carte la plus élevée - valeur de carte la plus faible / nombre de classes ».
-
-      Si vous définissez sur Egalité de contes le créateur de la légende essaiera de distribuer les unités d'organisation uniformément.
-
-      La légende apparaît sous forme de gradation régulière de la couleur de départ à la couleur finale.
-
-    - Si vous avez des installations dans votre calque thématique, vous pouvez définir le rayon pour les valeurs maximales et minimales en modifiant les valeurs dans les box **Couleurs faibles/taille** et **Taille couleurs foncées**.
-
-6.  Dans la section **Options**, indiquez si vous souhaitez afficher les libellés et éventuellement définissez leur contenu.
-
-7.  Dans le panneau Options, sélectionnez un type d'agrégation. Voir également [Aggregation operators](https://dhis2.github.io/dhis2-docs/master/en/user/html/ch10s05.html#d0e8082).
-
-8.  Cliquez sur **Mettre à jour**.
-
-### Filtrer les valeurs dans un calque thématique
-
-Le menu des calques thématiques 1-4 dispose d'une option **Filtre** en plus des options du menu des calques limites. Ceci permet d’appliquer des filtres de valeur aux unités d'organisation sur la carte. Le filtre est supprimé lorsque vous fermez la fenêtre de filtre.
-
-Pour filtrer les valeurs dans un calque thématique:
-
-1.  Dans le menu du haut, cliquez sur l’icône du calque thématique que vous souhaitez créer ou modifier.
-
-2.  Cliquez sur **Filtre ...**.
-
-3.  Modifiez les valeurs **Supérieur à** et **Et/ou inférieur à**.
-
-4.  Cliquez sur **Mettre à jour**.
-
-### Rechercher une unité d'organisation
-
-Pour localiser une unité d'organisation dans un calque thématique:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque thématique.
-
-2.  Cliquez sur **Rechercher**.
-
-    La boîte de dialogue **Recherche d'unité d'organisation** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom de l'unité d'organisation que vous recherchez ou cliquez sur un nom dans la liste.
-
-    L'unité d'organisation est mise en surbrillance sur la carte.
-
-### Naviguer entre les hiérarchies d'organisation
-
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
-
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
-
-2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
-
-    L’option d’exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Vice versa pour l'option d'exploration au niveaux supérieurs.
-
-### Supprimer le calque thématique
-
-Pour effacer toutes les données d'un calque thématique:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque thématique.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer les calques limites
-
-Le calque limite affiche les bordures et les emplacements de votre unité d'organisation. Ce calque est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
-
-![](resources/images/content/user/gis/gis_bound_layers.png)
-
-### Créer ou modifier des calques limites
-
-1.  Dans le menu en haut à gauche, cliquez sur l'icône du calque limite.
-
-2.  Cliquez sur **Modifier le calque**.
-
-3.  Dans la section **Unités d'organisation**, sélectionnez un ou plusieurs unités d'organisation.
-
-    Vous pouvez sélectionner les unités d'organisation que vous souhaitez afficher sur la carte en sélectionner un niveau et un parent. Cela signifie "montrer toutes les organisations unités de ce niveau qui sont des enfants de ce parent ".
-
-4.  Dans la section **Options**, indiquez si vous souhaitez afficher les libellés et éventuellement définissez leur contenu.
-
-5.  Cliquez sur **Mettre à jour**.
-
-### Rechercher une unité d'organisation
-
-Pour localiser une unité d'organisation sur une carte:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque limite.
-
-2.  Cliquez sur **Rechercher**.
-
-    La boîte de dialogue **Recherche d'unité d'organisation** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom de l'unité d'organisation que vous recherchez ou cliquez sur un nom dans la liste.
-
-    L'unité d'organisation est mise en surbrillance sur la carte.
-
-### Naviguer entre les hiérarchies d'organisation
-
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
-
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
-
-2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
-
-    L’option d’exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Vice versa pour l'option d'exploration au niveaux supérieurs.
-
-### Supprimer le calque limite
-
-Pour effacer toutes les données d'un calque limite:
-
-1.  Dans le menu supérieur, cliquez sur l'icône du calque limite.
-
-2.  Cliquez sur **Supprimer**.
-
-## Gérer le calque Earth Engine
-
-<!--DHIS2-SECTION-ID:using_gis_gee-->
-
-![](resources/images/content/user/gis/gis_earth_eng_layer.png)
-
-Le calque Google Earth Engine vous permet d'afficher des images satellite et jeux de données géospatiales du vaste catalogue de Google. Ce calque sont utiles lorsqu'ils sont combinés avec des calques thématiques et événementiels pour améliorer l'analyse. Les calques supportés sont les suivants :
-
-- Altitude par rapport au niveau de la mer.
-
-- Lumières nocturnes: lumières des villes et autres sites représentant un éclairage persistant, y compris les torchères (à partir de 2013).
-
-- Population density: Population in 100 x 100 m grid cells (from 2010)
-
-- Température, population et couverture terrestre à n'importe quel endroit.
-
-  Cliquez avec le bouton droit sur les calques pour afficher plus d'informations, par exemple la température et l'altitude.
-
-\</listitem\> \</itemizedlist\>
-
-### Créer ou modifier un calque Earth Engine
-
-1.  Dans le menu supérieur, cliquez sur l'icône de calque **Google Earth Engine**.
-
-2.  Sélectionnez un set de données, par exemple "Altitude".
-
-3.  Sélectionnez **Valeur minimale/maximale**.
-
-    La signification de ces valeurs dépend du set de données que vous avez choisi.
-
-4.  Sélectionnez une **échelle de couleurs**.
-
-5.  Sélectionnez le nombre de **Pas**.
-
-    Le nombre de pas signifie le nombre de couleurs distinctes dans l'échelle de couleurs.
-
-6.  Cliquez sur **Mettre à jour**.
-
-## Ajouter des calques sur des cartes externes
-
-<!--DHIS2-SECTION-ID:using_gis_external_map_layers-->
-
-1.  Dans le menu supérieur, cliquez sur l'icône **Calque externe**.
-
-2.  Cliquez sur **Editer** pour ajouter un nouveau calque.
-
-3.  Sélectionnez un calque dans la liste.
-
-    ![](resources/images/content/user/gis/gis_external_layers1.png)
-
-4.  Cliquez sur **Mettre à jour**.
-
-    Pour supprimer une calque, cliquez sur **Supprimer**.
-
-    Pour masquer un calque, allez au volet du menu **Calque/Opacité** et décochez la case **Couche externe**.
-
-Voici quelques exemples de calques externes:
-
-![](resources/images/content/user/gis/gis_administrative_boundaries.png)
-
-![](resources/images/content/user/gis/gis_aerial_imagery.png)
-
-![](resources/images/content/user/gis/gis_black_basemap_and_nighttime_lights.png)
-
-![](resources/images/content/user/gis/gis_world_time_zones.png)
-
-> **Note**
->
-> Pour définir des calques externes, reportez-vous à [Maintenance app documentation](https://dhis2.github.io/dhis2-docs/master/en/user/html/manage_ext_maplayer.html).
-
-## Gérer les cartes favorites
-
-<!--DHIS2-SECTION-ID:using_gis_favorites-->
-
-![](resources/images/content/user/gis/gis_favorites.png)
-
-L'enregistrement de vos cartes en tant que favoris facilite leur restauration ultérieure. Cela vous vous permet également de les partager avec d'autres utilisateurs en tant qu'interprétation ou de les mettre sur le tableau de bord. Vous pouvez enregistrer tous les types de calques en tant que favoris. Un favori s'ouvre toujours avec la valeur par défaut carte de fond.
-
-### Enregistrer une carte en tant que nouveau favori
-
-Lorsque vous avez créé une carte, il est pratique de l'enregistrer en tant que favori:
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Cliquez sur **AJOUTER**.
-
-    La boîte de dialogue **Enregistrer comme nouveau favori** s'ouvre.
-
-3.  Dans le champ de texte, tapez le nom que vous voulez donner à votre carte
-
-4.  Cliquez sur **CREER**.
-
-    Votre favori est ajouté à la liste.
-
-### Ouvrir un favori
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez ouvrir. Vous pouvez soit utiliser **préc** et \*Suiv\*\* ou le champ de recherche pour trouver un favori préalablement enregistré. La liste est filtrée par chaque caractère que vous entrez.
-
-3.  Cliquez sur le nom pour ouvrir ce favori.
-
-### Renommer un favori
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez renommer.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône grise pour renommer à coté du nom du favori.
-
-    La boîte de dialogue **Renommer favori** s'ouvre.
-
-4.  Tapez le nouveau nom et cliquez sur **Mettre à jour**.
-
-### Remplacer le favori actuel
-
-Pour enregistrer la carte actuelle dans un favori existant (écraser):
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez écraser.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône de remplacement verte à coté du nom du favori.
-
-4.  Cliquez sur **OK** pour confirmer que vous souhaitez écraser le favori.
-
-### Partager l'interprétation d'une carte
-
-<!--DHIS2-SECTION-ID:gisInterpretation-->
-
-Pour certaines ressources liées à l'analyse dans DHIS2, vous pouvez partager des données d'interprétation. Une interprétation est un lien vers la ressource pertinente avec un texte exprimant un aperçu des données.
-
-Pour créer une interprétation d’une carte et la partager avec tous les utilisateurs du système:
-
-1.  Ouvrez ou créez une carte favorite.
-
-2.  Cliquez sur **Partager** \> **Écrire une interprétation**.
-
-    La boîte de dialogue **Ecrire interprétation** s'ouvre.
-
-3.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation.
-
-4.  Cliquez sur **Partager**.
-
-    La boîte de dialogue se ferme automatiquement. Vous pouvez visualiser l'interprétation sur le **Tableau de bord**.
-
-### Modifier les paramètres de partage d'un favori
-
-Après avoir créé une carte et l'avoir enregistrée en tant que document favori, vous pouvez la partager avec tout les utilisateurs ou un groupe d'utilisateurs. Pour modifier les paramètres de partage :
-
-1.  Cliquez sur **Favoris**.
-
-2.  Recherchez le favori que vous souhaitez partager.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône bleue de partage à coté du nom du favori.
-
-4.  Dans la zone de texte, entrez le nom du groupe d'utilisateurs avec qui vous souhaitez partager votre favori avec et cliquez sur l'icône **+**.
-
-    Le groupe d'utilisateurs choisi est ajouté à la liste des destinataires.
-
-    Répétez cette étape pour ajouter plus de groupes d'utilisateurs.
-
-5.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
-
-6.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
-
-    - Aucun
-
-    - Lecture seule
-
-    - Lecture et écriture
-
-7.  Cliquez sur **Sauvegarder**.
-
-### Supprimer un favori
-
-1.  Cliquez sur **Favoris**.
-
-    La boîte de dialogue **Gérer les favoris** s'ouvre.
-
-2.  Recherchez le favori que vous souhaitez supprimer.
-
-    Vous pouvez soit utiliser **Précédent** et **Suivant** ou le champ de recherche pour trouver un favori enregistré.
-
-3.  Cliquez sur l'icône rouge de suppresion à coté du nom du favori.
-
-4.  Cliquez sur **OK** pour confirmer que vous souhaitez supprimer la favori.
-
-## Enregistrer une carte en tant qu'image
-
-<!--DHIS2-SECTION-ID:using_gis_image_export-->
-
-1.  Faîtes une capture d'écran de la carte avec l'outil de votre choix.
-
-2.  Enregistrez la capture d'écran au format souhaité.
-
-## Intégrer une carte dans une page Web externe
-
-<!--DHIS2-SECTION-ID:using_gis_embed-->
-
-Certaines ressources liées à l'analyse dans DHIS2, telles que les tableaux croisés dynamiques, les graphiques et les cartes, peuvent être intégrés à n'importe quelle page Web à l'aide d'un plug-in. Vous trouverez plus d'informations sur les plug-ins dans le chapitre API Web du _Manuel du développeur DHIS2_.
-
-Pour générer un fragment HTML que vous pouvez utiliser pour afficher la carte dans une page web externe:
-
-1.  Cliquez sur **Partager** \> **Intégrer dans une page Web**.
-
-    La fenêtre **Intégrer dans une page Web** s'ouvre.
-
-2.  Cliquez sur **Sélectionner** pour mettre en évidence le fragment HTML.
-
-## Rechercher un emplacement
-
-<!--DHIS2-SECTION-ID:using_gis_search-->
-
-La fonction de recherche d'emplcaement vous permet de rechercher presque n'importe quel lieu ou adresse. La recherche d'emplacement est optimisée par la plateforme de cartographie Mapzen. Cette fonction est utile pour localiser par exemple des sites, infrastructures, villages ou villes sur la carte.
-
-![](resources/images/content/user/gis/gis_place_search.png)
-
-1.  Sur le côté gauche de la fenêtre Cartes, cliquez sur l'icône loupe.
-
-2.  Tapez l'emplacement que vous recherchez.
-
-    Une liste des emplacements correspondants apparaît au fur et à mesure que vous tapez.
-
-3.  Dans la liste proposée, sélectionnez un emplacement. Une épingle indique l'emplacement sur la carte.
-
-## Mesurer des distances et des surfaces sur une carte
-
-<!--DHIS2-SECTION-ID:using_gis_measure_distance-->
-
-1.  Dans le coin supérieur gauche de la carte, placez le curseur sur le bouton **Mesurer distances et zones** et cliquez sur **Créer une nouvelle mesure**.
-
-2.  Ajouter des points à la carte.
-
-3.  Cliquez sur **Terminer la mesure**.
-
-## Obtenir la latitude et la longitude d'un emplacement
-
-<!--DHIS2-SECTION-ID:using_gis_latitude_longitude-->
-
-Cliquez avec le bouton droit sur un point de la carte et sélectionnez **Afficher la longitude/latitude**. Les valeurs s'affichent dans une fenêtre contextuelle.
-
-![](resources/images/content/user/gis/gis-latitude-longitude.png)
-
-## Visualiser une carte sous forme de tableau croisé dynamique ou de graphique
-
-<!--DHIS2-SECTION-ID:using_gis_integration-->
-
-Lorsque vous avez créé une carte, vous pouvez la visualiser sous forme de tableau croisé dynamique, graphique et visualisation cartographique de vos données. La fonction est inactive si les données du carte est basée sur ne peut pas être rendue sous forme de graphique ou de tableau.
-
-### Ouvrir une carte en tant que graphique
-
-1.  Cliquez sue **Graphique** \> **Ouvrez cette carte en tant que graphique**.
-
-    Votre carte actuelle s'ouvre en tant que graphique.
-
-### Ouvrir une carte en tant que tableau croisé dynamique
-
-1.  Cliquez sue **Tableau croisé dynamique** \> **Ouvrez cette carte en tant que tableau croisé dynamique**.
-
-    Votre carte actuelle s'ouvre en tant que tableau croisé dynamique.
-
-## Voir également
-
-- [Gérer les légendes](https://docs.dhis2.org/master/en/user/html/manage_legend.html)
 
 # Utilisation de l'application Maps
 
@@ -4246,15 +2968,27 @@ To create an event layer, choose **Thematic** on the **Add layer** selection. Th
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_PERIOD.png)
 
-    - sélectionnez la période sur laquelle les données thématiques sont agrégées. Vous pouvez sélectionner une période fixe ou une période relative.
-
-      - Période fixe
-
-        Dans le champ **Type de période**, sélectionnez la longueur de la période, puis sélectionnez la cible dans le champ **Période**.
+    - select the time span over which the thematic data is mapped. You can select either a relative or a fixed period.
 
       - Période relative
 
-        Dans le champ **Type de période**, sélectionnez **Relatif**, puis sélectionnez une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**, dans le champ **Période**.
+        In the **Period type** field select **Relative**, then select one of the relative periods, for example **Last year** or **Last 12 months**, in the **Period** field. If you select a relative period covering mutiple years/months/weeks/days the layer can be displayed as
+
+        - Single (aggregate)
+
+          Show aggregate values for the relative period selected (default).
+
+        - Timeline
+
+          Includes a timeline allowing you to step through the periods. Only one timeline layer can be added to the same map.
+
+        - Split map views
+
+          Show multiple maps allowing you to compare different periods side by side. Supported for relative periods with 12 items or below. Can not be combined with other layer types.
+
+      - Période fixe
+
+        Dans le champ **Type de période**, sélectionnez la durée de la période, puis sélectionnez la cible dans le champ **Période**.
 
       - Start/end dates
 
@@ -4264,17 +2998,17 @@ To create an event layer, choose **Thematic** on the **Add layer** selection. Th
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_ORG_UNITS.png)
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
       - One or more specific organisation units, organisation unit levels in the hierarchy, organisation unit groups, or
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 4.  Dans l'onglet **FILTRE**:
 
     ![](resources/images/content/user/maps/maps_thematic_layer_dialog_FILTER.png)
 
-    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtre à l'ensemble de données.
 
       - Select a data dimension from the drop down box. You can reduce the number of dimensions shown by using the search field. Click on the name to select a dimension.
 
@@ -4290,131 +3024,131 @@ To create an event layer, choose **Thematic** on the **Add layer** selection. Th
 
     - Sélectionnez la légende **Automatique** ou **Prédéfinie**.
 
-      - Les types de légende automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait allusion à la taille des classes de légende. Configuerez :
+      - Les types de légendes automatiques signifient que l'application va créer une légende en fonction de votre méthode, nombre de classes, les couleurs légères et profondes que vous sélectionnez. La méthode fait désigne la taille des classes de légende. Configurez :
 
-        - des intervalles égaux
+        - Intervalles égaux
 
           la plage de chaque intervalle sera **(la plus haute valeur de données - la plus basse valeur de données / nombre de classes)**
 
-        - Comptes égaux
+        - Nombres égaux
 
-          le créateur de la légende tente de distribuer les unités d'organisation uniformément.
+          le créateur de la légende va tenter de répartir les unités d'organisation uniformément.
 
-      - Si vous avez des infrastructures dans votre calque thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
+      - Si vous avez des infrastructures dans votre couche thématique, vous pouvez définir le rayon pour les valeurs minimales et maximales en modifiant les valeurs dans les cases **Taille basse** et **Taille haute** respectivement.
 
-6.  Cliquez sur **AJOUTER UN CALQUE**.
+6.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Modifier un calque thématique
+### Modifier une couche thématique
 
-1.  Dans le panneau des calques, cliquez sur l'icône Edition (crayon) de la fenêtre thématique.
+1.  Dans le panneau des couches, cliquez sur l'icône Édition (crayon) sur la carte de la couche thématique.
 
 2.  Modify the setting on any of the tabs as desired.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Filtrer les valeurs dans un calque thématique
+### Filtrer les valeurs dans une couche thématique
 
-Les calques thématiques ont une option **table de données** qui peut être activée ou désactivée.
+Les couches thématiques ont une option **tableau de données** qui peut être activée ou désactivée à partir de la carte de couche thématique.
 
 ![](resources/images/content/user/maps/maps_thematic_layer_data_table.png)
 
-La table de données affiche les données qui forment le calque thématique.
+La table de données affiche les données qui forment la couche thématique
 
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne tout en donnant la possibilité de basculer entre un classement ascendant et descendant.
 
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+- entrer du texte ou des expressions dans les champs de filtre situé sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit :
 
   - NOM
 
-    filtrer par nom dans le texte donné
+    filtrer par noms contenant ce texte
 
   - VALEUR
 
-    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple: 2,\>3&\<8
+    filtrer les valeurs par des nombres et/ou des plages de valeurs données, par exemple : 2,\>3&\<8
 
   - LÉGENDE
 
-    filtrer par légende dans le texte donné
+    filtrer par légendes contenant ce texte
 
   - INTERVALLE
 
-    filtrer par plages dans le texte donné
+    filtrer par plages contenant ce texte
 
   - NIVEAU
 
-    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
+    filtrez le niveau par nombres et/ou plages de valeurs, par exemple : 2,\>3&\<8
 
   - PARENT
 
-    filtrer par noms de parent dans le texte donné
+    filtrer par noms de parent contenant ce texte
 
   - Identifiant
 
-    filtrer par Identifiant le texte donné
+    filtrer par Identifiants contenant ce texte
 
   - TYPE
 
-    filtrer par types d'affichage GIS dans le texte donné
+    filtrer par types d'affichage SIG contenant ce texte
 
   - COULEUR
 
-    filtrer par noms de couleurs dans le texte donné
+    filtrer par noms de couleurs contenant ce texte
 
 > **Note**
 >
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+> Les filtres des tableaux de données sont temporaires et ne sont pas enregistrés avec les couches de la carte en tant que favori.
 
 ### Rechercher une unité d'organisation
 
-Le champ de filtre NOM dans la table de données constitue un moyen efficace de rechercher des unités organisationnelles individuelles.
+Le champ de filtre NOM dans le tableau de données constitue un moyen efficace de rechercher des unités d'organisation individuelles.
 
 ### Naviguer entre les hiérarchies d'organisation
 
-Quand il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent
+Lorsqu'il y a des unités d'organisation visibles sur la carte, vous pouvez facilement naviguer de haut en bas dans la hiérarchie sans utiliser l'interface utilisateur niveau/parent.
 
-1.  Cliquez avec le bouton droit sur l'une des unités d'organisation.
+1.  Faites un clique droit sur l'une des unités d'organisation.
 
 2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
 
-    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou si s'il n'y a pas de coordonnées disponibles au niveau inférieur. Du même principe, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
+    L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas ou s'il n'y a pas de coordonnées disponibles au niveau inférieur. De même, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
 
-### Supprimer le calque thématique
+### Supprimer une couche thématique
 
-Pour effacer toutes les données d'un calque thématique:
+Pour effacer toutes les données d'une couche thématique :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-## Gérer les calques d'événement
+## Gérer les couches d'évènements
 
 <!--DHIS2-SECTION-ID:using_maps_event_layer-->
 
 The event layer displays the geographical location of events registered in the DHIS2 tracker. Provided that events have associated point or polygon coordinates, you can use this layer to drill down from the aggregated data displayed in the thematic layers to the underlying individual events or cases.
 
-Vous pouvez également afficher des événements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers un calque thématique en utilisant des objets de données d'événement. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrées les événements.
+Vous pouvez également afficher des évènements agrégés sur le site ou au niveau de la frontière. Vous faites cela à travers une couche thématique en utilisant des éléments de données d'évènements. Ceci est utile lorsque vous n’avez que les coordonnées de l’unité d'organisation sous laquelle sont enregistrés les événements.
 
 ![](resources/images/content/user/maps/maps_event_layer.png)
 
-Les calques d'événements sont représentées par des calques _cartes_ dans le panneau des calques, par exemple:
+Les couches d'évènements sont représentées par des couches _cartes_ dans le panneau des couches, par exemple :
 
-En haut de la carte de l'événement, de gauche à droite, se trouvent:
+En haut de la carte d'évènement, de gauche à droite, se trouvent :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- Le titre et la période associés au calque
+- Le titre et la période associés à la couche
 
-- Un symbole de flèche pour réduire et développer la carte de l'événement
+- Un symbole de flèche pour réduire et développer la carte d'évènement
 
-Au centre de la carte de l'événement se trouve une légende indiquant le style du calque.
+Au centre de la carte d'évènement se trouve une légende indiquant le style de la couche.
 
-En bas de la carte de l'événement, de gauche à droite, se trouvent:
+En bas de la carte d'évènement, de gauche à droite, se trouvent :
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
@@ -4424,21 +3158,21 @@ En bas de la carte de l'événement, de gauche à droite, se trouvent:
 
   - **Remove layer** will remove this layer from the current map.
 
-### Créer un calque d'événement
+### Créer une couche d'évènements
 
 <!--DHIS2-SECTION-ID:maps_create_event_layer-->
 
 To create an event layer, choose **Events** on the **Add layer** selection. This opens the Events layer configuration dialog.
 
-1.  Dans l'onglet **DATA**:
+1.  Dans l'onglet **DONNÉES**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_DATA.png)
 
-    - Sélectionnez un programme, puis sélectionnez une étape du programme. **L'étape** n'est affiché qu'une fois le programme sélectionné.
+    - Sélectionnez un programme, puis sélectionnez une étape du programme. **L'étape** n'est affiché qu'après la sélection d'un programme.
 
-      Si une seule étape est disponible pour le programme, elle est automatiquement sélectionnée.
+      S'il y a seulement une étape disponible pour le programme, celle-ci est automatiquement sélectionnée.
 
-    - Sélectionnez une valeur dans le champ **Coordonnées** pour les positions. indiquées sur la carte. Par défaut, "localisation de l'événement" est sélectionné. En fonction des éléments de données ou des attributs appartenant à un programme, d'autres coordonnées telles que "Position du ménage" sont disponibles.
+    - Sélectionnez une valeur dans le champ **Coordonnées** pour les positions indiquées sur la carte. Par défaut, "localisation de l'évènement" est sélectionné. En fonction des éléments de données ou des attributs appartenant à un programme, d'autres coordonnées telles que "Position du ménage" sont disponibles.
 
 2.  Dans l'onglet **PÉRIODE**
 
@@ -4452,31 +3186,31 @@ To create an event layer, choose **Events** on the **Add layer** selection. This
 
       - Période relative
 
-        Dans le champ **Période**, sélectionnez l'une des périodes relatives. par exemple **Ce mois** ou **L'année dernière**.
+        Dans le champ **Période**, sélectionnez l'une des périodes relatives, par exemple **Ce mois** ou **L'année dernière**.
 
 3.  Dans l'onglet **Unités d'Org.**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_ORG_UNITS.png)
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
-      - une ou plusieurs unités d'organisation spécifiques, ou
+      - Une ou plusieurs unités d'organisation spécifiques, ou
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 4.  Dans l'onglet **FILTRE**:
 
     ![](resources/images/content/user/maps/maps_event_layer_dialog_FILTER.png)
 
-    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtrer à l'ensemble des données.
+    - Cliquez sur AJOUTER UN FILTRE et sélectionnez un élément de données disponible pour ajouter un nouveau filtre à l'ensemble de données.
 
-      - Pour les données de type _set d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant le bas flèche ou en commençant à taper directement dans la case pour filtrer les options.
+      - Pour les données de type _ensemble d'options_, vous pouvez sélectionner les options de la liste déroulante en utilisant la flèche vers le bas ou en commençant à saisir directement dans la case pour filtrer les options.
 
       - For data item of type _number_, you can select operators like equal, not equal, greater than or less than.
 
-      - For data item og type _boolean_ (yes/no), you can check the box if the condition should be valid or true.
+      - For data item of type _boolean_ (yes/no), you can check the box if the condition should be valid or true.
 
-      - Pour les données de type _texte_, vous aurez deux choix: **Contains** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête sera renvoyée.
+      - Pour les données de type _texte_, vous aurez deux choix : **Contient** implique que la requête correspond à toutes les valeurs qui contiennent la valeur de votre recherche, et **Est exact** implique que seules les valeurs qui sont complètement identiques à la valeur de votre requête seront renvoyées.
 
       Multiple filters may be added. Click the trash button on the right of the filter to remove it.
 
@@ -4500,19 +3234,19 @@ To create an event layer, choose **Events** on the **Add layer** selection. This
 
       - **Booleans**: Select a color for true/yes and another for false/no.
 
-6.  Cliquez sur **AJOUTER UN CALQUE**.
+6.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Modifier un calque d'événement
+### Modifier une couche d'évènements
 
-1.  Dans le panneau de calques, cliquez sur l'icône d'édition (crayon) du calque de l'événement.
+1.  Dans le panneau de couches, cliquez sur l'icône d'édition (crayon) de la couche de l'évènement.
 
-2.  Modifiez le réglage des paramètres des onglets DATA, PERIODE, FILTRE, UNIT D'ORG et STYLE. comme vous le souhaitez.
+2.  Modifiez les paramètres des onglets DATA, PÉRIODE, FILTRE, UNITÉ D'ORG et STYLE. comme vous le souhaitez.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Modifier les informations dans les fenêtres pop-up de l'événement
+### Modifier les informations dans les fenêtres pop-up de l'évènement
 
-Pour les événements dans une carte cluster, vous pouvez modifier les informations affichées dans la fenêtre pop-up de l'événement.
+Pour les évènements dans une carte à grappes, vous pouvez modifier les informations affichées dans la fenêtre pop-up de l'évènement.
 
 ![](resources/images/content/user/maps/maps_eventlayer_eventinfopopup.png)
 
@@ -4552,13 +3286,13 @@ The raw data for event layers can be downloaded in GeoJSON format for more advan
 
 > Note that the downloaded data does not include style information as it is not natively supported by the GeoJSON format. Styles can optionally be recreated in external GIS applications using the attributes of each feature.
 
-### Effacer le calque de l'événement
+### Effacer une couche d'évènements
 
-Pour effacer toutes les données de calque d'un événement d'une carte:
+Pour effacer toutes les données de la couche d'un événement d'une carte :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
 ## Manage tracked entity layers
 
@@ -4582,11 +3316,11 @@ In the middle of the tracked entity card is a legend indicating the styling of t
 
 Along the bottom of the tracked entity card from left to right are:
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
@@ -4600,7 +3334,7 @@ Along the bottom of the tracked entity card from left to right are:
 
 To create an tracked entity layer, choose **Tracked entities** on the **Add layer** selection. This opens the Tracked entity layer configuration dialog.
 
-1.  Dans l'onglet **DATA**:
+1.  Dans l'onglet **DONNÉES**:
 
     ![](resources/images/content/user/maps/maps_tracked_entity_layer_dialog_DATA.png)
 
@@ -4622,7 +3356,7 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
     - If a Tracked Entity Type with has been selected, you can select the **Display Tracked Entity relationships** checkbox
 
-    - Once checked, you can select the type of relationship to diplay on the map from the dropdown list. Only relationships FROM the selected Tracked Entity type are available.
+    - Once checked, you can select the type of relationship to display on the map from the dropdown list. Only relationships FROM the selected Tracked Entity type are available.
 
 3.  Dans l'onglet **PÉRIODE**
 
@@ -4664,7 +3398,7 @@ To create an tracked entity layer, choose **Tracked entities** on the **Add laye
 
 2.  Modify the setting on the DATA, PERIOD, ORG UNIT and STYLE tabs as desired.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
 ### Clear a tracked entity layer
 
@@ -4672,41 +3406,41 @@ To clear a tracked entity layer from a map:
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-## Gérer les calques d'infrastructures
+## Gérer les couches d'infrastructures
 
 <!--DHIS2-SECTION-ID:using_maps_facility_layer-->
 
-Le calque de l'infrastrcture affiche des icônes représentant les types d'établissement. Les polygones n'apparaissent pas sur la carte, assurez-vous donc de sélectionner un niveau de l'unité d'organisation incluant des intrastructures.
+La couche d'infrastrctures affiche des icônes représentant les types d'établissements. Les polygones n'apparaissent pas sur la carte, assurez-vous donc de sélectionner un niveau de l'unité d'organisation incluant des intrastructures.
 
-_Un polygone est une zone fermée sur une carte représentant un pays, une quartier ou un parc._
+_Un polygone est une zone fermée sur une carte représentant un pays, un quartier ou un parc._
 
 ![](resources/images/content/user/maps/maps_facility_layer.png)
 
-Les calques d'infrastructures sont représentés par des calques _cartes_ par exemple:
+Les couches d'infrastructures sont représentées par des _cartes_ de couche comme par exemple :
 
-En haut de la carte des infrastructures, de gauche à droite, se trouvent:
+En haut de la carte des infrastructures, de gauche à droite, se trouvent :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- Le titre **Infrastructure**
+- Le titre **Infrastructures**
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- !!!PALD - MISSING!!!
+- Un symbole de flèche pour réduire et agrandir la carte des infrastructures
 
-Au centre de la carte des infrastructures se trouve une légende indiquant la représentation du groupe.
+Au centre de la carte des infrastructures se trouve une légende indiquant la représentation de l'ensemble de groupes.
 
-En bas de la carte des infrastructures, de gauche à droite, se trouvent:
+En bas de la carte des infrastructures, de gauche à droite, se trouvent :
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
-  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé à la couche
 
   - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
 
@@ -4714,27 +3448,27 @@ En bas de la carte des infrastructures, de gauche à droite, se trouvent:
 
   - **Remove layer** will remove this layer from the current map.
 
-### Créer un calque d'infrastructure
+### Créer une couche d'infrastructures
 
-Pour créer un calque d'infrastructure, choisissez **Infrastructure** dans **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque de l'infrastructure.
+Pour créer une couche d'infrastructures, choisissez **Infrastructures** dans **Ajouter une couche**. La boîte de dialogue de configuration de la couche de l'infrastructure s'ouvre.
 
-1.  Dans l'onglet **SET DE GROUPES**:
+1.  Dans l'onglet **ENSEMBLE DE GROUPES**:
 
     ![](resources/images/content/user/maps/maps_facility_layer_dialog_GROUPSET.png)
 
-    - Sélectionnez un **set de groupes** dans la liste des groupes d'unités d'organisation définis pour votre instance DHIS2.
+    - Sélectionnez un **ensemble de groupes** dans la liste des ensembles de groupes d'unités d'organisation définis pour votre instance de DHIS2.
 
-2.  Dans l'onglet **UNITE D'ORGANISATION**
+2.  Dans l'onglet **UNITÉS D'ORGANISATION**
 
     ![](resources/images/content/user/maps/maps_facility_layer_dialog_ORG_UNITS.png)
 
-    - sélectionnez le(s) niveau(s) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
+    - sélectionnez le(s) niveau(x) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
-      - une ou plusieurs unités d'organisation spécifiques, ou
+      - Une ou plusieurs unités d'organisation spécifiques, ou
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 3.  Dans l'onglet **STYLE**:
 
@@ -4744,83 +3478,83 @@ Pour créer un calque d'infrastructure, choisissez **Infrastructure** dans **Ajo
 
       - Afficher les étiquettes
 
-        Permet d'afficher les marques sur le calque. La taille de police, le poids et la couleur peuvent être modifiés ici.
+        Permet d'afficher les marques sur la couche. La taille de police, le poids et la couleur peuvent être modifiés ici.
 
       - Afficher le buffer
 
-        Permet d'afficher un buffer visuel sur le calque autour de chaque infrastructure. Le rayon du buffer peut être modifié ici.
+        Permet d'afficher un buffer visuel sur la couche autour de chaque infrastructure. Le rayon du buffer peut être modifié ici.
 
-4.  Cliquez sur **AJOUTER UN CALQUE**.
+4.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Créer ou modifier un calque d'infrstructure
+### Créer ou modifier une couche d'infrastructures
 
-1.  Dans le panneau des calques, cliquez sur l'icône Édition (crayon) du calque de la carte de l'infrastructure
+1.  Dans le panneau des couches, cliquez sur l'icône Édition (crayon) de couche de la carte de l'infrastructure
 
-2.  Modifiez les paramètres dans les onglets SET DE GROUPES, UNITES D'ORGANISATION et STYLE.
+2.  Modifiez les paramètres dans les onglets ENSEMBLE DE GROUPES, UNITÉS D'ORGANISATION et STYLE.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Filtrer les valeurs dans un calque d'infrastructure
+### Filtrer les valeurs dans une couche d'infrastructures
 
-Les calques d'infrastructures ont une option **table de données** qui peut être activée ou désactivée depuis le calque de la carte de l'infrastructure.
+Les couches d'infrastructures ont une option **table de données** qui peut être activée ou désactivée depuis la couche de la carte de l'infrastructure.
 
 ![](resources/images/content/user/maps/maps_facility_layer_data_table.png)
 
-La table de données affiche les données qui composent le calque de l'infrastructure.
+La table de données affiche les données qui composent la couche de l'infrastructure.
 
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne tout en donnant la possibilité de basculer entre un classement ascendant et descendant.
 
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+- entrer du texte ou des expressions dans les champs de filtre situé sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit :
 
   - NOM
 
-    filtrer par nom dans le texte donné
+    filtrer par noms contenant ce texte
 
   - Identifiant
 
-    filtrer par Identifiant le texte donné
+    filtrer par Identifiants contenant ce texte
 
   - TYPE
 
-    filtrer par types d'affichage GIS dans le texte donné
+    filtrer par types d'affichage SIG contenant ce texte
 
 > **Note**
 >
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+> Les filtres des tableaux de données sont temporaires et ne sont pas enregistrés avec les couches de la carte en tant que favori.
 
 ### Rechercher une infrastructure
 
-Le champ de filtre par NOM dans la table de données constitue un moyen efficace de rechercher des infrastructures individuellement.
+Le champ filtre de NOMS dans le tableau de données constitue un moyen efficace de rechercher des infrastructures individuellement.
 
-### Supprimer le calque de l'infrastructure
+### Supprimer une couche d'infrastructures
 
-Pour effacer toutes les données d'un calque
+Pour effacer toutes les données d'une couche d'infrastructures :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-### Gérer les infrastructures dans un calque
+### Gérer les infrastructures dans une couche
 
-Vous pouvez avoir des infrastructures dans les calques **Infrastructure**, **Frontière** et **Thématique**
+Vous pouvez avoir des infrastructures dans les couches **Infrastructure**, **Frontière** et **Thématique**
 
 #### Relocaliser une infrastructure
 
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Relocaliser**.
+1.  Faites un clique droit sur une infrastructure et cliquez sur **Relocaliser**.
 
 2.  Placez le curseur dans le nouvel emplacement.
 
-    Les nouvelles coordonnées sont stockées de manière permanente. Cette action ne peut pas être annulée.
+    Les nouvelles coordonnées sont stockées de façon permanente. Cette action ne peut pas être annulée.
 
 #### Permuter la longitude et la latitude d'une infrastructure
 
-1.  Cliquez avec le bouton droit sur une infrastructure et cliquez sur **Permuter la longitude/latitude**.
+1.  Faites un clique droit sur une infrastructure et cliquez sur **Permuter la longitude/latitude**.
 
-    Ceci est utile au cas ou un utilisateur inverserait les coordonnées de latitude et de longitude lors de la création de l'unité d'organisation.
+    Ceci est utile au cas où un utilisateur inverserait les coordonnées de latitude et de longitude lors de la création de l'unité d'organisation.
 
 #### Afficher les informations de l'infrastructure
 
-Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit:
+Vous pouvez afficher les informations sur l'unité d'organisation définies par l'administrateur comme suit :
 
 <table>
 <caption>View organisation unit information</caption>
@@ -4855,35 +3589,35 @@ Vous pouvez afficher les informations sur l'unité d'organisation définies par 
 </tbody>
 </table>
 
-## Gérer les calques limites
+## Gérer les calques frontières
 
 <!--DHIS2-SECTION-ID:using_maps_boundary_layer-->
 
-Le calque limite affiche les bordures et les emplacements de votre unité d'organisation. Ce calque est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
+La couche frontière affiche les bordures et les emplacements de votre unité d'organisation. Cette couche est particulièrement utile si vous êtes hors ligne et n'avez pas accès aux cartes d'arrière-plan.
 
 ![](resources/images/content/user/maps/maps_bound_layers.png)
 
-Les calques limites sont représentées par des calques _cartes_ dans le panneau de calques, par exemple :
+Les couches frontières sont représentées par des _cartes_ de couche dans le panneau de couches, par exemple :
 
-En haut de la carte de délimitation de gauche à droite se trouvent:
+En haut de la carte frontière, de gauche à droite, se trouvent :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- Le titre **limites**
+- Le titre **Frontières**
 
-- Un symbole de flèche pour réduire et développer la carte de délimitation
+- Un symbole de flèche pour réduire et agrandir la carte frontière
 
-Au bas de la carte de délimitation, de gauche à droite, se trouvent:
+Au bas de la carte frontière, de gauche à droite, se trouvent :
 
-- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration du calque
+- Un bouton d'édition (crayon) pour ouvrir la boîte de dialogue de configuration de la couche
 
-- Un symbole d'oeil pour basculer la visibilité du calque
+- Un symbole d'oeil pour basculer la visibilité de la couche
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
 - A more actions (three dots) button with additional options:
 
-  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé au calque
+  - Un bouton **tableau de données** pour afficher ou masquer le tableau de données associé à la couche
 
   - **Download data** allows you to download the data for this layer in GeoJSON format for use in other mapping software
 
@@ -4891,169 +3625,169 @@ Au bas de la carte de délimitation, de gauche à droite, se trouvent:
 
   - **Remove layer** will remove this layer from the current map.
 
-### Créer un calque limite
+### Créer une couche frontière
 
-Pour créer un calque limite, choisissez **Limites** dans la selection **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque limite.
+Pour créer une couche frontière, choisissez **Frontières** dans la selection **Ajouter une couche**. La boîte de dialogue de configuration de la couche frontière s'ouvre.
 
-1.  Dans l'onglet **UNITE D'ORGANISATION**
+1.  Dans l'onglet **UNITÉS D'ORGANISATION**
 
     ![](resources/images/content/user/maps/maps_boundary_layer_dialog_ORG_UNITS.png)
 
-    - sélectionnez le(s) niveau(s) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
+    - sélectionnez le(s) niveau(x) et/ou le(s) groupe(s) de l'unité d'organisation dans la liste de sélection sur le côté droit.
 
-    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans le calque Il est possible de sélectionner :
+    - Sélectionnez les unités d'organisation que vous souhaitez inclure dans la couche. Il est possible de sélectionner :
 
-      - une ou plusieurs unités d'organisation spécifiques, ou
+      - Une ou plusieurs unités d'organisation spécifiques, ou
 
-      - un niveau relatif dans la hiérarchie des unités d'organisation, avec respect à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs avec différents niveaux dans la hiérarchie des unités d'organisation.
+      - An niveau relatif dans la hiérarchie des unités d'organisation, par rapport à l'utilisateur. En sélectionnant une **unité d'organisation d'un utilisateur**, les données cartographiques apparaîtront différemment pour les utilisateurs à différents niveaux dans la hiérarchie de l'unité d'organisation.
 
 2.  Dans l'onglet **STYLE**:
 
     ![](resources/images/content/user/maps/maps_boundary_layer_dialog_STYLE.png)
 
-    - sélectionnez le style que vous souhaitez appliquer aux limites.
+    - sélectionnez le style que vous souhaitez appliquer aux frontières.
 
       - Afficher les étiquettes
 
-        Permet d'afficher les étiquettes sur le calque. L taille de la police et le poids peuvent être modifiés ici.
+        Permet d'afficher les étiquettes sur la couche. La taille de la police et le poids peuvent être modifiés ici.
 
-      - rayon de point
+      - Rayon de point
 
-        Définit le rayon de base lorsque des éléments de type point, tels que les installations, sont présentés sur le calque limite.
+        Définit le rayon de base lorsque des éléments de type point, tels que les installations, sont présentés sur la couche frontière.
 
-3.  Cliquez sur **AJOUTER UN CALQUE**.
+3.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-### Modifier un calque limite
+### Modifier une couche frontière
 
-1.  Dans le panneau Calque, cliquez sur l'icône Edition (crayon) située sur le calque limite de la carte
+1.  Dans le panneau de couche, cliquez sur l'icône Édition (crayon) située sur la carte de la couche frontière.
 
-2.  Modifiez les paramètres des onglets UNITES D'ORGANISATION et STYLE à votre convenance
+2.  Modifiez les paramètres des onglets UNITÉS D'ORGANISATION et STYLE à votre convenance.
 
-3.  Cliquez sur **METTRE A JOUR LE CALQUE**.
+3.  Cliquez sur **METTRE À JOUR LA COUCHE**.
 
-### Filtrer les valeurs dans un calque limite
+### Filtrer les valeurs dans une couche frontière
 
-Les calques limites ont une option **table de données** qui peut être activée ou désactivée depuis le calque limite de la carte.
+Les couches frontières ont une option **table de données** qui peut être activée ou désactivée depuis la carte de la couche frontière.
 
 ![](resources/images/content/user/maps/maps_bound_layer_data_table.png)
 
-La table de données affiche les données qui forment le calque limite
+Le tableau de données affiche les données qui forment la couche frontière
 
-- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne; tout en ayant la possibilité de basculer entre un classement ascendant et descendant.
+- en cliquant sur un titre, le tableau sera trié en fonction de cette colonne tout en donnant la possibilité de basculer entre un classement ascendant et descendant.
 
-- entrer du texte ou des expressions dans les champs de filtre sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit:
+- entrer du texte ou des expressions dans les champs de filtre situé sous les titres appliquera ces filtres aux données et l'affichage s'ajustera selon le filtre. Les filtres sont appliqués comme suit :
 
   - NOM
 
-    filtrer par nom dans le texte donné
+    filtrer par noms contenant ce texte
 
   - NIVEAU
 
-    filtrez le niveau par des nombres et/ou des plages de valeurs, par exemple: 2,\>3&\<8
+    filtrez le niveau par nombres et/ou plages de valeurs, par exemple : 2,\>3&\<8
 
   - PARENT
 
-    filtrer par noms de parent dans le texte donné
+    filtrer par noms de parent contenant ce texte
 
   - Identifiant
 
-    filtrer par Identifiant le texte donné
+    filtrer par Identifiants contenant ce texte
 
   - TYPE
 
-    filtrer par types d'affichage GIS dans le texte donné
+    filtrer par types d'affichage SIG contenant ce texte
 
 > **Note**
 >
-> Les filtres des tables de données sont temporaires et ne sont pas enregistrés avec les calques de la carte en tant que favori.
+> Les filtres des tableaux de données sont temporaires et ne sont pas enregistrés avec les couches de la carte en tant que favori.
 
-### Rechercher une unité organisationnelle
+### Rechercher une unité d'organisation
 
-Le champ de filtre NOM dans la table de données constitue un moyen efficace de recherche des unités organisationnelles individuelles affichées dans le calque limite.
+Le champ de filtre NOM dans le tableau de données constitue un moyen efficace de recherche des unités d'organisation individuelles affichées dans la couche frontière.
 
 ### Naviguer entre les hiérarchies d'organisation
 
-Vous pouvez modifier la cible de la couche limite dans la hiérarchie sans en utilisant l'interface utilisateur de niveau / parent.
+Vous pouvez modifier la cible de la couche frontière dans la hiérarchie sans utiliser l'interface utilisateur de niveau / parent.
 
-1.  Cliquez avec le bouton droit sur l'une des limites.
+1.  Faites un clique droit sur l'une des frontières.
 
 2.  Sélectionnez **Accéder au niveau supérieur** ou **Accéder au niveau inférieur**.
 
     L'option d'exploration est désactivée si vous vous trouvez au niveau le plus bas. De même, l'option d'exploration en amont est désactivée à partir du niveau le plus élevé.
 
-### Supprimer le calque limite
+### Supprimer une couche frontière
 
-Pour effacer toutes les données d'un calque limite:
+Pour effacer toutes les données d'une couche frontière :
 
 1.  In the layer card to the left, click the _more actions_ (three dots) icon and then on **Remove layer**.
 
-    Le calque est supprimé de la carte actuelle.
+    La couche est supprimée de la carte actuelle.
 
-## Gérer le calque Earth Engine
+## Gérer une couche Earth Engine
 
 <!--DHIS2-SECTION-ID:using_maps_gee-->
 
 ![](resources/images/content/user/maps/maps_earth_eng_layer.png)
 
-Le calque Google Earth Engine vous permet d'afficher des images satellite et jeux de données géospatiales du vaste catalogue de Google. Ces calques sont utiles lorsqu'ils sont combinés avec des calques thématiques et événementiels pour améliorer l'analyse. Les calques supportés sont les suivants:
+La couche Google Earth Engine vous permet d'afficher des images satellites et des ensembles de données géospatiales du vaste catalogue de Google. Ces couches sont utiles lorsqu'elles sont combinées avec des couches thématiques et d'événements pour améliorer l'analyse. Les couches compatibles sont les suivantes :
 
-- Estimation de la densité de population avec les totaux nationaux ajustés pour correspondre à l'stimations de la division de la population des Nations Unies. cellules (à partir de 2010).
+- L'estimation de la densité de population avec les totaux nationaux ajustés pour correspondre aux estimations de la Division de la population des Nations Unies. Population dans des cellules de grille de 100 x 100 m (à partir de 2010).
 
-- Altitude par rapport au niveau de la mer. Vous pouvez ajuster les valeurs min et max afin de s'adapter au terrain dans votre région.
+- Elevation above sea-level. You can adjust the min and max values so it better represents the terrain in your region.
 
-- Température: la température de surface des terres collectée par satellite. Des points blancs apparaîtront dans les zones avec une couverture nuageuse persistante.
+- Température : la température de surface des terres recueillie par satellite. Des points blancs apparaîtront dans les zones avec une couverture nuageuse persistante.
 
-- Les précipitations recueillies par les stations satellites et météorologiques sur la sol. Les valeurs sont en millimètres sur des périodes de 5 jours. Mise à jour effetcuée tous les mois, au cours de la 3ème semaine du mois suivant.
+- Les précipitations recueillies par les stations satellites et météorologiques au sol. Les valeurs sont en millimètres sur des périodes de 5 jours. Ces valeurs sont mises à jour tous les mois, au cours de la 3ème semaine du mois suivant.
 
-- Couverture terrestre: 17 types de couverture terrestre distincts, collectés à partir de satellites.
+- Couverture terrestre : 17 types de couverture terrestre distincts collectés à partir de satellites.
 
-- Lumières nocturnes: lumières des villes et autres sites représentant un éclairage persistant, y compris les torchères (à partir de 2013).
+- Lumières nocturnes : lumières des villes et autres sites représentant un éclairage persistant, y compris les torchères (à partir de 2013).
 
-### Créer un calque Earth Engine
+### Créer une couche Earth Engine
 
-Pour créer un calque Earth Engine, choisissez le calque souhaité dans la liste **Ajouter un calque**. Cela ouvre la boîte de dialogue de configuration du calque.
+Pour créer une couche Earth Engine, choisissez la couche souhaités dans la liste **Ajouter une couche**. Cela ouvre la boîte de dialogue de configuration de couche.
 
 1.  Dans l'onglet **STYLE**
 
     ![](resources/images/content/user/maps/maps_ee_layer_dialog_POPULATION.png)
 
-    - Modifier les paramètres intrinsèques au type de calque.
+    - Modifier les paramètres spécifiques au type de couche.
 
     - Ajustez la plage, les étapes et les couleurs de la légende comme vous le souhaitez.
 
-2.  Cliquez sur **AJOUTER UN CALQUE**.
+2.  Cliquez sur **AJOUTER UNE COUCHE**.
 
-## Ajouter des calques sur des cartes externes
+## Ajouter des couches de carte externes
 
 <!--DHIS2-SECTION-ID:using_maps_external_map_layers-->
 
-Les calques de cartes externes sont représentées comme suit:
+Les couches de carte externes sont représentées comme suit :
 
-- Plans de base
+- Cartes de référence
 
-  Celles-ci sont disponibles dans la carte **plan de base** dans le panneau des calques et sont sélectionnés comme n'importe quel autre plan de base.
+  Celles-ci sont disponibles dans la carte **carte de référence** dans le panneau des couches et sont sélectionnéss au même titre que n'importe quelle autre carte de référence.
 
 - Les superpositions
 
-  Celles-ci sont disponibles dans la sélection **Ajouter un calque**. Contrairement aux plans de base, les superpositions peuvent être placées au-dessus ou au-dessous de toute autre calque de superposition.
+  Celles-ci sont disponibles dans la sélection **Ajouter une couche**. Contrairement aux cartes de référence, les superpositions peuvent être placées au-dessus ou au-dessous de toute autre couche de superposition.
 
-Les calques superposés sont représentés par des calques _cartes_ supplémentaires dans le panneau des calques comme suit :
+Les couches superposées sont représentées par des _cartes_ de couches supplémentaires dans le panneau des couches comme suit :
 
-En haut de la carte superposée, de gauche à droite, vous trouverez:
+En haut de la carte superposée, de gauche à droite, vous trouverez :
 
-- un champ de saisie permettant de faire glisser et de réorganiser les calques avec la souris
+- un champ de saisie permettant de faire glisser et de réorganiser les couches avec la souris
 
-- le titre du calque de la carte externe
+- le titre de la couche de carte externe
 
-- Un symbole de flèche pour réduire et développer la carte de superposition
+- Un symbole de flèche pour réduire et agrandir la carte de superposition
 
-En bas de la carte de superposition, de gauche à droite, se trouvent:
+En bas de la carte de superposition, de gauche à droite, se trouvent :
 
-- Un curseur pour modifier la transparence du calque
+- Un curseur pour modifier la transparence de la couche
 
-- Une icône de suppression (corbeille) pour supprimer le calque de la carte actuelle.
+- Une icône de suppression (corbeille) pour supprimer la couche de la carte actuelle.
 
-Voici quelques exemples de calques externes:
+Voici quelques exemples de couches externes :
 
 ![](resources/images/content/user/maps/maps_black_basemap_and_nighttime_lights.png)
 
@@ -5133,7 +3867,7 @@ After you have created a map and saved it, you can share the map with everyone o
 
 3.  Si vous souhaitez autoriser l'accès externe, cochez la case correspondante.
 
-4.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont:
+4.  Pour chaque groupe d'utilisateurs, choisissez un paramètre d'accès. Les options possibles sont les suivantes :
 
     - Aucun (uniquement pour les groupes par défaut, car ils ne peuvent pas être supprimés)
 
@@ -5165,7 +3899,7 @@ An interpretation is a description of a map at a given period. This information 
 
 ### Afficher les interprétations basées sur des périodes relatives
 
-Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
+Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière :
 
 1.  Ouvrez un favori avec des interprétations.
 
@@ -5199,9 +3933,9 @@ To create an interpretation, you first need to create a map and save it. If you'
 
 4.  Change sharing settings for the users you want to modify:
 
-    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
+    - **Lecture et écriture** : Tout le monde peut consulter et éditer l'objet.
 
-    - **Lecture uniquement**: tout le monde peut consulter l'objet.
+    - **Lecture uniquement** : tout le monde peut consulter l'objet.
 
     - **No access**: The public won't have access to the object. This setting is only applicable to Public access.
 
@@ -5215,11 +3949,11 @@ You can download your map as an image by clicking on the Download button in the 
 
 ![](resources/images/content/user/maps/maps_download.png)
 
-Map download is not supported in Internet Explorer or Safari, we recommend to use Google Chrome og Firefox.
+Map download is not supported in Internet Explorer or Safari, we recommend to use Google Chrome or Firefox.
 
 1.  Select if you want to include the map name or not. This option is only available if the map is saved.
 
-2.  Select if you want to inclide the map legend. You can position the legend in one of the 4 corners of your map.
+2.  Select if you want to include the map legend. You can position the legend in one of the 4 corners of your map.
 
 3.  Click **Download** to download your map.
 
@@ -5227,15 +3961,15 @@ Map download is not supported in Internet Explorer or Safari, we recommend to us
 
 <!--DHIS2-SECTION-ID:using_maps_search-->
 
-La fonction de recherche d'emplcaement vous permet de rechercher presque n'importe quel lieu ou adresse. Cette fonction est utile pour localiser par exemple des sites, infrastructures, villages ou villes sur la carte.
+La fonction de recherche d'emplacement vous permet de rechercher presque n'importe quel lieu ou adresse. Cette fonction est utile pour localiser par exemple des sites, structures sanitaires, villages ou villes sur la carte.
 
 ![](resources/images/content/user/maps/maps_place_search.png)
 
 1.  Sur le côté droit de la fenêtre Cartes, cliquez sur l'icône loupe.
 
-2.  Tapez l'emplacement que vous recherchez.
+2.  Saisissez l'emplacement que vous recherchez.
 
-    Une liste des emplacements correspondants apparaît au fur et à mesure que vous tapez.
+    Une liste des emplacements correspondants apparaît au fur et à mesure que vous saisissez.
 
 3.  Dans la liste proposée, sélectionnez un emplacement. Une épingle indique l'emplacement sur la carte.
 
@@ -5255,7 +3989,7 @@ La fonction de recherche d'emplcaement vous permet de rechercher presque n'impor
 
 <!--DHIS2-SECTION-ID:using_maps_latitude_longitude-->
 
-Cliquez avec le bouton droit sur un point de la carte et sélectionnez **Afficher la longitude/latitude**. Les valeurs s'affichent dans une fenêtre contextuelle.
+Faites un clique droit sur un point de la carte et sélectionnez **Afficher la longitude/latitude**. Les valeurs s'affichent dans une fenêtre pop-up.
 
 ## Voir également
 
@@ -5337,11 +4071,11 @@ An event report is always based on a program and you can do analysis based on a 
 
     1.  Cliquez sur **Unités d'organisation**.
 
-    2.  Cliquez sur l'icône de la boîte de vitesses.
+    2.  Cliquez sur l'icône de la boîte de vitesse.
 
     3.  Sélectionnez un **Mode de sélection** et une unité d'organisation.
 
-        Il existe trois modes de sélection différents:
+        Il existe trois différents modes de sélection :
 
         <table>
         <caption>Selection modes</caption>
@@ -5534,7 +4268,7 @@ You can download the data source behind an event report in HTML, JSON, XML, Micr
 
 1.  Cliquez sur **Télécharger**.
 
-2.  Sous **Source de données standard**, cliquez sur le format que vous souhaitez télécharger.
+2.  Sous **Source de données standards**, cliquez sur le format que vous souhaitez télécharger.
 
     <table>
     <caption>Available formats</caption>
@@ -5574,15 +4308,15 @@ You can download the data source behind an event report in HTML, JSON, XML, Micr
 
 ## Gérer les favoris
 
-La sauvegarde de vos graphiques ou tableaux croisés dynamiques dans les favoris facilite leur recherche plus tard. Vous pouvez également choisir de les partager avec d'autres utilisateurs en tant qu'interprétation ou les afficher sur le tableau de bord.
+La sauvegarde de vos graphiques ou tableaux croisés dynamiques dans les favoris facilite leur recherche plus tard. Vous pouvez également choisir de les partager avec d'autres utilisateurs comme interprétation ou les afficher sur le tableau de bord.
 
-Vous pouvez visualisez les détails et interprétations de vos favoris dans les applications **Tableau croisé dynamique**, **Visualiseur de données**, **Visualiseur d'événement**, **Rapports d'evénements**. Utilisez le menu **Favoris** pour gérer vos favoris.
+Vous pouvez visualiser les détails et interprétations de vos favoris dans les applications **Tableau croisé dynamique**, **Visualiseur de données**, **Visualiseur d'évènements**, **Rapports d'évènements**. Utilisez le menu **Favoris** pour gérer vos favoris.
 
 ### Ouvrir un favori
 
 1.  Cliquez sur **Favoris** \> **Ouvrir**.
 
-2.  Entrez le nom d'un favori dans le champ de recherche ou cliquez sur **Précédent**. et **Suivant** pour afficher les favoris.
+2.  Entrez le nom d'un favori dans le champ de recherche ou cliquez sur **Précédent** et **Suivant** pour afficher les favoris.
 
 3.  Cliquez sur le nom du favori que vous souhaitez ouvrir.
 
@@ -5602,11 +4336,11 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 3.  Cliquez sur **Mettre à jour**.
 
-### Ecrire une interprétation d'un favori
+### Écrire une interprétation d'un favori
 
 Une interprétation est un lien vers une ressource avec une description des données à une période donnée. Cette information est visible dans l'application **Tableau de bord**. Pour créer une interprétation, vous devez d'abord créer un favori. Si vous avez partagé votre favori avec d'autres personnes, votre interprétation sera visible pour ces personnes.
 
-1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
+1.  Cliquez sur **Favoris** \> **Écrire une interprétation**.
 
 2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
 
@@ -5616,11 +4350,11 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 4.  Modifiez les paramètres de partage pour les groupes d'utilisateurs que vous souhaitez modifier.
 
-    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
+    - **Lecture et écriture** : Tout le monde peut consulter et éditer l'objet.
 
-    - **Lecture uniquement**: tout le monde peut consulter l'objet.
+    - **Lecture uniquement** : tout le monde peut consulter l'objet.
 
-    - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
+    - **Aucun** : le public n'aura pas accès à l'objet. Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
 
@@ -5638,11 +4372,11 @@ Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaqu
 
 1.  Cliquez sur **Favoris** \> **Créer un lien**.
 
-2.  Sélectionnez une des options suivantes:
+2.  Sélectionnez l'une des options suivantes :
 
-    - **Ouvrir dans cette application**: Vous obtenez un lien URL pour le favori que vous souhaitez partager avec d'autres utilisateurs via email ou chat.
+    - **Ouvrir dans cette application** : Vous obtenez un lien URL pour le favori que vous souhaitez partager avec d'autres utilisateurs via email ou chat.
 
-    - **Ouvrir dans un navigateur web api**: vous obtenez un lien URL de la ressource API. Il s'agit d'une ressource HTML par défaut, mais vous pouvez changer l'extension du fichier à ".json" ou ".csv".
+    - **Ouvrir dans un navigateur web api** : vous obtenez un lien URL de la ressource API. Il s'agit d'une ressource HTML par défaut, mais vous pouvez changer l'extension du fichier à ".json" ou ".csv".
 
 ### Supprimer un favori
 
@@ -5652,13 +4386,13 @@ Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaqu
 
 ### Afficher les interprétations basées sur des périodes relatives
 
-Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
+Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière :
 
 1.  Ouvrez un favori avec des interprétations.
 
 2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
 
-3.  Cliquez sur une interprétation. Votre graphique affiche les données et la date relative en fonction de la date de création de l'interprétation. Pour voir d'autres interprétations, cliquez dessus.
+3.  Cliquez sur une interprétation. Votre graphique affiche les données et la date relative en fonction de la date de création de l'interprétation. Pour afficher d'autres interprétations, cliquez dessus.
 
 ## Visualize an event report as a chart
 
@@ -5791,11 +4525,11 @@ An event chart is always based on a program and you can do analysis based on a r
 
     1.  Cliquez sur **Unités d'organisation**.
 
-    2.  Cliquez sur l'icône de la boîte de vitesses.
+    2.  Cliquez sur l'icône de la boîte de vitesse.
 
     3.  Sélectionnez un **Mode de sélection** et une unité d'organisation.
 
-        Il existe trois modes de sélection différents:
+        Il existe trois différents modes de sélection :
 
         <table>
         <caption>Selection modes</caption>
@@ -5842,7 +4576,7 @@ You can define which data dimension you want to appear as series, category and f
 
 1.  Cliquez sur **Mise en page**.
 
-2.  Faites glisser les dimensions et déposez-les dans l'espace approprié. Une seule dimension peut être dans chaque section.
+2.  Faites glisser les dimensions et déposez-les dans l'espace approprié. Une seule dimension peut être glissée dans chaque section.
 
 3.  Cliquez sur **Mettre à jour**.
 
@@ -5854,7 +4588,7 @@ You can customize the display of an event report.
 
 1.  Cliquez sur **Options**.
 
-2.  Définissez les options selon vos besoins.
+2.  Définissez les options selon les besoins.
 
     <table>
     <caption>Chart options</caption>
@@ -5996,25 +4730,25 @@ You can customize the display of an event report.
 
 3.  Cliquez sur **Mettre à jour**.
 
-## Télécharger un graphique sous format image ou PDF
+## Télécharger un graphique au format image ou PDF
 
-Après avoir créé un graphique, vous pouvez le télécharger localement sur votre ordinateur ordinateur sous format image ou fichier PDF.
+Après avoir créé un graphique, vous pouvez le télécharger localement sur votre ordinateur ordinateur au format image ou PDF.
 
 1.  Cliquez sur **Télécharger**.
 
 2.  Under **Graphics**, click **PNG (.png)** or **PDF (.pdf)**.
 
-    Le fichier est automatiquement téléchargé sur votre ordinateur. Maintenant vous pouvez par exemple, insérer le fichier image dans un document texte dans le cadre d'un rapport.
+    Le fichier est automatiquement téléchargé sur votre ordinateur. Maintenant, vous pouvez par exemple insérer le fichier image dans un document texte dans le cadre d'un rapport.
 
 ## Télécharger les sources de données du graphique
 
 You can download the data source behind a chart in HTML, JSON, XML, Microsoft Excel or CSV formats. The data document uses identifiers of the dimension items and opens in a new browser window to display the URL of the request to the Web API in the address bar. This is useful for developers of apps and other client modules based on the DHIS2 Web API or for those who require a plan data source, for instance for import into statistical packages.
 
-Pour télécharger les formats standard de source de données:
+Pour télécharger les formats standards de source de données :
 
 1.  Cliquez sur **Télécharger**.
 
-2.  Sous **Source de données standard**, cliquez sur le format que vous souhaitez télécharger.
+2.  Sous **Source de données standards**, cliquez sur le format que vous souhaitez télécharger.
 
     <table>
     <caption>Available formats</caption>
@@ -6054,15 +4788,15 @@ Pour télécharger les formats standard de source de données:
 
 ## Gérer les favoris
 
-La sauvegarde de vos graphiques ou tableaux croisés dynamiques dans les favoris facilite leur recherche plus tard. Vous pouvez également choisir de les partager avec d'autres utilisateurs en tant qu'interprétation ou les afficher sur le tableau de bord.
+La sauvegarde de vos graphiques ou tableaux croisés dynamiques dans les favoris facilite leur recherche plus tard. Vous pouvez également choisir de les partager avec d'autres utilisateurs comme interprétation ou les afficher sur le tableau de bord.
 
-Vous pouvez visualisez les détails et interprétations de vos favoris dans les applications **Tableau croisé dynamique**, **Visualiseur de données**, **Visualiseur d'événement**, **Rapports d'evénements**. Utilisez le menu **Favoris** pour gérer vos favoris.
+Vous pouvez visualiser les détails et interprétations de vos favoris dans les applications **Tableau croisé dynamique**, **Visualiseur de données**, **Visualiseur d'évènements**, **Rapports d'évènements**. Utilisez le menu **Favoris** pour gérer vos favoris.
 
 ### Ouvrir un favori
 
 1.  Cliquez sur **Favoris** \> **Ouvrir**.
 
-2.  Entrez le nom d'un favori dans le champ de recherche ou cliquez sur **Précédent**. et **Suivant** pour afficher les favoris.
+2.  Entrez le nom d'un favori dans le champ de recherche ou cliquez sur **Précédent** et **Suivant** pour afficher les favoris.
 
 3.  Cliquez sur le nom du favori que vous souhaitez ouvrir.
 
@@ -6082,11 +4816,11 @@ Vous pouvez visualisez les détails et interprétations de vos favoris dans les 
 
 3.  Cliquez sur **Mettre à jour**.
 
-### Ecrire une interprétation d'un favori
+### Écrire une interprétation d'un favori
 
 Une interprétation est un lien vers une ressource avec une description des données à une période donnée. Cette information est visible dans l'application **Tableau de bord**. Pour créer une interprétation, vous devez d'abord créer un favori. Si vous avez partagé votre favori avec d'autres personnes, votre interprétation sera visible pour ces personnes.
 
-1.  Cliquez sur **Favoris** \> **Ecrire une interprétation**.
+1.  Cliquez sur **Favoris** \> **Écrire une interprétation**.
 
 2.  Dans le champ de texte, tapez un commentaire, une question ou une interprétation. Vous pouvez également mentionner d'autres utilisateurs avec '@nomd'utilisateur'. Commencez par taper '@' suivi par les premières lettres du nom d'utilisateur ou du nom réel et une barre de mention affichera les utilisateurs disponibles. Les utilisateurs mentionnés recevront un message DHIS2 en interne à propos de  l'interprétation ou le commentaire. Vous pouvez voir l'interprétation dans l'application **Tableau de bord**.
 
@@ -6096,11 +4830,11 @@ Une interprétation est un lien vers une ressource avec une description des donn
 
 4.  Modifiez les paramètres de partage pour les groupes d'utilisateurs que vous souhaitez modifier.
 
-    - **Lecture et écriture**: Tout le monde peut consulter et éditer l'objet.
+    - **Lecture et écriture** : Tout le monde peut consulter et éditer l'objet.
 
-    - **Lecture uniquement**: tout le monde peut consulter l'objet.
+    - **Lecture uniquement** : tout le monde peut consulter l'objet.
 
-    - **Aucun**: le public n'aura pas accès à l'objet. Ce Ce paramètre ne s'applique qu'à **Accès public**.
+    - **Aucun** : le public n'aura pas accès à l'objet. Ce paramètre ne s'applique qu'à **Accès public**.
 
 5.  Cliquez sur **Partager**.
 
@@ -6118,11 +4852,11 @@ Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaqu
 
 1.  Cliquez sur **Favoris** \> **Créer un lien**.
 
-2.  Sélectionnez une des options suivantes:
+2.  Sélectionnez l'une des options suivantes :
 
-    - **Ouvrir dans cette application**: Vous obtenez un lien URL pour le favori que vous souhaitez partager avec d'autres utilisateurs via email ou chat.
+    - **Ouvrir dans cette application** : Vous obtenez un lien URL pour le favori que vous souhaitez partager avec d'autres utilisateurs via email ou chat.
 
-    - **Ouvrir dans un navigateur web api**: vous obtenez un lien URL de la ressource API. Il s'agit d'une ressource HTML par défaut, mais vous pouvez changer l'extension du fichier à ".json" ou ".csv".
+    - **Ouvrir dans un navigateur web api** : vous obtenez un lien URL de la ressource API. Il s'agit d'une ressource HTML par défaut, mais vous pouvez changer l'extension du fichier à ".json" ou ".csv".
 
 ### Supprimer un favori
 
@@ -6132,13 +4866,13 @@ Lorsque vous vous abonnez à un favori, vous recevez des messages internes chaqu
 
 ### Afficher les interprétations basées sur des périodes relatives
 
-Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière:
+Pour afficher les interprétations pour des périodes relatives, par exemple des interprétations de l'année dernière :
 
 1.  Ouvrez un favori avec des interprétations.
 
 2.  Cliquez **\>\>\>** en haut à droite de l'espace de travail.
 
-3.  Cliquez sur une interprétation. Votre graphique affiche les données et la date relative en fonction de la date de création de l'interprétation. Pour voir d'autres interprétations, cliquez dessus.
+3.  Cliquez sur une interprétation. Votre graphique affiche les données et la date relative en fonction de la date de création de l'interprétation. Pour afficher d'autres interprétations, cliquez dessus.
 
 ## Visualize a chart as a pivot table
 
@@ -6146,11 +4880,11 @@ When you have made a chart you can open it as a pivot table:
 
 Click **Chart** \> **Open this chart as table**.
 
-# Control data quality
+# Contrôler la qualité des données
 
 <!--DHIS2-SECTION-ID:control_data_quality-->
 
-## A propos des contrôles qualité des données
+## À propos des contrôles qualité des données
 
 <!--DHIS2-SECTION-ID:about_data_quality-->
 
@@ -6170,15 +4904,15 @@ The **Data Quality** app contains tools to validate the accuracy and reliability
 <tbody>
 <tr class="odd">
 <td><p>Exactitude</p></td>
-<td><p>Les données doivent se situer dans la plage normale des données collectées dans cette infrastructure. Il ne devrait y avoir aucune différence significative en comparaison.</p></td>
+<td><p>Les données doivent se situer dans la plage normale des données collectées dans cette structure sanitaire. Il ne devrait y avoir aucune différence significative lorsqu'elles sont comparées avec des éléments de connexes.</p></td>
 </tr>
 <tr class="even">
 <td><p>Complétude</p></td>
-<td><p>Les données pour tous les éléments de données pour toutes les unités d'organisation devraient être soumises.</p></td>
+<td><p>Les données de tous les éléments de données de toutes les unités d'organisation devraient être soumises.</p></td>
 </tr>
 <tr class="odd">
 <td><p>Cohérence</p></td>
-<td><p>Les données doivent être cohérentes avec les données saisies au cours des mois et des années précédents, tout en permettant les modifications liées à la réorganisation, l'augmentation de la charge de travail, ..., et compatibles avec d'autres infrastructures similaires..</p></td>
+<td><p>Les données doivent être cohérentes avec les données saisies au cours des mois et des années précédents, tout en permettant les modifications liées à la réorganisation, l'augmentation de la charge de travail, ..., et compatibles avec d'autres structures sanitaires similaires..</p></td>
 </tr>
 <tr class="even">
 <td><p>Ponctualité</p></td>
@@ -6187,13 +4921,13 @@ The **Data Quality** app contains tools to validate the accuracy and reliability
 </tbody>
 </table>
 
-Vous pouvez contrôler la qualité des données de différentes manières, par exemple:
+Vous pouvez contrôler la qualité des données de différentes manières. Par exemple :
 
-- At point of data entry, DHIS 2 can check the data entered to see if it falls within the minimum maximum value ranges of that data element (based on all previous data registered).
+- Au moment de la saisie des données, DHIS2 peut examiner les données saisies pour vérifier si elles se situent entre les valeurs maximales et minimales de la plage de valeurs de cet élément de données (basé sur les données précédentes enregistrées).
 
-- En définissant des règles de validation, qui peuvent être exécutées une fois que l'utilisateur a terminé la saisie de données. L'utilisateur peut également vérifier les données saisies pour une période particulière et une unité d'organisation par rapport aux règles de validation et afficher les violations de ces règles.
+- En définissant des règles de validation, qui peuvent être exécutées une fois que l'utilisateur a terminé la saisie de données. L'utilisateur peut également vérifier les données saisies pour une période particulière et une ou des unité (s) d'organisation par rapport aux règles de validation et afficher les violations de ces règles.
 
-- En analysant les sets de données, c'est-à-dire, examiner les écarts dans les données.
+- En analysant les ensembles de données, c'est-à-dire, examiner les écarts dans les données.
 
 - Par triangulation de données, c'est-à-dire en comparant les mêmes données ou indicateurs de différentes sources.
 
@@ -6201,37 +4935,37 @@ Vous pouvez contrôler la qualité des données de différentes manières, par e
 
 <!--DHIS2-SECTION-ID:validation_rule_analysis-->
 
-### A propos de l'analyse des règles de validation
+### À propos de l'analyse des règles de validation
 
-Une règle de validation est basée sur une expression qui définit une relation entre les valeurs d'éléments de données. L'expression forme une condition qui doit affirmer que certains critères logiques sont remplis.
+Une règle de validation est basée sur une expression qui définit une relation entre les valeurs d'éléments de données. L'expression constitue une condition qui doit affirmer que certains critères logiques sont remplis.
 
-L'expression se compose de:
+L'expression se compose de :
 
-- Une partie gauche
+- Un  côté gauche
 
-- Une partie droite
+- Un côté droit
 
 - Un opérateur
 
-Une règle de validation pourrait affirmer que "Les cas suspects de paludisme testés" \>= "Cas de paludisme confirmés".
+Une règle de validation pourrait être : "Les cas suspects de paludisme testés" \>= "Cas de paludisme confirmés".
 
-L'analyse des règles de validation teste les règles de validation par rapport aux données enregistrées dans le système. Les violations de ces règles sont signalées lorsque la condition définie dans l'expression de règle de validation n'est pas remplie, ce qui signifie quand la condition est fausse.
+L'analyse des règles de validation permet de tester les règles de validation par rapport aux données enregistrées dans le système. Les violations de ces règles sont signalées lorsque la condition définie dans l'expression de règle de validation n'est pas remplie, c'est à dire lorsque la condition est fausse.
 
 You can configure a validation rule analysis to automatically send out information about validation violations to selected user groups. These messages are called _validation notifications_ and you create them in the **Maintenance** app. Validation notifications are sent via the internal DHIS 2 messaging system.
 
-### Workflow
+### Déroulement
 
 1.  Dans l'application **Maintenance**, créez des règles de validation et des groupes de règles de validation.
 
 2.  (Facultatif) Dans l'application **Maintenance**, créez des notifications de validation.
 
-3.  Exécutez l'analyse des règles de validation, automatiquement ou manuellement.
+3.  Exécutez l'analyse automatiquement ou manuellement des règles de validation.
 
-    - In the **Data Administration** app, you schedule the validation rule analysis to run automatically for all validation rules included in one or several validation notifications. After the system has run the analysis, you'll see the validation violations (if any) in the validation notifications sent via the internal DHIS 2 messaging system.
+    - Dans l'application **Administration des données**, vous planifiez la validation de l'analyse des règles à exécuter automatiquement pour toutes les règles de validation associées à une ou plusieurs notifications de validation. Après que le le système ait exécuté l'analyse, les violations des règles (s'il y en a) s'afficheront dans les notifications de validation envoyées via le système de messagerie interne DHIS2.
 
-    - Dans l'application **Qualité des données**, vous exécutez l'analyse des règles de validation manuellement pour celles qui sont sélectionnées. Après que le processus d'analyse soit terminé, une liste de violations de règles s'affichera.
+    - Dans l'application **Qualité des données**, vous exécutez manuellement l'analyse des règles de validation pour celles qui sont sélectionnées. À la fin du processus d'analyse, une liste de violations de règles (s'il y en a) s'affichera.
 
-### Planifiez l'éxécution automatique de l'analyse des règles de validation
+### Programmez l'éxécution automatique de l'analyse des règles de validation
 
 > **Note**
 >
@@ -6241,29 +4975,29 @@ You can configure a validation rule analysis to automatically send out informati
 >
 > While running validation rule analysis automatically, any results not already persisted, will be persisted during this run. Persisted results can currently only be accessed trough the API. Consult the developers guide for more information about how persisted validation rule violations can be accessed.
 
-1.  Vérifiez que vous avez créé toutes les règles de validation, groupes de règles de validation et notifications de validation dont vous avez besoin.
+1.  Vérifiez que vous avez créé toutes les règles de validation, les groupes de règles de validation ainsi que les notifications de validation dont vous avez besoin.
 
-2.  Ouvrez l'application **Administration des données** et cliquez sur **Planification**.
+2.  Ouvrez l'application **Administration des données** et cliquez sur **Programmer**.
 
-3.  Si la planification est active, cliquez sur **Arrêter**.
+3.  Si la programmation est active, cliquez sur **Arrêter**.
 
 4.  Dans la section **Monitoring des données**, sélectionnez **Quotidien**.
 
 5.  Cliquez sur **Démarrer**.
 
-### Exécuter une analyse de règles de validation manuellement
+### Exécuter  manuellement une analyse de règles de validation
 
 ![](resources/images/content/user/data_quality/validation_rule_analysis.png)
 
-1.  Vérifiez que vous avez créé toutes les règles de validation, groupes de règles de validation et notifications de validation dont vous avez besoin.
+1.  Vérifiez que vous avez créé toutes les règles de validation, les groupes de règles de validation ainsi que les notifications de validation dont vous avez besoin.
 
-2.  Ouvrez l'application **Qualité des données** et cliquez sur **Analyse des règle de validation**.
+2.  Ouvrez l'application **Qualité des données** et cliquez sur **Analyse des règles de validation**.
 
-3.  Sélectionnez **Date de début** et une **Date de fin**.
+3.  Sélectionnez une **Date de début** et une **Date de fin**.
 
-4.  Sélectionnez le **groupe de règles de validation** à inclure dans l'analyse.
+4.  Sélectionnez le **Groupe de règles de validation** à inclure dans l'analyse.
 
-    Vous pouvez sélectionner toutes les règles de validation ou un groupe de règles de validation.
+    Vous pouvez sélectionner toutes les règles de validation ou toutes les règles de validation d'un seul groupe de règles de validation.
 
 5.  (Facultatif) Sélectionnez **Envoyer les notifications** pour déclencher les notifications de validation.
 
@@ -6277,25 +5011,25 @@ You can configure a validation rule analysis to automatically send out informati
 
 8.  Cliquez sur **Valider**.
 
-    La durée du processus d'analyse dépend de la quantité de données à analyser. S'il n'y a aucune violation des règles de validation, vous verrez un message disant _La validation a été passée avec succès_. Dans le cas ou il y'a des violations de validation, elles seront présentées dans une liste.
+    La durée du processus d'analyse dépend de la quantité de données à analyser. S'il n'y a aucune violation des règles de validation, vous verrez un message disant _Validation réussie_. Dans le cas où il y a des violations de validation, celles-ci seront présentées sous forme d'une liste.
 
     ![](resources/images/content/user/data_quality/validation_rule_analysis_result.png)
 
-9.  (Facultatif) Cliquez sur l'icône Afficher les détails pour obtenir plus d'informations sur une violation de validation. Dans la fenêtre pop-up, vous trouverez des informations sur les éléments de données inclus dans les règles de validation et leur valeurs de données correspondantes. Vous pouvez utiliser ces informations pour identifier la source de la violation de la règle de validation.
+9.  (Facultatif) Cliquez sur l'icône Afficher les détails pour obtenir plus d'informations sur la violation d'une règle de validation. Dans la fenêtre pop-up, vous trouverez des informations sur les éléments de données inclus dans les règles de validation et leur valeurs de données correspondantes. Vous pouvez utiliser ces informations pour identifier la source de la violation de la règle de validation.
 
-10. (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+10. (Facultatif) Cliquez sur **Télécharger au format PDF**, **Télécharger au format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
 
 ### Voir également
 
-- [Manage validation rules](https://docs.dhis2.org/master/en/user/html/manage_validation_rule.html)
+- [Gérer les règles de validation](https://docs.dhis2.org/master/en/user/html/manage_validation_rule.html)
 
-- [Data Administration app](https://docs.dhis2.org/master/en/user/html/data_admin.html)
+- [L'application Administration des données](https://docs.dhis2.org/master/en/user/html/data_admin.html)
 
 ## Analyse des aberrations d'écart-type
 
 <!--DHIS2-SECTION-ID:standard_deviation_analysis-->
 
-### A propos de l'analyse des aberrations d'écart-type
+### À propos de l'analyse des aberrations d'écart-type
 
 The standard deviation outlier analysis identifies values that are numerically distant from the rest of the data, potentially indicating that they are outliers. The analysis is based on the standard normal distribution. DHIS 2 calculates the mean of all values for an organisation unit, data element, category option combination and attribute option combination. Outliers can occur by chance of course, but can potentially indicate a measurement or data entry error.
 
@@ -6307,23 +5041,23 @@ The standard deviation outlier analysis identifies values that are numerically d
 
 ![](resources/images/content/user/data_quality/std_dev_analysis.png)
 
-1.  Ouvrez l'application **Qualité des données** et cliquez sur **Std dev outlier analysis**.
+1.  Ouvrez l'application **Qualité des données** et cliquez sur **Analyse des données atypique par la méthode des déviations standards**.
 
 2.  Sélectionnez **À partir de la date** et **À la date**.
 
-3.  Sélectionnez un set(s) de données.
+3.  Sélectionnez un ou des ensemble(s) de données.
 
 4.  Sélectionnez une **Unité d'organisation mère**.
 
-    Tous les enfants de l'unité d'organisation seront inclus. L'analyse est faite sur des données brutes "sous" l'unité d'organisation parente, pas sur des données agrégées.
+    Tous les enfants de l'unité d'organisation seront inclus. L'analyse est faite sur des données brutes "sous" l'unité d'organisation parente, et non sur des données agrégées.
 
 5.  Select the number of standard deviations.
 
-    Ceci fait référence au nombre d'écarts-types par rapport à la moyenne autorisés au-dessus duquel les données sont identifiées comme valeurs abérrantes.
+    Ceci fait référence au nombre d'écarts-types par rapport à la moyenne autorisée au-dessus duquel les données sont identifiées comme valeurs abérrantes.
 
 6.  Cliquez sur **Démarrer**.
 
-    La durée du processus d'analyse dépend de la quantité des données à analyser. S'il existe des valeurs aberrantes, elles seront présentées dans une liste.
+    La durée du processus d'analyse dépend de la quantité des données à analyser. S'il existe des valeurs aberrantes, celles-ci seront présentées sous forme d'une liste.
 
     ![](resources/images/content/user/data_quality/std_dev_analysis_outlier_result.png)
 
@@ -6337,23 +5071,23 @@ The standard deviation outlier analysis identifies values that are numerically d
 
 <!--DHIS2-SECTION-ID:min_max_analysis-->
 
-### A propos de l'analyse des valeurs aberrantes minimales et maximales
+### À propos de l'analyse des valeurs aberrantes minimales et maximales
 
 You can verify the data quality at the point of data entry by setting a minimun/maximum value range for each data value. You can define the value ranges manually or generate them automatically.
 
-La plage de valeur générée automatiquement ne convient que pour des données normalement distribuées. DHIS2 déterminera la moyenne arithmétique et l'écart-type de toutes les valeurs pour un élément de données, des options de combinaison de catégories, une unité d'organisation et une combinaison d'attributs. Le système calculera ensuite la plage de valeurs maximales et minimales sur la base du **Facteur d'analyse de l'écart-type des données** spécifié dans l'application **Paramètres système**.
+La plage de valeurs générée automatiquement ne convient que pour des données normalement distribuées. DHIS2 déterminera la moyenne arithmétique et l'écart-type de toutes les valeurs pour un élément de donnée, une options de catégorie, une unité d'organisation et attribuer une combinaison. Le système calculera ensuite la plage de valeurs maximales et minimales sur la base du **Facteur d'analyse de l'écart-type des données** spécifié dans l'application **Paramètres Système**.
 
-Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas pour les données agrégées), les valeurs générées automatiquement par DHIS2 ne peuvent pas fournir une plage de valeur précise. Cela peut mener à de fausses violations de règles, par exemple si vous analysez des valeurs liées à maladies saisonnières.
+Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas pour les données agrégées), les valeurs générées automatiquement par DHIS2 ne peuvent pas fournir une plage de valeurs précise. Cela peut entraîner de fausses violations de règles, si vous analysez par exemple des valeurs liées à des maladies saisonnières.
 
 > **Note**
 >
-> Les plages de valeurs minimales et maximales sont calculées pour toutes les options de combinaison d'attributs pour pour un élément de données particulier, des options de catégories et une combinaison d'unité d'organisation.
+> Les plages de valeurs minimales et maximales sont calculées pour toutes les options de combinaison d'attributs pour un élément de donnée particulier, une option de catégories et une combinaison d'unités d'organisation.
 
-### Workflow
+### Déroulement
 
-1.  Créer une plage de valeurs minimum et maximum, automatiquement ou manuellement.
+1.  Créer automatiquement ou manuellement une plage de valeurs minimum et maximum.
 
-    - Dans l'application **Administration des données**, vous pouvez générer des plages de valeur automatiquement
+    - Dans l'application **Administration des données**, vous pouvez générer automatiquement des plages de valeurs
 
     - In the **Data Entry** app, you may set value ranges manually.
 
@@ -6361,15 +5095,15 @@ Pour les données fortement asymétriques ou nulles (comme c'est souvent le cas 
 
 ### Configurer une analyse des valeurs aberrantes minimum maximum
 
-#### Créer une plage de valeurs minimum maximum automatiquement
+#### Créer automatiquement une plage de valeurs minimum maximum
 
 ![](resources/images/content/user/data_quality/generate_min_max.png)
 
 > **Note**
 >
-> Les plages de valeurs maximales minimales générées automatiquement peuvent être utiles pour de nombreuses applications, mais il est recommandé de vérifier que les données soient normalement distribuées avant d'utiliser cette fonction.
+> Les plages de valeurs maximales et minimales générées automatiquement peuvent être utiles pour de nombreuses applications, mais il est recommandé de vérifier que les données sont normalement distribuées avant l'utilisation de cette fonction.
 
-Vous pouvez générer des plages de valeurs maximales et minimales calculées par le set de données dans **L'application d'administration des données**. Les nouvelles plages de valeurs remplaceront toutes les valeurs que le système a calculé précédemment.
+Vous pouvez générer des plages de valeurs maximales et minimales calculées par l'ensemble de donnée défini dans l'application **Administration des données**. Les nouvelles plages de valeurs remplaceront toutes les valeurs que le système a calculées précédemment.
 
 1.  Set the **Data analysis standard deviation (std dev) factor**:
 
@@ -6379,21 +5113,21 @@ Vous pouvez générer des plages de valeurs maximales et minimales calculées pa
 
         This sets the number of standard deviations to use in the outlier analysis. The default value is 2. Higher values indicate a broader distribution, which may lead to outliers not being flagged correctly by the analysis.
 
-2.  Ouvrez **L'application administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
+2.  Ouvrez l'application **Administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
 
-3.  Sélectionnez un set(s) de données.
+3.  Sélectionnez un ou des ensemble(s) de données.
 
 4.  Sélectionnez une **unité d'organisation**.
 
 5.  Cliquez sur **Générer**.
 
-    De nouvelles plages de valeurs maximales et minimales pour tous les éléments du set de données sélectionnés pour toutes les unités d'organisation (y compris les descendants) des unités d'organisation sélectionnées sont générés.
+    De nouvelles plages de valeurs maximales minimales sont générées pour tous les éléments de données définis dans les ensembles de données sélectionnés pour toutes les unités d'organisation (y compris les descendants) des unités d'organisation sélectionnées.
 
 #### Create minimum/maximum value range manually
 
 ![](resources/images/content/user/data_quality/set_min_max_manually.png)
 
-1.  Dans l'application de **saisie de données**, ouvrez un modèle de saisie.
+1.  Dans l'application **Saisie de données**, ouvrez un formulaire de saisie.
 
 2.  Double-click the field for which you want to set the minimum/maximum value range.
 
@@ -6401,23 +5135,23 @@ Vous pouvez générer des plages de valeurs maximales et minimales calculées pa
 
 4.  Cliquez sur **Sauvegarder**.
 
-    Si les valeurs que vous entrez ensuite ne sont pas incluses dans la fourchette, la case de saisie prendra une couleur orange.
+    Si les valeurs que vous entrez ensuite ne sont pas incluses dans la plage des valeurs, la case de saisie prendra une couleur orange.
 
-5.  (Facultatif) Saisissez un commentaire pour expliquer la raison de cette différence, par exemple un événement qui aurait pu générer un nombre important de clients.
+5.  (Facultatif) Saisissez un commentaire pour expliquer la raison de cette différence. Il peut s'agir par exemple d'un événement qui aurait pu générer un nombre important de clients.
 
-6.  (Facultatif) Cliquez sur enregistrer le commentaire.
+6.  (Facultatif) Cliquez sur **Enregistrer le commentaire**.
 
 > **Astuce**
 >
-> Cliquez sur l'icône étoile pour marquer la valeur pour un suivi ultérieur.
+> Cliquez sur l'icône étoile pour marquer la valeur en vue d'un suivi ultérieur.
 
 #### Supprimer une plage de valeurs minimum maximum
 
-Vous pouvez supprimer définitivement toutes les plages de valeurs maximales minimales pour des sets de données et unités d'organisation dans l'application **Administration des données**.
+Vous pouvez supprimer définitivement toutes les plages de valeurs maximales minimales pour des ensembles de données et unités d'organisation sélectionnés dans l'application **Administration des données**.
 
-1.  Ouvrez **L'application administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
+1.  Ouvrez l'application **Administration des données** et cliquez sur **Génération des valeurs mini-maxi**.
 
-2.  Sélectionnez un set(s) de données.
+2.  Sélectionnez un ou des ensemble(s) de données.
 
 3.  Select an **Organisation unit**. Note, that the selection cascades to descendant organisation units!
 
@@ -6433,11 +5167,11 @@ Vous pouvez supprimer définitivement toutes les plages de valeurs maximales min
 
 3.  Sélectionnez **À partir de la date** et **À la date**.
 
-4.  Sélectionnez le ou les sets de données que vous souhaitez inclure dans l'analyse.
+4.  Sélectionnez le ou les ensemble(s) de données que vous souhaitez inclure dans l'analyse.
 
 5.  Sélectionnez une **Unité d'organisation mère**.
 
-    Tous les enfants de l'unité d'organisation seront inclus. L'analyse est faite sur des données brutes "sous" l'unité d'organisation parente, pas sur des données agrégées.
+    Tous les enfants de l'unité d'organisation seront inclus. L'analyse est faite sur des données brutes "sous" l'unité d'organisation parente, et non sur des données agrégées.
 
 6.  Cliquez sur **Démarrer**.
 
@@ -6445,19 +5179,19 @@ Vous pouvez supprimer définitivement toutes les plages de valeurs maximales min
 
     ![](resources/images/content/user/data_quality/min_max_result.png)
 
-7.  (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+7.  (Facultatif) Cliquez sur **Télécharger au format PDF**, **Télécharger au format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
 
 > **Astuce**
 >
-> Cliquez sur l'icône étoile pour marquer la valeur pour un suivi ultérieur.
+> Cliquez sur l'icône étoile pour marquer la valeur en vue d'un suivi ultérieur.
 
 ## Analyse de suivi
 
 <!--DHIS2-SECTION-ID:follow_up_analysis-->
 
-### A propos de l'analyse de suivi
+### À propos de l'analyse de suivi
 
-L'analyse de suivi crée une liste de toutes les valeurs de données marquées pour suivi ultérieur. Vous pouvez marquer une valeur de données pour suivi ultérieur dans **L'application de saisie de données** et dans la liste de résultats que vous obtenez d'une valeur aberrante d'écart-type ou de l'analyse des valeurs aberrantes minimales et maximales.
+L'analyse de suivi crée une liste de toutes les valeurs de données marquées pour suivi ultérieur. Vous pouvez marquer une valeur de données pour suivi ultérieur dans l'application **Saisie de données** et dans la liste de résultats que vous obtenez de l'analyse des valeurs aberrantes d'écart-type ou de l'analyse des valeurs aberrantes minimales et maximales.
 
 ### Créer une liste de valeurs de données marquées pour un suivi ultérieur
 
@@ -6475,7 +5209,7 @@ L'analyse de suivi crée une liste de toutes les valeurs de données marquées p
 
 5.  Press **Follow up** to generate a list of values which have been marked for follow up.
 
-6.  (Facultatif) Cliquez sur **Télécharger sous format PDF**, **Télécharger sous format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
+6.  (Facultatif) Cliquez sur **Télécharger au format PDF**, **Télécharger au format Excel** ou **Télécharger au format CSV** pour télécharger la liste des violations de validation dans les formats PDF, Excel ou CSV.
 
 ![](resources/images/content/user/data_quality/follow_up_analysis_result.png)
 
@@ -6733,69 +5467,69 @@ This example is meant to be illustrative only. You may define as many category o
 
 If you have multiple approval levels for different category option group sets at the same organisation unit level, you may change the approval ordering in the _Settings_ section, under _System Approval Settings_. Just click on the approval level you wish to move, and select _Move up_ or _Move down_. If you have an approval level with no category option groups set, it must be the highest approval level for that organisation unit level.
 
-# Using reporting functionality
+# Utiliser la fonctionnalité de rapport
 
 <!--DHIS2-SECTION-ID:using_reporting-->
 
-## Fonctionnalité de Reporting dans DHIS2
+## Fonctionnalité de rapport dans DHIS2
 
 <!--DHIS2-SECTION-ID:using_reporting_intro-->
 
-Le module de reporting dans DHIS2 fournit une gamme d'outils de reporting, et cette section expliquera comment les utiliser pour visualiser et analyser les données. Une autre section explique comment configurer ces divers outils de reporting.
+Le module de rapport dans DHIS2 fournit une gamme d'outils de rapport. Cette section expliquera donc comment utiliser ces outils pour visualiser et analyser les données. Une autre section explique comment configurer ces divers outils de rapport.
 
-**Rapports standard:** Les rapports standard sont construits avec des tableaux croisés dynamiques, mais leur conception avancée leur confère plus d'ésthétique et de style. Ces rapports peuvent également combiner plusieurs tableaux et graphiques dans le même rapport et peuvent être disponibles sous forme de rapports en-un-clic qui sont très pratiques à utiliser. Ces rapports peuvent être téléchargés sous format PDF, ce qui est avantageux pour l'impression ainsi que le partage en mode hors ligne.
+**Rapports standards:** Les rapports standards sont élaborés à l'aide de tableaux croisés dynamiques, mais leur conception plus avancée leur confère plus d'ésthétique et de style. Ces rapports peuvent également combiner plusieurs tableaux et graphiques dans le même rapport et peuvent être disponibles sous forme de rapports prédéfinis très pratiques en terme d'utilisation. Ces rapports peuvent être téléchargés au format PDF, ce qui facilite leur impression ainsi que leur partage en mode hors ligne.
 
-**Rapports de sets de données:** Les rapports de sets de données sont un moyen simple et imprimable d'examiner les modèles de saisie de données avec des données brutes ou agrégées (sur une période ou un emplacement). Le modèle utilisé pour la saisie des données sera également utilisé dans les rapports de sets de données. Cela ne fonctionnera que pour les ensembles de données ayant un modèle de saisie de données personnalisé mis en place.
+**Rapports des ensembles de données:** Les rapports des ensembles de données constituent tout simplement un moyen imprimable d'examiner les formulaires de saisie de données avec des données brutes ou agrégées (sur une période ou un lieu). Le modèle utilisé pour la saisie des données sera également utilisé dans les rapports des ensembles de données. Cela ne fonctionnera que pour les ensembles de données ayant un formulaire de saisie de données personnalisé.
 
-**Tableau de bord:** Le moyen le plus rapide pour visualiser vos données. Le tableau de bord peut afficher jusqu'à quatre graphiques mis à jour ainsi que des raccourcis vers vos rapports favoris, tables de rapport et vues cartographiques. Chaque utilisateur peut configurer un tableau de bord personnel.
+**Tableau de bord:** Le moyen le plus rapide pour visualiser vos données. Le tableau de bord peut afficher jusqu'à quatre graphiques mis à jour ainsi que des raccourcis vers vos rapports, tableaux de rapport et vues cartographiques favoris. Chaque utilisateur peut configurer un tableau de bord personnel.
 
-**Visualiseur de données:** Visualisez vos données sous forme de graphiques et tableaux de données. Quel que soit le nombre d'indicateurs et d'éléments de données. Plusieurs types de graphiques sont disponibles; colonnes, colonnes empilées, lignes, zones et diagrammes circulaires. Ces graphiques peuvent être sauvegardés afin d'être facilement récupérés plus tard et peuvent également être épinglés sur votre tableau de bord personnel. Ils peuvent être téléchargés sur votre ordinateur sous forme d'image et de fichiers PDF.
+**Visualiseur de données:** Visualisez vos données sous forme de graphiques et tableaux de données quel que soit le nombre d'indicateurs et d'éléments de données. Plusieurs types de graphiques sont disponibles : colonnes, colonnes empilées, lignes, zones et diagrammes circulaires. Ces graphiques peuvent être sauvegardés pour être facilement récupérés plus tard et peuvent également être épinglés sur votre tableau de bord personnel. Ils peuvent être téléchargés sur votre ordinateur sous forme d'image et de fichiers PDF.
 
-**Rapports de distribution d'unitOrg:** Ces rapports sont générés à partir du set d'informations du groupe d'unités d'organisation et peut afficher quels types (et combien de chaque type) d'établissements de santé sont situés dans une zone donnée (tout niveau hiérarchique). Ces rapports sont automatiquement générés et remontent les informations dans des tableaux et graphiques, et sont téléchrgeables en PDF, Excel et CSV.
+**Rapports de distribution d'unitOrg:** Ces rapports sont générés à partir des informations de l'ensemble de groupes d'unités d'organisation et peut afficher quels types (et combien de chaque type) de structures sanitaires sont situées dans une zone donnée (tout niveau hiérarchique). Ces rapports sont automatiquement générés et remontent les informations dans des tableaux et graphiques, et sont téléchargeables aux formats PDF, Excel et CSV.
 
-**Résumé du taux de reporting:** Ces rapports fournissent un bon aperçu des nombreux établissement ayant soumis leurs données pour set de données et période bien définis. Ici, vous pouvez obtenir les chiffres et les pourcentages indiquant le taux de rapport pour tous ou un seul set de données.
+**Résumé du taux de rapport:** Ces rapports donnent un bon aperçu du nombre de structures sanitaires ayant soumis leurs données pour un ensemble de données et une période bien définis. Ici, vous pouvez obtenir les chiffres et les pourcentages indiquant le taux de rapport pour tous ou un seul ensemble de données.
 
-**Tableaux croisés dynamiques basés sur le Web:** L'outil de tableaux croisés dynamiques intégré est un outil basé sur le Web pour afficher les données des indicateurs par unité d'organisation et par période dans un tableau croisé dynamique typique. Il permet également de télécharger de grandes quantités de données en mode hors ligne à des fins d'analyse.
+**Tableaux croisés dynamiques en ligne :** L'outil de tableaux croisés dynamiques intégré est un outil en ligne permettant d'afficher les données des indicateurs par unité d'organisation et par période dans un tableau croisé dynamique typique. Il permet également de télécharger de grandes quantités de données en mode hors ligne à des fins d'analyse.
 
-**GIS:** Présentez et analysez vos données à l'aide de cartes thématiques. Vous pouvez voir les éléments de données et les indicateurs, et puisque vos unités d'organisation sont identifiés par des coordonnées, vous explorer la hiérarchie et voir les cartes pour tous les niveaux, des polygones de pays aux infrastructures et établissements. Reportez-vous au chapitre GIS pour plus de détails. Toutes les informations cartographiques sont intégrées à DHIS2, tout ce qui vous reste à faire est d'enregistrer les coordonnées de vos unités d'organisation et les cartes seront disponibles.
+**SIG:** Présentez et analysez vos données à l'aide de cartes thématiques. Vous pouvez voir les éléments de données et les indicateurs, et puisque vos unités d'organisation sont identifiées par des coordonnées, vous pouvez explorer la hiérarchie et voir les cartes pour tous les niveaux, des polygones de pays aux structures sanitaires. Reportez-vous au chapitre SIG pour plus de détails. Toutes les informations cartographiques sont intégrées à DHIS2. Tout ce qui vous reste donc à faire, c'est d'enregistrer les coordonnées de vos unités d'organisation et les cartes seront disponibles.
 
-## Utilisation des rapports standard
+## Utiliser des rapports standards
 
 <!--DHIS2-SECTION-ID:using_reporting_standard_reports-->
 
-Vous pouvez accéder aux rapports disponibles via Apps-\>Rapports. Dans le menu rapports dans la barre gauche, cliquez sur Rapport standard. Une liste de tous les rapports prédéfinis apparaîtra dans la fenêtre principale.
+Vous pouvez accéder aux rapports disponibles via Apps-\>Rapports. Dans le menu rapports dans la barre gauche, cliquez sur Rapport standard. Une liste de tous les rapports prédéfinis apparaîtra alors dans la fenêtre principale.
 
 ![](resources/images/content/user/dhis2UserManual/standard_reports_ke.png)
 
-Vous pouvez exécuter/afficher un rapport en cliquant sur le nom du rapport, puis en sélectionnant "Créer" dans le menu contextuel. S'il y'a des paramètres prédéfinis, vous verrez une fenêtre de paramètres de rapport où vous devez renseigner les valeurs nécessaires pour de l'unité d'org et/ou du mois de reporting, en fonction de ce qui a été défini dans la ou les tables de rapport sous-jacentes. Cliquez sur "Obtenir le rapport" lorsque vous êtes prêt. Le rapport apparaîtra soit directement dans votre navigateur ou sera disponible sous forme de fichier PDF à télécharger, en fonction des paramètres de votre navigateur. Vous pouvez enregistrer le fichier et le conserver localement sur votre ordinateur pour une utilisation ultérieure.
+Vous pouvez exécuter/afficher un rapport en cliquant sur le nom du rapport, puis en sélectionnant "Créer" dans le menu contextuel. S'il y a des paramètres prédéfinis, vous verrez une fenêtre de paramètres de rapport où vous devez renseigner les valeurs nécessaires pour l'unité d'organisation et/ou le mois du rapport, en fonction de ce qui a été défini dans le ou les tableau(x) de rapport sous-jacents. Cliquez sur "Obtenir le rapport" lorsque vous êtes prêt. Le rapport apparaîtra soit directement dans votre navigateur ou sera disponible sous forme de fichier PDF à télécharger, en fonction des paramètres de votre navigateur. Vous pouvez sauvegarder le fichier et le conserver localement sur votre ordinateur pour une utilisation ultérieure.
 
-## Utilisation des rapports de sets de données
+## Utiliser des rapports des ensembles de données
 
 <!--DHIS2-SECTION-ID:using_reporting_dataset_reports-->
 
-Les rapports de sets de données sont un des vues simple et imprimable de l'écran de saisie de données avec des données brutes ou agrégées. Ils ne sont disponibles que pour les sets de données ayant un modèle de saisie de données personnalisé mis en place contrairement au modèles par défaut et par section.
+Les rapports des ensembles de données sont des vues de données adaptées à l'impression de l'écran de saisie de données ayant des données brutes ou agrégées. Ils ne sont disponibles que pour les ensembles de données ayant des formulaires de saisie de données personnalisés et non pour les formulaires par défaut et à section.
 
-Vous pouvez accéder aux rapports de sets de données depuis Apps-\>Rapports.
+Vous pouvez accéder aux rapports des ensembles de données depuis Apps-\>Rapports.
 
-Une fenêtre de critères apparaît dans laquelle vous renseignez les détails de votre rapport:
+Une fenêtre de critères, dans laquelle vous renseignez les détails de votre rapport, apparaît :
 
-**Set de données:** Les données que vous souhaitez afficher.
+**Ensemble de données:** L'ensemble de données que vous souhaitez afficher.
 
-**Période de reporting:** La période réelle pour laquelle vous souhitez récupérer les données. Il peut s'agir de périodes agrégées ou brutes. Cela signifie que vous pouvez demander un rapport trimestriel ou annuel même si l'ensemble des données est collecté mensuellement. Le type de période d'un set de données (fréquence de collecte) est défini dans la maintenance du set de données. Sélectionnez d'abord le type de période (Mensuel, Trimestriel, Annuel, etc.) dans le menu déroulant à côté des boutons Précédent et Suivant, puis sélectionnez l'une des périodes disponibles dans la liste déroulante ci-dessous. Utilisez Précédent et Suivant pour sauter d'un an en arrière ou en avant.
+**Période de rapport:** La période réelle pour laquelle vous souhitez récupérer les données. Il peut s'agir de périodes agrégées ou brutes. Cela signifie que vous pouvez demander un rapport trimestriel ou annuel même si l'ensemble de données est collecté mensuellement. Le type de période d'un ensemble de données (fréquence de collecte) est défini dans la maintenance de l'ensemble de données. Sélectionnez d'abord le type de période (Mensuel, Trimestriel, Annuel, etc.) dans le menu déroulant à côté des boutons Précédent et Suivant, puis sélectionnez l'une des périodes disponibles dans la liste déroulante en bas. Utilisez Précédent et Suivant pour sauter d'un an en arrière ou en avant.
 
-**Utiliser des données pour l'unité sélectionnée uniquement:** Utilisez cette option si vous souhaitez un rapport pour une unité d'org qui a des ramifications (enfants), mais que vous avez besoin des données collectées directement que par cette unité et non par ses enfants. Si vous souhaitez un rapport agrégé typique pour une unité d'org spécifique, ne cochez pas cette option.
+**Utiliser les données uniquement pour l'unité sélectionnée :** Utilisez cette option si vous souhaitez avoir un rapport pour une unité d'organisaton ayant des ramifications (enfants), mais seulement si vous avez besoin des données collectées directement par cette unité et non par ses enfants. Si vous souhaitez un rapport agrégé typique pour une unité d'organisation spécifique, ne cochez pas cette option.
 
-**Reporting d'unité d'organisation:** Ici, vous sélectionnez l'unité d'organisation pour laquelle vous souhaitez le rapport. Cela peut s'effectuer à n'importe quel niveau de la hiérarchie, car les données seront agrégées automatiquement jusqu'à ce niveau (si vous ne cochez pas l'option ci-dessus).
+**Rapport d'unité d'organisation :** Ici, vous sélectionnez l'unité d'organisation pour laquelle vous souhaitez avoir le rapport. Cela peut s'effectuer à n'importe quel niveau de la hiérarchie, car les données seront automatiquement agrégées jusqu'à ce niveau (si vous ne cochez pas l'option d'en haut).
 
-Lorsque vous avez fini de rentrer les critères du rapport, cliquez sur "Génénrer". Le rapport apparaîtra sous format HTML et imprimable. Utilisez les fonctions d'impression et d'enregistrement dans le navigateur pour imprimer ou enregistrer le rapport (en tant que fichier HTML). Vous pouvez également exporter le rapport du set de données dans Excel et en formats PDF.
+Lorsque vous avez fini de rentrer les critères du rapport, cliquez sur "Générer". Le rapport apparaîtra sous format HTML et imprimable. Utilisez les fonctions d'impression et d'enregistrement dans le navigateur pour imprimer ou sauvegarder le rapport (sous forme de fichier HTML). Vous pouvez également exporter le rapport de l'ensemble de données aux formats Excel et PDF.
 
-## Utilisation des ressources
+## Utiliser les ressources
 
 <!--DHIS2-SECTION-ID:using_reporting_resources-->
 
-L'outil de ressources vous permet de télécharger les fichiers de votre répertoire local au serveur DHIS et d'ajouter des liens vers d'autres ressources sur Internet via des liens URL. Si le stockage en cloud est configuré pour votre système, les ressources y seront sauvegardées.
+L'outil de ressources vous permet de télécharger les fichiers de votre répertoire local au serveur DHIS et d'ajouter des liens vers d'autres ressources sur Internet via des liens URL. Si le stockage en nuage est configuré pour votre système, les ressources y seront sauvegardées.
 
-Pour créer une nouvelle ressource:
+Pour créer une nouvelle ressource :
 
 1.  Ouvrez l'application **Rapports** et cliquez sur **Ressource**.
 
@@ -6807,59 +5541,59 @@ Pour créer une nouvelle ressource:
 
 5.  Cliquez sur **Sauvegarder**.
 
-## Utilisation du récapitulatif du taux de génération de rapports
+## Utiliser le résumé du taux de génération de rapports
 
 <!--DHIS2-SECTION-ID:using_reporting_reporting_rate_summary-->
 
-Accédez au récapitulatif du taux de génération de rapports à partir du menu Applications-\>Rapports. Les récapitulatif de taux de rapports indiqueront le nombre de sets de données (modèles) ayant été soumis par une unité d'organisation et par période. Il y a deux méthodes disponibles pour calculer les taux de génération de rapports (complétude):
+Accédez au récapitulatif de taux de génération de rapports à partir du menu Applications-\>Rapports. Les récapitulatifs de taux de rapports indiqueront le nombre d'ensemble de données (formulaires) ayant été soumis par une unité d'organisation et par période. Il existe deux méthodes disponibles pour calculer les taux de génération de rapports (complétude) :
 
-- Basé sur des enregistrements complets des sets données. Un enregistrement complet de set de données se réfère à un utilisateur marquant un modèle de saisie de données en tant que complet, généralement en cliquant sur le bouton complet dans l'écran de saisie, indiquant par la présente au système de considérer que le formulaire est terminé. Il s'agit d'une approche subjective pour calculer la complétude.
+- Basée sur des enregistrements complets de  l'ensemble de données. Un enregistrement complet d'un ensemble de données désigne un utilisateur marquant un formulaire de saisie de données comme complet, généralement en cliquant sur le bouton complet dans l'écran de saisie, indiquant ainsi au système de considérer que le formulaire est terminé. Il s'agit d'une approche subjective pour calculer la complétude.
 
-- Basé sur un set de données obligatoire: vous pouvez définir un nombre quelconque d'éléments de données comme obligatoires dans un set de données. Cela implique que des valeurs de données doivent être impérativement saisies pour tous les éléments de données marqués obligatoires pour que le set de données soit considéré comme complet. C'est une approche objective du calcul de la complétude.
+- Basée sur un élément de donnée obligatoire : vous pouvez définir un nombre quelconque d'éléments de données comme obligatoire dans un ensemble de données. Cela implique que des valeurs de données doivent être impérativement saisies pour tous les éléments de données marqués obligatoires pour que l'ensemble de données soit considéré comme complet. C'est une approche objective du calcul de la complétude.
 
-Le récapitulatif du taux de génération de rapports désignera des mesures spécifiques pour chaque ligne:
+Le récapitulatif du taux de génération de rapports affichera pour chaque ligne un éventail de mesures spécifiques :
 
-- Rapports réels: indique le nombre de sauvegardes terminées de saisies pour le set de données concerné.
+- Rapports réels : indique le nombre de sauvegardes de saisies de données terminées pour l'ensemble de données concerné.
 
-- Rapports prévus: indique le nombre prévu de saisies de données terminées. Ce nombre est basé sur le nombre d'unités d'organisation auxquelles le set de données a été affecté (activé pour la saisie de données).
+- Rapports prévus : indique le nombre prévu de saisies de données terminées. Ce nombre est basé sur le nombre d'unités d'organisation auxquelles l'ensemble de données a été affecté (activé pour la saisie de données).
 
-- Pourcentage: Le pourcentage de rapports enregistrés comme complets sur le nombre prévu.
+- Pourcentage : Le pourcentage de rapports enregistrés comme complets sur le nombre prévu.
 
-- Rapports à temps: identiques aux rapports réels, uniquement les rapports enregistrés en tant que compléts pendant le nombre maximum de jours après la fin de la période de reporting. Ce nombre de jours qui suit la période de reporting peut être défini pour chaque set de données dans la gestion des sets de données.
+- Rapports à temps : identiques aux rapports réels, uniquement les rapports enregistrés comme compléts pendant le nombre maximum de jours suivant la fin de la période de rapport. Ce nombre de jours suivant la période de rapport peut être défini pour chaque ensemble de données dans la gestion des ensembles de données.
 
-- Pourcentage sur le temps: Identique au pourcentage, uniquement les rapports enregistrés en tant que complétes à l'heure utilisée comme numérateur.
+- Pourcentage à temps : Identique au pourcentage, uniquement les rapports enregistrés comme complets à l'heure utilisée comme numérateur.
 
-Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous:
+Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous :
 
 - Sélectionnez une unité d'organisation dans l'arborescence.
 
-- Sélectionnez l'une des méthodes de complétude à utiliser pour calculer le les taux de rapport.
+- Sélectionnez l'une des méthodes de complétude à utiliser pour calculer les taux de rapport.
 
-  Sélectionnez tout ou un set de données. Tous vont générer un rapport avec toutes les sets de données pour l'unité d'organisation sélectionnée. Un seul set de données générera un rapport complet pour tous les enfants de l'unité d'organisation sélectionnée.
+  Sélectionnez tous ou un ensemble de données. En sélectionnant tous, vous aurez un rapport avec tous les ensembles de données de l'unité d'organisation sélectionnée. En sélectionnant un seul ensemble de données, vous aurez un rapport complet pour tous les enfants de l'unité d'organisation sélectionnée.
 
 - Sélectionnez un type de période et une période dans la liste des périodes disponibles pour ce type de période. Reculez/avancez d'un an en utilisant les boutons précédent/suivant.
 
-- Le rapport sera alors généré. Modifiez l'un des paramètres ci-dessus et le rapport se mettre à jour automatiquement.
+- Le rapport sera alors généré. Modifiez l'un des paramètres ci-dessus et le rapport se mettra automatiquement à jour.
 
 ![](resources/images/content/user/dhis2UserManual/completeness_report.png)
 
-## Utilisation des rapports de distribution des unités d'organisation
+## Utiliser des rapports de distribution des unités d'organisation
 
 <!--DHIS2-SECTION-ID:using_reporting_orgunit_distribution_reports-->
 
-Vous pouvez accéder aux rapports de distribution des unités d'organisation depuis le menu à gauche dans Applications-\>Rapports.
+Vous pouvez accéder aux rapports de distribution des unités d'organisation à partir du menu à gauche dans Applications-\>Rapports.
 
-Les rapports de distribution d'unités d'org montrent comment les unités d'org sont distribuées sur diverses propriétés comme le type et la titularité, et par zones géographiques.
+Les rapports de distribution d'unités d'organisation montrent comment les unités d'organisation sont distribuées sur diverses propriétés comme le type et la propriété, et ceci par zones géographiques.
 
 Le résultat peut être présenté dans un rapport sous forme de tableau ou dans un graphique.
 
-**Exécution d'un rapport:**
+**Exécuter un rapport:**
 
-Pour générer un rapport, sélectionnez d'abord une unité d'org dans l'arborescence des unités d'org en haut à gauche. Le rapport sera basé sur les unités d'organisations situées sous l'unité d'org sélectionnée. Sélectionnez le groupe d'orgunit que vous souhaitez utiliser, généralement il s'agit des types suivants, la propriété, rural/urbain, mais peuvent également être définis par l'utilisateur. Vous pouvez cliquer sur le bouton Générer un rapport pour obtenir la présentation sous forme de tableau ou un graphique pour le même résultat. Vous pouvez également le télécharger sous un autre format tel que PDF, Excel et CSV.
+Pour générer un rapport, sélectionnez d'abord une unité d'organisation dans l'arborescence des unités d'organisation en haut à gauche. Le rapport sera basé sur les unités d'organisations situées sous l'unité d'organisation sélectionnée. Sélectionnez le groupe d'unités d'organisation que vous souhaitez utiliser. Il s'agit généralement du Type, de la Propriété, Rural/Urbain, mais ils peuvent également être un ensemble de groupes d'unités d'organisation définis par l'utilisateur. Vous pouvez cliquer sur le bouton Générer un rapport pour obtenir la présentation sous forme de tableau ou Générer un graphique pour avoir le même résultat sous forme de graphique. Vous pouvez également le télécharger sous d'autres formats tels que PDF, Excel et CSV.
 
 ![](resources/images/content/user/dhis2UserManual/orgunit_report.png)
 
-## Générer des tables d'analyse
+## Générer des tableaux analytiques
 
 <!--DHIS2-SECTION-ID:generate_analytics_tables-->
 
@@ -6867,19 +5601,19 @@ DHIS2 génère des tables de bases de données que le système utilise ensuite c
 
 > **Note**
 >
-> Vous pouvez également générer les tables via l'API Web. Cette tâche est généralement effectuée par un administrateur système.
+> Vous pouvez également générer les tables via l'interface de programmation Web. Cette tâche est généralement effectuée par un administrateur système.
 
 1.  Ouvrez l'application **Administration des données** et cliquez sur **Tables d'Analyse**.
 
-2.  Sélectionnez les parties du processus d'analyse que vous souhaitez ignorer:
+2.  Sélectionnez les parties du processus d'analyse que vous souhaitez ignorer :
 
-    - **Ignorez la génération des tables de ressources**
+    - **Ignorer la génération des tableaux de ressources**
 
     - **Ignorer la génération de données agrégées et de données de complétude**
 
-    - **Ignorez la génération de données d'événement**
+    - **Ignorer la génération de données d'événement**
 
-    - **Ignorez la génération des données d'inscription**
+    - **Ignorer la génération des données d'inscription**
 
 3.  Sélectionnez **Nombre de dernières années de données à inclure**.
 
@@ -6891,7 +5625,7 @@ DHIS2 génère des tables de bases de données que le système utilise ensuite c
 
 A new Reports app (Beta) is introduced in release 2.32 and serves as an optional replacement of the original [Reports app](#using_reporting), offering a more intuitive and user-friendly interface. Unlike the previous Reports app, however, it does not support Data Approvals.
 
-## Utilisation des rapports standard
+## Utiliser des rapports standards
 
 <!--DHIS2-SECTION-ID:standard_reports_in_the_beta_reports_app-->
 
@@ -6901,27 +5635,27 @@ You access the available reports by navigating to Apps-\>Reports (Beta). In the 
 
 You run/view a report by clicking on the triple-dot icon of the report and then selecting "Create" from the contextual menu. If there are any pre-defined parameters, you will see a report parameter window where you must fill in the values needed for orgunit and/or reporting month, depending on what has been defined in the underlying report table(s). Click on "Generate Report" when you are ready. The report will either appear directly in your browser or be available as a PDF file for download, depending on your browser settings for handling PDF files. You can save the file and keep it locally on your computer for later use.
 
-## Utilisation des rapports de sets de données
+## Utiliser des rapports des ensembles de données
 
 <!--DHIS2-SECTION-ID:dataset_reports_in_the_beta_reports_app-->
 
-Les rapports de sets de données sont un des vues simple et imprimable de l'écran de saisie de données avec des données brutes ou agrégées. Ils ne sont disponibles que pour les sets de données ayant un modèle de saisie de données personnalisé mis en place contrairement au modèles par défaut et par section.
+Les rapports des ensembles de données sont des vues de données adaptées à l'impression de l'écran de saisie de données ayant des données brutes ou agrégées. Ils ne sont disponibles que pour les ensembles de données ayant des formulaires de saisie de données personnalisés et non pour les formulaires par défaut et à section.
 
 You can access data set reports from Apps-\>Reports (Beta).
 
-Une fenêtre de critères apparaît dans laquelle vous renseignez les détails de votre rapport:
+Une fenêtre de critères, dans laquelle vous renseignez les détails de votre rapport, apparaît :
 
-**Set de données:** Les données que vous souhaitez afficher.
+**Ensemble de données:** L'ensemble de données que vous souhaitez afficher.
 
 **Report period:** The actual period you want data for. This can be aggregated as well as raw periods. This means that you can ask for a quarterly or annual report even though the data set is collected monthly. A data set's period type (collection frequency) is defined in data set maintenance. First select the period type (Monthly, Quarterly, Yearly etc.) in the drop down next to Prev and Next buttons, and then select one of the available periods from the dropdown list below. Use Prev and Next to jump one year back or forward.
 
-**Utiliser des données pour l'unité sélectionnée uniquement:** Utilisez cette option si vous souhaitez un rapport pour une unité d'org qui a des ramifications (enfants), mais que vous avez besoin des données collectées directement que par cette unité et non par ses enfants. Si vous souhaitez un rapport agrégé typique pour une unité d'org spécifique, ne cochez pas cette option.
+**Utiliser les données uniquement pour l'unité sélectionnée :** Utilisez cette option si vous souhaitez avoir un rapport pour une unité d'organisaton ayant des ramifications (enfants), mais seulement si vous avez besoin des données collectées directement par cette unité et non par ses enfants. Si vous souhaitez un rapport agrégé typique pour une unité d'organisation spécifique, ne cochez pas cette option.
 
 **Report Organisation unit:** Here you select the orgunit you want the report for. This can be at any level in the hierarchy as the data will be aggregated up to this level automatically (if you do not tick the option above).
 
-Lorsque vous avez fini de rentrer les critères du rapport, cliquez sur "Génénrer". Le rapport apparaîtra sous format HTML et imprimable. Utilisez les fonctions d'impression et d'enregistrement dans le navigateur pour imprimer ou enregistrer le rapport (en tant que fichier HTML). Vous pouvez également exporter le rapport du set de données dans Excel et en formats PDF.
+Lorsque vous avez fini de rentrer les critères du rapport, cliquez sur "Générer". Le rapport apparaîtra sous format HTML et imprimable. Utilisez les fonctions d'impression et d'enregistrement dans le navigateur pour imprimer ou sauvegarder le rapport (sous forme de fichier HTML). Vous pouvez également exporter le rapport de l'ensemble de données aux formats Excel et PDF.
 
-## Utilisation du récapitulatif du taux de génération de rapports
+## Utiliser le résumé du taux de génération de rapports
 
 <!--DHIS2-SECTION-ID:reporting_rate_summary_in_the_beta_reports_app-->
 
@@ -6929,19 +5663,19 @@ Access the reporting rate summary from the Apps-\>Reports (Beta) menu. Reporting
 
 The reporting rate is calculation is based on complete data set registrations. A complete data set registration refers to a user marking a data entry form as complete, typically by clicking the complete button in the data entry screen, hereby indicating to the system that she considers the form to be complete. This is i.e. a subjective approach to calculating completeness.
 
-Le récapitulatif du taux de génération de rapports désignera des mesures spécifiques pour chaque ligne:
+Le récapitulatif du taux de génération de rapports affichera pour chaque ligne un éventail de mesures spécifiques :
 
-- Rapports réels: indique le nombre de sauvegardes terminées de saisies pour le set de données concerné.
+- Rapports réels : indique le nombre de sauvegardes de saisies de données terminées pour l'ensemble de données concerné.
 
-- Rapports prévus: indique le nombre prévu de saisies de données terminées. Ce nombre est basé sur le nombre d'unités d'organisation auxquelles le set de données a été affecté (activé pour la saisie de données).
+- Rapports prévus : indique le nombre prévu de saisies de données terminées. Ce nombre est basé sur le nombre d'unités d'organisation auxquelles l'ensemble de données a été affecté (activé pour la saisie de données).
 
 - Reporting rate: The percentage of reports registered as complete based on the number expected.
 
-- Rapports à temps: identiques aux rapports réels, uniquement les rapports enregistrés en tant que compléts pendant le nombre maximum de jours après la fin de la période de reporting. Ce nombre de jours qui suit la période de reporting peut être défini pour chaque set de données dans la gestion des sets de données.
+- Rapports à temps : identiques aux rapports réels, uniquement les rapports enregistrés comme compléts pendant le nombre maximum de jours suivant la fin de la période de rapport. Ce nombre de jours suivant la période de rapport peut être défini pour chaque ensemble de données dans la gestion des ensembles de données.
 
 - Reporting rate on time: Same as percentage, only reports registered as complete on time used as numerator.
 
-Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous:
+Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous :
 
 - Sélectionnez une unité d'organisation dans l'arborescence.
 
@@ -6953,13 +5687,13 @@ Pour exécuter le rapport, vous pouvez suivre les étapes ci-dessous:
 
 ![](resources/images/content/user/dhis2UserManual/react_reports_app_reporting_rate_summary.png)
 
-## Utilisation des ressources
+## Utiliser les ressources
 
 <!--DHIS2-SECTION-ID:resources_in_the_beta_reports_app-->
 
-L'outil de ressources vous permet de télécharger les fichiers de votre répertoire local au serveur DHIS et d'ajouter des liens vers d'autres ressources sur Internet via des liens URL. Si le stockage en cloud est configuré pour votre système, les ressources y seront sauvegardées.
+L'outil de ressources vous permet de télécharger les fichiers de votre répertoire local au serveur DHIS et d'ajouter des liens vers d'autres ressources sur Internet via des liens URL. Si le stockage en nuage est configuré pour votre système, les ressources y seront sauvegardées.
 
-Pour créer une nouvelle ressource:
+Pour créer une nouvelle ressource :
 
 1.  Open the **Reports (Beta)** app and click **Resource**.
 
@@ -6971,29 +5705,29 @@ Pour créer une nouvelle ressource:
 
 5.  Cliquez sur **Sauvegarder**.
 
-## Utilisation des rapports de distribution des unités d'organisation
+## Utiliser des rapports de distribution des unités d'organisation
 
 <!--DHIS2-SECTION-ID:orgunit_distribution_reports_in_the_beta_reports_app-->
 
 You can access the Orgunit Distribution reports from the left side menu in the Apps-\>Reports (Beta).
 
-Les rapports de distribution d'unités d'org montrent comment les unités d'org sont distribuées sur diverses propriétés comme le type et la titularité, et par zones géographiques.
+Les rapports de distribution d'unités d'organisation montrent comment les unités d'organisation sont distribuées sur diverses propriétés comme le type et la propriété, et ceci par zones géographiques.
 
 Le résultat peut être présenté dans un rapport sous forme de tableau ou dans un graphique.
 
-**Exécution d'un rapport:**
+**Exécuter un rapport:**
 
 To run a report first select an orgunit in the upper left side orgunit tree. The report will be based on orgunits located under the selected orgunit. The select the orgunit group set that you want to use, typically these are Type, Ownership, Rural/Urban, but can be any user-defined orgunit group set. The you can click on either Get Report to get the table-based presentation or Get chart to get the same result in a chart. You can also download the table-based report as Excel or CSV.
 
 ![](resources/images/content/user/dhis2UserManual/react_reports_app_org_unit_dist.png)
 
-# Définir les préférences du compte
+# Définir les préférences du compte d'utilisateur
 
 <!--DHIS2-SECTION-ID:user_account_preferences-->
 
-Dans **Paramètres de l'utilisateur**, vous pouvez modifier la langue d'affichage de DHIS2 et la langue de la base de données. La langue de la base de données est la traduction du contenu des métadonnées, tels que des éléments de données et des indicateurs. Vous pouvez choisir également un style d'affichage et activez ou désactivez la réception des SMS et e-mails. Si vous le souhaitez, vous pouvez utiliser un nom abrégé, tel que "Joe" dans les modules d'analyse, au lieu d'utiliser votre nom complet.
+Dans **Paramètres de l'utilisateur**, vous pouvez modifier la langue d'affichage de DHIS2 et la langue de la base de données. La langue de la base de données est la traduction du contenu des métadonnées, tels que des éléments de données et des indicateurs. Vous pouvez également choisir un style d'affichage et activez ou désactivez la réception des SMS et e-mails. Si vous le souhaitez, vous pouvez utiliser un nom abrégé, tel que "Joe" dans les modules d'analyse, au lieu d'utiliser votre nom complet.
 
-Dans **Profil de l'utilisateur**, vous pouvez ajouter des informations personnelles à votre profil comme votre adresse électronique, votre numéro de téléphone mobile, votre date de naissance, votre photo de profil et plus. Lorsque vous envoyez des messages, la personne qui les reçoit peut visualiser ces détails de votre profil. Vous pouvez également fournir des noms de compte pour divers services de messagerie directe, qui seront utilisés par le système.
+Dans **Profil de l'utilisateur**, vous pouvez ajouter des informations personnelles à votre profil comme votre adresse électronique, votre numéro de téléphone mobile, votre date de naissance, votre photo de profil et plus. Lorsque vous envoyez des messages, la personne qui les reçoit pouvant voir ces détails de votre profil. Vous pouvez également fournir des noms de compte pour divers services de messagerie directes, qui seront utilisés par le système.
 
 Dans **Paramètres du compte**, vous pouvez réinitialiser votre mot de passe et configurer l'authentification à 2 facteurs. La configuration de l'authentification à 2 facteurs requiert le téléchargement de l'application Google Authenticator sur votre appareil mobile.
 
@@ -7147,7 +5881,7 @@ See also:
 
 [Mange push reports](https://docs.dhis2.org/master/en/user/html/manage_push_report.html)
 
-## Workflow
+## Déroulement
 
 <!--DHIS2-SECTION-ID:user_mgt_workflow-->
 
@@ -7278,30 +6012,6 @@ The list of users will be filtered to only include users which have been assigne
 
 <!--DHIS2-SECTION-ID:user_manage_password-->
 
-The following rules apply when you create a new password:
-
-- Password must contain at least one special character, that is any character other then alphabets and digit numbers.
-
-- Password must contain at least one upper case character.
-
-- Password must contain at least one digit number.
-
-- Password can not contain user's user name or email address.
-
-- Password can not contain generic words for example _system_, _admin_, _user_, _login_, _manager_ etc.
-
-- Password can not be one of the previous 24 passwords the user has used.
-
-  This doesn't apply in case a super user resets the password for another user.
-
-- Password must contain more than minimum number of characters.
-
-  > **Note**
-  >
-  > You can configure the minimum number of characters: Open the **System Settings** app and click **Access** \> **Minimum characters in password**.
-
-- Password can not contain more than 40 characters
-
 To change a user's password:
 
 1.  Open the **Users** app and click **User**.
@@ -7311,6 +6021,28 @@ To change a user's password:
 3.  Enter a new password and retype it.
 
 4.  Cliquez sur **Sauvegarder**.
+
+#### Password requirements
+
+The following rules apply when you create a new password. The password must:
+
+- Contain at least 8 characters. Note that this number is configurable through the system setting "Minium characters in password", which can be up to 14 characters.
+
+- Not contain more than 40 characters.
+
+- Contain at least one special character (non-alphanumeric character).
+
+- Contain at least one upper-case character.
+
+- Contain at least one lower-case character.
+
+- Contain at least one digit (number).
+
+- Not contain the username or email address of the user account.
+
+- Not contain generic words such as _system_, _admin_, _user_, _login_, and _manager_.
+
+- Not be one of the previous 24 passwords the user has used. This does not apply in case when a super user resets the password for another user.
 
 ### Delete user objects
 
@@ -7326,7 +6058,7 @@ To change a user's password:
 
 2.  In the object list, click the menu icon of the relevant object and select **Show details**.
 
-### Disable a user's Two Factor Authentication
+### Disable Two Factor Authentication for a user
 
 If a user has enabled Two Factor Authentication and then loses access to his/her authentication device (e.g. smartphone gets lost or broken), this user will not be able to log into the system any more. To solve this issue, a user manager can disable Two Factor Authentication for the affected user, so that the user is able to access the system again using just a password.
 
@@ -7745,7 +6477,7 @@ In the **Maintenance** app, you manage the following and category objects:
 </tbody>
 </table>
 
-### Workflow
+### Déroulement
 
 <!--DHIS2-SECTION-ID:workflow_category-->
 
@@ -7771,11 +6503,9 @@ When possible, recycle category options. For instance, there might be two catego
 
     1.  **Name**
 
-    2.  **Short name**
+    2.  **Start date**
 
-    3.  **Start date**
-
-    4.  **End date**
+    3.  **End date**
 
 4.  Select organisation units and assign them.
 
@@ -8071,7 +6801,7 @@ In the **Maintenance** app, you manage the following data elements objects:
 </tbody>
 </table>
 
-### Workflow
+### Déroulement
 
 <!--DHIS2-SECTION-ID:workflow_data_element-->
 
@@ -8111,11 +6841,22 @@ In the **Maintenance** app, you manage the following data elements objects:
 
 8.  In the **Description** field, type a description of the data element. Be as precise as possible and include complete information about how the data element is measured and what its purpose is.
 
-9.  In the **Form name** field, type an alternative name of the data element. This name can be used in either section or automatic data entry forms. The form name is applied automatically.
+9.  (Optional) In the **Field mask** field, you may type a template that's used to provide hints for correct formatting of the data element in Capture and Tracker Capture apps. The following are special characters that can be used in the mask. The special characters match exactly one character of the given type.
 
-10. In the **Domain type** field, select whether the data element is an aggregate or tracker type of data element.
+    | Character | Match                      |
+    | --------- | -------------------------- |
+    | \\d       | digit                      |
+    | \\x       | lower case letter          |
+    | \\X       | capital letter             |
+    | \\w       | any alphanumeric character |
 
-11. In the **Value type** field, select the type of data that the data element will record.
+    For example, the pattern can be used to show hyphens as needed in the input field of the data element. E.g "\d\d\d-\d\d\d-\d\d\d, would show a hyphen for every third digit.
+
+10. In the **Form name** field, type an alternative name of the data element. This name can be used in either section or automatic data entry forms. The form name is applied automatically.
+
+11. In the **Domain type** field, select whether the data element is an aggregate or tracker type of data element.
+
+12. In the **Value type** field, select the type of data that the data element will record.
 
     <table>
     <caption>Value types</caption>
@@ -8233,7 +6974,7 @@ In the **Maintenance** app, you manage the following data elements objects:
     </tbody>
     </table>
 
-12. In the **Aggregation type** field, select the default aggregation operation that will be used on the data element.
+13. In the **Aggregation type** field, select the default aggregation operation that will be used on the data element.
 
     Most data elements should have the **Sum** operator. This includes all data elements which should be added together. Other data elements, such as staffing levels, should be set to use the **Average** operator, when values along the time dimension should not be added together, but rather averaged.
 
@@ -8289,27 +7030,27 @@ In the **Maintenance** app, you manage the following data elements objects:
     </tbody>
     </table>
 
-13. If you want to save zeros for a particular reason, select **Store zero data values**. By default, DHIS2 does not store zeros entered in the data entry module.
+14. If you want to save zeros for a particular reason, select **Store zero data values**. By default, DHIS2 does not store zeros entered in the data entry module.
 
-14. In the **URL** field, enter a link to an in-depth description of the data element.
+15. In the **URL** field, enter a link to an in-depth description of the data element.
 
     For example a link to a metadata repository or registry that contains detailed technical information about the definition and measurement of the data element.
 
-15. In the **Category combination** field, define which category combination the data element should have. This is also known as the "disaggregation".
+16. In the **Category combination** field, define which category combination the data element should have. This is also known as the "disaggregation".
 
-16. Select an **Option set**.
+17. Select an **Option set**.
 
     Option sets are predefined lists of options which can be used in data entry.
 
-17. Select an **Option set for comments**.
+18. Select an **Option set for comments**.
 
     Option sets for comments are predefined lists of options which can be used to specify standardized comments for data values in data entry.
 
-18. Assign one or multiple **Legends**.
+19. Assign one or multiple **Legends**.
 
-    Legends are used in for example the **GIS** app to display certain data elements with certain icons.
+    Legends are used in for example the **Maps** app to display certain data elements with certain icons.
 
-19. Set the **Aggregation levels** to allow the data element to be aggregated at one or more levels:
+20. Set the **Aggregation levels** to allow the data element to be aggregated at one or more levels:
 
     1.  In the left pane, select the levels you want to assign to the data element.
 
@@ -8319,13 +7060,13 @@ In the **Maintenance** app, you manage the following data elements objects:
 
     If you select both "District" and "Chiefdom", it means that the "District" and "National" level aggregates use District data as their source, "Chiefdom" will use Chiefdom, and "PHU" will use PHU.
 
-20. If applicable, enter custom attributes values, for example **Classification** or **Collection method**.
+21. If applicable, enter custom attributes values, for example **Classification** or **Collection method**.
 
     > **Note**
     >
     > You create custom attributes in the **Maintenance** app: **Other** > \> **Attributes**.
 
-21. If applicable, select compulsory data element group sets, for example **Main data element group** or **Tracker-based data**.
+22. If applicable, select compulsory data element group sets, for example **Main data element group** or **Tracker-based data**.
 
     > **Note**
     >
@@ -8333,7 +7074,7 @@ In the **Maintenance** app, you manage the following data elements objects:
     >
     > You create data element group sets in the **Maintenance** app: **Data element** \> **Date element group set**.
 
-22. Cliquez sur **Sauvegarder**.
+23. Cliquez sur **Sauvegarder**.
 
 ### Create or edit a data element group
 
@@ -8479,7 +7220,7 @@ DHIS2 provides functionality for translations of database content, for example d
 
 5.  Cliquez sur **Sauvegarder**.
 
-## Manage data sets and data entry forms
+## Gérer les ensembles de données et les formulaires de saisie de données
 
 <!--DHIS2-SECTION-ID:manage_data_set-->
 
@@ -8539,19 +7280,19 @@ You enter data in the **Data entry** app. The **Data entry** app uses data entry
 
 > **Note**
 >
-> Si un un set de données possède à la fois un modèle par section et un modèle personnalisé, le système affiche le modèle personnalisé durant la saisie de données. L'utilisateur qui saisit la donnée ne peut pas choisir la forme qui lui convient. Dans le cas de saisie de données sur le web, l'ordre de préférence d'affichage est:
+> Si un ensemble de données possède à la fois un formulaire par section et un formulaire personnalisé, le système affiche le formulaire personnalisé durant la saisie de données. L'utilisateur qui saisit les données n'a pas la possibilité de choisir le formulaire qui lui convient. Dans le cas de saisie de données sur le web, l'ordre de préférence d'affichage est :
 >
-> 1.  Modèle personnalisé (si il existe)
+> 1.  Formulaire personnalisé (s'il existe)
 >
-> 2.  Modèle par section(si il existe)
+> 2.  Formulaire par section (s'il existe)
 >
-> 3.  Modèle par défaut
+> 3.  Formulaire par défaut
 >
-> Les appareils mobiles ne prennent pas en chagre les modèles personnalisés. Dans le cas de la saisie de donnée sur appareil mobile, l'ordre de de préférence d'affichage est :
+> Les appareils mobiles ne prennent pas en charge les formulaires personnalisés. Dans le cas de la saisie de données sur appareil mobile, l'ordre de de préférence d'affichage est :
 >
-> 1.  Modèle par section(si il existe)
+> 1.  Formulaire par section (s'il existe)
 >
-> 2.  Modèle par défaut
+> 2.  Formulaire par défaut
 
 In the **Maintenance** app, you manage the following data set objects:
 
@@ -8589,7 +7330,7 @@ In the **Maintenance** app, you manage the following data set objects:
 </tbody>
 </table>
 
-### Workflow
+### Déroulement
 
 <!--DHIS2-SECTION-ID:workflow_data_set-->
 
@@ -9369,7 +8110,7 @@ In the **Maintenance** app, you manage the following indicator objects:
 </tbody>
 </table>
 
-### Workflow
+### Déroulement
 
 <!--DHIS2-SECTION-ID:workflow_indicator-->
 
@@ -9707,7 +8448,7 @@ In the **Maintenance** app, you manage the following organisation unit objects:
 </tbody>
 </table>
 
-### Workflow
+### Déroulement
 
 <!--DHIS2-SECTION-ID:workflow_organisation_unit-->
 
@@ -9779,7 +8520,7 @@ You add organisation units to the hierarchy one by one, either as a root unit or
 
 13. (Optional) Enter **Latitude** and **Longitude**.
 
-    You must have latitude and longitude values to create maps in the **GIS** app. Then your organisation units can be represented as points on a map, for example a health facility. Without this information, the **GIS** app will not work.
+    You must have latitude and longitude values to create maps in the **Maps** app. Then your organisation units can be represented as points on a map, for example a health facility. Without this information, the **Maps** app will not work.
 
     It might be more efficient to import coordinates later as a batch job for all organisation units using the **Import-Export** app. You also use the **Import-Export** app to create polygons. A polygon is an organisation unit that represent an administrative boundary.
 
@@ -9827,7 +8568,7 @@ Organisation unit groups allow you to classify related organisation units into a
 
     3.  **Code**
 
-    4.  **Symbol**: Select a symbol which will be used to display the organisation unit (points only) when the layer is displayed in the **GIS** app.
+    4.  **Symbol**: Select a symbol which will be used to display the organisation unit (points only) when the layer is displayed in the **Maps** app.
 
 4.  In the organisation tree, click the organisation units you want to add to the organisation unit group.
 
@@ -9927,7 +8668,7 @@ Dynamic additional classification
 
 <!--DHIS2-SECTION-ID:name_organisation_unit_level-->
 
-When you add children to an organisation unit, DHIS2 automatically creates a new organisation unit level if necessary. The system also assigns a generic name to this level, for example "Level 5". You can replace the generic name with a contextual name, for example "Country", "Province", "District" or "Health Facility". DHIS2 uses the contextual names anywhere levels are referred to, for example in the **GIS** app.
+When you add children to an organisation unit, DHIS2 automatically creates a new organisation unit level if necessary. The system also assigns a generic name to this level, for example "Level 5". You can replace the generic name with a contextual name, for example "Country", "Province", "District" or "Health Facility". DHIS2 uses the contextual names anywhere levels are referred to, for example in the **Maps** app.
 
 1.  Open the **Maintenance** app and click **Organisation unit** \> **Organisation unit level**.
 
@@ -10939,7 +9680,7 @@ DHIS2 provides functionality for translations of database content, for example d
 
 <!--DHIS2-SECTION-ID:about_legend-->
 
-You can create, edit, clone, delete, show details and translate legends to make the maps you're setting up for your users meaningful. You create maps in the **GIS** app.
+You can create, edit, clone, delete, show details and translate legends to make the maps you're setting up for your users meaningful. You create maps in the **Maps** app.
 
 > **Note**
 >
@@ -11124,13 +9865,13 @@ DHIS2 provides functionality for translations of database content, for example d
 
 ### Assign a legend to indicator or data element
 
-You can assign a legend to an indicator or a data element in the **Maintenance** app, either when you create the object or edit it. When you then select the indicator or data element in the **GIS** app, the system automatically selects the assigned legend.
+You can assign a legend to an indicator or a data element in the **Maintenance** app, either when you create the object or edit it. When you then select the indicator or data element in the **Maps** app, the system automatically selects the assigned legend.
 
 ### Voir également
 
 <!--DHIS2-SECTION-ID:see_also_legend-->
 
-- [Utiliser l'application GIS](https://docs.dhis2.org/master/en/user/html/using_gis.html)
+- [Utiliser l'application SIG](https://docs.dhis2.org/master/en/user/html/using_gis.html)
 
 ## Manage predictors
 
@@ -11256,7 +9997,7 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
 
     The value is rounded according to the value type of the data element: If the value type is an integer type, the predicted value is rounded to the nearest integer. For all other value types, the number is rounded to four significant digits. (However if there are more than four digits to the left of the decimal place, they are not replaced with zeros.)
 
-7.  (Optional) Select an **Output category combo**. This dropdown will only show if the selected data element has category-combos attached to it. If this is the case, you can select which categoryCombo you would like to use.
+7.  (Optional) Select an **Output category combo**. This dropdown will only show if the selected data element has categoryCombos attached to it. If this is the case, you can select which categoryCombo you would like to use.
 
 8.  Select a **Period type**.
 
@@ -11264,11 +10005,16 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
 
 10. Create a **Generator**. The generator is the expression that is used to calculate the predicted value.
 
+
     1.  Type a **Description** of the generator expression.
 
-    2.  Enter the generator expression. You can build the expression by selecting data elements for aggregate data, or program data elements, attributes or indicators. Organisation unit counts are not yet supported.
+    2.  Enter the generator expression. You can build the expression by
+        selecting data elements for aggregate data, or program data
+        elements, attributes or indicators. Organisation unit counts are
+        not yet supported.
 
-        To use sampled, past period data, you should enclose any items you select in one of the following aggregate functions:
+        To use sampled, past period data, you should enclose any items
+        you select in one of the following aggregate functions:
 
         <table>
         <colgroup>
@@ -11283,41 +10029,64 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         </thead>
         <tbody>
         <tr class="odd">
-        <td><p>AVG</p></td>
-        <td><p>Average (mean) value</p></td>
+        <td><p>avg(x)</p></td>
+        <td><p>Average (mean) value of x</p></td>
         </tr>
         <tr class="even">
-        <td><p>COUNT</p></td>
-        <td><p>Count of the data values</p></td>
+        <td><p>count(x)</p></td>
+        <td><p>Count of the values of x</p></td>
         </tr>
         <tr class="odd">
-        <td><p>MAX</p></td>
-        <td><p>Maximum value</p></td>
+        <td><p>max(x)</p></td>
+        <td><p>Maximum value of x</p></td>
         </tr>
         <tr class="even">
-        <td><p>MEDIAN</p></td>
-        <td><p>Median value</p></td>
+        <td><p>median(x)</p></td>
+        <td><p>Median value of x</p></td>
         </tr>
         <tr class="odd">
-        <td><p>MIN</p></td>
-        <td><p>Minimum value</p></td>
+        <td><p>min(x)</p></td>
+        <td><p>Minimum value of x</p></td>
         </tr>
         <tr class="even">
-        <td><p>STDDEV</p></td>
-        <td><p>Standard deviation</p></td>
+        <td><p>percentileCont(p, x)</p></td>
+        <td><p>Continuous percentile of x, where p is the percentile as a floating point number between 0 and 1. For example, p = 0 will return the lowest value, p = 0.5 will return the median, p = 0.75 will return the 75th percentile, p = 1 will return the highest value, etc. Continuous means that the value will be interpolated if necessary. For example, percentileCont( 0.5, #{FTRrcoaog83} ) will return 2.5 if the sampled values of data element FTRrcoaog83 are 1, 2, 3, and 4.</p></td>
         </tr>
         <tr class="odd">
-        <td><p>SUM</p></td>
-        <td><p>Sum of the values</p></td>
+        <td><p>stddev(x)</p></td>
+        <td><p>Standard deviation of x. Note: this function is still available for backwards comptibility and is eqivalent to stddevPop. It's suggested that you use the newer functions stddevPop or stddevSamp instead for greater clarity and for compatibility with future versions of DHIS 2.</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>stddevPop(x)</p></td>
+        <td><p>Population standard deviation of x: sqrt( sum( (x - avg(x))^2 ) / n )</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>stddevSamp(x)</p></td>
+        <td><p>Sample standard deviation of x: sqrt( sum( (x - avg(x))^2 ) / ( n - 1 ) ). Note that this value is not computed when there is only one sample.</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p>sum(x)</p></td>
+        <td><p>Sum of the values of x</p></td>
         </tr>
         </tbody>
         </table>
 
-        Any items inside an aggregate function will be evaluated for all sampled past periods, and then combined according to the formula inside the aggregate function. Any items outside an aggregate function will be evaluated for the period in which the prediction is being made.
+        Any items inside an aggregate function will be evaluated for all
+        sampled past periods, and then combined according to the formula
+        inside the aggregate function. Any items outside an aggregate
+        function will be evaluated for the period in which the
+        prediction is being made.
 
-        You can build more complex expressions by clicking on (or typing) any of the elements below the expression field: ( ) \* / + - Days. Constant numbers may be added by typing them. The Days option inserts \[days\] into the expression which resolves to the number of days in the period from which the data came.
+        You can build more complex expressions by clicking on (or
+        typing) any of the elements below the expression field:
+        ( ) \* / + - Days.
+        Constant numbers may be added by typing them. The Days
+        option inserts \[days\] into the expression which resolves to
+        the number of days in the period from which the data came.
 
-        You can also use the following functions in your expression, either inside or containing aggregate functions, or independent of them:
+        You can also use the following functions in your expression,
+        either inside or containing aggregate functions, or independent
+        of them:
 
         <table>
         <colgroup>
@@ -11332,17 +10101,23 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         </thead>
         <tbody>
         <tr class="odd">
-        <td><p>IF(test, valueIfTrue, valueIfFalse)</p></td>
+        <td><p>if(test, valueIfTrue, valueIfFalse)</p></td>
         <td><p>Evaluates <strong>test</strong> which is an expression that evaluates to a boolean value -- see <strong>Boolean expression notes</strong> below. If the test is <strong>true</strong>, returns the <strong>valueIfTrue</strong> expression. If it is <strong>false</strong>, returns the <strong>valueIfFalse</strong> expression.</p></td>
         </tr>
         <tr class="even">
-        <td><p>ISNULL(item)</p></td>
+        <td><p>isNull(item)</p></td>
         <td><p>Returns the boolean value <strong>true</strong> if the <strong>item</strong> is null (missing), otherwise returns <strong>false</strong>. The <strong>item</strong> can be any selected item from the right (data element, program data element, etc.).</p></td>
         </tr>
         </tbody>
         </table>
 
-        **Boolean expression notes:** A boolean expression must evaluate to **true** or **false**. The following operators may be used to compare two values resulting in a boolean expression: \<, \>, \!=, ==, \>=, and \<=. The following operators may be used to combine two boolean expressions: && (logical and), and || (logical or). The unary operator \! may be used to negate a boolean expression.
+        **Boolean expression notes:** A boolean expression must evaluate
+        to **true** or **false**. The following operators may be used to
+        compare two values resulting in a boolean expression: \<, \>,
+        \!=, ==, \>=, and \<=. The following operators may be used to
+        combine two boolean expressions: && (logical and), and ||
+        (logical or). The unary operator \! may be used to negate a
+        boolean expression.
 
         Generator expression examples:
 
@@ -11359,19 +10134,19 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         </thead>
         <tbody>
         <tr class="odd">
-        <td><p>SUM(#{FTRrcoaog83.tMwM3ZBd7BN})</p></td>
+        <td><p>sum(#{FTRrcoaog83.tMwM3ZBd7BN})</p></td>
         <td><p>Sum of the sampled values of data element FTRrcoaog83 and category option combination (disaggregation) tMwM3ZBd7BN</p></td>
         </tr>
         <tr class="even">
-        <td><p>AVG(#{FTRrcoaog83}) + 2 * STDDEV(#{FTRrcoaog83})</p></td>
-        <td><p>Average of the sampled values of of data element FTRrcoaog83 (sum of all disaggregations) plus twice its standard deviation</p></td>
+        <td><p>avg(#{FTRrcoaog83}) + 2 * stddevSamp(#{FTRrcoaog83})</p></td>
+        <td><p>Average of the sampled values of of data element FTRrcoaog83 (sum of all disaggregations) plus twice its sample standard deviation</p></td>
         </tr>
         <tr class="odd">
-        <td><p>SUM(#{FTRrcoaog83}) / SUM([days])</p></td>
+        <td><p>sum(#{FTRrcoaog83}) / sum([days])</p></td>
         <td><p>Sum of all sampled values of data element FTRrcoaog83 (sum of all disaggregations) divided by the number of days in all sample periods (resulting in the overall average daily value)</p></td>
         </tr>
         <tr class="even">
-        <td><p>SUM(#{FTRrcoaog83}) + #{T7OyqQpUpNd}</p></td>
+        <td><p>sum(#{FTRrcoaog83}) + #{T7OyqQpUpNd}</p></td>
         <td><p>Sum of all sampled values of data element FTRrcoaog83 plus the value of data element T7OyqQpUpNd in the period being predicted for</p></td>
         </tr>
         <tr class="odd">
@@ -11379,13 +10154,21 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         <td><p>1.2 times the value of data element T7OyqQpUpNd in the period being predicted for</p></td>
         </tr>
         <tr class="even">
-        <td><p>IF(ISNULL(#{T7OyqQpUpNd}), 10, 20)</p></td>
+        <td><p>if(isNull(#{T7OyqQpUpNd}), 10, 20)</p></td>
         <td><p>If the data element T7OyqQpUpNd is null, then 10, otherwise 20.</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p>percentileCont(0.5, #{T7OyqQpUpNd})</p></td>
+        <td><p>Continuous 50th percentile of the sampled values for data element T7OyqQpUpNd. Note that this is the same as median(#{T7OyqQpUpNd})</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>if(count(#{T7OyqQpUpNd}) == 1, 0, stddevSamp(#{T7OyqQpUpNd}))</p></td>
+        <td><p>If there is one sample value present for data element T7OyqQpUpNd, then 0, otherwise the sample standard deviation of these sample values. (Note that if no samples are present then the stddevSamp returns no value, so no value is predicted.)</p></td>
         </tr>
         </tbody>
         </table>
 
-11. (Optional) Create a **Sample skip test**. The sample skip test tells which previous periods if any to exclude from the sample.
+10. (Optional) Create a **Sample skip test**. The sample skip test tells which previous periods if any to exclude from the sample.
 
     1.  Type a **Description** of the skip test.
 
@@ -11422,19 +10205,19 @@ Any periods for which the _Sample skip test_ is _true_ will not be sampled. For 
         </tbody>
         </table>
 
-12. Enter a **Sequential sample count** value.
+11. Enter a **Sequential sample count** value.
 
     This is for how many sequential periods the calculation should go back in time to sample data for the calculations.
 
-13. Enter an **Annual sample count** value.
+12. Enter an **Annual sample count** value.
 
     This is for how many years the calculation should go back in time to sample data for the calculations.
 
-14. (Optional) Enter a **Sequential skip count** value.
+13. (Optional) Enter a **Sequential skip count** value.
 
     This is how many sequential periods, immediately preceding the predicted value period, should be skipped before sampling the data.
 
-15. Cliquez sur **Sauvegarder**.
+14. Cliquez sur **Sauvegarder**.
 
 ### Create or edit a predictor group
 
@@ -11728,7 +10511,7 @@ You can customize GIS by including map layers from various sources and combine t
 
 3.  In the **Name** field, type a name that describes the content of the external map layer.
 
-    This is the name you'll see in the **GIS** app.
+    This is the name you'll see in the **Maps** app.
 
 4.  (Optional) In the **Code** field, assign a code.
 
@@ -11758,9 +10541,9 @@ You can customize GIS by including map layers from various sources and combine t
 
 8.  Select a **Placement**:
 
-    - **Bottom - basemap**: For the GIS app, this places the external map layer above other DHIS2 base maps but below the thematic map layers. For the Maps app, this makes the external map layer selectable as the base map (i.e. as an alternative to the DHIS2 base maps).
+    - **Bottom - basemap**: For the Maps app, this makes the external map layer selectable as the base map (i.e. as an alternative to the DHIS2 base maps).
 
-    - **Top - overlay**: For the GIS app, this places the external map layer above the thematic map layers but below facility and event data layers. For the Maps app, this allows the external map to be added from the Add Layer selection and placed anywhere above the base map.
+    - **Top - overlay**: For the Maps app, this allows the external map to be added from the Add Layer selection and placed anywhere above the base map.
 
 9.  (Optional) Add a legend.
 
@@ -12025,28 +10808,28 @@ To create a program, you must first configure several types of metadata objects.
 </tr>
 <tr class="even">
 +<td><p>Tracker program</p></td>
-+<td><p>A program to record single event without registration</p></td>
++<td><p>A program to record single or multiple events with registration</p></td>
 +<td><p>Create, edit, share, delete, show details and translate</p></td>
 +</tr>
 <tr class="even">
 <td><p>Program indicator</p></td>
 <td><p>An expression based on data elements and attributes of tracked entities which you use to calculate values based on a formula.</p></td>
-<td><p>Create, edit, share, delete, show details and translate</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
 <tr class="odd">
 <td><p>Program rule</p></td>
 <td><p>Allows you to create and control dynamic behaviour of the user interface in the <strong>Tracker Capture</strong> and <strong>Event Capture</strong> apps.</p></td>
-<td><p>Create, edit, delete, show details and translate</p></td>
+<td><p>Create, edit, clone, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
 <td><p>Program rule variable</p></td>
 <td><p>Variables you use to create program rule expressions.</p></td>
-<td><p>Create, edit, delete, show details and translate</p></td>
+<td><p>Create, edit, clone, delete, show details and translate</p></td>
 </tr>
 <tr class="odd">
 <td><p>Relationship type</p></td>
 <td><p>Defines the relationship between tracked entity A and tracked entity B, for example mother and child.</p></td>
-<td><p>Create, edit, clone, delete, show details and translate</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
 <td><p>Tracked entity type</p></td>
@@ -12056,7 +10839,7 @@ To create a program, you must first configure several types of metadata objects.
 <p><strong>Note</strong></p>
 <p>A program must be specified with only one tracked entity. Only tracked entity as same as the tracked entity of program can enroll into that program.</p>
 </blockquote></td>
-<td><p>Create, edit, clone, delete, show details and translate</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
 <tr class="odd">
 <td><p>Tracked entity attribute</p></td>
@@ -12072,17 +10855,17 @@ To create a program, you must first configure several types of metadata objects.
 <tr class="even">
 <td><p>Program stage</p></td>
 <td><p>A program stage defines which actions should be taken at each stage.</p></td>
-<td><p>Create, edit, change sort order, delete, show details and translate</p></td>
+<td><p>Create, edit, share, change sort order, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
 <td><p>Program indicator group</p></td>
 <td><p>A group of program indicators</p></td>
-<td><p>Create, edit, delete, show details and translate</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
 <tr class="odd">
 <td><p>Validation rule</p></td>
 <td><p>A validation rule is based on an expression which defines a relationship between data element values.</p></td>
-<td><p>Create, edit and delete</p></td>
+<td><p>Create, edit, clone, share, delete, show details and translate</p></td>
 </tr>
 <tr class="even">
 <td><p>Program notification</p></td>
@@ -12568,9 +11351,1119 @@ Change roles and access:
 
 <!--DHIS2-SECTION-ID:configure_tracker_program_in_Maintenance_app-->
 
+### About Tracker programs
+
+Single or multiple event programs _with_ registration are called Tracker programs. A program must be specified with only one tracked entity. Only tracked entities that are the same as the tracked entity of program can enroll into that program. A program needs several types of metadata that you create in the **Maintenance** apps.
+
+### Workflow: Create a tracker program
+
+<!--DHIS2-SECTION-ID:workflow_tracker_program-->
+
+1.  Enter the tracker program details.
+
+2.  Enter enrollment details.
+
+3.  Assign attributes and create **section** or **custom** registration form.
+
+4.  Create program stages.
+
+5.  Configure access, and assign to organisation units.
+
+6.  Create program and program stage notification(s).
+
+### Create or edit a Tracker program
+
+1. Open the **Maintenance** app and click **Program** \> **Program**.
+
+2. Click the add button and select **Tracker Program** in the popup menu.
+
+3. Enter program details:
+
+   <table>
+       <colgroup>
+           <col style="width: 50%" />
+           <col style="width: 50%" />
+       </colgroup>
+       <thead>
+           <tr class="header">
+               <th><p>Field</p></th>
+               <th><p>Description</p></th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr class="odd">
+               <td>
+                   <p><strong>Name</strong></p>
+               </td>
+               <td><p>The name of the program.</p></td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Color</strong></p>
+               </td>
+               <td><p>Color used for this program in Tracker capture.</p></td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Icon</strong></p>
+               </td>
+               <td><p>Icon used for this program in Tracker capture</p></td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Short name</strong></p>
+               </td>
+               <td>
+                   <p>
+                       A short name of the program. The short name is used as the
+                       default chart or table title in the analytics apps.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Description</strong></p>
+               </td>
+               <td><p>A detailed description of the program.</p></td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Version</strong></p>
+               </td>
+               <td>
+                   <p>
+                       The version of the program. This is used for example when
+                       people collect data offline in an Android implementation.
+                       When they go online and synchronize their metadata, they
+                       should get the latest version of the program.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Tracked Entity Type</strong></p>
+               </td>
+               <td>
+                   <p>
+                       The tracked entity type you want to use. A program can only
+                       have one type of tracked entity.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Category combination</strong></p>
+               </td>
+               <td>
+                   <p>
+                       The category combination you want to use. The default
+                       setting is <strong>None</strong>.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Display front page list</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Select checkbox to display a list of Tracked Entity
+                       Instances in Tracker Capture. If not selected, the Search
+                       will be displayed.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>First stage appears on registration page</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Select checkbox to display the first program stage together
+                       with the registration (enrollment).
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Access level</strong></p>
+               </td>
+               <td><p>Choose the access level of the program.</p></td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Completed events expiry days</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Defines the number of days for which you can edit a
+                       completed event. This means that when an event is completed
+                       and the specified number of expiry days has passed, the
+                       event is locked.
+                   </p>
+                   <p>
+                       If you set &quot;Completed events expiry days&quot; to
+                       10&quot;, an event is locked ten days after the completion
+                       date. After this date you can no longer edit the event.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Expiry period type</strong></p>
+                   <p><strong>Expiry days</strong></p>
+               </td>
+               <td>
+                   <p>
+                       The expiry days defines for how many days after the end of
+                       the previous period, an event can be edited. The period type
+                       is defined by the expiry period type. This means that when
+                       the specified number of expiry days has passed since the end
+                       date of the previous period, the events from that period are
+                       locked.
+                   </p>
+                   <p>
+                       If you set the expiry type to &quot;Monthly&quot; and the
+                       expiry days to &quot;10&quot; and the month is October, then
+                       you can't add or edit an event to October after the 10th of
+                       November.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <strong>Minimum number of attributes required to search</strong>
+               </td>
+               <td>
+                   <p>
+                       Specify the number of tracked entity attributes that needs
+                       to be filled in to search for Tracked Entities in the
+                       Program.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <strong>Maximum number of tracked entity instances to return in
+                       search</strong>
+               </td>
+               <td>
+                   <p>
+                       Specify the maximum number of tracked entity instances that
+                       should be returned in a search. Enter 0 for no limit.
+                   </p>
+               </td>
+           </tr>
+       </tbody>
+   </table>
+
+4. Enter enrollment details:
+   <table>
+       <colgroup>
+           <col style="width: 50%" />
+           <col style="width: 50%" />
+       </colgroup>
+       <thead>
+           <tr class="header">
+               <th><p>Field</p></th>
+               <th><p>Description</p></th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr class="odd">
+               <td><strong>Allow future enrollment dates</strong></td>
+               <td>
+                   <p>
+                       Select checkbox if you want to allow tracked entity
+                       instances to be enrolled in the program on a future date.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td><strong>Allow future incident dates</strong></td>
+               <td>
+                   <p>
+                       Select checkbox if you want to allow the incident date in
+                       the program to be on a future date.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <strong>Only enroll once (per tracked entity instance lifetime)</strong>
+               </td>
+               <td>
+                   <p>
+                       Select checkbox if you want a tracked entity to be able to
+                       enroll only once in a program. This setting is useful for
+                       example in child vaccination or post-mortem examination
+                       programs where it wouldn’t make sense to enroll a tracked
+                       entity more than once.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td><strong>Show incident date</strong></td>
+               <td>
+                   <p>
+                       This setting allows you to show or hide the incident date
+                       field when a tracked entity enroll in the program.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td><strong>Description of incident date</strong></td>
+               <td>
+                   <p>Type a description of the incident date</p>
+                   <p>For example:</p>
+                   <p>In an immunization program for child under 1 year old, the
+                       incident date is the child's birthday. </p>
+                   <p>In a maternal program, the incident date is the date of last
+                       menstrual period. </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td><strong>Type a description of the enrollment date</strong></td>
+               <td>
+                   <p>
+                       The date when the tracked entity is enrolled into the
+                       program
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td><strong>Ignore overdue events</strong></td>
+               <td>
+                   <p>
+                       When a tracked entity enrolls into the program, the events
+                       corresponding to the program stages are created. If you
+                       select this checkbox, the system will not generate overdue
+                       events.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td><strong>Feature type</strong></td>
+               <td>
+                   <p>
+                       Sets wether the program is going to capture a geographical
+                       feature type or not.
+                   </p>
+                   <ul>
+                   <li><strong>None:</strong>Nothing is captured.</li>
+                   <li><strong>Polygon:</strong> An area is captured. For single
+                   event programs the area will be the area representing the
+                   event being captured. For tracker programs, the area will
+                   represent the area of the enrollment. </li>
+                   <li><strong>Point:</strong>: A point/coordinate is captured. For
+                   single event programs the point will be representing the
+                   event being captured. For tracker programs, the point will
+                   represent the enrollment. </li>
+                   </ul>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td><strong>Related program</strong></td>
+               <td>
+                   <p>
+                       Choose a Tracker program which is related to the program you
+                       are creating, for example an ANC and a Child program.
+                   </p>
+               </td>
+           </tr>
+       </tbody>
+   </table>
+
+#### Assign tracked entity attributes.
+
+<!--DHIS2-SECTION-ID:assign_tracked_entity_attributes-->
+
+1. In the list of **Available program tracked entity attributes**, double-click the attributes you want to assign to the program.
+
+2. (Opptional) For each assigned attribute, add additional settings:
+   <table>
+           <colgroup>
+               <col style="width: 50%" />
+               <col style="width: 50%" />
+           </colgroup>
+           <thead>
+               <tr class="header">
+                   <th><p>Setting</p></th>
+                   <th><p>Description</p></th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr class="odd">
+                   <td>
+                       <p><strong>Display in list</strong></p>
+                   </td>
+                   <td>
+                       <p>
+                           Displays the value of this attribute in the list of tracked
+                           entity instances in Tracker capture.
+                       </p>
+                   </td>
+               </tr>
+               <tr class="even">
+                   <td>
+                       <p><strong>Mandatory</strong></p>
+                   </td>
+                   <td>
+                       <p>
+                           The value of this attribute must be filled into data entry
+                           form before you can complete the event.
+                       </p>
+                   </td>
+               </tr>
+               <tr class="odd">
+                   <td>
+                       <p><strong>Date in future</strong></p>
+                   </td>
+                   <td>
+                       <p>
+                           Will allow user to select a date in future for date
+                           attributes.
+                       </p>
+                   </td>
+               </tr>
+               <tr class="even">
+                   <td>
+                       <p><strong>Mobile render type</strong></p>
+                   </td>
+                   <td>
+                       <p>
+                           Can be used to select different render types for mobile
+                           devices. Available options vary depending on the attribute's
+                           value type. For example, for a numerical value you may
+                           select &quot;Default&quot;, &quot;Value&quot;,
+                           &quot;Slider&quot;, &quot;Linear scale&quot;, and
+                           &quot;Spinner&quot;.
+                       </p>
+                   </td>
+               </tr>
+               <tr class="odd">
+                   <td>
+                       <p><strong>Desktop render type</strong></p>
+                   </td>
+                   <td>
+                       <p>WARNING: NOT IMPLEMENTED YET.</p>
+                       <p>
+                           Can be used to select different render types for desktop
+                           (i.e. the web interface). Available options vary depending
+                           on the attribute's value type. For example, for a numerical
+                           value you may select &quot;Default&quot;, &quot;Value&quot;,
+                           &quot;Slider&quot;, &quot;Linear scale&quot;, and
+                           &quot;Spinner&quot;.
+                       </p>
+                   </td>
+               </tr>
+           </tbody>
+   </table>
+
+#### Create program stages
+
+<!--DHIS2-SECTION-ID:create_program_stages-->
+
+A program consist of program stages. A program stage defines which actions should be taken at each stage.
+
 > **Note**
 >
-> From release 2.27, you create event programs (programs without registration) in the **Maintenance** app. You still create tracker programs (programs with registration) in the **Program / Attributes** app.
+> Changes to a program stage is not saved until you save the program.
+
+1. Click the plus sign to create a program stage.
+2. Enter program stage details: 1. Enter a **Name**. 2. (Optional) select a **Color** and an **Icon** that will be used by the data capture apps to identify this program stage. 3. Enter a **Description**. 4. In the **Scheduled days from start** field, enter the minimum number of days to wait for starting the program stage.
+3. Enter repeatable program stage details. 1. Specify if the program stage is **Repeatable** or not. 2. Select a **Period type**. 3. Clear **Display generate event box after completed** if you don't want to display _Create new event box_ to create new event for a repeatable stage after you click _Complete_ for an event of the stage in data entry form. This field is selected by default. 4. Enter **Standard interval days**. The number of days to repeat the repeatable program stage.
+4. Enter form details
+
+   <table>
+       <colgroup>
+           <col style="width: 50%" />
+           <col style="width: 50%" />
+       </colgroup>
+       <thead>
+           <tr class="header">
+               <th><p>Option</p></th>
+               <th><p>Action</p></th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr class="odd">
+               <td>
+                   <p><strong>Auto-generate event</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Clear check box to prevent creating an event of this program
+                       stage automatically when a entity is enrolled in the program.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Open data entry form after enrollment</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Select check box to automatically open the event of this
+                       stage as soon as the entity has enrolled into the program.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Report date to use</strong></p>
+               </td>
+               <td>
+                   If you have selected the
+                   <strong>Open data entry form after enrollment</strong> check
+                   box, also select a <strong>Report date to use</strong>:
+                   <strong>Date of incident</strong> or
+                   <strong>Date of enrollment</strong>.
+                   <p>
+                       This is the date used as report date for an event that has
+                       been opened automatically.
+                   </p>
+                   <p>
+                       If the <strong>Report date to use</strong> is selected as
+                       one of those two ('incident date'/'enrollment date'), in
+                       Dashboard, the 'Report date' of the event will be set as one
+                       of those two.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>User assignment of events</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Select check box to enable user assignment of the program
+                       stage.
+                   </p>
+                   <p>
+                       This means that in Tracker capture there will be a list of
+                       users to which the event can be assigned.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Block entry form after completed</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Select check box to block the entry form after completion of
+                       the event of this stage.
+                   </p>
+                   <p>
+                       This means that the data in the entry form can't be changed
+                       until you reset the status to incomplete.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p>
+                       <strong>Ask user to complete program when stage is
+                           completed</strong>
+                   </p>
+               </td>
+               <td>
+                   <p>
+                       Select check box to trigger a pop-up which asks the user if
+                       he/she wants to create the event of next stage.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p>
+                       <strong>Ask user to create new event when stage is
+                           complete</strong>
+                   </p>
+               </td>
+               <td>
+                   <p>
+                       Select check box to trigger a pop-up which asks the users if
+                       he/she wants to create a new event of this stage when an
+                       event of this stage is completed.
+                   </p>
+                   <p>
+                       This property is active only if you have selected
+                       <strong>Repeatable</strong>.
+                   </p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Generate events by enrollment date</strong></p>
+               </td>
+               <td>
+                   <p>
+                       Check on it for auto-generating due dates of events from
+                       program-stages of this program based on the enrollment date.
+                       If it is not checked, the due dates are generated based on
+                       incident date.
+                   </p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Hide due dates</strong></p>
+               </td>
+               <td><p>Select checkbox to hide due dates for events.</p></td>
+           </tr>
+           <tr class="even">
+               <td><strong>Feature type</strong></td>
+               <td>
+                   <p>
+                       Sets wether the program is going to capture a geographical
+                       feature type or not.
+                   </p>
+                   <ul>
+                   <li><strong>None:</strong>Nothing is captured.</li>
+                   <li>
+                       <strong>Polygon: </strong> An area is captured. For single
+                       event programs the area will be the area representing the
+                       event being captured. For tracker programs, the area will
+                       represent the area of the enrollment.
+                   </li>
+                   <li>
+                       <strong>Point:</strong>: A point/coordinate is captured. For
+                       single event programs the point will be representing the
+                       event being captured. For tracker programs, the point will
+                       represent the enrollment.
+                   </li>
+                   </ul>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Pre-generate event UID</strong></p>
+               </td>
+               <td>
+                   <p>Select check box to pre-generate unique event id numbers.</p>
+               </td>
+           </tr>
+           <tr class="even">
+               <td>
+                   <p><strong>Description of report date</strong></p>
+               </td>
+               <td>
+                   <p>Type a description of the report date.</p>
+                   <p>This description is displayed in the data entry form.</p>
+               </td>
+           </tr>
+           <tr class="odd">
+               <td>
+                   <p><strong>Description of due date</strong></p>
+               </td>
+               <td><p>Type a description of the due date.</p></td>
+           </tr>
+       </tbody>
+   </table>
+
+5. Assign data elements to program stage:
+
+   1. In the list of **Available data elements**, double-click the data elements you want to assign to the program stage.
+
+   2. For each assigned data element, review the properties. You can select:
+
+<table>
+    <colgroup>
+        <col style="width: 50%" />
+        <col style="width: 50%" />
+    </colgroup>
+    <thead>
+        <tr class="header">
+            <th><p>Option</p></th>
+            <th><p>Action</p></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td>
+                <p><strong>Compulsory</strong></p>
+            </td>
+            <td>
+                <p>
+                    The value of this data element must be filled into data
+                    entry form before completing the event.
+                </p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>
+                <p><strong>Allow provided elsewhere</strong></p>
+            </td>
+            <td>
+                <p>
+                    Specify if the value of this data element comes from other
+                    facility, not in the facility where this data is entered.
+                </p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <p><strong>Display in reports</strong></p>
+            </td>
+            <td>
+                <p>
+                    Display the value of this data element into the single event
+                    without registration data entry function.
+                </p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>
+                <p><strong>Date in future</strong></p>
+            </td>
+            <td>
+                <p>Allow to select a date in future for date data elements.</p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <p><strong>Skip synchronization</strong></p>
+            </td>
+            <td>
+                <p>
+                    Allow data element to be skipped when running data
+                    synchronization jobs.
+                </p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>
+                <p><strong>Mobile render type</strong></p>
+            </td>
+            <td>
+                <p>
+                    Can be used to select different render types for mobile
+                    devices. Available options vary depending on the attribute's
+                    value type. For example, for a numerical value you may
+                    select &quot;Default&quot;, &quot;Value&quot;,
+                    &quot;Slider&quot;, &quot;Linear scale&quot;, and
+                    &quot;Spinner&quot;.
+                </p>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>
+                <p><strong>Desktop render type</strong></p>
+            </td>
+            <td>
+                <p>WARNING: NOT IMPLEMENTED YET.</p>
+                <p>
+                    Can be used to select different render types for desktop
+                    (i.e. the web interface). Available options vary depending
+                    on the attribute's value type. For example, for a numerical
+                    value you may select &quot;Default&quot;, &quot;Value&quot;,
+                    &quot;Slider&quot;, &quot;Linear scale&quot;, and
+                    &quot;Spinner&quot;.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+6. Create data entry forms for program stage
+
+   The data entry forms decide how the data elements will be displayed to the user in the **Tracker Capture** app.
+
+   1. Click **Create data entry form**.
+
+   2. Click **Basic**, **Section** or **Custom**.
+
+   3. To create a **Basic** data entry form: Drag and drop the data elements in the order you want.
+
+   4. To create a **Section** data entry form:
+
+      1. Click the add button and enter a section's name, description and render type for desktop and mobile.
+
+      2. Click the section so it's highlighted by a black line.
+
+      3. Add data elements by clicking the plus sign next to the data elements' names.
+
+      4. Repeat above steps until you've all the sections you need.
+
+      5. Change the section order: click the options menu, then drag the section to the place you want.
+
+      6. To create a **Custom** data entry from: Use the WYSIWYG editor to create a completely customized form. If you select **Source**, you can paste HTML code directly in the editing area. You can also insert images for example flags or logos.
+
+   5. Click add stage.
+
+#### Access
+
+<!--DHIS2-SECTION-ID:tracker_program_access-->
+
+Access options decide who can capture data for the program or view/edit the program's metadata. A program can be shared to organisation units, and in addition, the main program and any program stages' access options can be configured through the **Sharing dialog**. Access options are available in the **Access** tab.
+
+Assign organization units:
+
+1.  In the organisation tree, double-click the organisation units you want to add to the program to.
+
+    You can locate an organisation unit in the tree by expanding the branches (click on the arrow symbol), or by searching for it by name. The selected organisation units display in orange.
+
+Change roles and access:
+
+1.  Scroll down to the **Roles and access** section.
+
+    The first row shows the main program's access options, and each subsequent row shows the options of one program stage. Program stages with a warning icon (exclamation mark) contain access options that deviate from the main program, meaning they are accessed by a different combination of users.
+
+2.  Click on either of the rows and the **Sharing dialog** will show.
+
+3.  Modify the access options accordingly. See documentation on the sharing dialog for details.
+
+4.  Click the **Apply** button.
+
+5.  Repeat the process for each program/program stage. You can also copy all access options from the main program to your child programs:
+
+    1.  Select the program stages you want to have similar access options as the main program by toggling the checkboxes on the right hand side of the program stages. You can also choose to **Select all** program stages, **Deselect all** program stages or **Select similar** stages, in terms of access options, to that of the main program. Similar stages are toggled by default.
+
+    2.  Click **Apply to selected stages**
+
+#### Create program notifications
+
+<!--DHIS2-SECTION-ID:create_tracker_program_notifications-->
+
+You can create program notifications for programs with registration and their program stages. The notifications are sent either via the internal DHIS2 messaging system, via e-mail or via text messages (SMS). You can use program notifications to, for example, send an automatic reminder to a tracked entity 10 days before a scheduled appointment. You use the program’s tracked entity attributes (for example first name) and program parameters (for example enrollment date) to create a notification template.
+
+1.  Open the **Maintenance** app and click **Program and then notifications**.
+
+    A list of existing program notifications for the selected program opens. If the program doesn't have any program notifications, the list is empty.
+
+2.  Click on add button and select **Program notification**.
+
+        ![](resources/images/content/user/program/what_to_send.png)
+
+    ![](resources/images/content/user/program/where_to_send.png) ![](resources/images/content/user/program/who_to_send.png)
+
+3.  Entrez un **Nom**.
+
+4.  Create the **Subject template**.
+
+    Double-click the parameters in the **Parameters** field to add them to your subject.
+
+    > **Note**
+    >
+    > The subject is not included in text messages.
+
+5.  Create the **Message template**.
+
+    Double-click the parameter names in the **Parameters** field to add them to your message.
+
+    Dear A{w75KJ2mc4zz}, You're now enrolled in V{program_name}.
+
+6.  In the **When-to-send it** field, select what should trigger the notification.
+
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th><p>Trigger</p></th>
+    <th><p>Description</p></th>
+    <th><p>Note</p></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><p>Program enrollment</p></td>
+    <td><p>The program notification is sent when the TEI enrols in the program.</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Program completion</p></td>
+    <td><p>The program notification is sent when the program of TEI is completed</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Days scheduled (incident date)</p></td>
+    <td><p>The program notification is sent XX number of days before or after the incident date</p></td>
+    <td><p>You need to enter the number of days before or after the scheduled date that the notification will be send.</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Days scheduled (enrollment date)</p></td>
+    <td><p>The program notification is sent XX number of days before or after the enrollment date</p></td>
+    <td><p>You need to enter the number of days before or after the scheduled date that the notification will be send.</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Program Rule</p></td>
+    <td><p>Notification will be triggered as a result of program rule exeuction.</p></td>
+    <td><p>Program rule with ProgramRuleActionType.SENDMESSAGE need to be in place to make this trigger successful.</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+7)  In the **Who-to-send-it** field, select who should receive the program notification.
+
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th><p>Recipient type</p></th>
+    <th><p>Description</p></th>
+    <th><p>Note</p></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><p>Tracked entity instance</p></td>
+    <td><p>Receives program notifications via e-mail or text message.</p></td>
+    <td><p>To receive a program notification, the recipient must have an e-mail address or a phone number attribute.</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Organisation unit contact</p></td>
+    <td><p>Receives program notifications via e-mail or text message.</p></td>
+    <td><p>To receive a program notification, the receiving organisation unit must have a registered contact person with e-mail address and phone number.</p></td>
+    </tr>
+    <tr class="odd">
+    <td>Users at organisation unit:</td>
+    <td><p>All users registered to the selected organisation unit receive program notifications via the internal DHIS2 messaging system.</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>User group</p></td>
+    <td><p>All members of the selected user group receive the program notifications via the internal DHIS2 messaging system</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Limit To Hierarchy</p></td>
+    <td><p>Send notification only to those users who belong to any of the organisation unit in the hierarchy.</p></td>
+    <td><p>This option is only available when User Group is selected as recipient.</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Parent OrgUnit Only</p></td>
+    <td><p>Send notification only to those users who belong to parent organisation unit.</p></td>
+    <td><p>This option is only available when User Group is selected as recipient.</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Program Attribute</p></td>
+    <td><p>TrackedEntityAttribute can also be selected as recipient.</p></td>
+    <td><p>This parameter will only be effective if TrackedEntityAttribute value type is PHONE_NUMBER/EMAIL.</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+8)  Click **Save**.
+
+### Create a program stage notification
+
+![](resources/images/content/user/program/what_to_send-psnt.png)
+
+![](resources/images/content/user/program/what_to_send-psnt.png)
+
+![](resources/images/content/user/program/what_to_send-psnt.png)
+
+1.  Open the **Maintenance** app and click **Program and then notifications**.
+
+    A list of existing program stage notifications for the selected program stage opens. If the program stage doesn't have any program stage notifications, the list is empty.
+
+2.  Click on add button and select**Program stage notification**.
+
+3.  Cliquez sur **AJOUTER**.
+
+4.  Entrez un **Nom**.
+
+5.  Create the **Subject template**.
+
+    Double-click the parameter names in the **Parameters** field to add them to your subject.
+
+    > **Note**
+    >
+    > The subject is not included in text messages.
+
+6.  Create the **Message template**.
+
+    Double-click the parameter names in the **Parameters** field to add them to your message.
+
+    Dear A{w75KJ2mc4zz}, please come to your appointment the V{due_date}.
+
+7.  In the **When-to-send-it** field, select what should trigger the notification.
+
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th><p>Trigger</p></th>
+    <th><p>Description</p></th>
+    <th><p>Note</p></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><p>Program stage completion</p></td>
+    <td><p>The program stage notification is sent when the program stage is completed</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Days scheduled (due date)</p></td>
+    <td><p>The program stage notification is sent XX number of days before or after the due date</p></td>
+    <td><p>You need to enter the number of days before or after the scheduled date that the notification will be send.</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Program Rule</p></td>
+    <td><p>Notification will be triggered as a result of program rule execution.</p></td>
+    <td><p>Program rule with ProgramRuleActionType.SENDMESSAGE need to be in place to make this trigger successful.</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+8.  In the **Recipients** field, select who should receive the program stage notification. You can select:
+
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr class="header">
+    <th><p>Recipient type</p></th>
+    <th><p>Description</p></th>
+    <th><p>Note</p></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="odd">
+    <td><p>Tracked entity instance</p></td>
+    <td><p>Receives program notifications via e-mail or text message.</p></td>
+    <td><p>To receive a program stage notification, the recipient must have an e-mail address or a phone number attribute.</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Organisation unit contact</p></td>
+    <td><p>Receives program notifications via e-mail or text message.</p></td>
+    <td><p>To receive a program stage notification, the receiving organisation unit must have a registered contact person with e-mail address and phone number.</p>
+    <p>The system selects the same organisation unit as where the event took place.</p></td>
+    </tr>
+    <tr class="odd">
+    <td>Users at organisation unit:</td>
+    <td><p>All users registered to the selected organisation unit receive program notifications via the internal DHIS2 messaging system.</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>User group</p></td>
+    <td><p>All members of the selected user group receive the program notifications via the internal DHIS2 messaging system</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Limit To Hierarchy</p></td>
+    <td><p>Send notification only to those users who belong to any of the organisation unit in the hierarchy.</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="even">
+    <td><p>Parent OrgUnit Only</p></td>
+    <td><p>Send notification only to those users who belong to parent organisation unit.</p></td>
+    <td><p>-</p></td>
+    </tr>
+    <tr class="odd">
+    <td><p>Data Element</p></td>
+    <td><p>Data Element associated with ProgramStage can be selected as recipient.</p></td>
+    <td><p>Data Element will only be effective if DataElement has value type PHONE_NUMBER/EMAIL.</p></td>
+    </tr>
+    </tbody>
+    </table>
+
+9)  Click **Save**.
+
+### Reference information: Program notification parameters
+
+<!--DHIS2-SECTION-ID:reference_information_event_program_notification_parameters-->
+
+<table>
+<caption>Program notification parameters to use in program notifications</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><p>Notification type</p></th>
+<th><p>Variable name</p></th>
+<th><p>Variable code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Program</p></td>
+<td><p>Current date</p></td>
+<td><pre><code>V{current_date}</code></pre></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Days since enrollment date</p></td>
+<td><pre><code>V{days_since_enrollment_date}</code></pre></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>Enrollment date</p></td>
+<td><pre><code>V{enrollment_date}</code></pre></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Incident date</p></td>
+<td><pre><code>V{incident_date}</code></pre></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>Organisation unit name</p></td>
+<td><pre><code>V{org_unit_name}</code></pre></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Program name</p></td>
+<td><pre><code>V{program_name}</code></pre></td>
+</tr>
+<tr class="odd">
+<td><p>Program stage</p></td>
+<td><p>Current date</p></td>
+<td><pre><code>V{current_date}</code></pre></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Days since due date</p></td>
+<td><pre><code>V{days_since_due_date}</code></pre></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>Days until due date</p></td>
+<td><pre><code>V{days_until_due_date}</code></pre></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Due date</p></td>
+<td><pre><code>V{due_date}</code></pre></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>Organisation unit name</p></td>
+<td><pre><code>V{org_unit_name}</code></pre></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Program name</p></td>
+<td><pre><code>V{program_name}</code></pre></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p>Program stage name</p></td>
+<td><pre><code>V{program_stage_name}</code></pre></td>
+</tr>
+</tbody>
+</table>
 
 ## Configure program indicators
 
@@ -12616,7 +12509,7 @@ Program indicators are evaluated based on the assigned aggregation type, express
 <li><p>Average (Yes/No)</p></li>
 <li><p>Count</p></li>
 <li><p>Custom</p>
-<p>The &quot;custom&quot; aggregation type allows you to specify the aggregation type in-line in the expression. All other aggregation types are applied to the entire expression.</p>
+<p>The &quot;custom&quot; aggregation type allows you to specify the aggregation type in-line in the expression. All other aggregation  types are applied to the entire expression.</p>
 <p>Using the &quot;custom&quot; aggregation type might lead to an exception of the order of evaluation described above where individual parts of the expression can be evaluated and aggregated, as opposed to the entire expression being evaluated prior to aggregation.</p></li>
 <li><p>Default</p></li>
 <li><p>Max</p></li>
@@ -13100,20 +12993,20 @@ The program indicator expression and filter support a range of variables:
 <pre><code>V{program_stage_id} == &#39;YPSSfbmAtt1&#39;</code></pre></td>
 </tr>
 <tr>
-<td><p>reporting_period_start</p></td>
+<td><p>analytics_period_start</p></td>
 <td><p>Can be used in filters or expressions for comparing any date to the first date in each reporting period.</p>
-<pre><code>d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{reporting_period_start})</code></pre></td>
+<pre><code>d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{analytics_period_start})</code></pre></td>
 </tr>
 <tr>
-<td><p>reporting_period_end</p></td>
+<td><p>analytics_period_end</p></td>
 <td><p>Can be used in filters or expressions for comparing any date to the last inclusive date in each reporting period.</p></td>
 </tr>
 </tbody>
 </table>
 
-A filter that uses the "Reporting period end" variable to only include women who has an LMP that would be in the first trimester:
+A filter that uses the "Analytics period end" variable to only include women who has an LMP that would be in the first trimester:
 
-    d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{reporting_period_end}) <= 84
+    d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{analytics_period_end}) <= 84
 
 An expression that uses the "value count" variable looks like this:
 
@@ -13248,7 +13141,7 @@ In the **Maintenance** app, you manage the following program rule objects:
 </tbody>
 </table>
 
-### Workflow
+### Déroulement
 
 <!--DHIS2-SECTION-ID:workflow_program_rule-->
 
@@ -13907,6 +13800,34 @@ If the #{variableWithText} in the above example was 'ABCD', then the result of t
 <p>Example expression:</p>
 <pre><code>d2:zScoreWFA( ageInMonth, weight, gender )</code></pre></td>
 </tr>
+<tr class="odd">
+<td>d2:zScoreHFA</td>
+<td>Z-Score height for age indicator</td>
+<td>Function calculates z-score based on data provided by WHO height-for-age indicator. Its value varies between -3.5 to 3.5 depending upon the value of height.
+<p>Example expression:</p>
+<pre><code>d2:zScoreHFA( ageInMonth, height, gender )</code></pre></td>
+</tr>
+<tr class="even">
+<td>d2:zScoreWFH</td>
+<td>Z-Score weight for height indicator</td>
+<td>Function calculates z-score based on data provided by WHO weight-for-height indicator. Its value varies between -3.5 to 3.5 depending upon the value of height.
+<p>Example expression:</p>
+<pre><code>d2:zScoreWFH( height, weight, gender )</code></pre></td>
+</tr>
+<tr class="odd">
+<td>d2:minValue</td>
+<td>Get minimum value for provided item</td>
+<td>Function gets minimum value of provided data element across entire enrollment.
+<p>Example expression:</p>
+<pre><code>d2:minValue( 'blood-pressure' )</code></pre></td>
+</tr>
+<tr class="even">
+<td>d2:maxValue</td>
+<td>Get maximum value for provided item</td>
+<td>Function gets maximum value of provided data element across entire enrollment.
+<p>Example expression:</p>
+<pre><code>d2:maxValue( 'blood-pressure' )</code></pre></td>
+</tr>
 </tbody>
 </table>
 
@@ -14007,7 +13928,13 @@ If the #{variableWithText} in the above example was 'ABCD', then the result of t
 
 <!--DHIS2-SECTION-ID:about_relationship_types-->
 
-A relationship type defines the relationship between tracked entity A and tracked entity B, for example mother and child.
+A relationship represents a link between two entities in the Tracker-model. A relationship is considered data in DHIS2 and is based on a Relationship Type, similar to how a Tracked Entity Instance is based on a Tracked Entity Type.
+
+Relationships always include two entities, and these entities can include Tracked Entity Instances, Enrollments and Events, and any combination of these. Note that not all of these combinations are available in the current apps.
+
+In addition, relationships can be defined as unidirectional or bidirectional. The only functional difference is currently that these requires different levels of access to create. Unidirectional relationships requires the user to have data write access to the “from” entity and data read access for the “to” entity, while bidirectional relationships require data write access for both sides.
+
+For more information about configuration and the meaning of 'From constraint' and 'To constraint', see [Relationship model](relationship_model#relationship_model_relationship_type).
 
 ### Create or edit a relationship type
 
@@ -14021,11 +13948,19 @@ A relationship type defines the relationship between tracked entity A and tracke
 
 4.  (Optional) Assign a **Code**.
 
-5.  In the **A is to B** field, enter a description of which relationship tracked entity A has to tracked entity B, for example mother.
+5.  (Optional) Provide a **Description** of the relationship.
 
-6.  In the **B is to A** field, enter a description of which relationship tracked entity B has to tracked entity A, for example child.
+6.  (Optional) Select whether the relationship should be bidirectional
 
-7.  Cliquez sur **Sauvegarder**.
+7.  Provide **Relationship name seen from inititating entity**. This is the name of the relationship that will be shown in the Data Entry app at the 'left' side of the relationship. E.g. in a Mother-child relationship this could be 'Mother of'.
+
+8.  (Optional) Provide **Relationship name seen from receiving entity**. This is the name of the relationship that will be shown at the 'right' side of the relationship in the Data Entry app. E.g. in a Mother-child relationship this could be 'Mother'.
+
+9.  Select a 'From constraint'. This limits what kind of entities that can be included in the relationship. [Relationship model](relationship_model#relationship_model_relationship_type).
+
+10. Select a 'To constraint'. This limits what kind of entities that can be included in the relationship. [Relationship model](relationship_model#relationship_model_relationship_type).
+
+11. Cliquez sur **Sauvegarder**.
 
 ## Configure tracked entity types
 
@@ -14058,6 +13993,17 @@ Tracked entity attributes are used to register extra information for a tracked e
 6.  (Optional) In the **Code** field, assign a code.
 
 7.  (Optional) Type a **Description**.
+
+8.  (Optional) In the **Field mask** field, you may type a template that's used to provide hints for correct formatting of the attribute in Capture and Tracker Capture apps. The following are special characters that can be used in the mask. The special characters match exactly one character of the given type.
+
+    | Character | Match                      |
+    | --------- | -------------------------- |
+    | \\d       | digit                      |
+    | \\x       | lower case letter          |
+    | \\X       | capital letter             |
+    | \\w       | any alphanumeric character |
+
+For example, the pattern can be used to show hyphens as needed in the input field of the data element. E.g "\d\d\d-\d\d\d-\d\d\d, would show an hyphen for every third digit.
 
 8.  Select an **Option set**.
 
@@ -14271,7 +14217,7 @@ Tracked entity attributes are used to register extra information for a tracked e
 
 7.  (Optional) Enter a **Maximum number of tracked entity instances to return in search**. This specifies the amount of tracked entity instances that will be returned in a _global search_. See [Configure Search](../search/search.xml#configure_search) for more information.
 
-8.  (Optional) Add **Tracked entity type attributes**. This is used to configure search, see [Configure Search](../search/search.xml#configure_search) for more information.
+8.  (Optional) Add **Tracked entity type attributes**. This is used to configure search, see [Configure Search](configure_search) for more information.
 
 9.  (Optional) Enter an **Alternative name** of the tracked entity.
 
@@ -14353,7 +14299,7 @@ To be able to search in other organisation units than the users data capture org
 
 3.  Open **Assign search organisation units**
 
-4.  Sélectionner les unités d'organisation
+4.  Sélectionnez les unités d'organisation
 
 5.  Click **Save**
 
@@ -15169,7 +15115,7 @@ Any errors are marked by the editor. If you hover over the error icon, you can v
 
 ![](resources/images/content/user/datastore_manager/datamgr_editcode_error.png)
 
-# Configure the GIS app
+# Configure the Maps app
 
 <!--DHIS2-SECTION-ID:gis_creating-->
 
@@ -15177,7 +15123,7 @@ Any errors are marked by the editor. If you hover over the error icon, you can v
 
 <!--DHIS2-SECTION-ID:gis_creating_context-->
 
-Setting up the GIS simply means storing coordinates for the organisation units you want to show on the map in the database. Coordinates are often distributed in proprietary formats and will need to be converted to a format which DHIS2 understands. ESRI shapefiles are the most common geospatial vector data format for desktop applications. You might find shapefiles for your country [here](http://www.diva-gis.org/gdata) or in many other geospatial data repositories on the web. Some amount of work needs to be done in order to use these coordinates in DHIS2 GIS, namely transforming the data into a suitable format and ensuring the name which are contained in the geospatial data match exactly with the names of the organization units which they should be matched to.
+Setting up the Maps simply means storing coordinates for the organisation units you want to show on the map in the database. Coordinates are often distributed in proprietary formats and will need to be converted to a format which DHIS2 understands. ESRI shapefiles are the most common geospatial vector data format for desktop applications. You might find shapefiles for your country [here](http://www.diva-gis.org/gdata) or in many other geospatial data repositories on the web. Some amount of work needs to be done in order to use these coordinates in DHIS2 GIS, namely transforming the data into a suitable format and ensuring the name which are contained in the geospatial data match exactly with the names of the organization units which they should be matched to.
 
 If you go to the organisation unit module and edit one of the units, you can see a text field called Coordinates. Here you may fill in its coordinates directly (geojson format) which is useful if you just want to update a couple of units.
 
@@ -16428,7 +16374,7 @@ Each snapshot of metadata export generated is referred to a metadata version. A 
 >
 > You can also use the **Import-Export** app to synchronize metadata manually.
 
-## Workflow
+## Déroulement
 
 1.  On the central instance, configure metadata versioning. You should do this once the central instance contains metadata.
 
@@ -17985,95 +17931,96 @@ The preferred way, is to generate and reserve the needed values (The number of v
 
 The other way might be useful in specific cases. The user will supply the value themselves and as long as the value supplied is valid for the TextPattern, they can put anything they want. The caveat of doing it this way, is that you might use values that was reserved by someone else and if you have a SEQUENTIAL segment, the counter will not be updated.
 
-# A propos du serveur démo, le forfait live et la conception de base de données
+# À propos du serveur démo, du DHIS Live et de la conception de base de données
 
 <!--DHIS2-SECTION-ID:moare_about_dhis2_server_database-->
 
 ## Utilisation du serveur démo de DHIS2
 
-L'équipe DHIS2 gère un serveur de démonstration dont l'adresse est <https://play.dhis2.org/demo>. C'est le moyen le plus simple pour essayer DHIS2. Il suffit d'ouvrir le lien dans votre navigateur web et vous connecter nom d'utilisateur = admin et mot de passe = district.
+L'équipe DHIS2 gère un serveur démo dont l'adresse est <https://play.dhis2.org/demo>. C'est le moyen le plus simple pour essayer DHIS2. Il suffit d'ouvrir le lien dans votre navigateur et vous connecter  en utilisant : nom dutilisateur/pseudo = admin et le mot de passe = district.
 
 > **Note**
 >
 > Toutes les modifications effectuées sur ce serveur sont supprimées chaque soir. Ne sauvegardez aucun travail important sur ce serveur. Il est exclusivement conçu pour des fins de démonstration\!
 
-## Utilisation du forfait live de DHIS2
+## Utiliser le DHIS2 Live
 
 <!--DHIS2-SECTION-ID:mod2_1-->
 
-### Démarrer avec le forfait live de DHIS2
+### Démarrer avec le forfait DHIS2 Live
 
-Le forfait live de DHIS2 est le moyen le plus simple d'utiliser DHIS2 sur votre ordinateur local. Le forfait live DHIS2 est convenable pour une installation et des démos indépendantes. Il suffit de télécharger l'application sur ce [lien](http://www.dhis2.org/downloads). Une fois le fichier téléchargé, vous pouvez simplement double-cliquer sur le fichier téléchargé, et commencer à utiliser DHIS2.
+DHIS2 Live est le moyen le plus simple d'utiliser DHIS2 sur votre ordinateur local. DHIS2 Live est un exécutable comportant des démos. Il suffit de télécharger l'application sur ce [lien](http://www.dhis2.org/downloads). Une fois le fichier téléchargé, vous pouvez simplement double-cliquer sur le fichier téléchargé, et commencer donc l'utilisation de DHIS2.
 
-#### Les prérequis pour utiliser DHIS2 Live
+#### Les conditions d'utilisation de DHIS2 Live
 
-Vous devez vous assurer d'avoir une version actualisée de JAVA Runtime sur votre dispositif. Selon votre système d'exploitation, il existe différentes méthodes pour installer JAVA. Vous pouvez vous référer à ce [siteweb](http://java.sun.com/javase/downloads/index.jsp) pour plus détails sur l'installation de JAVA.
+Assurez-vous que vous disposez d'une version actualisée de JAVA Runtime sur votre ordinateur. Selon votre système d'exploitation, il existe différentes méthodes d'installation de JAVA. Pour plus de détails sur l'installation de JAVA, vous pouvez vous référer a [siteweb](http://java.sun.com/javase/downloads/index.jsp).
 
-#### À partir d'une base de données vide
+#### Commencer avec une base de données vièrge
 
-Le forfait live inclut une base de données de démonstration semblable à celle sur la [démo en ligne](http://apps.dhis2.org/demo/) (qui est basée sur l'indice HMIS national de la Sierra Leone), et si vous souhaitez commencer avec un système/base de données vierge et construire votre propre système vous devez suivre les étapes suivantes:
+DHIS2 Live est doté d'une base de données de démonstration semblable à celle sur la [démo en ligne](http://apps.dhis2.org/demo/) (basée sur l'indice HMIS national de la Sierra Léone), et si vous souhaitez commencer avec un système/base de données vierge et construire votre propre système vous devez donc suivre les étapes suivantes :
 
-1\) Arrêtez DHIS2 live s'il est en cours d'exécution. Faites un clic droit sur l'icône barre de taches et sélectionnez Quitter. La barre de taches est le symbole vert en bas à droite de votre écran(sur Windows) qui devrait afficher 'Serveur DHIS2 en cours d'exécution' quand vous pointez votre curseur sur l'icône.
+1\) Arrêtez DHIS2 Live s'il est en cours d'exécution. Faites un clic droit sur l'icône dans la barre des tâches et sélectionnez Quitter. La barre des tâches est le symbole vert en bas à droite de votre écran(sur Windows) qui devrait afficher 'Serveur DHIS2 en cours d'exécution' quand vous pointez votre curseur sur l'icône.
 
-2\) Ouvrez le dossier dans lequel DHIS2 forfait live est installé et localisez le dossier nommé "conf".
+2\) Ouvrez le dossier dans lequel DHIS2 Live est installé et localisez le dossier nommé "conf".
 
-3\) Dans conf/ ouvrez le fichier nommé 'hibernate.properties' dans un éditeur de texte, (notepad ou similaires) et exécutez les modifications suivantes: localisez l'adresse 'jdbc:h2:./database/dhis2' et remplacez de la partie 'dhis2' par un nom que vous souhaitez attribuer à votre base de données. (e.g. dhis2_test).
+3\) Dans conf/ ouvrez le fichier nommé 'hibernate.properties' dans un éditeur de texte, (notepad ou similaires) et exécutez les modifications suivantes : localisez l'adresse 'jdbc:h2:./database/dhis2' et remplacez 'dhis2' par un nom que vous souhaitez attribuer à votre base de données. (e.g. dhis2_test).
 
-4\) Sauvegardez et quittez le fichier hibernate.properties.
+4\) Enregistrez et fermez le fichier hibernate.properties.
 
-5\) Démarrez DHIS2 Live en double-cliquant sur le fichier dhis2-live.exe dans le fichier d'installation de DHIS2 Live en utilisant un raccourci sur le bureau ou un lien de menu que pouvez éventuellement configurer.
+5\) Démarrez DHIS2 Live en double-cliquant sur le fichier dhis2-live.exe dans le dossier d'installation de DHIS2 Live ou en utilisant un raccourci sur le bureau ou un lien de menu que pouvez éventuellement configurer.
 
-6\) Attendez que l'écran de connexion s'affiche sur la fenêtre de votre navigateur, puis connectez-vous avec les identifiants nom d'utilisatuer: admin et mot de passe: district
+6\) Attendez que l'écran de connexion s'affiche sur la fenêtre de votre navigateur, puis connectez-vous avec les identifiants : 
+Nom d'utilisatuer : admin et Mot de passe : district
 
-7\) Maintenant vous verrez un système DHIS2 vierge et vous devriez commencer par ajouter vos utilisateurs, hiérarchie organisationnelle, éléments de données, sets de données, etc. Veuillez vous référer aux autres sections du manuel d'utilisateur.
+7\) Vous verrez maintenant un système DHIS2 complètement vierge et vous devriez commencer par ajouter vos utilisateurs, votre hiérarchie organisationnelle, vos éléments de données, vos jeux de données, etc. Veuillez vous référer aux autres sections du manuel d'utilisateur pour de plus amples informations sur la manière de procéder. 
 
 ### Télécharger et installer la version serveur
 
-La dernière version stable de la version serveur peut être téléchargée à partir de ce [siteweb](http://stable.dhis2.org/). Pour plus d'informations sur son installation, veuillez vous reporter au chapitre d'installation dans le manuel d'implémentation.
+La dernière version stable de la version serveur peut être téléchargée à partir de ce [siteweb](http://stable.dhis2.org/). Pour plus d'informations sur son installation, veuillez vous reporter au chapitre Installation dans le manuel d'implémentation.
 
 ## Se connecter à DHIS2
 
 <!--DHIS2-SECTION-ID:mod2_2-->
 
-Que vous ayez installé la version serveur de la version live sur ordinateur ou non, vous devrez utiliser un navigateur web pour vous connecter à l'application. DHIS2 est compatible avec les versions récentes de navigateurs, cependant vous devez vous assurer que Java Script est activé
+Que vous ayez installé la version serveur de la version bureau de Live ou non, vous devrez utiliser un navigateur web pour vous connecter à l'application. DHIS2 est compatible avec les versions récentes de navigateurs. Cependant, vous devez vous assurer que Java Script est activé.
 
-Pour vous connecter à l'application, allez à l'adresse <http://localhost:8080/dhis> si vous utilisez DHIS2 forfait live, ou remplacez `localhost` par le nom ou adresse IP du serveur dans lequel la version serveur est installée.
+Pour vous connecter à l'application, allez à l'adresse <http://localhost:8080/dhis> si vous utilisez DHIS2 Live, ou remplacez `localhost` par le nom ou l'adresse IP du serveur dans lequel la version serveur est installée.
 
-Dès que vous avez démarré DHIS2, en-ligne ou hors-ligne, l'écran qui s'affiche vous invite à entrer votre nom d'utilisateur et mot de passe. Après avoir entré les informations nécessaires, cliquez sur le bouton se connecter pour vous connecter à l'application. Le nom d'utilisateur et mot de passe par défaut sont respectivement 'admin' et 'district'. Il est recommandé de les modifier dès votre première connexion.
+Dès que vous démarrez DHIS2, en-ligne ou hors-ligne, l'écran qui s'affiche vous invite à entrer votre nom d'utilisateur et mot de passe. Après avoir entré les informations nécessaires, cliquez sur le bouton se connecter pour vous connecter à l'application. Le nom d'utilisateur et mot de passe par défaut sont respectivement 'admin' et 'district'. Il est recommandé de les modifier dès votre première connexion.
 
 ![](resources/images/content/user/getting_started/login.png)
 
-Vous pouvez sélectionner la langue dans laquelle vous souhaiter utiliser DHIS2 à partir de la boîte de dialogue "Changer de langue" en bas de l'écran. Certaines langues ne sont pas disponibles.
+Vous pouvez sélectionner la langue dans laquelle vous souhaitez utiliser DHIS2 à partir de la boîte de dialogue "Changer de langue" en bas de l'écran. Il faut toutefois noter que certaines langues ne sont pas disponibles.
 
-Si vous avez oublié votre mot de passe, vous pouvez cliquer sur le lien "Mot de passe oublié". Vous devez avoir prélablement entré votre adresse électronique sur DHIS2 et le serveur doit être configuré correctement pour envoyer des emails.
+Si vous avez oublié votre mot de passe, vous pouvez cliquer sur le lien "Mot de passe oublié". Vous devez avoir prélablement entré votre adresse électronique sur DHIS2 et le serveur doit être correctement configuré pour envoyer des emails.
 
-Si vous souhaitez créer votre propre compte (et le serveur administrateur le permet), cliquez simplement sur "Créer un compte" et suivez les instructions.
+Si vous souhaitez créer votre propre compte (ce que le serveur administrateur permet), cliquez simplement sur "Créer un compte" et suivez les instructions.
 
-Une fois connecté à DHIS2, reportez-vous aux sections spécifiques de ce manuel pour connaître les différentes fonctionnalités disponibles.
+Une fois connecté à DHIS2, reportez-vous aux sections spécifiques de ce manuel pour savoir les différentes fonctionnalités disponibles.
 
 ## Se déconnecter de DHIS2
 
 <!--DHIS2-SECTION-ID:mod2_4-->
 
-Cliquez simplement sur le Profil puis sur "Se déconnecter" en haut à droite dans le menu DHIS2.
+Cliquez simplement sur Profil puis sur "Se déconnecter" en haut à droite dans le menu DHIS2.
 
-## Introduction rapide à la conception d'une base de données DHIS2
+## Brève introduction sur la conception d'une base de données DHIS2
 
 <!--DHIS2-SECTION-ID:database_design-->
 
-DHIS2 offre un ensemble de divers outils pour la collecte de données, la validation, le reporting et l'analyse de données, mais le contenu de la base de données, ex. ce qu'il faut collecter, par qui et sous quel format dépendra du contexte d'utilisation. Cependant, pour utiliser DHIS2, vous devez d'abord créer des métadonées. Les métadonnées, ou données sur les données, décrivent ce qui doit être collecté (éléments de données et catégories), ou cela doit être collecté (unités d'organisation) et à quelle fréquence il doit être collecté (périodes). Ces métadonnées doivent être créées dans la base de données DHIS2 pour qu'elles puissent être utilisées. Cela peut se faire à partir de l'interface de utilisateur et ne nécessite pas de programmation ni de compétences techniques pointues, mais requiert une bonne connaissances des processus à partir desquels vous souhaitez collecter des données.
+DHIS2 offre un ensemble puissant de divers outils pour la collecte, la validation, le reporting et l'analyse de données, mais le contenu de la base de données, c.àd. ce qu'il faut collecter, par qui et sous quel format, dépendra du contexte d'utilisation. Cependant, pour utiliser DHIS2, vous devez d'abord créer des métadonées. Les métadonnées, ou données sur les données, décrivent ce qui doit être collecté (éléments de données et catégories), où cela doit être collecté (unités d'organisation) et à quelle fréquence il doit être collecté (périodes). Ces métadonnées doivent être créées dans la base de données DHIS2 pour qu'elles puissent être utilisées. Cela peut se faire à partir de l'interface de l'utilisateur et ne nécessite pas de programmation ni de compétences techniques approfondies, mais requiert une bonne connaissance des processus à partir desquels vous souhaitez collecter des données.
 
-Cette section représente une introduction brève et rapide à la conception de base de données sur DHIS2 et explique les différentes étapes nécessaires à la préparation d'un nouveau système prêt à être utilisé. Les spécifcités de chaque étape sont epxliquées dans différents autres chapitres, et les meilleures pratiques en choix de conception sont expliquées dans le manuel d'implémentation. Voici les étapes à suivre:
+Cette section est une introduction brève et rapide sur la conception d'une base de données DHIS2.  Elle explique également les différentes étapes nécessaires à la préparation d'un nouveau système DHIS2 prêt à être utilisé. Les spécifcités de chaque étape sont epxliquées dans différents autres chapitres, et les meilleures pratiques en matière de choix de conception sont expliquées dans le manuel d'implémentation. Les étapes à suivre sont donc les suivantes :
 
-1\. Configurer une hiérarchie organisationnelle
+1\. Configurez une hiérarchie organisationnelle
 
-2\. Définir les éléments de données
+2\. Définissez les éléments de données
 
-3\. Définir les sets de données et les modèles de saisie de données
+3\. Définissez les jeux de données ainsi que les modèles de saisie de données
 
-4\. Définir les règles de validation
+4\. Définissez les règles de validation
 
-5\. Définir les indicateurs
+5\. Définissez les indicateurs
 
 6\. Définir les tableaux de rapports et concevoir les rapports
 
@@ -18083,69 +18030,69 @@ Cette section représente une introduction brève et rapide à la conception de 
 
 ### La hiérarchie organisationnelle
 
-La hiérarchie organisationnelle définit l'organisation à l'aide de DHIS2, des établissements médicaux, zones administratives et autres zones géographiques utilisées dans la collection et l'analyse de données. Cette dimension de données est définie comme hiérarchie avec une unité mère (ex. Ministère de la santé)et un nombre quelconque de niveaux et de noeuds en-dessous. Chaque noeud dans cette hiérarchie est appelé unité d'organisation dans DHIS2.
+La hiérarchie organisationnelle définit l'organisation à l'aide de l'aplication DHIS2, des structures sanitaires, zones administratives et autres zones géographiques utilisées dans la collecte et l'analyse de données. Cette dimension de données est définie comme hiérarchie avec une unité mère (ex. Ministère de la santé) et un nombre quelconque de niveaux et de noeuds en-dessous. Chaque noeud dans cette hiérarchie est appelé unité d'organisation dans DHIS2.
 
-La conception de cette hiérarchie détérmine les unités géographiques d'analyse disponibles à l'utilisateur puisque les données sont collectées et agrégées dans cette structure. Il ne peut y avoir qu'une seule hiérarchie d'organisation à la fois, il faut donc faire attention à sa structure. Des hiérachies supplémentaires (ex. regroupements administratifs parallèles comme "Titularité des établissements") peuvent être modélisées à l'aide de regroupements organisationnels et des sets des ensembles de regroupements, mais la hiérarchie organisationnelle représente le principal moyen d'agrégation de données sur la dimension géographique. Les hiérarchies organisationnelles nationales typiques dans le domaine de la santé publique ont 4 à 6 niveaux, mais peuvent prendre en charge n'importe quel nombre de niveaux. La hiérarchie est constituée de relations parent-enfant, ex. Un pays ou une unité MoH (unité mère ou racine) peut avoir par exemple 8 unités parents (provinces), et chaque province ( en niveau 2) peut avoir 10 à 15 arrondissement en tant qu'enfant. Normalement, les établissements médicaux sont localisées dans les niveaux les plus bas, mais il peuvent également être placées dans niveaux plus élevés, ex. les hopitaux nationaux ou provincaux, donc les arborescences asymétriques sont également supportées (ex. un noeud feuille peut être placé au niveau 2 alors que la plupart des noeuds feuilles sont au niveau 5).
+La conception de cette hiérarchie détérmine les unités géographiques d'analyse disponibles à l'utilisateur puisque les données sont collectées et agrégées dans cette structure. Il ne peut y avoir qu'une seule hiérarchie d'organisation à la fois, il faut donc faire attention à sa structure. Des hiérachies supplémentaires (ex. regroupements administratifs parallèles comme les "Propriétaires d'installations") peuvent être modélisées à l'aide de regroupements organisationnels et d'ensembles de regroupements, mais la hiérarchie organisationnelle représente le principal moyen d'agrégation de données sur la dimension géographique. Les hiérarchies organisationnelles nationales typiques dans le domaine de la santé publique ont 4-6 niveaux, mais peuvent prendre en charge n'importe quel nombre de niveaux. La hiérarchie est constituée de relations parent-enfant, ex. Un pays ou une unité MoH (la racine) peut avoir par exemple 8 unités parents (provinces), et chaque province ( au niveau 2) peut avoir 10-15 arrondissements en tant qu'enfant. Normalement, les structures sanitaires sont localisées dans les niveaux les plus bas, mais elles peuvent également être placées à des niveaux plus élevés comme par exemple, les hopitaux nationaux ou provinciaux. Les arborescences asymétriques sont donc également supportées (ex. un noeud feuille peut être placé au niveau 2 alors que la plupart des noeuds feuilles sont au niveau 5).
 
-Il existe généralement une hiérarchie géographique définie par le système de santé. ex. ou se situent les bureaux administratifs(ex. Ministère de la santé, province, arrondissement), mais il y'a souvent d'autres limites administratives dans le pays qui peuvent être ajoutées ou pas, selon comment leur limites vont influencer l'analyse des données. En concevant la hiérarchie le nombre d'enfants de toute unité organisationnelle peut indiquer l'utilité de la structure, ex. avoir une relation 1-1 ou plus entre deux niveaux n'est pas très utile car les valeurs seront les mêmes pour le niveau enfant et le niveau parent. D'autre part, un très grand nombre d'enfants dans le milieu de la hiérarchie (ex. 50 arrondissements dans la même province) peut nécessiter l'ajout d'un niveau supplémentaire pour augmenter l'utilité de l'analyse des données. Au niveau le plus bas, les établissements médicaux auront souvent un grand nombre d'enfants (10 à 60), mais pour les autres niveaux plus haut dans la hiérarchie environ il est recommandé d'avoir 5 à 20 enfants. Peu ou trop d'enfants pourraient indiquer qu'un niveau doit être supprimé ou ajouté.
+Il existe généralement une hiérarchie géographique définie par le système de santé. Exemple : où se situent les bureaux administratifs (ex. Ministère de la santé, province, arrondissement) ? Cependant, mais il existe souvent d'autres limites administratives dans le pays qui peuvent être ajoutées ou pas, selon la façon dont elles pourront influencer l'analyse des données. En concevant la hiérarchie, le nombre d'enfants de toute unité organisationnelle peut indiquer l'utilité de la structure. Par exemple, avoir une relation 1-1 ou plus entre deux niveaux n'est pas très utile car les valeurs seront les mêmes pour le niveau enfant et le niveau parent. D'autre part, un très grand nombre d'enfants dans le milieu de la hiérarchie (ex. 50 arrondissements dans la même province) peut nécessiter l'ajout d'un niveau supplémentaire pour augmenter l'utilité de l'analyse des données. Au niveau le plus bas, les établissements médicaux auront souvent un grand nombre d'enfants (10-60), mais pour les autres niveaux plus haut dans la hiérarchie, il est recommandé d'avoir environ 5-20 enfants. Trop peu ou trop d'enfants pourraient indiquer qu'un niveau doit être supprimé ou ajouté.
 
-Notez qu'il est facile et pratique d'apporter des modifications aux niveaux supérieurs de la hiérarchie dans des étapes ultérieures, le seul problème est la modification des unités organisationnelles qui sont responsables de la collecte de données (les nœuds feuilles), ex. la dissociation ou l'association d'établissements médicaux. L'agrégation dans la hiérarchie est effectuée en fonction de l'état de la hiérarchie à tout moment et reflétera toujours les modifications les plus récentes apportées à la structure organisationnelle. Reportez-vous au chapitre sur les unités d'organisation pour apprendre à créer des unités d'organisation et de construire la hiérarchie.
+Notez qu'il est facile et pratique d'apporter des modifications aux niveaux supérieurs de la hiérarchie dans des étapes ultérieures. Le seul problème reste la modification des unités organisationnelles responsables de la collecte de données (les nœuds feuilles), ex. la dissociation ou l'association de structures sanitaires. L'agrégation dans la hiérarchie s'effectue à tout moment en fonction de la hiérarchie actuelle et reflète toujours les modifications les plus récentes apportées à la structure organisationnelle. Reportez-vous au chapitre sur les unités d'organisation pour apprendre à créer des unités d'organisation et construire la hiérarchie.
 
-### Eléments de données
+### Éléments de données
 
-Les éléments de données sont peut-être l'élément de base le plus important d'une base de données DHIS2. Ils représentent la dimension "QUOI" , ils expliquent ce qui est collecté ou analysé. Dans certains contextes, il s'agit d'un indicateur, mais dans DHIS2, nous appelons cette unité de collecte et d'analyse un _élément de données_. L'élément de données représente souvent un compte de quelque chose, et son nom décrit ce qui est compté, ex. "Doses de BCG données" ou "Cas de Paludisme". Lorsque les données sont collectées, validées, analysées, rapportées ou présentées, ce sont les éléments de données ou expressions construites sur ces éléments de données qui décrivent le QUOI de ces données. De cette manière, les éléments de données deviennent important pour tous les aspects du système et ils décident non seulement de la manière dont les données sont collectées, mais également et plus important encore, la manière dont les valeurs de données sont représentées dans la base de données, qui décide comment les données peuvent être analysées et présentées
+L'élément de donnée est peut-être l'élément le plus important d'une base de données DHIS2. Il représente la dimension "QUOI" en expliquent ce qui est collecté ou analysé. Dans certains contextes, il s'agit d'un indicateur, mais dans DHIS2, nous appelons cette unité de collecte et d'analyse un _élément de données_. L'élément de donnée représente souvent le décompte de quelque chose, et son nom décrit ce qui est compté, ex. "Doses de BCG administrées" ou "Cas de Paludisme". Lorsque les données sont collectées, validées, analysées, rapportées ou présentées, ce sont les éléments de données ou expressions fondées sur ces éléments de données qui décrivent le QUOI de ces données. De cette manière, les éléments de données deviennent important pour tous les aspects du système et décident non seulement de la manière dont les données sont collectées, mais aussi et surtout, la manière dont les valeurs de données sont représentées dans la base de données, ce qui conditionne la manière dont les données peuvent être analysées et présentées.
 
-Il est possible d'ajouter plus de détails à cette dimension "QUOI" à travers la dimension désagrégation appelée catégories d'éléments de données. Certaines catégories communes sont l'âge et le sexe, mais n'importe quelle catégorie peut être ajoutée par l'utilisateur et liée à des éléments de données spécifiques. La combinaison du nom d'un élément de données et de la catégorie qui lui est attribuée définit la plus petite unité de collecte et d'analyse disponible dans le système, et décrit donc les données brutes de la base de données. Des agrégations peuvent être effectuées lorsque vous zoomez en arrière sur cette dimension, mais aucune autre exploration n'est possible, la conception des éléments de données et des catégories définit donc le détail de l'analyse disponible au système (sur la dimension QUOI). Les modifications d'éléments de données et de catégories apportées ultérieurement dans le processus peuvent être compliquées car elles changeront la signification des valeurs de données déjà stockées dans la base de données (s'il en existe). Donc, cette étape est l'une des plus décisives et prudentes du processus de conception de bases de données
+Il est possible d'ajouter plus de détails à cette dimension "QUOI" à travers la dimension de désagrégation appelée catégories d'éléments de données. Certaines catégories communes sont l'âge et le sexe, mais l'utilisateur peut ajouter n'importe quelle catégorie et les lier à des éléments de données spécifiques. La combinaison du nom d'un élément de données et de la catégorie qui lui est attribuée définit la plus petite unité de collecte et d'analyse disponible dans le système, et décrit donc les données brutes de la base de données. Des agrégations peuvent être effectuées lorsque vous zoomez en arrière sur cette dimension, mais aucune autre exploration n'est possible. la conception des éléments de données et des catégories définit donc le détail de l'analyse disponible au système (sur la dimension QUOI). Les modifications d'éléments de données et de catégories apportées ultérieurement dans le processus peuvent être compliquées car elles changeront la signification des valeurs de données déjà stockées dans la base de données (s'il en existe). Cette étape est donc l'une des plus décisives et prudentes du processus de conception de bases de données.
 
-Une des meilleures méthodes de conception d'éléments de données consiste à les considérer comme une unité de d'analyse de données et non seulement comme un champ dans le modèle de collecte de données. Chaque élément de données vit indépendamment dans la base de données, complètement détaché du modèle de collecte, les rapports et autres sorties sont basés sur des éléments de données et des expressions/formules composées d'éléments de données et ne sont pas basé sur les modèles de collecte de données. Donc, les besoins en analyse de données devraient guider le processus, et non les modèles de collecte de données. Une règle simple est que le nom de l'élément de données doit pouvoir se débrouiller seul et décrire la valeur de données même en dehors du contexte de son modèle de collecte. Ex. un nom d'élément de données tel que like "références totales" parait logique lorsque vous le regardez soit sous le modèle "RCH" ou le modèle "OPD" , mais le nom tout seul ne décrit pas uniquement les phénomènes (qui sont référés?), et devrait plutôt être appelé "Références totale de Maternité" ou "Références totales de OPD". Deux éléments de données différents avec des significations différentes, bien que le champ du modèle de saisie indique uniquement "Références totales" puisque l'utilisateur du modèle saura toujours d'où viennent ces références. Dans une base de données ou un référentiel d'éléments de données, ce contexte n'est plus valide et donc les noms des éléments de données deviennent important dans la description des données.
+L'une des meilleures méthodes de conception d'éléments de données consiste à les considérer comme une unité d'analyse de données et non seulement comme un champ dans le formulaire de collecte de données. Chaque élément de données vit indépendamment dans la base de données, complètement détaché du modèle de collecte. Les rapports et autres résultats sont basés sur des éléments de données et des expressions/formules composées d'éléments de données et non sur les modèles de collecte de données. Les besoins en analyse de données devraient donc guider le processus, et non les modèles de collecte de données. Une règle simple est que le nom de l'élément de données doit être autonome et pouvoir décrire la valeur de données même en dehors du contexte de son modèle de collecte. Par exemple, un nom d'élément de données tel que "références totales" parait logique lorsque vous le regardez soit sous l'angle de modèle "RCH" ou de modèle "OPD" , mais le nom tout seul ne décrit pas uniquement les phénomènes (qui sont ces référés ?), et devrait plutôt être appelé "Références totale de Maternité" ou "Références totales de OPD". Deux éléments de données différents avec des significations différentes, bien que le champ du modèle de saisie indique uniquement "Références totales" puisque l'utilisateur du modèle saura toujours d'où viennent ces références. Dans une base de données ou un référentiel d'éléments de données, ce contexte n'est plus valide et les noms des éléments de données deviennent donc importants dans la description des données.
 
-Les propriétés communes des éléments de données peuvent être modélisées via ce qu'on appelle des groupes d'éléments de données. Les groupes sont complètement flexibles dans le sens où ils sont définis par l'utilisateur, à la fois leurs noms et leurs membres. Les groupes sont utiles à la fois pour parcourir et présenter des données connexes, mais peuvent également être utilisés pour agréger des éléments de données. Les groupes sont faiblement couplés aux éléments de données et ne sont pas directement liés aux valeurs de données, ce qui signifie qu'ils peuvent être modifiés et ajoutés à tout moment sans interférer avec les données brutes.
+Les propriétés communes des éléments de données peuvent être modélisées à partir de ce qu'on appelle des groupes d'éléments de données. Ces groupes sont complètement flexibles car leurs noms et la composition de leurs membres sont définis par l'utilisateur. Les groupes sont utiles non seulement pour parcourir et présenter des données connexes, mais il peuvent également être utilisés pour agréger des éléments de données. Les groupes sont faiblement couplés aux éléments de données et ne sont pas directement liés aux valeurs de données, ce qui signifie qu'ils peuvent être modifiés et ajoutés à tout moment sans interférer avec les données brutes.
 
-### Set de données et modèles de saisie de données
+### Ensemble de données et modèles de saisie de données
 
-Toute la saisie de données dans DHIS2 est organisée à l'aide de sets de données. Un set de données est une collection d'éléments de données regroupés pour la collecte de données. Dans le cas d'installations distribuées, ils définissent également des blocs de données destinés à l'exportation et à l'importation entre des instances de DHIS2 (ex. à partir d'une installation locale d'un bureau d'arrondissement vers un serveur national). Les sets de données ne sont pas liés directement aux valeurs de données, mais uniquement par le biais de leurs éléments de données et de leurs fréquences. De ce fait, un set de données peut être modifié, supprimé ou ajouté à tout moment sans affecter les données brutes déjà stockées dans le système, mais ces modifications vont évidement affecter la façon dont les nouvelles données seront collectées.
+Toute la saisie de données dans DHIS2 est organisée à l'aide d'ensembles de données. Un ensemble de données est une collection d'éléments de données regroupés pour la collecte de données. Dans le cas d'installations distribuées, ils définissent également des blocs de données destinés à l'exportation et à l'importation entre des instances de DHIS2 (ex. d'une installation locale d'un bureau d'arrondissement vers un serveur national). Les ensembles de données ne sont pas directement liés aux valeurs de données, mais uniquement par le biais de leurs éléments de données et de leurs fréquences. De ce fait, un ensemble de données peut être modifié, supprimé ou ajouté à tout moment sans affecter les données brutes déjà stockées dans le système, même si ces modifications vont évidement affecter la façon dont les nouvelles données seront collectées.
 
-Un set de données a un type de période qui contrôle la fréquence de collecte des données, qui peut être quotidienne, hebdomadaire, mensuelle, trimestrielle, semestrielle ou annuelle. Les éléments de données à inclure dans le set de données et le type de période sont définis par l'utilisateur, ainsi qu'un nom, un nom abrégé et un code.
+Un ensemble de données a un type de période, qui contrôle la fréquence de collecte des données, qui peut être quotidienne, hebdomadaire, mensuelle, trimestrielle, semestrielle ou annuelle. Les éléments de données à inclure dans l'ensemble de données et le type de période sont définis par l'utilisateur, ainsi qu'un nom, un nom abrégé et un code.
 
-Pour utiliser un set de données afin de collecter des données pour une unité d'organisation spécifique, vous devez affecter l'unité d'organisation au set de données. Ce mécanisme contrôle quels unités d'organisation pouvent utiliser quels sets de données et définit simultanément les valeurs cibles pour la complétude des données (ex. établissements médicaux d'un arrondissement censés soumettre des données RCH tous les mois).
+Pour utiliser un ensemble de données dans la collecte des données pour le compte d'une unité d'organisation spécifique, cette dernière doit être affectée à l'ensemble de données. Ce mécanisme détermine quelles unités d'organisation peuvent utiliser quels ensemble de données et définit simultanément les valeurs cibles pour la complétude des données (exemple : combien de structures sanitaires sont censées soumettre des données RCH tous les mois ?).
 
-Un élément de données peut appartenir à plusieurs sets de données, mais cela nécessite une réflexion approfondie, car il peut en résulter en un chevauchement et une collecte de données superposées et inconstantes si ex. les sets de données ont des fréquences différentes et sont utilisés par les mêmes unités d'organisations.
+Un élément de donnée peut appartenir à plusieurs ensembles de données, mais cela nécessite une réflexion approfondie, car il peut entraîner un chevauchement et une inconstance des données collectées si les ensembles de données ont par exemple des fréquences différentes et sont utilisés par les mêmes unités d'organisation.
 
 #### Modèles de saisie de données
 
-Une fois que vous avez affecté un set de données à une unité organisationnelle, ce dernier sera disponible dans Saisie de données (sous-Service) pour les unités organisationnelles auxquelles vous l'avez affecté et pour les périodes valides, en fonction du type de période du set de données. Un modèle de saisie de données par défaut s'affichera. Il s'agit simplement d'une liste des éléments de données appartenant à l'ensemble de données ainsi que d'une colonne pour la saisie des valeurs. Si votre ensemble de données contient des éléments de données avec des catégories telles que des groupes d'âge ou de sexe, des colonnes supplémentaires seront automatiquement générées dans le modèle par défaut en fonction des catégories. En plus du modèle de saisie de données basé sur une liste par défaut, il existe deux alternatives supplémentaires: le modèle par section et le modèle personnalisé
+Une fois que vous avez affecté un ensemble de données à une unité d'organisation, cet ensemble de données sera disponible dans Saisie de données (sous Service) pour les unités d'organisation auxquelles vous l'avez affecté et pour les périodes valides, en fonction du type de période de l'ensemble des données. Un formulaire de saisie de données par défaut s'affichera. Il s'agit tout simplement d'une liste des éléments de données appartenant à l'ensemble de données ainsi que d'une colonne pour la saisie des valeurs. Si votre ensemble de données contient des éléments de données avec des catégories telles que des groupes d'âge ou de sexe, des colonnes supplémentaires seront automatiquement générées dans le formulaire par défaut en fonction des catégories. En plus du formulaire de saisie de données basé sur une liste par défaut, il existe deux alternatives supplémentaires : le formulaire par section et le formulaire personnalisé.
 
-##### Modèles par section
+##### Formulaires par section
 
-Les modèles par section offrent plus de flexibilité lorsqu'il s'agit d'utiliser des formes tabulaires et sont rapides et simple à concevoir. Votre modèle de saisie de données nécessite souvent plusieurs tableaux avec sous-titres, et parfois vous devez désactiver (griser) quelques champs du tableau (ex. certaines catégories ne s'appliquent pas à tous les éléments de données), ces deux fonctions sont prises en charge dans les modèles par section. Après avoir définit un set de données, vous pouvez définir ses sections avec des sous-ensembles d'éléments de données, une en-tête et d'éventuels champs gris dans le tableau de la section. L'ordre des sections dans un set de données peut également être défini. Dans Data Entry, vous pouvez maintenant commencer à utiliser le modèle par Section ( il devrait apparaître automatiquement lorsque des sections sont disponibles pour le set de données sélectionné). Vous pouvez basculer entre modèle par défaut et modèle par section dans en haut à droite de l'écran de saisie. La plupart des modèles de saisie de données tabulaires doivent être possible avec des modèles par section, et plus vous utilisez les modèles par section (ou modèle par défaut) plus cela devient facile. Si ces deux types de modèles ne répondent pas à vos exigences la troisième option est le modèle de saisie de données personnalisé,plus flexible bien qu'il prend plus de temps.
+Les formulaires par section offrent plus de flexibilité lorsqu'il s'agit d'utiliser des formes tabulaires et sont rapides et simple à concevoir. Votre formulaire de saisie de données nécessite souvent plusieurs tableaux avec sous-titres, et vous devez parfois désactiver (griser) quelques champs du tableau (Exemple : certaines catégories ne s'appliquent pas à tous les éléments de données). Ces deux fonctions sont prises en charge dans les formulaires par section. Après avoir défini un ensemble de données, vous pouvez définir ses sections avec des sous-ensembles d'éléments de données, une en-tête et d'éventuels champs gris dans le tableau de la section. L'ordre des sections dans un ensemble de données peut également être défini. Dans Saisie de Données, vous pouvez maintenant commencer à utiliser le formulaire par Section ( il devrait apparaître automatiquement lorsque des sections sont disponibles pour l'ensemble de données sélectionné). Vous pouvez basculer entre le formulaire par défaut et le formulaire par section dans dans le coin supérieur droit de l'écran de saisie. La plupart des formulaires de saisie de données tabulaires doivent être possible avec des modèles par section, et plus vous utilisez les formulaires par section (ou formulaires par défaut) plus cela devient facile. Si ces deux types de formulaires ne répondent pas à vos exigences, la troisième option est le formulaire de saisie de données personnalisé, plus flexible même s'il prend plus de temps.
 
-##### Modèles personnalisés
+##### Formulaires personnalisés
 
-Lorsque le modèle que vous souhaitez concevoir est trop compliqué pour les modèles par défaut ou par section, votre dernière option consiste à utiliser un modèle personnalisé. Cela prend plus de temps, mais vous donne une flexibilité totale en termes de conception. Dans DHIS2, un éditeur HTML intégré (FcK Editor) pour le concepteur de modèle qui permet de concevoir le modèle dans l'interface utilisateur ou de coller directement votre code HTML à l'aide de la fenêtre Source dans l'éditeur. Dans le formulaire personnalisé, vous pouvez insérer du texte statique ou des champs de données (liés à des éléments de données + catégorie) à n'importe quelle position sur le formulaire et vous modèle personnalisé a été ajouté à un set de données, il sera disponible dans la saisie de données et utilisé automatiquement. Vous pouvez revenir aux modèles par défaut ou par sections (s'il en existe) en haut à droite de l'écran de saisie.
+Lorsque le formulaire que vous souhaitez concevoir est trop compliqué pour les formulaires par défaut ou par section, votre dernière option reste l'utilisation d'un formulaire personnalisé. Cela prend plus de temps, mais vous donne une flexibilité totale en termes de conception. DHIS2 dispose d'un éditeur HTML intégré (FcK Editor) pour le concepteur de formuaire qui permet de concevoir le formulaire dans l'IU (interface utilisateur) ou de coller directement votre code HTML à l'aide de la fenêtre Source dans l'éditeur. Dans le formulaire personnalisé, vous pouvez insérer un texte statique ou des champs de données (liés à des éléments de données + la catégorie) à n'importe quelle position sur le formulaire et vous êtes totalement libre de concevoir la mise en page du formulaire. Une fois qu'un formulaire personalisé a été ajouté à un ensemble de données, il sera disponible dans la saisie de données et pourra être utilisé automatiquement. Vous pouvez revenir aux formulaires par défaut ou par sections (s'il en existe) dans le coin supérieur droit de l'écran de saisie.
 
 ### Règles de validation
 
-Une fois que vous avez configuré la partie saisie de données du système et commencé à collecter des données, Il est temps de définir des contrôles de la qualité des données permettant d'améliorer la qualité des données collectées.Vous pouvez ajouter autant de règles de validation que vous le souhaitez. Celles-ci sont composées d'expressions de gauche et de droite qui encore sont composées d'éléments de données, avec un opérateur entre les deux côtés. Les règles typiques consistent à comparer les totaux partiels aux totaux de quelque chose. Ex. si vous avez deux éléments de données "Tests de dépistage du VIH" et "Résultat positif du test de dépistage" vous savez alors que dans le même modèle (pour la même période et la même unité organisationnelle), le nombre total de tests doit toujours être égal ou supérieur au nombre de tests positifs. Ces règles doivent être des règles absolues signifiant qu'elles sont mathématiquement correctes et non pas simplement des hypothèses ou "la plupart du temps correctes". Les règles peuvent être exécutées dans la saisie de données, après avoir rempli chaque modèle, ou dans un processus plus complexe dans plusieurs modèles à la fois, ex. pour toutes les installations du mois précédent. Les résultats des tests listeront toutes les violations et les valeurs détaillées pour chaque côté de l'expression où la violation s'est produite pour faciliter le retour à la saisie des données et corriger les valeurs
+Une fois que vous avez configuré la partie relative à la saisie de données du système et commencé à collecter des données, il est donc temps de définir des règles de contrôle de la qualité des données permettant d'améliorer la qualité des données collectées. Vous pouvez ajouter autant de règles de validation que vous le souhaitez. Celles-ci sont composées d'expressions de gauche et de droite qui, elle aussi, sont composées d'éléments de données, avec un opérateur entre les deux côtés. Les règles typiques consistent à comparer les totaux partiels aux totaux de quelque chose. Si vous avez par exemple deux éléments de données "Tests de dépistage du VIH" et "Résultat positif du test de dépistage", vous savez alors que dans le même formulaire (pour la même période et la même unité organisationnelle), le nombre total de tests doit toujours être égal ou supérieur au nombre de tests positifs. Ces règles doivent être des règles absolues, ce qui signifie qu'elles sont mathématiquement correctes et non pas simplement des hypothèses ou sont "la plupart du temps correctes". Les règles peuvent être exécutées dans la saisie de données, après le remplissage de chaque formulaire, ou dans un processus plus complexe dans plusieurs formulaires à la fois. Exemple : pour toutes les structures sanitaires du mois précédent, les résultats des tests listeront toutes les violations et les valeurs détaillées pour chaque côté de l'expression où la violation s'est produite pour faciliter le retour à la saisie des données et corriger les valeurs.
 
 ### Indicateurs
 
-Les indicateurs représentent la fonctionnalité d'analyse de données la plus puissante de DHIS2. Alors que les éléments de données représentent les données brutes (comptes) collectées, les indicateurs représentent des formules fournissant des taux de couverture, des taux d'incidence, des ratios et d'autres unités d'analyse basées sur une formule. Un indicateur est composé d'un facteur (ex. 1,100, 100, 100 000), d'un numérateur et d'un dénominateur, les deux derniers sont tous deux des expressions basées sur un ou plusieurs éléments de données. Ex. l'indicateur "Assurance BCG \<1 year" est définie par une formule avec un facteur 100, un numérateur ("Les doses BCG données aux enfants de moins de 1") et un dénominateur ("Population cible de moins de 1 an"). L'indicateur "taux d'abandon de DPT1 à DPT3" est une formule de 100% x ("Doses de DPT1 données" - "Doses de DPT3 données") / ("Doses de DPT1 données").
+Les indicateurs représentent peut-être la plus puissante fonctionnalité d'analyse de données de DHIS2. Alors que les éléments de données représentent les données brutes (comptes) collectées, les indicateurs représentent des formules fournissant des taux de couverture, des taux d'incidence, des ratios et d'autres unités d'analyse basées sur une formule. Un indicateur est composé d'un facteur (Exemple : 1,100, 100, 100 000), d'un numérateur et d'un dénominateur. Les deux derniers sont tous deux des expressions basées sur un ou plusieurs éléments de données. Exemple : l'indicateur "Couverture du BCG \<1 an" est défini par une formule avec un facteur 100, un numérateur ("Les doses BCG administrées aux enfants de moins de 1") et un dénominateur ("Population cible de moins de 1 an"). L'indicateur "taux d'abandon de DPT1 à DPT3" est une formule de 100% x ("Doses de DPT1 administrées" - "Doses de DPT3 administrées") / ("Doses de DPT1 administrées").
 
-La plupart des modules de rapport dans DHIS2 prennent en charge les éléments de données et les indicateurs et vous pouvez également les combiner dans des rapports personnalisés, mais la différence et la puissance des indicateurs par rapport aux données brutes (valeurs de données éléments de données) réside dans la possibilité de comparer des données entre différentes zones géographiques. (ex. zones très peuplées ou rurales), la population cible pouvant être utilisée comme dénominateur.
+La plupart des modules de rapport dans DHIS2 prennent en charge les éléments de données et les indicateurs et vous pouvez également les combiner dans des rapports personnalisés, mais la différence et la puissance des indicateurs par rapport aux données brutes (valeurs de données de l'élément de donnée) réside dans la possibilité de comparer des données entre différentes zones géographiques. (Exemple : zones très peuplées ou rurales), la population cible pouvant être utilisée comme dénominateur.
 
-Les indicateurs peuvent être ajoutés, modifiés et supprimés à tout moment sans interférer avec les valeurs de données de la base de données.
+Les indicateurs peuvent être ajoutés, modifiés et supprimés à tout moment sans interférer avec les valeurs de données contenues dans la base de données.
 
 ### Tableaux et rapports
 
-Les rapports standard dans DHIS2 constituent un moyen très flexible de présenter les données collectées. Les données peuvent être agrégées par n'importe quel niveau ou unité d'organisation, par élément de données, par indicateur, ainsi que dans le temps (ex. mensuelle, trimestrielle, annuelle). Les tableaux de rapports sont des sources de données personnalisées pour les rapports standard. Ils peuvent être définis de manière flexible dans l'interface utilisateur, puis accessibles via des concepteurs de rapports externes tels que iReport ou via des rapports HTML personnalisés. Ces conceptions de rapport peuvent ensuite être configurées comme des rapports en un clic facilement accessibles avec des paramètres afin que les utilisateurs puissent exécuter les mêmes rapports, ex. tous les mois lorsque de nouvelles données sont saisies, ainsi que pour les utilisateurs à tous les niveaux, car l'unité organisationnelle peut être sélectionnée au moment de l'exécution du rapport
+Les rapports standards dans DHIS2 constituent un moyen très flexible de présenter les données collectées. Les données peuvent être agrégées par n'importe quel niveau ou unité d'organisation, par élément de donnée, par indicateur, ainsi que dans le temps (mensuellement, trimestriellement, annuellement). Les tableaux de rapports représentent des sources de données personnalisées pour les rapports standards. Ils peuvent être définis de manière flexible dans l'interface utilisateur, puis accessibles via des concepteurs de rapports externes tels que iReport ou via des rapports HTML personnalisés. Ces conceptions de rapport peuvent ensuite être configurées comme des rapports facilement accessibles en un clic avec des paramètres afin que les utilisateurs puissent exécuter les mêmes rapports comme par exemple, tous les mois, lorsque de nouvelles données sont saisies. Elles peuvent également répondre aux besoins des utilisateurs à tous les niveaux, puisque l'unité d'organisation peut être sélectionnée au moment de l'exécution du rapport.
 
-### GIS
+### SIG
 
-Dans le module GIS intégré, vous pouvez facilement afficher vos données sur des cartes, à la fois sur des polygones(zones) et sous forme de points (établissements médicaux), et soit en tant qu'éléments de données ou en tant qu'indicateurs. En fournissant les coordonnées de vos unités organisationnelles au système, vous pouvez rapidement vous adapter à ce module. Voir la section GIS pour plus de détails pour vous initier
+Dans le module SIG intégré, vous pouvez facilement afficher vos données sur des cartes, à la fois sur des polygones (zones) et sous forme de points (structures sanitaires), et soit en tant qu'éléments de données ou en tant qu'indicateurs. En fournissant les coordonnées de vos unités d'organisation au système, vous pouvez rapidement vous adapter à ce module. Voir la Section SIG pour plus de détails sur la façon de vous y prendre.
 
 ### Diagrammes et tableaux de bord
 
-Un des moyens les plus faciles d'afficher les données de votre indicateur est d'utiliser des graphiques. Un dialogue de diagramme facile à utiliser vous guidera dans la création de divers types de diagrammes avec des données sur les indicateurs, les unités organisationnelles et les périodes de votre choix. Ces graphiques peuvent facilement être ajoutés à l'une des quatre sections de votre tableau de bord et sont facilement disponibles immédiatement après votre connexion. Assurez-vous de définir le module du tableau de bord comme module de démarrage dans les paramètres utilisateur
+Un des moyens les plus faciles d'afficher les données de votre indicateur est d'utiliser des graphiques. Un dialogue de diagramme facile à utiliser vous guidera dans la création de divers types de diagrammes avec des données sur les indicateurs, les unités d'organisation et les périodes de votre choix. Ces graphiques peuvent facilement être ajoutés à l'une des quatre sections de votre tableau de bord et sont facilement disponibles immédiatement après votre connexion. Assurez-vous de définir le module du tableau de bord comme module de démarrage dans les paramètres utilisateur.
 
 # About data dimensions
 
@@ -19119,7 +19066,7 @@ For up-to-date information about the latest DHIS 2 releases, please refer to the
 <td>F_DATA_MART_ADMIN</td>
 </tr>
 <tr class="even">
-<td>Administrate data vizualiser</td>
+<td>Administrate data visualizer</td>
 <td>F_DV_ADMIN</td>
 </tr>
 <tr class="odd">
@@ -19183,7 +19130,7 @@ For up-to-date information about the latest DHIS 2 releases, please refer to the
 <td>F_DATAADMIN_LOCK</td>
 </tr>
 <tr class="even">
-<td>Data Admin UnLocking</td>
+<td>Data Admin Unlocking</td>
 <td>F_DATAADMIN_UNLOCK</td>
 </tr>
 <tr class="odd">
