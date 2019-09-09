@@ -13251,7 +13251,7 @@ To query for tracked entity instances you can interact with the _/api/enrollment
 <td>Tracked entity identifer. Restricts instances to the given tracked instance type.</td>
 </tr>
 <tr class="odd">
-<td>trackedEntityInstsane</td>
+<td>trackedEntityInstance</td>
 <td>Tracked entity instance identifier. Should not be used together with trackedEntity.</td>
 </tr>
 <tr class="even">
@@ -13396,7 +13396,7 @@ _Example: Bulk deletion of tracked entity instances:_
     }
 
     curl -X POST -d @data.json -H "Content-Type: application/json"
-      "http://server/api/26/trackedEntityInstasnces?strategy=DELETE"
+      "http://server/api/26/trackedEntityInstances?strategy=DELETE"
 
 _Example: Bulk deletion of enrollments:_
 
@@ -13936,7 +13936,7 @@ To force a reload of currently installed apps, you can issue the following comma
 
 > **Note**
 >
-> Previous to 2.28, installed apps would only be stored on the instace's local filesystem.
+> Previous to 2.28, installed apps would only be stored on the instance's local filesystem.
 
 If the DHIS2 instance has been configured to use cloud storage, apps will now be installed and stored on the cloud service. This will enable multiple instances share the same versions on installed apps, instead of installing the same apps on each individual instance.
 
