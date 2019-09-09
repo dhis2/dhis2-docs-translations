@@ -1896,7 +1896,7 @@ The top bar can be a helpful tool to see important data in a quick and easy way.
 
 ![](resources/images/content/user/tracker_capture/top_bar.png)
 
-### Chage table display mode for **Timeline Data Entry** widget
+### Change table display mode for **Timeline Data Entry** widget
 
 The **Timeline Data Entry** widget has 5 diffrent table display modes that can be selected. The different options are:
 
@@ -6185,7 +6185,7 @@ The **Data Quality** app contains tools to validate the accuracy and reliability
 
 Vous pouvez contrôler la qualité des données de différentes manières, par exemple:
 
-- At point of data entry, DHIS 2 can check the data entered to see if it falls within the minimum maximum value ranges of that data element (based on all previous data registered).
+- Au moment de la saisie des données, DHIS2 peut examiner les données saisies pour vérifier si elles se situent entre les valeurs maximales et minimales de la plage de valeurs de cet élément de données (basé sur les données précédentes enregistrées).
 
 - En définissant des règles de validation, qui peuvent être exécutées une fois que l'utilisateur a terminé la saisie de données. L'utilisateur peut également vérifier les données saisies pour une période particulière et une unité d'organisation par rapport aux règles de validation et afficher les violations de ces règles.
 
@@ -6223,7 +6223,7 @@ You can configure a validation rule analysis to automatically send out informati
 
 3.  Exécutez l'analyse des règles de validation, automatiquement ou manuellement.
 
-    - In the **Data Administration** app, you schedule the validation rule analysis to run automatically for all validation rules included in one or several validation notifications. After the system has run the analysis, you'll see the validation violations (if any) in the validation notifications sent via the internal DHIS 2 messaging system.
+    - Dans l'application **Administration des données**, vous planifiez la validation de l'analyse des règles à exécuter automatiquement pour toutes les règles de validation associées à une ou plusieurs notifications de validation. Après que le le système ait exécuté l'analyse, les violations des règles (s'il y en a) s'afficheront dans les notifications de validation envoyées via le système de messagerie interne DHIS2.
 
     - Dans l'application **Qualité des données**, vous exécutez l'analyse des règles de validation manuellement pour celles qui sont sélectionnées. Après que le processus d'analyse soit terminé, une liste de violations de règles s'affichera.
 
@@ -13094,20 +13094,20 @@ The program indicator expression and filter support a range of variables:
 <pre><code>V{program_stage_id} == &#39;YPSSfbmAtt1&#39;</code></pre></td>
 </tr>
 <tr>
-<td><p>reporting_period_start</p></td>
+<td><p>analytics_period_start</p></td>
 <td><p>Can be used in filters or expressions for comparing any date to the first date in each reporting period.</p>
-<pre><code>d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{reporting_period_start})</code></pre></td>
+<pre><code>d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{analytics_period_start})</code></pre></td>
 </tr>
 <tr>
-<td><p>reporting_period_end</p></td>
+<td><p>analytics_period_end</p></td>
 <td><p>Can be used in filters or expressions for comparing any date to the last inclusive date in each reporting period.</p></td>
 </tr>
 </tbody>
 </table>
 
-A filter that uses the "Reporting period end" variable to only include women who has an LMP that would be in the first trimester:
+A filter that uses the "Analytics period end" variable to only include women who has an LMP that would be in the first trimester:
 
-    d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{reporting_period_end}) <= 84
+    d2:daysBetween(#{WZbXY0S00lP.w4ky6EkVahL}, V{analytics_period_end}) <= 84
 
 An expression that uses the "value count" variable looks like this:
 
