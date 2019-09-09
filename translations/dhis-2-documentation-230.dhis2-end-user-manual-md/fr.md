@@ -3025,7 +3025,7 @@ En haut de la carte des infrastructures, de gauche à droite, se trouvent:
 
 - Un symbole d'oeil pour basculer la visibilité du calque
 
-- An arrow symbol to collapse and expand the facilities card
+- Un symbole de flèche pour réduire et agrandir la carte des installations
 
 Au centre de la carte des infrastructures se trouve une légende indiquant la représentation du groupe.
 
